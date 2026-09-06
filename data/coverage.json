@@ -1,0 +1,40 @@
+{
+  "KET": {
+    "scope_rows": 1726,
+    "scope_unique_rows": 1721,
+    "included": 1707,
+    "basic": 355,
+    "teachable": 1352,
+    "with_examples": 1707,
+    "with_morphology": 291,
+    "missing_translations": [],
+    "with_stories": 1707,
+    "with_exercises": 1707,
+    "authored_examples": 935,
+    "template_examples": 772,
+    "contextual_cloze": 1707,
+    "with_extra_examples": 73,
+    "authored_scenes": 12,
+    "with_origin_notes": 98
+  },
+  "PET": {
+    "scope_rows": 3117,
+    "scope_unique_rows": 3109,
+    "included": 3084,
+    "basic": 344,
+    "teachable": 2740,
+    "with_examples": 3084,
+    "with_morphology": 459,
+    "missing_translations": [],
+    "overlap_with_ket": 1617,
+    "extension_nonbasic": 1454,
+    "with_stories": 3084,
+    "with_exercises": 3084,
+    "authored_examples": 1527,
+    "template_examples": 1557,
+    "contextual_cloze": 3080,
+    "with_extra_examples": 106,
+    "authored_scenes": 17,
+    "with_origin_notes": 191
+  }
+}

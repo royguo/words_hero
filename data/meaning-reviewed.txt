@@ -1,0 +1,186 @@
+
+apartment|公寓
+mall|购物中心
+gallery|美术馆；画廊
+mushroom|蘑菇
+pool|游泳池；水池
+recycled|回收再利用的
+secondary|中等教育的；次要的
+sensible|明智的；合理的
+event|事件；活动
+regular|定期的；有规律的
+surname|姓
+account|账户；说明
+channel|频道；海峡
+flat|公寓；平坦的
+hand|手；指针
+tiny|极小的
+whole|整个的；完整的
+great|很棒的；伟大的
+broad|宽的
+available|可用的；有空的
+average|平均的；平均数
+guide|导游；指南；引导
+corn|玉米
+broccoli|西兰花
+ingredient|原料；配料
+country|国家；乡村
+palace|宫殿
+crew|全体船员；工作人员
+roommate|室友
+businesswoman|女商人
+businessman|男商人
+father|父亲
+mother|母亲
+grandad|爷爷；外公
+grandpa|爷爷；外公
+grandma|奶奶；外婆
+granny|奶奶；外婆
+aunt|姑姑；姨妈；伯母
+uncle|叔叔；舅舅；伯父
+niece|侄女；外甥女
+nephew|侄子；外甥
+scientific|科学的
+depressed|沮丧的
+bold|大胆的
+blind|失明的
+disabled|有残疾的
+deaf|失聪的
+fear|害怕；恐惧
+disadvantage|不利条件；缺点
+advantage|优势；有利条件
+bar|酒吧；条状物
+cabin|小屋；船舱
+cabinet|储物柜
+character|人物；角色；性格
+chemist|药剂师；药店（英式）
+club|俱乐部
+ad|广告
+advert|广告
+army|军队
+appearance|外貌；出现
+attention|注意
+attitude|态度
+attraction|有吸引力的事物；景点
+beauty|美丽
+bill|账单
+brain|大脑
+bunch|一束；一串
+capital|首都；大写字母
+case|情况；箱子
+charge|收费；费用；充电
+check|检查；核对
+choice|选择
+comfort|舒适；安慰
+company|公司；陪伴
+complaint|抱怨；投诉
+conclusion|结论
+connection|联系；连接
+contract|合同
+cover|覆盖；封面
+custom|习俗
+deposit|押金；存款
+disc jockey|唱片播放员；DJ
+discount|折扣
+enquiry|询问
+inquiry|询问
+entry|进入；参赛作品
+fare|车费；票价
+fault|错误；过错
+figure|数字；人物
+form|表格；形式
+grant|补助金
+ground|地面
+identity card|身份证
+initial|姓名首字母
+instance|例子
+interval|间隔；中场休息
+issue|问题；一期
+jail|监狱
+leisure|闲暇
+lightning|闪电
+liquid|液体
+litter|垃圾
+main course|主菜
+mood|心情
+occupation|职业
+opening hours|营业时间
+organisation|组织；机构
+parking|停车
+pass|递给；通过；通行证
+point|点；要点；指向
+practice|练习
+production|生产；制作
+progress|进步
+property|财产
+qualification|资格
+range|范围；一系列
+reception|接待处
+reservation|预订
+resort|度假地
+review|回顾；评论
+revision|复习；修订
+salary|工资
+season|季节
+sense|感觉；含义
+service|服务
+set|一套；放置
+shame|羞愧；遗憾
+sight|视力；景象
+smoke|烟；吸烟
+sort|种类
+sound|声音；听起来
+space|空间；太空
+squash|壁球
+stage|舞台；阶段
+studio|工作室
+success|成功
+supporter|支持者
+tablet|平板电脑；药片
+tense|时态
+time|时间
+torch|手电筒
+trade|贸易
+trick|小把戏；诀窍
+trouble|麻烦
+use|使用；用途
+version|版本
+view|景色；观点
+vowel|元音
+wage|工资
+way|方式；道路
+while|当……的时候；一会儿
+you know|你知道；你明白（口语插入语）
+ages|年龄（age 的复数）；很长时间（口语）
+web page|网页
+ring up|打电话
+handlebars|（自行车等的）车把
+look like|看起来像；长得像
+headphones|头戴式耳机
+primary school|小学
+dvd|数字视频光盘
+permitted|被允许的；允许（permit 的过去式）
+thriller|惊悚小说；惊悚片
+dressed|穿好衣服的
+prohibited|被禁止的；禁止（prohibit 的过去式）
+glasses|眼镜
+twin|双胞胎中的一个
+chill out|放松；冷静下来
+situated|位于……的；坐落在……的
+pence|便士（penny 的复数）
+cv|简历
+frightened|害怕的；受惊吓的
+split up|分开；分成小组
+clock|时钟
+sit down|坐下
+get up|起床；起身
+tortoise|陆龟
+crossing|人行横道；交叉口
+chest of drawers|抽屉柜
+intelligent|聪明的；有才智的
+public transport|公共交通
+air conditioning|空调；空气调节
+collection|收藏；收藏品
+motorbike|摩托车
+reader|读者；读物
+experienced|有经验的；熟练的

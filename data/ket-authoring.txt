@@ -1,0 +1,444 @@
+#学习与课堂
+teacher|n.|老师|Our teacher draws a map.|老师画了一张地图。
+student|n.|学生|The student asks a question.|这名学生问了一个问题。
+classroom|n.|教室|Our classroom has six windows.|我们的教室有六扇窗。
+homework|n.|家庭作业|I finish my homework before dinner.|我在晚饭前完成作业。
+notebook|n.|笔记本|Write your idea in this notebook.|把你的想法写在这本笔记本里。
+dictionary|n.|词典|Use a dictionary to check this word.|用词典查一下这个单词。
+subject|n.|学科|Art is my favourite subject.|美术是我最喜欢的学科。
+lesson|n.|课|Our music lesson starts at ten.|我们的音乐课十点开始。
+language|n.|语言|We learn a new language together.|我们一起学习一门新语言。
+meaning|n.|意思|Can you explain the meaning?|你能解释这个意思吗？
+sentence|n.|句子|Make a sentence about your family.|造一个关于你家人的句子。
+mistake|n.|错误|I found a mistake in my answer.|我发现答案里有个错误。
+answer|n.; v.|答案；回答|Please answer in a full sentence.|请用完整的句子回答。
+question|n.|问题|That is an interesting question.|那是个有趣的问题。
+explain|v.|解释|Can you explain the rules?|你能解释一下规则吗？
+remember|v.|记得|I remember your birthday.|我记得你的生日。
+forget|v.|忘记|Do not forget your notebook.|别忘了你的笔记本。
+practise|v.|练习|We practise English after lunch.|我们午饭后练习英语。
+spell|v.|拼写|Can you spell your name?|你能拼写自己的名字吗？
+learn|v.|学习|I want to learn to swim.|我想学习游泳。
+teach|v.|教|Can you teach me this song?|你能教我这首歌吗？
+read|v.|阅读|We read a story together.|我们一起读一个故事。
+write|v.|写|Write a letter to your friend.|给你的朋友写封信。
+library|n.|图书馆|The library closes at six.|图书馆六点关门。
+exam|n.|考试|My English exam is on Friday.|我的英语考试在星期五。
+#人物与职业
+actor|n.|演员|The actor wears a funny hat.|那名演员戴着一顶有趣的帽子。
+artist|n.|艺术家；画家|The artist paints a blue sea.|画家画了一片蓝色的大海。
+singer|n.|歌手|The singer comes from London.|这名歌手来自伦敦。
+dancer|n.|舞蹈演员|The dancer moves very quickly.|这名舞蹈演员动作很快。
+driver|n.|司机|The driver stops near the school.|司机在学校附近停车。
+farmer|n.|农民|The farmer grows carrots.|这位农民种胡萝卜。
+worker|n.|工人；工作者|The worker repairs the door.|工人修理这扇门。
+writer|n.|作家|This writer tells wonderful stories.|这位作家讲述精彩的故事。
+painter|n.|画家；油漆工|The painter is painting our kitchen.|油漆工正在粉刷我们的厨房。
+photographer|n.|摄影师|The photographer takes a picture of us.|摄影师给我们拍了一张照片。
+doctor|n.|医生|The doctor listens carefully.|医生仔细地听着。
+nurse|n.|护士|The nurse brings me some water.|护士给我拿来一些水。
+dentist|n.|牙医|I visit the dentist on Monday.|我星期一去看牙医。
+engineer|n.|工程师|My aunt is an engineer.|我的姑姑是一名工程师。
+mechanic|n.|机械修理工|The mechanic repairs my bike.|修理工修理我的自行车。
+waiter|n.|服务员|The waiter brings our lunch.|服务员端来了我们的午饭。
+manager|n.|经理|The manager opens the shop.|经理打开商店的门。
+customer|n.|顾客|A customer wants a red jacket.|一位顾客想要一件红夹克。
+visitor|n.|来访者；游客|The visitor asks for a map.|游客想要一张地图。
+tourist|n.|游客|The tourist takes a photo of the bridge.|游客给桥拍了一张照片。
+beginner|n.|初学者|This class is for a beginner.|这堂课适合初学者。
+player|n.|运动员；游戏参与者|Each player has a number.|每个运动员都有一个号码。
+runner|n.|跑步者|The runner drinks some water.|跑步者喝了些水。
+swimmer|n.|游泳者|The swimmer reaches the other side.|游泳者游到了另一边。
+member|n.|成员|I am a member of the chess club.|我是国际象棋俱乐部的成员。
+#家人与朋友
+family|n.|家庭；家人|My family eats together on Sundays.|我的家人星期天一起吃饭。
+parent|n.|父亲或母亲|Each parent gets a school letter.|每位家长都收到一封学校来信。
+cousin|n.|堂兄弟姐妹；表兄弟姐妹|My cousin lives near the sea.|我的表妹住在海边。
+neighbour|n.|邻居|Our neighbour has a friendly dog.|我们的邻居有一只友善的狗。
+grandmother|n.|祖母；外祖母|My grandmother makes lovely soup.|我的奶奶做的汤很好喝。
+grandfather|n.|祖父；外祖父|My grandfather likes fishing.|我的爷爷喜欢钓鱼。
+grandparent|n.|祖父母或外祖父母之一|One grandparent lives with us.|我的一位祖辈和我们住在一起。
+grandchild|n.|孙辈；外孙辈|Their youngest grandchild is six.|他们最小的孙辈六岁。
+teenager|n.|青少年|My brother is a teenager.|我的哥哥是个青少年。
+adult|n.; adj.|成年人；成年的|Children need an adult with them.|孩子需要一位成年人陪同。
+guest|n.|客人|We have a guest for dinner.|我们有一位客人来吃晚饭。
+husband|n.|丈夫|Her husband works at the library.|她的丈夫在图书馆工作。
+wife|n.|妻子|His wife is a music teacher.|他的妻子是一位音乐老师。
+friend|n.|朋友|My friend helps me with maths.|我的朋友帮我学数学。
+friendly|adj.|友好的|The new student is friendly.|新来的学生很友好。
+kind|adj.|友善的|It is kind of you to help.|你愿意帮忙真友善。
+alone|adj.; adv.|独自的；独自|She does not want to walk alone.|她不想独自走路。
+together|adv.|一起|We build a small house together.|我们一起搭一座小房子。
+invite|v.|邀请|Let's invite our neighbours.|我们邀请邻居吧。
+invitation|n.|邀请；请柬|I made an invitation for my party.|我给自己的聚会做了一张请柬。
+#感受与性格
+happy|adj.|快乐的|I am happy to see you.|见到你我很开心。
+unhappy|adj.|不开心的|He feels unhappy about the rain.|下雨让他不开心。
+afraid|adj.|害怕的|My sister is afraid of spiders.|我的妹妹怕蜘蛛。
+angry|adj.|生气的|He is angry about the broken toy.|玩具坏了让他很生气。
+worried|adj.|担心的|I am worried about my cat.|我很担心我的猫。
+excited|adj.|兴奋的|We are excited about the trip.|我们对这次旅行很兴奋。
+exciting|adj.|令人兴奋的|It is an exciting story.|这是一个令人兴奋的故事。
+interested|adj.|感兴趣的|I am interested in robots.|我对机器人感兴趣。
+interesting|adj.|有趣的|We find an interesting book.|我们找到了一本有趣的书。
+bored|adj.|感到无聊的|I feel bored on the long journey.|长途旅行让我感到无聊。
+boring|adj.|令人无聊的|This film is a little boring.|这部电影有点无聊。
+surprised|adj.|惊讶的|She is surprised to see the cake.|看到蛋糕她很惊讶。
+tired|adj.|疲倦的|I feel tired after the game.|比赛后我觉得累。
+hungry|adj.|饥饿的|The children are hungry after school.|孩子们放学后饿了。
+thirsty|adj.|口渴的|I am thirsty after running.|跑步后我口渴了。
+clever|adj.|聪明的|The clever dog opens the gate.|这只聪明的狗打开了门。
+brave|adj.|勇敢的|The brave child tries again.|勇敢的孩子又试了一次。
+careful|adj.|小心的；仔细的|Be careful with the glass.|拿玻璃杯时要小心。
+careless|adj.|粗心的|A careless mistake cost us a point.|一个粗心的错误让我们丢了一分。
+helpful|adj.|乐于助人的；有帮助的|Your advice is helpful.|你的建议很有帮助。
+polite|adj.|有礼貌的|The child gives a polite answer.|孩子礼貌地回答了。
+lazy|adj.|懒惰的|Our lazy cat sleeps all afternoon.|我们懒洋洋的猫睡了一下午。
+quiet|adj.|安静的|The garden is quiet this morning.|今天早晨花园很安静。
+noisy|adj.|吵闹的|The classroom gets noisy at lunch.|午饭时教室变得吵闹。
+lucky|adj.|幸运的|We are lucky to have sunny weather.|我们很幸运遇上了晴天。
+unlucky|adj.|不幸的；运气不好的|It was an unlucky day for our team.|那是我们队运气不好的一天。
+#家与日常
+bedroom|n.|卧室|My bedroom has a yellow wall.|我的卧室有一面黄色的墙。
+bathroom|n.|浴室；卫生间|The bathroom is upstairs.|浴室在楼上。
+living room|n.|客厅|We play cards in the living room.|我们在客厅打牌。
+dining room|n.|餐厅；饭厅|The dining room has a round table.|饭厅里有一张圆桌。
+kitchen|n.|厨房|A lovely smell comes from the kitchen.|厨房里飘来一阵香味。
+cupboard|n.|橱柜|Put the cups in the cupboard.|把杯子放进橱柜。
+bookshelf|n.|书架|The blue book is on the bookshelf.|蓝色的书在书架上。
+armchair|n.|扶手椅|Grandpa reads in his armchair.|爷爷坐在扶手椅上看书。
+furniture|n.|家具|This room needs some furniture.|这个房间需要一些家具。
+blanket|n.|毯子|Take a blanket for the cold night.|带条毯子应对寒冷的夜晚。
+pillow|n.|枕头|My pillow is soft.|我的枕头很软。
+mirror|n.|镜子|He looks in the mirror.|他照了照镜子。
+curtain|n.|窗帘|Open the curtain to see the garden.|拉开窗帘看看花园。
+carpet|n.|地毯|The dog lies on the carpet.|狗躺在地毯上。
+ceiling|n.|天花板|There is a lamp on the ceiling.|天花板上有一盏灯。
+roof|n.|屋顶|A bird sits on the roof.|一只鸟停在屋顶上。
+stairs|n.|楼梯|Please walk slowly on the stairs.|请在楼梯上慢慢走。
+upstairs|adv.; adj.|在楼上；楼上的|My brother is upstairs.|我的哥哥在楼上。
+downstairs|adv.; adj.|在楼下；楼下的|We have breakfast downstairs.|我们在楼下吃早饭。
+entrance|n.|入口|Meet me at the entrance.|在入口处和我见面。
+key|n.|钥匙|I keep my key in this pocket.|我把钥匙放在这个口袋里。
+repair|v.|修理|Can you repair this chair?|你能修理这把椅子吗？
+tidy|adj.; v.|整洁的；整理|Please tidy your bedroom.|请整理你的卧室。
+wash|v.|洗|Wash your hands before dinner.|饭前洗手。
+cleaner|n.|清洁工；清洁器|The cleaner works in our school.|这位清洁工在我们学校工作。
+#食物与烹饪
+breakfast|n.|早餐|We have breakfast at seven.|我们七点吃早饭。
+lunch|n.|午餐|I bring lunch to school.|我带午饭去学校。
+dinner|n.|晚餐；正餐|Dinner is ready now.|晚饭现在好了。
+sandwich|n.|三明治|I made a cheese sandwich.|我做了一个奶酪三明治。
+vegetable|n.|蔬菜|A carrot is my favourite vegetable.|胡萝卜是我最喜欢的蔬菜。
+potato|n.|土豆|Put one potato in the soup.|在汤里放一个土豆。
+tomato|n.|番茄|This tomato is bright red.|这个番茄红彤彤的。
+carrot|n.|胡萝卜|The rabbit eats a carrot.|兔子吃一根胡萝卜。
+onion|n.|洋葱|Cut the onion into small pieces.|把洋葱切成小块。
+cucumber|n.|黄瓜|We grow cucumber plants at school.|我们在学校种黄瓜。
+salad|n.|沙拉|I add an egg to my salad.|我往沙拉里加了一个鸡蛋。
+strawberry|n.|草莓|There is a strawberry on the cake.|蛋糕上有一颗草莓。
+grape|n.|葡萄|This grape tastes sweet.|这颗葡萄尝起来很甜。
+lemon|n.|柠檬|Add some lemon to the water.|在水里加一些柠檬。
+biscuit|n.|饼干|Would you like a biscuit?|你想吃块饼干吗？
+chocolate|n.|巧克力|We share a small bar of chocolate.|我们分享一小块巧克力。
+cheese|n.|奶酪|I put cheese on my bread.|我把奶酪放在面包上。
+yogurt|n.|酸奶|I eat yogurt with fruit.|我吃水果配酸奶。
+honey|n.|蜂蜜|The honey tastes sweet.|这蜂蜜尝起来很甜。
+butter|n.|黄油|Spread butter on the warm bread.|在温热的面包上涂黄油。
+pepper|n.|胡椒粉；甜椒|Add a little pepper to the soup.|在汤里加一点胡椒粉。
+sugar|n.|糖|This drink has too much sugar.|这杯饮料的糖太多了。
+salt|n.|盐|The soup needs a little salt.|汤里需要加一点盐。
+delicious|adj.|美味的|Your soup is delicious.|你的汤很美味。
+fresh|adj.|新鲜的|We buy fresh bread every morning.|我们每天早晨买新鲜面包。
+menu|n.|菜单|May I see the menu?|我可以看看菜单吗？
+recipe|n.|食谱|This recipe is easy to follow.|这个食谱很容易照着做。
+bake|v.|烘烤|Let's bake a cake for Dad.|我们给爸爸烤个蛋糕吧。
+boil|v.|煮沸；水煮|Boil the water first.|先把水烧开。
+knife|n.|刀|Use a knife to cut the bread.|用刀切面包。
+fork|n.|叉子|I eat the salad with a fork.|我用叉子吃沙拉。
+spoon|n.|勺子|Take a spoon for your soup.|拿个勺子喝汤。
+plate|n.|盘子|Put the sandwich on a plate.|把三明治放在盘子上。
+bowl|n.|碗|The bowl is full of rice.|碗里盛满了米饭。
+#城市与旅行
+airport|n.|机场|We arrive at the airport early.|我们早早到达机场。
+railway|n.|铁路|The railway goes through the town.|铁路穿过这座小镇。
+station|n.|车站|I wait at the station.|我在车站等。
+platform|n.|站台|Our train leaves from this platform.|我们的火车从这个站台出发。
+passenger|n.|乘客|Each passenger needs a ticket.|每位乘客都需要一张票。
+ticket|n.|票|Keep your ticket in your pocket.|把票放在口袋里。
+passport|n.|护照|Check your passport before the trip.|旅行前检查你的护照。
+suitcase|n.|手提箱；行李箱|My suitcase is quite heavy.|我的行李箱很重。
+luggage|n.|行李|Our luggage is on the bus.|我们的行李在公共汽车上。
+journey|n.|旅程|The journey takes two hours.|旅程需要两个小时。
+travel|v.|旅行|We travel by train.|我们坐火车旅行。
+holiday|n.|假期|We spend our holiday by the sea.|我们在海边度假。
+hotel|n.|酒店|Our hotel is near the beach.|我们的酒店在海滩附近。
+restaurant|n.|餐馆|This restaurant serves great noodles.|这家餐馆的面条很好吃。
+museum|n.|博物馆|We see old toys in the museum.|我们在博物馆看到了旧玩具。
+theatre|n.|剧院|The theatre is next to the park.|剧院在公园旁边。
+cinema|n.|电影院|We meet outside the cinema.|我们在电影院外见面。
+supermarket|n.|超市|Mum buys milk at the supermarket.|妈妈在超市买牛奶。
+bookshop|n.|书店|The bookshop sells story books.|这家书店卖故事书。
+postcard|n.|明信片|Send me a postcard from your trip.|旅行时给我寄张明信片。
+post office|n.|邮局|The post office opens at nine.|邮局九点开门。
+traffic|n.|交通；车辆|There is a lot of traffic today.|今天路上车很多。
+roundabout|n.|环岛|Turn left at the roundabout.|在环岛向左转。
+bridge|n.|桥|We walk across the bridge.|我们走过这座桥。
+castle|n.|城堡|The castle stands on a hill.|城堡坐落在小山上。
+palace|n.|宫殿|The palace has a large garden.|这座宫殿有一个大花园。
+village|n.|村庄|My cousin lives in a small village.|我的表哥住在一个小村庄。
+capital|n.|首都|Beijing is the capital of China.|北京是中国的首都。
+square|n.|广场|There is a market in the square.|广场上有一个集市。
+corner|n.|角；拐角|The shop is on the corner.|商店在拐角处。
+opposite|prep.; adj.|在对面；对面的|The bank is opposite the school.|银行在学校对面。
+straight|adv.; adj.|直地；直的|Walk straight to the end of the road.|沿着路一直走到尽头。
+arrive|v.|到达|We arrive before sunset.|我们在日落前到达。
+leave|v.|离开|We leave home at eight.|我们八点离开家。
+return|v.|返回；归还|Please return the book tomorrow.|请明天归还这本书。
+#自然与天气
+weather|n.|天气|The weather changes quickly here.|这里的天气变化很快。
+sunny|adj.|晴朗的|It is sunny this morning.|今天早晨天气晴朗。
+rainy|adj.|下雨的|We play indoors on rainy days.|下雨天我们在室内玩。
+cloudy|adj.|多云的|It is cloudy but warm.|天气多云但温暖。
+windy|adj.|多风的|It is too windy for a picnic.|风太大不适合野餐。
+snowy|adj.|下雪的；多雪的|The snowy garden looks beautiful.|积雪的花园看起来很美。
+foggy|adj.|有雾的|Drive slowly on a foggy morning.|有雾的早晨开车要慢。
+storm|n.|暴风雨|We stay inside during the storm.|暴风雨时我们待在室内。
+thunderstorm|n.|雷暴|A thunderstorm wakes me up.|雷暴把我吵醒了。
+raincoat|n.|雨衣|Take your raincoat to school.|把雨衣带去学校。
+sunshine|n.|阳光|The cat sleeps in the sunshine.|猫在阳光下睡觉。
+rainbow|n.|彩虹|We see a rainbow after the rain.|雨后我们看见一道彩虹。
+snowball|n.|雪球|He makes a snowball with his hands.|他用双手团了个雪球。
+snowman|n.|雪人|We give our snowman a hat.|我们给雪人戴了一顶帽子。
+forest|n.|森林|A river runs through the forest.|一条河流穿过森林。
+mountain|n.|山|The mountain is covered in snow.|这座山覆盖着白雪。
+island|n.|岛屿|They visit an island by boat.|他们乘船游览一座岛屿。
+lake|n.|湖|We have a picnic beside the lake.|我们在湖边野餐。
+river|n.|河流|The river is wide here.|这里的河面很宽。
+beach|n.|海滩|The children play on the beach.|孩子们在海滩上玩。
+field|n.|田野；场地|There are sheep in the field.|田野里有羊。
+countryside|n.|乡村|We cycle through the countryside.|我们骑车穿过乡村。
+environment|n.|环境|We can help the environment.|我们可以帮助保护环境。
+plant|n.; v.|植物；种植|Let's plant a tree today.|我们今天种一棵树吧。
+flower|n.|花|This flower smells lovely.|这朵花闻起来很香。
+leaf|n.|叶子|A yellow leaf falls from the tree.|一片黄叶从树上落下。
+grass|n.|草|The grass is wet this morning.|今天早晨草是湿的。
+spring|n.|春天|The garden is colourful in spring.|花园在春天色彩缤纷。
+summer|n.|夏天|We swim in summer.|我们夏天游泳。
+autumn|n.|秋天|The leaves turn yellow in autumn.|树叶在秋天变黄。
+winter|n.|冬天|We wear warm coats in winter.|我们冬天穿暖和的外套。
+temperature|n.|温度|The temperature drops at night.|夜晚温度下降。
+#动物世界
+animal|n.|动物|What animal would you like to see?|你想看什么动物？
+elephant|n.|大象|The elephant has large ears.|大象有大耳朵。
+giraffe|n.|长颈鹿|The giraffe eats leaves.|长颈鹿吃树叶。
+dolphin|n.|海豚|A dolphin swims beside the boat.|一只海豚在船旁游泳。
+whale|n.|鲸|We see a whale in the sea.|我们在海里看见一条鲸。
+penguin|n.|企鹅|The penguin jumps into the water.|企鹅跳进水里。
+rabbit|n.|兔子|Our rabbit has long ears.|我们的兔子有长耳朵。
+parrot|n.|鹦鹉|The parrot can say my name.|这只鹦鹉会说我的名字。
+butterfly|n.|蝴蝶|A butterfly lands on a flower.|一只蝴蝶落在花上。
+insect|n.|昆虫|This insect has six legs.|这只昆虫有六条腿。
+spider|n.|蜘蛛|A spider is behind the chair.|一只蜘蛛在椅子后面。
+snake|n.|蛇|The snake moves through the grass.|蛇在草丛里移动。
+tiger|n.|老虎|The tiger has orange and black stripes.|老虎有橙黑相间的条纹。
+lion|n.|狮子|The lion is resting under a tree.|狮子在树下休息。
+monkey|n.|猴子|The monkey climbs a tree.|猴子爬上了一棵树。
+turtle|n.|龟|The turtle walks slowly.|这只龟慢慢地走。
+mouse|n.|老鼠|A mouse runs behind the box.|一只老鼠跑到箱子后面。
+sheep|n.|绵羊|A sheep stands near the gate.|一只绵羊站在门边。
+horse|n.|马|The horse runs across the field.|马跑过田野。
+#运动与兴趣
+football|n.|足球|We play football after school.|我们放学后踢足球。
+basketball|n.|篮球|My sister enjoys basketball.|我的姐姐喜欢篮球。
+volleyball|n.|排球|We play volleyball on the beach.|我们在海滩上打排球。
+badminton|n.|羽毛球|He plays badminton with his dad.|他和爸爸打羽毛球。
+tennis|n.|网球|I have a tennis lesson today.|我今天有一节网球课。
+skateboard|n.|滑板|Always wear a helmet on a skateboard.|玩滑板时一定要戴头盔。
+surfboard|n.|冲浪板|She carries her surfboard to the beach.|她把冲浪板带到海滩。
+swimming|n.|游泳|Swimming is fun in summer.|夏天游泳很有趣。
+cycling|n.|骑自行车运动|We go cycling in the park.|我们去公园骑自行车。
+fishing|n.|钓鱼|Grandpa takes me fishing.|爷爷带我去钓鱼。
+camping|n.|露营|Our family goes camping in June.|我们一家六月去露营。
+climbing|n.|攀登；攀岩|Climbing is my new hobby.|攀岩是我的新爱好。
+painting|n.|绘画；画作|This painting shows a garden.|这幅画画的是花园。
+drawing|n.|绘画；图画|I make a drawing of my dog.|我画了一张我的狗的画像。
+reading|n.|阅读|Reading helps me relax.|阅读帮助我放松。
+sing|v.|唱歌|Let's sing the song again.|我们再唱一遍这首歌吧。
+dance|v.; n.|跳舞；舞蹈|Can you dance to this music?|你能跟着这段音乐跳舞吗？
+guitar|n.|吉他|My brother plays the guitar.|我的哥哥弹吉他。
+piano|n.|钢琴|There is a piano in our classroom.|我们的教室里有一架钢琴。
+violin|n.|小提琴|She practises the violin every day.|她每天练习小提琴。
+concert|n.|音乐会|We go to a concert on Saturday.|我们星期六去听音乐会。
+festival|n.|节日；庆典|The town has a music festival.|镇上有一个音乐节。
+competition|n.|比赛|Our school has a drawing competition.|我们学校举办绘画比赛。
+winner|n.|获胜者|The winner gets a book.|获胜者得到一本书。
+prize|n.|奖品|I won a prize for my story.|我写的故事获奖了。
+team|n.|队；团队|Our team wears blue shirts.|我们队穿蓝色衬衫。
+match|n.|比赛|The match starts at three.|比赛三点开始。
+hobby|n.|爱好|Tell me about your favourite hobby.|和我说说你最喜欢的爱好。
+collect|v.|收集|I collect postcards.|我收集明信片。
+collection|n.|收藏品；收藏|She shows me her stamp collection.|她给我看她收藏的邮票。
+#身体与健康
+headache|n.|头痛|I have a headache today.|我今天头痛。
+toothache|n.|牙痛|He cannot eat because of a toothache.|他因为牙痛吃不下东西。
+earache|n.|耳痛|She has an earache.|她耳朵痛。
+stomach|n.|胃；腹部|My stomach hurts.|我的肚子疼。
+shoulder|n.|肩膀|The parrot sits on his shoulder.|鹦鹉站在他的肩膀上。
+finger|n.|手指|She points with one finger.|她用一根手指指着。
+knee|n.|膝盖|I hurt my knee in the game.|我在比赛中伤了膝盖。
+neck|n.|脖子|Wear a scarf around your neck.|在脖子上围一条围巾。
+healthy|adj.|健康的|Sleep helps us stay healthy.|睡眠帮助我们保持健康。
+ill|adj.|生病的|My friend is ill today.|我的朋友今天生病了。
+illness|n.|疾病|He missed school because of illness.|他因病没去上学。
+medicine|n.|药|Keep the medicine in a safe place.|把药放在安全的地方。
+hospital|n.|医院|My aunt works in a hospital.|我的姑姑在医院工作。
+ambulance|n.|救护车|The ambulance arrives quickly.|救护车很快就到了。
+appointment|n.|预约|I have a dentist appointment tomorrow.|我明天预约了牙医。
+exercise|n.; v.|锻炼；练习|A walk is good exercise.|散步是一种很好的锻炼。
+rest|n.; v.|休息|Let's rest under this tree.|我们在这棵树下休息吧。
+hurt|v.|受伤；疼痛|My feet hurt after the walk.|走路后我的脚疼。
+accident|n.|意外；事故|He broke the cup by accident.|他不小心打碎了杯子。
+#衣服与购物
+raincoat|n.|雨衣|My yellow raincoat keeps me dry.|我的黄色雨衣让我不被淋湿。
+sweater|n.|毛衣|This sweater is warm.|这件毛衣很暖和。
+jacket|n.|夹克|Take a jacket for the evening.|带件夹克晚上穿。
+trousers|n.|裤子|His trousers are too long.|他的裤子太长了。
+jeans|n.|牛仔裤|I wear jeans at the weekend.|我周末穿牛仔裤。
+shorts|n.|短裤|These shorts are good for running.|这条短裤适合跑步。
+skirt|n.|裙子|She chooses a green skirt.|她选了一条绿色的裙子。
+scarf|n.|围巾|Grandma made me a scarf.|奶奶给我做了一条围巾。
+glove|n.|手套|I lost one glove in the park.|我在公园丢了一只手套。
+sock|n.|袜子|There is a sock under the bed.|床底下有一只袜子。
+boot|n.|靴子|One boot is full of water.|一只靴子里都是水。
+sunglasses|n.|太阳镜|Wear sunglasses in bright sunshine.|阳光强烈时戴太阳镜。
+handbag|n.|手提包|Her keys are in her handbag.|她的钥匙在手提包里。
+backpack|n.|背包|Put your lunch in your backpack.|把午饭放进背包。
+pocket|n.|口袋|My ticket is in my pocket.|我的票在口袋里。
+uniform|n.|制服；校服|We wear a uniform at school.|我们在学校穿校服。
+size|n.|尺寸|Do you have this in a smaller size?|这件有小一点的尺码吗？
+price|n.|价格|The price is on the box.|价格标在箱子上。
+expensive|adj.|昂贵的|That bike is too expensive.|那辆自行车太贵了。
+cheap|adj.|便宜的|This small notebook is cheap.|这本小笔记本很便宜。
+comfortable|adj.|舒适的|These shoes are comfortable.|这双鞋很舒服。
+fashion|n.|时尚|She likes reading about fashion.|她喜欢阅读时尚方面的内容。
+receipt|n.|收据|Keep the receipt for your shoes.|保留买鞋的收据。
+cash|n.|现金|Can I pay in cash?|我可以用现金支付吗？
+cost|v.; n.|花费；费用|How much does this book cost?|这本书多少钱？
+choose|v.|选择|You can choose one colour.|你可以选一种颜色。
+#描述与比较
+beautiful|adj.|美丽的|The lake looks beautiful at sunset.|日落时湖泊看起来很美。
+colourful|adj.|色彩丰富的|The classroom has a colourful wall.|教室有一面色彩丰富的墙。
+wonderful|adj.|精彩的；极好的|We had a wonderful afternoon.|我们度过了一个美好的下午。
+useful|adj.|有用的|A map is useful in a new town.|地图在陌生的城镇里很有用。
+useless|adj.|无用的|This broken pen is useless.|这支坏了的笔没用了。
+different|adj.|不同的|We have different ideas.|我们有不同的想法。
+difficult|adj.|困难的|This question is difficult.|这个问题很难。
+important|adj.|重要的|It is important to listen.|倾听很重要。
+possible|adj.|可能的|Is it possible to walk there?|可以步行到那里吗？
+impossible|adj.|不可能的|It is impossible to finish in a minute.|不可能在一分钟内完成。
+unusual|adj.|不寻常的|What an unusual colour!|多么不寻常的颜色！
+usual|adj.|通常的|We meet at the usual place.|我们在老地方见面。
+dangerous|adj.|危险的|It is dangerous to run here.|在这里跑很危险。
+safe|adj.|安全的|This is a safe place to cross.|这是个安全的过马路地点。
+heavy|adj.|重的|This bag is too heavy for me.|这个包对我来说太重了。
+light|adj.|轻的|My new backpack is light.|我的新背包很轻。
+soft|adj.|柔软的|The blanket feels soft.|这条毯子摸起来很柔软。
+hard|adj.|硬的；困难的|The floor is hard.|地板很硬。
+wide|adj.|宽的|The river is wide here.|这里的河很宽。
+narrow|adj.|窄的|The street is very narrow.|这条街很窄。
+empty|adj.|空的|My water bottle is empty.|我的水瓶空了。
+full|adj.|满的|The bus is full.|公共汽车满员了。
+enough|det.; adv.|足够的；足够|We have enough chairs.|我们有足够的椅子。
+several|det.|几个；数个|I have several ideas.|我有几个想法。
+excellent|adj.|优秀的；极好的|That is an excellent answer.|那个答案很棒。
+famous|adj.|著名的|This town is famous for cheese.|这座小镇以奶酪闻名。
+popular|adj.|受欢迎的|This game is popular at school.|这个游戏在学校很受欢迎。
+special|adj.|特别的|Today is a special day.|今天是特别的一天。
+#动作与表达
+borrow|v.|借入|May I borrow your ruler?|我可以借你的尺子吗？
+lend|v.|借出|Can you lend me a pencil?|你能借我一支铅笔吗？
+bring|v.|带来|Bring your favourite book tomorrow.|明天带来你最喜欢的书。
+carry|v.|携带；搬运|I can carry the small box.|我能搬这个小箱子。
+build|v.|建造|We build a bridge from paper.|我们用纸搭一座桥。
+decide|v.|决定|We decide to walk home.|我们决定走路回家。
+describe|v.|描述|Describe your favourite animal.|描述你最喜欢的动物。
+discover|v.|发现|We discover a small path.|我们发现了一条小路。
+finish|v.|完成|Finish your picture before lunch.|午饭前完成你的画。
+happen|v.|发生|What will happen next?|接下来会发生什么？
+improve|v.|改进；提高|Practice can improve your spelling.|练习能提高你的拼写能力。
+prepare|v.|准备|Let's prepare our lunch.|我们准备午饭吧。
+promise|v.; n.|承诺|I promise to return your book.|我答应归还你的书。
+receive|v.|收到|I receive a letter from my cousin.|我收到了表哥的一封信。
+reply|v.; n.|回复|Please reply before Friday.|请在星期五之前回复。
+repeat|v.|重复|Please repeat the last sentence.|请重复最后一句话。
+suggest|v.|建议|I suggest a game after lunch.|我建议午饭后玩个游戏。
+agree|v.|同意|I agree with your idea.|我同意你的想法。
+disagree|v.|不同意|We sometimes disagree about music.|我们有时对音乐有不同意见。
+believe|v.|相信|I believe you can do it.|我相信你能做到。
+hope|v.; n.|希望|I hope you enjoy the book.|我希望你喜欢这本书。
+prefer|v.|更喜欢|I prefer tea to coffee.|比起咖啡我更喜欢茶。
+enjoy|v.|喜欢；享受|We enjoy walking in the park.|我们喜欢在公园散步。
+need|v.; n.|需要|We need a bigger table.|我们需要一张更大的桌子。
+offer|v.; n.|提供；提议|Can I offer you some water?|我给你倒点水好吗？
+order|v.; n.|点餐；订购|I order some soup for lunch.|我午饭点了一份汤。
+share|v.|分享|Let's share these biscuits.|我们分享这些饼干吧。
+thank|v.|感谢|I want to thank you for helping.|我想感谢你的帮助。
+welcome|v.; adj.|欢迎；受欢迎的|We welcome the new students.|我们欢迎新同学。
+#时间与方式
+weekend|n.|周末|We go hiking at the weekend.|我们周末去徒步。
+weekday|n.|工作日|I get up early on a weekday.|我工作日早起。
+midnight|n.|午夜|The train arrives at midnight.|火车午夜到达。
+afternoon|n.|下午|We have art in the afternoon.|我们下午上美术课。
+evening|n.|傍晚；晚上|I read in the evening.|我晚上看书。
+yesterday|adv.; n.|昨天|We visited the zoo yesterday.|我们昨天去了动物园。
+tomorrow|adv.; n.|明天|I will call you tomorrow.|我明天给你打电话。
+already|adv.|已经|I have already finished my lunch.|我已经吃完了午饭。
+soon|adv.|很快；不久|The bus will arrive soon.|公共汽车很快就到。
+later|adv.|稍后；后来|See you later.|一会儿见。
+usually|adv.|通常|I usually walk to school.|我通常走路上学。
+sometimes|adv.|有时|We sometimes eat outside.|我们有时在外面吃饭。
+never|adv.|从不|I never leave my bike unlocked.|我从不让自行车不上锁。
+quickly|adv.|迅速地|She finds the answer quickly.|她很快找到了答案。
+slowly|adv.|缓慢地|Read the sentence slowly.|慢慢读这个句子。
+carefully|adv.|仔细地；小心地|Listen carefully to the teacher.|仔细听老师讲。
+suddenly|adv.|突然|Suddenly the lights go out.|灯突然熄灭了。
+probably|adv.|大概；很可能|It will probably rain tonight.|今晚很可能下雨。
+perhaps|adv.|也许|Perhaps we can try again.|也许我们可以再试一次。
+especially|adv.|尤其|I like fruit, especially grapes.|我喜欢水果尤其是葡萄。
+#科技与信息
+computer|n.|电脑|Our computer is on the desk.|我们的电脑在桌上。
+keyboard|n.|键盘|This keyboard is very quiet.|这个键盘很安静。
+screen|n.|屏幕|The answer appears on the screen.|答案出现在屏幕上。
+printer|n.|打印机|The printer needs more paper.|打印机需要更多纸。
+website|n.|网站|The school website has new photos.|学校网站有新照片。
+password|n.|密码|Keep your password private.|保护好你的密码。
+download|v.; n.|下载|You can download the worksheet.|你可以下载练习卷。
+upload|v.; n.|上传|I upload a photo of my painting.|我上传了一张画作的照片。
+message|n.|消息|I leave a message for my friend.|我给朋友留了条消息。
+information|n.|信息|The notice gives us useful information.|通知给了我们有用的信息。
+instruction|n.|指示；说明|Read each instruction before you start.|开始前阅读每条说明。
+advertisement|n.|广告|The advertisement shows a new bike.|这则广告展示了一辆新自行车。
+magazine|n.|杂志|This magazine is about animals.|这本杂志是关于动物的。
+newspaper|n.|报纸|Grandpa reads the newspaper after breakfast.|爷爷早饭后读报纸。
+photograph|n.; v.|照片；拍照|This photograph shows our old house.|这张照片上是我们的老房子。
+camera|n.|照相机|Take your camera on the trip.|旅行时带上你的相机。
+battery|n.|电池|My camera needs a new battery.|我的相机需要新电池。
+electric|adj.|电的；电动的|My uncle drives an electric car.|我的叔叔开电动汽车。
+machine|n.|机器|This machine makes ice cream.|这台机器制作冰淇淋。
+mobile phone|n.|手机|Please turn off your mobile phone.|请关掉你的手机。
+#基础常见词（默认过滤）
+a|det.|一个；一件|I have a pencil.|我有一支铅笔。
+an|det.|一个（用于元音音素前）|She has an apple.|她有一个苹果。
+lot|n.|大量（常用于 a lot of）|We have a lot of time.|我们有很多时间。
+many|det.|许多|Many children like this game.|许多孩子喜欢这个游戏。
+much|det.|许多（修饰不可数名词）|There is not much milk.|牛奶不多了。
+the|det.|这；那（特指）|Close the door, please.|请关上那扇门。
+some|det.|一些|I need some water.|我需要一些水。
+very|adv.|很；非常|The room is very small.|这个房间很小。
+good|adj.|好的|That is a good idea.|那是个好主意。
+big|adj.|大的|We have a big table.|我们有一张大桌子。
+small|adj.|小的|The box is small.|这个箱子很小。
+go|v.|去|We go home at four.|我们四点回家。
+come|v.|来|Come and sit with us.|过来和我们一起坐吧。
+get|v.|得到；获得|I get a book for my birthday.|我生日时得到一本书。

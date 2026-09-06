@@ -1,0 +1,344 @@
+# word|short contextual example|Chinese
+about|The book is about a cat.|这本书讲的是一只猫。
+abroad|My aunt lives abroad.|我的阿姨住在国外。
+absolutely|You are absolutely right.|你完全正确。
+across|We walk across the road.|我们走过马路。
+actually|I actually like the rain.|其实我喜欢下雨。
+after|We play after school.|我们放学后玩耍。
+afterwards|We ate lunch and went home afterwards.|我们吃了午饭，然后回家了。
+again|Please say it again.|请再说一遍。
+ago|I saw her two days ago.|我两天前见过她。
+ahead|Look at the road ahead.|看看前面的路。
+alike|The two bags look alike.|这两个包看起来很像。
+almost|The bottle is almost full.|瓶子几乎满了。
+along|We walk along the river.|我们沿着河走。
+aloud|Please read the story aloud.|请大声读这个故事。
+also|I also have a blue pen.|我也有一支蓝笔。
+altogether|There are ten children altogether.|一共有十个孩子。
+always|I always wash my hands before lunch.|我总是在午饭前洗手。
+anymore|I do not live there anymore.|我不再住在那里了。
+anyway|It was raining, but we went out anyway.|当时下着雨，但我们还是出去了。
+anywhere|You can sit anywhere.|你可以坐在任何地方。
+apart|The two houses are far apart.|这两座房子相隔很远。
+apart from|Everyone came apart from Tom.|除了汤姆，大家都来了。
+approximately|The trip takes approximately two hours.|这趟旅行大约需要两小时。
+around|We sit around the table.|我们围着桌子坐。
+away|Our school is not far away.|我们的学校不远。
+back|Please come back soon.|请早点回来。
+backwards|The boy walked backwards.|男孩倒着走。
+badly|He played badly today.|他今天打得不好。
+below|Write your name below the line.|在线下面写名字。
+beside|The bag is beside the chair.|包在椅子旁。
+certainly|I will certainly help you.|我一定会帮你。
+clearly|Please speak clearly.|请说清楚。
+completely|The box is completely empty.|箱子完全空了。
+curiously|The cat looked curiously at the box.|猫好奇地看着箱子。
+definitely|I will definitely come tomorrow.|我明天一定会来。
+down|Put the bag down.|把包放下。
+easily|She can run five miles easily.|她能轻松跑五英里。
+either|You can take either book.|两本书中你可以拿任何一本。
+else|Who else wants to play?|还有谁想玩？
+even|Even my little brother can do it.|连我的小弟弟都会做。
+ever|Have you ever seen snow?|你见过雪吗？
+everywhere|We looked everywhere for the key.|我们到处找钥匙。
+exactly|The clock says exactly nine.|时钟显示正好九点。
+extremely|It is extremely cold today.|今天特别冷。
+face to face|We want to talk face to face.|我们想面对面交谈。
+fairly|The test was fairly easy.|这次测试相当容易。
+far|How far is the school?|学校有多远？
+finally|We finally found the house.|我们终于找到了那座房子。
+first of all|First of all, write your name.|首先，写下名字。
+forever|I want to keep this picture forever.|我想永远保留这幅画。
+fortunately|Fortunately, we had an umbrella.|幸运的是，我们带了伞。
+forward|Please take one step forward.|请向前走一步。
+frequently|We frequently go to the park.|我们经常去公园。
+full time|My father works full time.|我爸爸全职工作。
+fully|I fully understand the question.|我完全理解这个问题。
+further|We need to walk a little further.|我们需要再走远一点。
+generally|I generally get up at seven.|我一般七点起床。
+half|Please give me half the cake.|请给我一半蛋糕。
+happily|The children played happily.|孩子们开心地玩耍。
+hardly|I can hardly hear you.|我几乎听不见你说话。
+here|Please sit here.|请坐这里。
+home|Let's go home.|我们回家吧。
+honestly|Please answer honestly.|请诚实回答。
+hopefully|Hopefully, it will be sunny tomorrow.|希望明天是晴天。
+how|How do you go to school?|你怎么去学校？
+how much|How much is this book?|这本书多少钱？
+however|I was tired. However, I finished the work.|我很累。不过，我完成了工作。
+immediately|Please come here immediately.|请立刻来这里。
+in|The key is in the bag.|钥匙在包里。
+in case|Take a coat in case it gets cold.|带一件外套，以防天气变冷。
+incredibly|The room is incredibly small.|这个房间小得令人难以置信。
+indeed|The cake was very good indeed.|这个蛋糕确实非常好吃。
+indoors|We stayed indoors because of the rain.|因为下雨，我们待在室内。
+inside|Look inside the box.|看看箱子里面。
+instead|There is no milk. Have some water instead.|没有牛奶了。喝些水吧。
+just|I have just finished my lunch.|我刚吃完午饭。
+lately|I have been very busy lately.|我最近很忙。
+less|I have less time today.|我今天的时间更少。
+loudly|Please do not talk loudly.|请不要大声说话。
+luckily|Luckily, the shop was still open.|幸好商店还开着。
+mainly|The shop sells mainly books.|这家店主要卖书。
+maybe|Maybe she is at home.|也许她在家。
+meanwhile|I made lunch. Meanwhile, Tom set the table.|我做午饭。同时，汤姆摆好餐桌。
+more|Would you like more water?|你还想要些水吗？
+most|Most children like this game.|大多数孩子喜欢这个游戏。
+mostly|The class is mostly girls.|班里大多是女孩。
+near|Our home is near the school.|我们家在学校附近。
+nearly|It is nearly time to go.|快到出发时间了。
+neither|Neither answer is right.|两个答案都不对。
+no|No, that is not my bag.|不，那不是我的包。
+normally|We normally eat at six.|我们通常六点吃饭。
+not|This is not my book.|这不是我的书。
+now|We can start now.|我们现在可以开始了。
+nowadays|Many people use phones to read nowadays.|现在很多人用手机阅读。
+nowhere|There was nowhere to sit.|没有地方坐了。
+o'clock|It is six o'clock.|现在是六点整。
+obviously|She is obviously happy with the gift.|她显然很喜欢这份礼物。
+occasionally|We occasionally go to the cinema.|我们偶尔去看电影。
+of course|Of course you can join us.|你当然可以加入我们。
+off|The light is off.|灯关着。
+often|We often play in the park.|我们经常在公园玩。
+on|The book is on the desk.|书在桌上。
+once|I go swimming once a week.|我每周游泳一次。
+otherwise|Hurry up. Otherwise, we will be late.|快一点。否则我们会迟到。
+out|Let's go out and play.|我们出去玩吧。
+outdoors|We like eating outdoors.|我们喜欢在户外吃饭。
+outside|Please wait outside.|请在外面等。
+over|The bird flew over the house.|鸟飞过了房子。
+part time|She works part time in a shop.|她在一家商店做兼职。
+particularly|I particularly like this song.|我特别喜欢这首歌。
+partly|The window is partly open.|窗户半开着。
+percent|Fifty percent is half.|百分之五十就是一半。
+perfectly|The new shoes fit perfectly.|这双新鞋特别合脚。
+personally|Personally, I like the blue one.|就我个人而言，我喜欢蓝色的那个。
+possibly|Could you possibly help me?|你能帮我一下吗？
+previously|I had previously lived in this town.|我以前在这个镇上住过。
+properly|Please close the door properly.|请把门关好。
+quietly|Please walk quietly.|请轻轻地走。
+quite|This book is quite interesting.|这本书很有趣。
+rarely|I rarely watch television.|我很少看电视。
+rather|The bag is rather heavy.|这个包相当重。
+really|I really like your picture.|我很喜欢你的画。
+reasonably|The room is reasonably large.|这个房间还算大。
+recently|I recently bought a new bike.|我最近买了一辆新自行车。
+regularly|We visit our grandparents regularly.|我们定期去看望祖父母。
+safely|We arrived home safely.|我们安全到家了。
+second|She finished second in the race.|她在比赛中得了第二名。
+seriously|Please take the question seriously.|请认真对待这个问题。
+shortly|The bus will arrive shortly.|公交车很快就到。
+sincerely|I sincerely hope you feel better soon.|我真心希望你很快好起来。
+slightly|This bag is slightly bigger.|这个包稍微大一点。
+so|It is cold, so I will wear a coat.|天气很冷，所以我要穿外套。
+somehow|We must somehow find the key.|我们必须想办法找到钥匙。
+somewhere|Let's go somewhere quiet.|我们去一个安静的地方吧。
+specially|I made this cake specially for you.|我特意为你做了这个蛋糕。
+terribly|I am terribly sorry.|我十分抱歉。
+then|Wash your hands, then eat.|洗手，然后吃饭。
+there|Please put the bag there.|请把包放那里。
+therefore|It was raining. Therefore, we stayed inside.|当时在下雨。因此，我们待在里面。
+today|I have a music lesson today.|我今天有一节音乐课。
+tonight|We will read a story tonight.|我们今晚会读一个故事。
+too|I like this game too.|我也喜欢这个游戏。
+totally|The two pictures are totally different.|这两幅画完全不同。
+twice|I brush my teeth twice a day.|我每天刷牙两次。
+typically|We typically have lunch at twelve.|我们通常十二点吃午饭。
+up|Look up at the sky.|抬头看看天空。
+urgently|We urgently need more water.|我们急需更多水。
+well-made|This is a well-made chair.|这是一把做工很好的椅子。
+when|When does the class start?|这节课什么时候开始？
+where|Where is my book?|我的书在哪里？
+why|Why are you laughing?|你为什么在笑？
+yes|Yes, I can help you.|是的，我可以帮你。
+yet|I have not finished yet.|我还没有完成。
+a few|I have a few questions.|我有几个问题。
+according to|According to the map, the park is near.|根据地图，公园就在附近。
+against|Put the chair against the wall.|把椅子靠墙放。
+all kinds of|We read all kinds of books.|我们读各种各样的书。
+all sorts of|The shop sells all sorts of toys.|这家店卖各种各样的玩具。
+all the time|He talks about football all the time.|他总是在谈足球。
+although|Although it rained, we had fun.|虽然下雨了，我们还是玩得很开心。
+among|I found my pen among the books.|我在书堆里找到了笔。
+and|I have a pen and a book.|我有一支笔和一本书。
+another|May I have another apple?|我可以再要一个苹果吗？
+any|Do you have any questions?|你有什么问题吗？
+anybody|Does anybody know the answer?|有人知道答案吗？
+anyone|Can anyone help me?|有人能帮我吗？
+anything|You can ask me anything.|你可以问我任何事情。
+as|She works as a teacher.|她当老师。
+as well|I like apples and bananas as well.|我喜欢苹果，也喜欢香蕉。
+at all|I am not tired at all.|我一点也不累。
+at first|At first, I did not understand.|起初，我不明白。
+at last|At last, we found the key.|我们终于找到了钥匙。
+at least|Please read at least one page.|请至少读一页。
+at once|Please come at once.|请马上来。
+at present|I am busy at present.|我目前很忙。
+at the same time|We both spoke at the same time.|我们俩同时说了话。
+because|I am happy because you are here.|我很开心，因为你在这里。
+because of|We stayed home because of the rain.|因为下雨，我们待在家里。
+before|Wash your hands before lunch.|午饭前洗手。
+behind|The cat is behind the door.|猫在门后。
+beneath|The bag is beneath the table.|包在桌子下面。
+besides|Who else came besides Tom?|除了汤姆，还有谁来了？
+between|The shop is between the two houses.|商店在两座房子之间。
+beyond|The sea is beyond the hills.|海在山的那边。
+both|Both children have red bags.|两个孩子都有红色的包。
+but|I am tired, but I am happy.|我很累，但是我很开心。
+by|The house is by the river.|房子在河边。
+by accident|I broke the cup by accident.|我不小心打碎了杯子。
+by hand|She made the card by hand.|她手工制作了这张卡片。
+by mistake|I took your pen by mistake.|我错拿了你的笔。
+by name|The teacher knows every child by name.|老师知道每个孩子的名字。
+by post|Please send the letter by post.|请邮寄这封信。
+by the way|By the way, where is your bag?|顺便问一下，你的包在哪里？
+bye|Bye! See you tomorrow.|再见！明天见。
+close to|The school is close to my home.|学校离我家很近。
+despite|We played outside despite the rain.|尽管下雨了，我们还是在外面玩。
+dozen|We bought a dozen eggs.|我们买了一打鸡蛋。
+due to|The game stopped due to the rain.|比赛因为下雨停了。
+during|We read during the lesson.|我们在课堂上阅读。
+each|Each child gets a book.|每个孩子得到一本书。
+each other|We help each other at school.|我们在学校互相帮助。
+even though|I went out even though I was tired.|虽然很累，我还是出去了。
+every|I read every day.|我每天读书。
+everybody|Everybody is ready.|大家都准备好了。
+everyone|Everyone likes the new game.|每个人都喜欢这个新游戏。
+everything|Everything is in my bag.|所有东西都在我的包里。
+except|Everyone came except Tom.|除了汤姆，大家都来了。
+for|This gift is for you.|这份礼物是给你的。
+from|I am from China.|我来自中国。
+good afternoon|Good afternoon, children.|下午好，孩子们。
+good evening|Good evening! Please come in.|晚上好！请进。
+good morning|Good morning, teacher.|老师早上好。
+good night|Good night! Sleep well.|晚安！睡个好觉。
+goodbye|Goodbye! Have a nice day.|再见！祝你今天愉快。
+he|He is my friend.|他是我的朋友。
+hello|Hello! What is your name?|你好！你叫什么名字？
+her|I can see her in the garden.|我能看到她在花园里。
+hers|This red bag is hers.|这个红包是她的。
+herself|She made the cake herself.|她自己做了蛋糕。
+hey|Hey! Look at this picture.|嘿！看看这幅画。
+hi|Hi! How are you?|你好！你好吗？
+him|Please give the book to him.|请把书给他。
+himself|He washed the car himself.|他自己洗了汽车。
+his|This is his book.|这是他的书。
+i|I like reading.|我喜欢阅读。
+if|We can play outside if it is sunny.|如果天晴，我们可以在外面玩。
+in advance|We bought the tickets in advance.|我们提前买了票。
+in fact|In fact, the game is quite easy.|实际上，这个游戏相当简单。
+in front of|The car is in front of the house.|车在房子前面。
+in half|Cut the apple in half.|把苹果切成两半。
+in ink|Please write your name in ink.|请用墨水写名字。
+in love|The two people are in love.|这两个人相爱了。
+in order|Put the numbers in order.|把数字按顺序排列。
+in order to|We left early in order to catch the bus.|我们早出发，为的是赶上公交车。
+in pencil|Please write your answer in pencil.|请用铅笔写答案。
+in the end|In the end, we all went home.|最后，我们都回家了。
+in time|We arrived in time for lunch.|我们及时赶上了午饭。
+in two|She cut the cake in two.|她把蛋糕切成了两块。
+including|There are six of us, including me.|算上我，我们有六个人。
+instead of|I want water instead of tea.|我想要水，不要茶。
+into|Put the books into the bag.|把书放进包里。
+it|It is a small dog.|它是一只小狗。
+its|The cat is eating its food.|猫正在吃它的食物。
+itself|The door closed by itself.|门自己关上了。
+like|She looks like her mother.|她看起来像她的妈妈。
+me|Please look at me.|请看着我。
+mine|The blue pen is mine.|蓝色的笔是我的。
+minus|Five minus two is three.|五减二等于三。
+my|This is my school.|这是我的学校。
+myself|I made the card myself.|我自己做了卡片。
+next to|Sit next to me.|坐我旁边。
+no one|No one knows the answer.|没有人知道答案。
+nobody|Nobody is in the room.|房间里没有人。
+none|None of the shops were open.|所有商店都没开门。
+nothing|There is nothing in the box.|箱子里什么也没有。
+of|This is a picture of my family.|这是一张我家人的照片。
+oh|Oh, I found my key!|哦，我找到钥匙了！
+on board|All the children are on board the bus.|所有孩子都上了公交车。
+on business|My aunt is in London on business.|我阿姨在伦敦出差。
+on fire|The old house is on fire.|那座旧房子着火了。
+on foot|I go to school on foot.|我步行上学。
+on holiday|We are on holiday by the sea.|我们在海边度假。
+on purpose|He did not break it on purpose.|他不是故意弄坏它的。
+on request|More water is available on request.|如有需要，可以再要一些水。
+on sale|The new book is on sale today.|这本新书今天开始出售。
+on time|Please arrive on time.|请准时到达。
+on vacation|They are on vacation this week.|他们这周在度假。
+one|I have one brother.|我有一个兄弟。
+onto|The cat jumped onto the chair.|猫跳上了椅子。
+or|Would you like tea or water?|你想喝茶还是水？
+our|This is our classroom.|这是我们的教室。
+ours|That ball is ours.|那个球是我们的。
+ourselves|We cooked dinner ourselves.|我们自己做了晚饭。
+out of|The cat jumped out of the box.|猫从箱子里跳出来了。
+out of date|This map is out of date.|这张地图过时了。
+out of order|The lift is out of order.|电梯坏了。
+out of work|He is out of work at present.|他目前没有工作。
+pardon|Pardon? Could you say that again?|什么？你能再说一遍吗？
+per|The room costs fifty pounds per night.|这个房间每晚五十英镑。
+please|Please open the door.|请打开门。
+plenty|We have plenty of time.|我们有充足的时间。
+plus|Two plus three is five.|二加三等于五。
+regarding|I have a question regarding the trip.|我有个关于这次旅行的问题。
+she|She is my sister.|她是我的姐姐。
+since|I have lived here since last year.|我从去年起就住在这里。
+somebody|Somebody is at the door.|有人在门口。
+someone|Someone left a bag here.|有人把包留在这里了。
+something|I have something for you.|我有东西给你。
+such|It is such a lovely day.|今天真是美好的一天。
+than|My bag is bigger than yours.|我的包比你的大。
+thank you|Thank you for your help.|谢谢你的帮助。
+thanks|Thanks for the gift.|谢谢你的礼物。
+that|That is my bike.|那是我的自行车。
+their|The children put on their coats.|孩子们穿上了他们的外套。
+theirs|That house is theirs.|那座房子是他们的。
+them|Please give the books to them.|请把书给他们。
+themselves|They made lunch themselves.|他们自己做了午饭。
+these|These are my shoes.|这些是我的鞋。
+they|They are playing outside.|他们正在外面玩。
+this|This is a red apple.|这是一个红苹果。
+those|Those birds are very small.|那些鸟很小。
+though|I went outside though it was cold.|虽然冷，我还是出去了。
+through|We walked through the park.|我们走过公园。
+till|Please wait till five.|请等到五点。
+to|Let's go to the park.|我们去公园吧。
+toward|We walked toward the school.|我们朝学校走去。
+under|The cat is under the table.|猫在桌子下面。
+underneath|The key is underneath the book.|钥匙在书下面。
+unless|We will play outside unless it rains.|除非下雨，否则我们会在外面玩。
+until|Wait here until I come back.|在这里等到我回来。
+up to|The room holds up to ten people.|这个房间最多能容纳十个人。
+up to date|This map is up to date.|这张地图是最新的。
+upon|The cat jumped upon the table.|猫跳上了桌子。
+us|Please come with us.|请和我们一起来。
+via|We send messages via our phones.|我们通过手机发消息。
+we|We like reading together.|我们喜欢一起阅读。
+what|What is in your bag?|你的包里有什么？
+whatever|You can choose whatever you like.|你可以选任何你喜欢的东西。
+whenever|You can call me whenever you need help.|你需要帮助时，随时可以打电话给我。
+wherever|You can sit wherever you like.|你想坐哪里都可以。
+whether|I do not know whether she will come.|我不知道她是否会来。
+which|Which book do you want?|你想要哪本书？
+who|Who is at the door?|谁在门口？
+whose|Whose bag is this?|这是谁的包？
+with|I live with my family.|我和家人住在一起。
+within|Please finish within an hour.|请在一小时内完成。
+without|Do not go out without a coat.|不穿外套就不要出去。
+wow|Wow! That is a big cake!|哇！好大的蛋糕！
+yeah|Yeah, I can come today.|嗯，我今天能来。
+you|You are my friend.|你是我的朋友。
+you know|It is quite easy, you know.|你知道，这其实挺容易的。
+your|Is this your book?|这是你的书吗？
+yours|The blue cup is yours.|蓝色的杯子是你的。
+yourself|Please help yourself to some fruit.|请随意吃些水果。
+a|I can see a cat.|我能看到一只猫。
+an|I have an apple.|我有一个苹果。
+the|The sun is bright.|太阳很明亮。
+lot|We have a lot of books.|我们有很多书。
+lots|We have lots of apples.|我们有很多苹果。
+many|There are many books in the room.|房间里有很多书。
+some|Would you like some water?|你想要些水吗？
+at|I am at school.|我在学校。
+for sale|This bike is for sale.|这辆自行车正在出售。

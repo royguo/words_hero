@@ -1,0 +1,71 @@
+# Word-specific examples for remaining senses.
+act|You must act now.|你现在必须行动。
+action|We watched an action film.|我们看了一部动作电影。
+bright|The room is bright.|这个房间很明亮。
+camp|We can camp by the lake.|我们可以在湖边露营。
+change|I want to change my answer.|我想修改答案。
+check|Please check your work.|请检查你的作业。
+complete|Please complete the form.|请填完表格。
+copy|Please copy this word.|请抄写这个词。
+cover|Cover the food with a plate.|用盘子盖住食物。
+cry|The baby may cry.|宝宝可能会哭。
+cut|Cut the cake into small pieces.|把蛋糕切成小块。
+cycle|We cycle to school.|我们骑自行车上学。
+diving|She likes diving into the pool.|她喜欢跳入泳池。
+drive|Can you drive a car?|你会开车吗？
+drop|Do not drop the cup.|不要摔落杯子。
+end|We will end the game at five.|我们会在五点结束游戏。
+excuse|Excuse me, where is the school?|打扰一下，学校在哪里？
+first|Please read the first page.|请读第一页。
+fly|Birds can fly.|鸟会飞。
+guess|Can you guess the answer?|你能猜出答案吗？
+help|Please help me with this box.|请帮我搬这个箱子。
+hit|Do not hit the ball too hard.|不要太用力击球。
+hurry|Please hurry. The bus is here.|请快一点。公交车到了。
+international|This is an international school.|这是一所国际学校。
+jump|Can you jump over the box?|你能跳过这个箱子吗？
+laugh|The funny story made us laugh.|这个有趣的故事逗得我们大笑。
+long|This is a long road.|这是一条长路。
+look|Look at my new shoes.|看看我的新鞋。
+mind|Do you mind if I sit here?|你介意我坐这里吗？
+paint|Let's paint the wall blue.|我们把墙涂成蓝色吧。
+pass|Please pass me the book.|请把书递给我。
+pay|I will pay for the food.|我来付食物的钱。
+phone|Please phone me after school.|请放学后给我打电话。
+play|Let's play a game.|我们玩个游戏吧。
+point|Please point to the right picture.|请指向正确的图片。
+post|Please post this letter for me.|请帮我邮寄这封信。
+push|Push the door to open it.|推门就能打开。
+record|Let's record our song.|我们录下自己的歌吧。
+rent|We rent a small house.|我们租了一座小房子。
+rich|The man in the story is rich.|故事里的那个男人很富有。
+run|I can run very fast.|我能跑得很快。
+sail|Can you sail a boat?|你会驾驶帆船吗？
+shout|Please do not shout in the classroom.|请不要在教室里大喊。
+show|Please show me your picture.|请给我看你的画。
+shut|Please shut the door.|请关门。
+single|I want a single ticket to town.|我想要一张去镇上的单程票。
+skate|We can skate on the ice.|我们可以在冰上滑行。
+ski|Can you ski down this hill?|你能从这座山上滑雪下来吗？
+sleep|I sleep for eight hours.|我睡八个小时。
+smoke|Please do not smoke here.|请不要在这里吸烟。
+sound|You sound happy.|你听起来很开心。
+start|Let's start the lesson.|我们开始上课吧。
+stay|Please stay with your group.|请和你的小组待在一起。
+study|I study English at school.|我在学校学英语。
+swim|I can swim in the pool.|我能在泳池里游泳。
+train|We train for the game every week.|我们每周为比赛训练。
+turn|Turn right at the school.|在学校处右转。
+unfortunately|Unfortunately, the shop was closed.|不巧的是，商店关门了。
+use|May I use your pen?|我可以用你的笔吗？
+wait|Please wait for me.|请等我。
+walk|We walk to school.|我们走路上学。
+while|I read while my brother plays.|弟弟玩耍时，我在阅读。
+worry|Do not worry about the test.|不要担心考试。
+nasty|That was a nasty fall.|那是一次严重的摔倒。
+rude|It is rude to shout at people.|冲别人大喊是不礼貌的。
+stylish|She has a stylish coat.|她有一件时髦的外套。
+untidy|My room is untidy.|我的房间不整洁。
+course|My English course starts today.|我的英语课程今天开始。
+mean|What does this word mean?|这个词是什么意思？
+miss|I miss my friend.|我想念我的朋友。

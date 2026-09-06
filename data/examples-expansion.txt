@@ -1,0 +1,139 @@
+teacher|Our teacher knows every child's name.|我们的老师知道每个孩子的名字。
+driver|The driver stops near my school.|司机在我的学校附近停车。
+singer|Her sister is a singer.|她姐姐是一名歌手。
+worker|The worker opens the shop at nine.|这名工作人员九点开店。
+farmer|The farmer gets up before the sun comes out.|这位农民在太阳出来前起床。
+painter|The painter uses red and blue.|这位画家使用红色和蓝色。
+player|Each player has a number.|每名运动员都有一个号码。
+reader|This book is for young readers.|这本书是给小读者看的。
+writer|The writer tells a story about a dog.|这位作家讲了一个关于狗的故事。
+visitor|The visitor asks where the bus stop is.|这位游客问公交车站在哪里。
+actor|The actor plays a father in the film.|这位演员在电影里扮演一位父亲。
+artist|The artist draws a picture of our town.|这位艺术家画了一幅我们小镇的画。
+tourist|The tourist takes a photo of the old house.|这位游客给老房子拍了一张照片。
+dentist|The dentist asks me to open my mouth.|牙医让我张开嘴。
+pianist|The pianist plays a song for the children.|这位钢琴演奏者为孩子们弹了一首歌。
+cyclist|The cyclist turns left at the park.|骑自行车的人在公园处左转。
+careful|Be careful with that hot cup.|小心那个烫杯子。
+careless|A careless mistake can make your answer wrong.|一个粗心的错误就可能让你的答案出错。
+helpful|This map is helpful when we visit a new town.|去一个新城镇时，这张地图很有帮助。
+useful|A warm coat is useful in winter.|冬天一件暖和的外套很有用。
+useless|This key is useless because it does not fit.|这把钥匙不合适，所以没用。
+beautiful|What a beautiful day for a walk!|今天真是适合散步的好天气！
+colourful|She wears a colourful dress to the party.|她穿着一条色彩鲜艳的裙子参加聚会。
+wonderful|We had a wonderful time at the beach.|我们在海滩度过了美好的时光。
+peaceful|The village is peaceful at night.|这个村庄晚上很宁静。
+painful|My foot is still painful today.|今天我的脚仍然很痛。
+thankful|I am thankful for your help.|我很感谢你的帮助。
+successful|Our school trip was successful.|我们的学校旅行很成功。
+hopeful|We are hopeful about the next game.|我们对下一场比赛充满希望。
+hopeless|The team is not hopeless; it can still win.|这支队伍并非没有希望，它仍然能赢。
+homeless|We help homeless people get warm food.|我们帮助无家可归的人得到热乎的食物。
+endless|The road looks endless from here.|从这里看，这条路好像没有尽头。
+unhappy|He feels unhappy when he cannot see his friends.|见不到朋友时，他觉得不开心。
+unusual|That bird has an unusual name.|那只鸟有一个不寻常的名字。
+unfriendly|The man sounded unfriendly on the phone.|那个男人在电话里的语气听起来不友好。
+unlucky|We were unlucky to miss the last bus.|我们运气不好，没赶上末班车。
+uncomfortable|These shoes are too small and uncomfortable.|这双鞋太小，穿着不舒服。
+unknown|The name on the box is unknown to me.|我不认识盒子上写的那个名字。
+unfair|It is unfair to give only one child a turn.|只让一个孩子有机会是不公平的。
+unhealthy|Too much sugar can be unhealthy.|吃太多糖可能不健康。
+unnecessary|A coat is unnecessary on such a warm day.|这么暖和的天气没必要穿外套。
+unpack|I unpack my bag when I get home.|回到家时，我把包里的东西拿出来。
+unlock|Can you unlock the door for me?|你能帮我把门打开吗？
+rewrite|Please rewrite the last line.|请重写最后一行。
+rebuild|They want to rebuild the old bridge.|他们想重建那座旧桥。
+reuse|We can reuse this bag tomorrow.|明天我们可以再次使用这个袋子。
+recycle|Our school asks us to recycle paper.|我们学校要求我们回收纸张。
+restart|Please restart the computer.|请重新启动电脑。
+return|I must return this book today.|今天我必须归还这本书。
+review|Let's review the words from yesterday.|我们来复习昨天的单词。
+disagree|We disagree, but we are still friends.|我们意见不同，但仍然是朋友。
+disappear|I watch the sun disappear behind the hills.|我看着太阳消失在山后。
+dislike|I dislike getting up in the dark.|我不喜欢天还黑着就起床。
+dishonest|It is dishonest to say you did the work.|说这些工作是你做的是不诚实的。
+impossible|It is impossible to finish all this in one minute.|不可能在一分钟内完成所有这些事。
+impolite|It is impolite to talk with food in your mouth.|嘴里含着食物说话是不礼貌的。
+international|This international school has children from many countries.|这所国际学校里有来自许多国家的孩子。
+enjoyment|I get a lot of enjoyment from reading.|我从阅读中得到很多乐趣。
+excitement|There is great excitement before the school show.|学校演出前，大家都十分兴奋。
+improvement|Your writing shows a big improvement.|你的书写进步很大。
+development|We watched the development of the small plant.|我们观察了那株小植物的生长。
+agreement|We have an agreement to meet here at six.|我们约定六点在这里见面。
+movement|I saw a movement behind the door.|我看到门后有什么动了一下。
+payment|You can make the payment at the desk.|你可以在服务台付款。
+happiness|Her face is full of happiness.|她的脸上洋溢着幸福。
+kindness|Thank you for your kindness.|谢谢你的善意。
+darkness|We could not see the path in the darkness.|黑暗中我们看不见小路。
+illness|He missed school because of illness.|他因病没来上学。
+sadness|There was sadness in her voice.|她的声音里带着悲伤。
+weakness|His only weakness in the game is running.|在这项比赛中，他唯一的弱项是跑步。
+quickly|We must walk quickly to catch the bus.|我们必须走快点才能赶上公交车。
+slowly|Please speak slowly so I can understand.|请说慢一点，让我能听懂。
+quietly|She closes the door quietly.|她轻轻地关上门。
+carefully|Read the question carefully before you write.|动笔前仔细读题。
+happily|The children play happily in the garden.|孩子们在花园里开心地玩耍。
+loudly|Do not talk loudly in the library.|不要在图书馆大声说话。
+suddenly|Suddenly, the lights went out.|突然，灯灭了。
+usually|I usually walk to school with my sister.|我通常和姐姐一起步行上学。
+really|Do you really want to go home now?|你真的想现在回家吗？
+friendly|Our new neighbour is very friendly.|我们的新邻居很友好。
+lovely|We found a lovely place to sit.|我们找到一个很好的地方坐下。
+daily|A daily walk helps me feel better.|每天散步让我感觉更好。
+weekly|We have a weekly game after school.|我们每周放学后玩一次游戏。
+rainy|On a rainy day, I like to read at home.|下雨天，我喜欢在家读书。
+sunny|It is sunny, so let's eat outside.|阳光很好，我们去外面吃吧。
+cloudy|It is cloudy, but it is not cold.|多云，但并不冷。
+windy|The beach is very windy today.|今天海滩的风很大。
+snowy|We walk slowly on the snowy road.|我们在积雪的路上慢慢走。
+dirty|Please take off your dirty shoes.|请脱下你的脏鞋子。
+healthy|A healthy lunch can taste good too.|健康的午餐也可以很好吃。
+lucky|I am lucky to have such a good friend.|我很幸运，有这么好的朋友。
+noisy|The room is too noisy for reading.|房间太吵，无法读书。
+sleepy|I feel sleepy after the long trip.|长途旅行后我觉得困了。
+thirsty|We are thirsty after the game.|比赛后我们口渴了。
+hungry|Are you hungry enough for another sandwich?|你还饿吗，要不要再吃一个三明治？
+comfortable|This chair is comfortable to sit in.|坐在这把椅子上很舒服。
+enjoyable|It was an enjoyable day with my friends.|和朋友在一起的一天很愉快。
+reasonable|The shop sells books at reasonable prices.|这家商店的书价格合理。
+suitable|Is this film suitable for children?|这部电影适合孩子看吗？
+valuable|Your time is valuable, so use it well.|你的时间很宝贵，所以要好好利用。
+dangerous|It is dangerous to swim here alone.|独自在这里游泳很危险。
+famous|This town is famous for its bread.|这个小镇因面包而闻名。
+nervous|I feel nervous before a big game.|重要比赛前我感到紧张。
+mountainous|They live in a mountainous part of the country.|他们住在这个国家的多山地区。
+information|You can find more information on the school website.|你可以在学校网站上找到更多信息。
+invitation|I sent an invitation to my best friend.|我给最好的朋友发了一份邀请。
+celebration|The whole family came to the celebration.|全家都来参加庆祝活动。
+education|Every child needs a good education.|每个孩子都需要良好的教育。
+collection|This is my collection of old coins.|这是我收集的旧硬币。
+direction|Which direction is the station in?|车站在哪个方向？
+action|It is time to take action.|是时候行动了。
+competition|Our class won the singing competition.|我们班赢得了歌唱比赛。
+conversation|We had a short conversation on the bus.|我们在公交车上简短地聊了一会儿。
+swimming|Swimming is my favourite sport.|游泳是我最喜欢的运动。
+reading|Reading helps me learn about the world.|阅读帮助我了解世界。
+writing|We practise writing for ten minutes every day.|我们每天练习写作十分钟。
+shopping|I do the shopping with Dad on Saturday.|星期六我和爸爸一起买东西。
+painting|Her painting of the garden is on the wall.|她画的花园挂在墙上。
+building|The new building has a small garden.|那座新建筑有一个小花园。
+meeting|The meeting starts after lunch.|会议在午饭后开始。
+bedroom|My bedroom has a big window.|我的卧室有一扇大窗户。
+bathroom|The bathroom is next to the bedroom.|浴室在卧室旁边。
+classroom|Our classroom is on the first floor.|我们的教室在二楼。
+playground|We meet our friends in the playground.|我们在操场上和朋友们见面。
+football|We play football in the park after school.|放学后我们在公园踢足球。
+basketball|Can you teach me to play basketball?|你能教我打篮球吗？
+raincoat|Take your raincoat; it may rain later.|带上雨衣，晚些时候可能会下雨。
+sunlight|The cat sleeps in the warm sunlight.|猫在温暖的阳光下睡觉。
+sunshine|Let's sit outside and enjoy the sunshine.|我们坐在外面享受阳光吧。
+snowman|We made a snowman with a red hat.|我们堆了一个戴红帽子的雪人。
+toothbrush|I put my toothbrush beside the cup.|我把牙刷放在杯子旁边。
+notebook|Write the new word in your notebook.|把新单词写在你的笔记本上。
+homework|I finish my homework before dinner.|我晚饭前完成家庭作业。
+bookshop|There is a small bookshop near our school.|我们学校附近有一家小书店。
+weekend|What do you like to do at the weekend?|你周末喜欢做什么？
+backpack|My backpack is full of books.|我的背包里装满了书。
+keyboard|Some of the letters on my keyboard are hard to see.|我的键盘上有些字母看不清了。
+headache|I have a headache and need to rest.|我头痛，需要休息。
+rainbow|We saw a rainbow after the rain.|雨后我们看见了一道彩虹。

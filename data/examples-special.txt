@@ -1,0 +1,165 @@
+# Explicit examples for words that do not fit a general sentence pattern.
+able|She is able to swim.|她会游泳。
+unable|He is unable to come today.|他今天不能来。
+about|The story is about a dog.|这个故事讲的是一只狗。
+above|The clock is above the door.|钟在门上方。
+all|All the children are here.|所有孩子都在这里。
+all right|Are you all right?|你还好吗？
+alright|Is it alright to sit here?|可以坐在这里吗？
+aged|This game is for children aged ten.|这个游戏适合十岁的孩子。
+alone|I am not alone. My friend is here.|我并不孤单。我的朋友在这里。
+asleep|The baby is asleep.|宝宝睡着了。
+best|This is my best picture.|这是我画得最好的一幅画。
+better|I feel better today.|我今天感觉好些了。
+bitter|This coffee tastes bitter.|这杯咖啡尝起来很苦。
+boiled|I like boiled eggs.|我喜欢煮鸡蛋。
+born|She was born in this town.|她出生在这个镇上。
+brief|Please write a brief note.|请写一张简短的便条。
+cardboard|This box is made of cardboard.|这个盒子是纸板做的。
+casual|We can wear casual clothes today.|我们今天可以穿休闲服。
+certain|I am certain that this is your bag.|我肯定这是你的包。
+close|The school is close to our house.|学校离我们家很近。
+convenient|The bus is a convenient way to travel.|坐公交车是一种方便的出行方式。
+correct|Your answer is correct.|你的答案是正确的。
+cream|The wall is cream.|墙是奶油色的。
+curly|She has curly hair.|她有卷发。
+dead|The plant is dead.|这株植物死了。
+dear|Dear Mum, thank you for the gift.|亲爱的妈妈，谢谢你的礼物。
+delayed|Our train is delayed.|我们的火车晚点了。
+digital|I have a digital camera.|我有一台数码相机。
+direct|There is a direct bus to town.|有一班直达镇上的公交车。
+dressed|He is dressed for school.|他穿好了上学的衣服。
+due|The bus is due at ten.|公交车预计十点到。
+duty-free|This shop sells duty-free gifts.|这家店卖免税礼品。
+early|I get up early.|我很早起床。
+east|The sun rises in the east.|太阳从东方升起。
+efficient|This machine is very efficient.|这台机器效率很高。
+electrical|Do not touch electrical wires.|不要触碰电线。
+electronic|This is an electronic game.|这是一个电子游戏。
+elementary|We are learning elementary English.|我们正在学习初级英语。
+engaged|The phone line is engaged.|电话占线了。
+environmental|We discussed an environmental problem.|我们讨论了一个环境问题。
+equal|The two pieces are equal in size.|这两块大小相同。
+exact|Please tell me the exact time.|请告诉我确切时间。
+extinct|These animals are now extinct.|这些动物现在已经灭绝了。
+face-to-face|We had a face-to-face talk.|我们面对面交谈了一次。
+false|This answer is false.|这个答案是错的。
+fast|The train is very fast.|这列火车很快。
+fat|The cat is very fat.|这只猫很胖。
+favourite|This is my favourite book.|这是我最喜欢的书。
+few|There are few cars on this road.|这条路上的汽车很少。
+fit|Swimming can help you keep fit.|游泳能帮助你保持健康。
+fond|I am fond of animals.|我喜欢动物。
+forbidden|Parking is forbidden here.|这里禁止停车。
+former|My former teacher lives near us.|我以前的老师住在我们附近。
+free|The books are free.|这些书是免费的。
+frequent|There are frequent buses to town.|有很多班公交车去镇上。
+fried|I would like a fried egg.|我想要一个煎鸡蛋。
+full-time|She has a full-time job.|她有一份全职工作。
+future|We talked about our future plans.|我们谈论了未来的计划。
+giant|That is a giant tree.|那是一棵巨大的树。
+good-looking|The man in the story is good-looking.|故事里的那个男人长得好看。
+grilled|We had grilled fish for lunch.|我们午饭吃了烤鱼。
+guided|We went on a guided tour.|我们参加了一次有导游的游览。
+guilty|He felt guilty about breaking the cup.|他因为打碎杯子而感到内疚。
+half-price|This book is half-price today.|这本书今天半价。
+hand-held|She has a small hand-held camera.|她有一台小型手持相机。
+historic|We visited a historic building.|我们参观了一座有历史意义的建筑。
+indoor|This is an indoor swimming pool.|这是一个室内游泳池。
+incorrect|This answer is incorrect.|这个答案不正确。
+intermediate|She is in an intermediate English class.|她在一个中级英语班。
+keen|I am keen to learn to swim.|我很想学会游泳。
+late|Please do not be late.|请不要迟到。
+least|This is the least expensive book.|这是最便宜的书。
+left|Turn left at the shop.|在商店处左转。
+left-hand|Please use the left-hand door.|请走左边的门。
+likely|It is likely to rain today.|今天很可能下雨。
+limited|We have a limited amount of time.|我们的时间有限。
+little|We have little time left.|我们剩的时间不多了。
+live|We watched a live show.|我们看了一场现场表演。
+lost|I am lost. Where is the station?|我迷路了。车站在哪里？
+mad|He was mad about the broken window.|他因窗户被打破而生气。
+married|My aunt is married.|我的阿姨结婚了。
+maximum|The maximum number is ten.|最大数量是十。
+minimum|The minimum number is two.|最小数量是二。
+missing|One page is missing.|少了一页。
+nearby|There is a shop nearby.|附近有一家商店。
+north|We live in the north.|我们住在北部。
+northeast|The town is in the northeast.|这个镇在东北部。
+northwest|The town is in the northwest.|这个镇在西北部。
+ok|Are you ok?|你还好吗？
+olympic|She wants to see the Olympic Games.|她想看奥运会。
+only|This is my only red pen.|这是我唯一的红笔。
+other|Where is the other shoe?|另一只鞋在哪里？
+overnight|We stayed overnight at the hotel.|我们在酒店住了一晚。
+own|I have my own room.|我有自己的房间。
+part-time|He has a part-time job.|他有一份兼职工作。
+past|We talked about the past.|我们谈论了过去。
+permanent|This is our permanent home.|这是我们长久居住的家。
+permitted|Dogs are permitted in this park.|这个公园允许狗进入。
+prepared|We are prepared for the game.|我们为比赛做好了准备。
+present|All the children are present today.|今天所有孩子都到场了。
+principal|This is the principal reason.|这是主要原因。
+prohibited|Smoking is prohibited here.|这里禁止吸烟。
+proper|Please use the proper tool.|请使用合适的工具。
+proud|I am proud of my work.|我为自己的作品感到骄傲。
+qualified|She is a qualified teacher.|她是一名合格的老师。
+quick|Let's have a quick look.|我们快速看一眼吧。
+reduced|These shoes are at a reduced price.|这些鞋降价了。
+right|Your answer is right.|你的答案是对的。
+right hand|Please raise your right hand.|请举起右手。
+right-hand|Please use the right-hand door.|请走右边的门。
+roast|We had roast chicken for lunch.|我们午饭吃了烤鸡。
+same|We have the same bag.|我们的包是一样的。
+second-hand|This is a second-hand bike.|这是一辆二手自行车。
+self-service|This is a self-service shop.|这是一家自助商店。
+situated|The hotel is situated near the sea.|酒店位于海边。
+sleeveless|She wore a sleeveless dress.|她穿了一件无袖连衣裙。
+slow|This bus is very slow.|这辆公交车很慢。
+so-so|The film was so-so.|这部电影一般般。
+sore|I have a sore throat.|我喉咙痛。
+sour|This apple tastes sour.|这个苹果尝起来很酸。
+south|We live in the south.|我们住在南部。
+southeast|The town is in the southeast.|这个镇在东南部。
+southwest|The town is in the southwest.|这个镇在西南部。
+sparkling|Would you like sparkling water?|你想要气泡水吗？
+spicy|This food is too spicy for me.|这食物对我来说太辣了。
+steep|The hill is very steep.|这座山很陡。
+still|Please keep still for the photo.|拍照时请保持不动。
+sure|Are you sure this is the right road?|你确定这是正确的路吗？
+sweet|This cake is sweet.|这个蛋糕很甜。
+tasty|The soup is tasty.|这汤很好喝。
+temporary|This is our temporary classroom.|这是我们的临时教室。
+tiring|It was a tiring day.|那是令人疲惫的一天。
+total|The total price is ten pounds.|总价是十英镑。
+underground|The car park is underground.|停车场在地下。
+underwater|We took photos underwater.|我们在水下拍照。
+uninterested|He seemed uninterested in the game.|他似乎对游戏不感兴趣。
+well|I do not feel well today.|我今天感觉不舒服。
+well known|The story is well known.|这个故事很有名。
+well-known|She is a well-known writer.|她是一位著名作家。
+west|The sun sets in the west.|太阳在西方落下。
+willing|I am willing to help you.|我愿意帮助你。
+worth|This book is worth five pounds.|这本书值五英镑。
+working|These are my working hours.|这是我的工作时间。
+ages|The children are of different ages.|孩子们的年龄各不相同。
+air conditioning|This room has air conditioning.|这个房间有空调。
+air force|He wants to join the air force.|他想加入空军。
+at|I am at school.|我在学校。
+can|I can swim.|我会游泳。
+dr|Dr Green works at our school.|格林医生在我们学校工作。
+mr|Mr Green is our teacher.|格林先生是我们的老师。
+mrs|Mrs Green is at the door.|格林太太在门口。
+ms|Ms Green is our teacher.|格林女士是我们的老师。
+miss|Miss Green is our teacher.|格林小姐是我们的老师。
+million|A million is a very big number.|一百万是一个很大的数。
+zero|The score is zero.|得分是零。
+sex|Write your name, age and sex on the form.|在表格上填写你的名字、年龄和性别。
+spite|We went out in spite of the rain.|尽管下雨了，我们还是出去了。
+police|The police can help us.|警察能帮助我们。
+cattle|The cattle are in the field.|牛群在田野里。
+goods|This shop sells goods from many countries.|这家商店出售来自许多国家的商品。
+people|There are ten people in the room.|房间里有十个人。
+solve|Let's solve this problem together.|我们一起解决这个问题吧。
+for sale|This bike is for sale.|这辆自行车正在出售。
+dial up|We used to dial up to go online.|我们以前拨号上网。

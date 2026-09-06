@@ -1,0 +1,393 @@
+# word|example|example_zh
+accept|Please accept this small gift.|请收下这份小礼物。
+accompany|May I accompany you to the shop?|我可以陪你去商店吗？
+achieve|We can achieve our goal together.|我们能一起实现目标。
+add|Add some milk to the tea.|往茶里加一些牛奶。
+admire|I admire her beautiful pictures.|我欣赏她美丽的画作。
+admit|I admit that I was wrong.|我承认我错了。
+advertise|We advertise our shop online.|我们在网上为商店做广告。
+advise|I advise you to take a coat.|我建议你带一件外套。
+affect|Rain can affect our plans.|下雨会影响我们的计划。
+afford|We can afford a small car.|我们买得起一辆小汽车。
+allow|They allow us to use the room.|他们允许我们使用这个房间。
+announce|They will announce the result today.|他们今天会宣布结果。
+annoy|Loud sounds annoy me.|很大的声音让我心烦。
+apologise|I want to apologise for being late.|我想为迟到道歉。
+appear|Stars appear in the night sky.|星星出现在夜空中。
+apply|I want to apply for this job.|我想申请这份工作。
+approach|Please approach the dog slowly.|请慢慢靠近那只狗。
+approve|My parents approve of the plan.|我的父母赞成这个计划。
+argue|Please do not argue about the game.|请不要为这场游戏争吵。
+arrange|We will arrange a time to meet.|我们会安排一个见面时间。
+arrest|The police arrest the thief.|警察逮捕了小偷。
+ask|May I ask a question?|我可以问个问题吗？
+assist|Can you assist me with this box?|你能帮我搬这个箱子吗？
+attach|Attach your name to the bag.|把你的名字贴在包上。
+attempt|We will attempt to climb the hill.|我们会尝试爬上这座山。
+attend|I attend a music class every week.|我每周参加一节音乐课。
+attract|Bright flowers attract bees.|鲜艳的花吸引蜜蜂。
+avoid|We leave early to avoid the crowds.|我们早出发以避开人群。
+babysit|Can you babysit my little sister?|你能照看一下我的小妹妹吗？
+base on|What can we base our answer on?|我们的回答可以基于什么？
+be|I want to be a teacher.|我想成为一名老师。
+be over|The game will be over soon.|比赛很快就要结束了。
+beat|Our team can beat their team.|我们队能打败他们队。
+become|I want to become a doctor.|我想成为一名医生。
+begin|We begin the lesson at nine.|我们九点开始上课。
+behave|Please behave well in class.|请在课堂上表现好一些。
+belong|These books belong to the school.|这些书属于学校。
+bite|Be careful. The dog may bite.|小心。这只狗可能会咬人。
+blame|Do not blame him for the mistake.|不要因为这个错误责怪他。
+bleed|A small cut can bleed.|一个小伤口也会流血。
+blow|Blow out the candles, please.|请吹灭蜡烛。
+bother|Sorry to bother you.|抱歉打扰你。
+break down|Old cars can break down.|旧汽车可能会出故障。
+break in|The police stopped a man trying to break in.|警察拦住了一个想闯入的人。
+break up|We break up for the holidays on Friday.|我们周五开始放假。
+breathe|Breathe slowly and try to relax.|慢慢呼吸，试着放松。
+bring back|Please bring back my book tomorrow.|请明天把我的书带回来。
+bring up|She wants to bring up her children here.|她想在这里养育孩子。
+burn|Do not touch the fire. It can burn you.|不要碰火。它会烧伤你。
+bury|The dog likes to bury its toys.|这只狗喜欢把玩具埋起来。
+buy|I want to buy a new pen.|我想买一支新笔。
+call for|The teacher will call for help.|老师会呼叫求助。
+call in|I will call in to see you tomorrow.|我明天会顺道来看你。
+cancel|We must cancel the game because of rain.|由于下雨，我们必须取消比赛。
+cannot|I cannot find my bag.|我找不到我的包。
+carry on|Please carry on with your work.|请继续你的工作。
+carry out|We will carry out the plan together.|我们会一起执行计划。
+catch|Can you catch this ball?|你能接住这个球吗？
+celebrate|We celebrate her birthday today.|我们今天庆祝她的生日。
+cheat|It is wrong to cheat in a test.|考试作弊是不对的。
+check in|We can check in at the hotel now.|我们现在可以在酒店办理入住。
+check out|We must check out before ten.|我们必须在十点前退房。
+chill out|Let's chill out after school.|放学后我们放松一下吧。
+clap|Please clap for the children.|请为孩子们鼓掌。
+climb|Can you climb this hill?|你能爬上这座山吗？
+come back|Please come back before six.|请在六点前回来。
+come on|Come on! We can win!|加油！我们能赢！
+communicate|We communicate by phone.|我们通过电话交流。
+compare|Compare the two pictures.|比较这两幅图片。
+compete|Ten teams will compete in the game.|十支队伍会参加比赛。
+complain|Do not just complain. Try to help.|不要只是抱怨。试着帮忙。
+concentrate|I need a quiet room to concentrate.|我需要安静的房间来集中注意力。
+confirm|Please confirm the time by email.|请通过邮件确认时间。
+connect|This road can connect the two towns.|这条路能连接两个镇。
+consider|Please consider my idea.|请考虑一下我的想法。
+consist|The team will consist of six children.|这个队将由六个孩子组成。
+contain|These boxes contain books.|这些箱子里装着书。
+continue|We will continue the game tomorrow.|我们明天会继续比赛。
+convince|Can you convince him to join us?|你能说服他加入我们吗？
+could|Could you open the door, please?|请你打开门好吗？
+count|Count the apples in the bag.|数一数袋子里的苹果。
+create|Let's create a story together.|我们一起创作一个故事吧。
+cut up|Cut up the fruit for the children.|把水果切碎给孩子们吃。
+deal|Please deal the cards.|请发牌。
+deal with|We can deal with this problem together.|我们能一起处理这个问题。
+declare|I declare the game open.|我宣布比赛开始。
+decorate|We decorate the room with flowers.|我们用花装饰房间。
+defend|The dog will defend its home.|这只狗会保卫它的家。
+delete|Please delete the old file.|请删除旧文件。
+deliver|They deliver food to our home.|他们把食物送到我们家。
+depart|The train will depart at ten.|火车将在十点出发。
+depend|Children depend on their parents.|孩子们依靠父母。
+deserve|You deserve a rest after your work.|工作后你应该休息一下。
+destroy|Fire can destroy a house.|火会毁掉一座房子。
+develop|Children develop new skills at school.|孩子们在学校发展新技能。
+dial|Please dial this number.|请拨这个号码。
+dial up|You need a modem to dial up.|拨号上网需要调制解调器。
+die|Plants can die without water.|植物缺水可能会死。
+dig|We dig a hole for the tree.|我们挖一个坑种树。
+disappoint|I do not want to disappoint my team.|我不想让我的队伍失望。
+discuss|Let's discuss the plan after lunch.|午饭后我们讨论计划吧。
+disturb|Please do not disturb her. She is reading.|请不要打扰她。她正在读书。
+dive|Can you dive into the pool?|你能跳入泳池吗？
+divide|Divide the cake into six pieces.|把蛋糕分成六块。
+do|What do you do after school?|放学后你做什么？
+drag|Do not drag the bag on the floor.|不要在地上拖着包。
+draw|I can draw a cat.|我会画一只猫。
+earn|She wants to earn money for a bike.|她想挣钱买一辆自行车。
+eat|We eat lunch at school.|我们在学校吃午饭。
+employ|They employ ten people in the shop.|他们在店里雇了十个人。
+encourage|We encourage her to try again.|我们鼓励她再试一次。
+end up|We may end up staying at home.|我们最后可能会待在家里。
+enquire|I want to enquire about the price.|我想询问价格。
+enter|Please enter the room quietly.|请安静地走进房间。
+entertain|The children entertain us with a song.|孩子们唱歌让我们开心。
+escape|The cat can escape through the window.|这只猫能从窗户逃出去。
+exchange|Let's exchange phone numbers.|我们交换电话号码吧。
+exist|Do these animals still exist?|这些动物还存在吗？
+expect|We expect her to arrive at nine.|我们预计她九点到达。
+explode|The balloon may explode in the heat.|气球受热可能会爆裂。
+explore|Let's explore the town on foot.|我们步行探索这个镇吧。
+fail|Do not worry if you fail the first time.|如果第一次失败了，不要担心。
+fall over|Be careful, or you may fall over.|小心，不然你可能摔倒。
+fancy|Do you fancy a cup of tea?|你想喝杯茶吗？
+fasten|Please fasten your seat belt.|请系好安全带。
+fax|Can you fax the letter to me?|你能把这封信传真给我吗？
+feed|Please feed the cat.|请喂猫。
+feel|I feel happy today.|我今天感到开心。
+feel like|I feel like going for a walk.|我想去散步。
+fetch|Can you fetch a glass of water?|你能去拿杯水来吗？
+fill|Fill the bottle with water.|把瓶子装满水。
+fill in|Please fill in your name here.|请在这里填写名字。
+fill up|We need to fill up the car.|我们需要给汽车加满油。
+find|Can you find my red pen?|你能找到我的红笔吗？
+find out|Let's find out the answer.|我们找出答案吧。
+fix|Can you fix my bike?|你能修好我的自行车吗？
+float|The leaf can float on water.|这片叶子能浮在水上。
+flow|Rivers flow into the sea.|河流流入大海。
+fold|Fold the paper in half.|把纸对折。
+follow|Follow me to the classroom.|跟我去教室。
+forgive|Please forgive me for being late.|请原谅我迟到。
+freeze|Water can freeze on a cold night.|在寒冷的夜晚，水会结冰。
+frighten|Loud sounds can frighten the cat.|很大的声音会吓到猫。
+fry|We can fry the eggs for breakfast.|我们可以煎鸡蛋当早餐。
+gain|We gain new skills at school.|我们在学校学会新技能。
+get along|The two children get along well.|这两个孩子相处得很好。
+get back|What time will you get back?|你几点会回来？
+get down|Please get down from the table.|请从桌子上下来。
+get dressed|I get dressed before breakfast.|我在早饭前穿好衣服。
+get fit|I run every day to get fit.|我每天跑步来强健身体。
+get in|Please get in the car.|请上车。
+get married|They plan to get married next year.|他们计划明年结婚。
+get off|We get off the bus here.|我们在这里下公交车。
+get on|Let's get on the bus.|我们上公交车吧。
+get rid of|We need to get rid of these old boxes.|我们需要处理掉这些旧箱子。
+get up|I get up at seven.|我七点起床。
+give|Please give me the book.|请把书给我。
+give back|Please give back my pen.|请把笔还给我。
+give in|Do not give in. Try again.|不要放弃。再试一次。
+give out|Please give out the books.|请分发这些书。
+give up|Do not give up. You can do it.|不要放弃。你能做到。
+give way|Cars must give way to people here.|汽车在这里必须让行人先走。
+glance|Glance at the clock before you leave.|离开前看一眼时钟。
+go for|Let's go for a walk.|我们去散步吧。
+go off|My alarm will go off at seven.|我的闹钟会在七点响。
+go on|Please go on with your story.|请继续讲你的故事。
+go out|We can go out after lunch.|我们午饭后可以出去。
+grab|Grab your coat. We are late.|赶快拿上外套。我们迟到了。
+greet|We greet our teacher every morning.|我们每天早上向老师问好。
+grow|Plants need water to grow.|植物需要水才能生长。
+grow up|I want to be a teacher when I grow up.|我长大后想当老师。
+hand in|Please hand in your work now.|请现在交作业。
+hand out|Can you hand out the paper?|你能分发一下纸张吗？
+handle|Can you handle this problem?|你能处理这个问题吗？
+hang|Hang your coat by the door.|把外套挂在门旁。
+hang out|We hang out in the park after school.|放学后我们在公园玩。
+hang up|Please do not hang up the phone.|请不要挂电话。
+hate|I hate waiting in the rain.|我讨厌在雨里等候。
+have|I have a new bike.|我有一辆新自行车。
+have got to|I have got to go home now.|我现在必须回家。
+have to|We have to wear shoes here.|我们在这里必须穿鞋。
+hear|Can you hear the birds?|你能听到鸟叫吗？
+hide|Do not hide the ball.|不要把球藏起来。
+hike|We hike in the hills at weekends.|我们周末在山间徒步。
+hire|We can hire a bike for the day.|我们可以租一辆自行车用一天。
+hitchhike|They used to hitchhike to save money.|他们以前常搭便车来省钱。
+hold|Please hold my bag for a minute.|请帮我拿一下包。
+hold up|Hold up your picture so we can see it.|举起你的画，让我们能看见。
+hunt|Cats sometimes hunt at night.|猫有时会在夜间捕猎。
+identify|Can you identify this bird?|你能认出这种鸟吗？
+ignore|Do not ignore the warning.|不要忽视警告。
+imagine|Imagine a house by the sea.|想象一座海边的房子。
+include|Please include your name in the email.|请在邮件中写上你的名字。
+increase|We need to increase the number of chairs.|我们需要增加椅子的数量。
+inform|Please inform us if you cannot come.|如果你不能来，请告诉我们。
+injure|You could injure your foot if you fall.|如果摔倒，你可能伤到脚。
+insist|I insist on paying for the meal.|我坚持为这顿饭付钱。
+inspire|Her stories inspire me to write.|她的故事激励我写作。
+install|Can you install this app on my phone?|你能把这个应用装到我的手机上吗？
+intend|I intend to read more this year.|我打算今年多读书。
+interrupt|Please do not interrupt the teacher.|请不要打断老师。
+introduce|Let me introduce my friend.|让我介绍一下我的朋友。
+invent|I want to invent a new game.|我想发明一个新游戏。
+involve|This job will involve some travel.|这份工作会需要一些出行。
+jog|I jog in the park every morning.|我每天早上在公园慢跑。
+join|Would you like to join our game?|你想加入我们的游戏吗？
+keep|You can keep this picture.|你可以留着这幅画。
+keep in|We have to keep the cat in today.|今天我们不得不把猫留在屋里。
+keep on|Keep on trying. You will get better.|继续尝试。你会做得更好。
+keep up|Walk slowly so I can keep up.|慢些走，好让我跟上。
+kill|Too much heat can kill a plant.|过热会使植物死亡。
+knit|My grandma can knit a hat.|我的奶奶会织帽子。
+knock|Please knock before you enter.|进来前请敲门。
+knock down|The wind can knock down a tree.|风会刮倒树木。
+know|Do you know her name?|你知道她的名字吗？
+lay|Please lay the books on the table.|请把书放在桌子上。
+lead|This path will lead us to the lake.|这条小路会带我们到湖边。
+let|Let me help you.|让我帮你。
+lie down|You should lie down and rest.|你应该躺下休息。
+listen|Listen to the teacher, please.|请听老师说。
+locate|Can you locate our town on the map?|你能在地图上找到我们的镇吗？
+look after|I look after my little brother.|我照顾我的小弟弟。
+look at|Look at the bird in the tree.|看树上的那只鸟。
+look for|Let's look for your bag.|我们找找你的包吧。
+look forward to|I look forward to seeing you.|我期待见到你。
+look like|What does your new bag look like?|你的新包是什么样的？
+look out|Look out! A car is coming.|小心！一辆车过来了。
+look up|You can look up the word in a dictionary.|你可以在词典里查这个词。
+lose|Be careful not to lose your key.|小心别丢了钥匙。
+made of|This chair is made of wood.|这把椅子是木头做的。
+make|Let's make a cake.|我们做蛋糕吧。
+make sure|Make sure the door is closed.|确认门关好了。
+manage|Can you manage to finish today?|你能设法今天完成吗？
+marry|They plan to marry next spring.|他们计划明年春天结婚。
+may|You may sit here.|你可以坐在这里。
+mean|What does this word mean?|这个词是什么意思？
+measure|Let's measure the length of the table.|我们量一量桌子的长度吧。
+meet|Let's meet at the school gate.|我们在校门口见吧。
+mend|Can you mend my old shirt?|你能修补我的旧衬衫吗？
+mention|Please mention the time in your message.|请在消息里提到时间。
+might|It might rain today.|今天可能会下雨。
+mix|Mix the milk and eggs.|把牛奶和鸡蛋混合。
+move|Please move your chair.|请移动你的椅子。
+multiply|Multiply two by three to get six.|二乘三得六。
+must|You must stop at a red light.|遇到红灯你必须停下。
+operate|Can you operate this machine?|你会操作这台机器吗？
+organise|Let's organise a class party.|我们组织一个班级聚会吧。
+ought|We ought to help our friends.|我们应该帮助朋友。
+owe|I owe you five pounds.|我欠你五英镑。
+pack|Pack your bag before you go.|走之前收拾好你的包。
+pass on|Please pass on this message.|请转达这个消息。
+pause|Let's pause the video here.|我们在这里暂停视频吧。
+peel|Please peel the banana.|请剥香蕉。
+perform|We will perform a short play.|我们会表演一个短剧。
+permit|They permit us to take photos.|他们允许我们拍照。
+persuade|Can you persuade him to try again?|你能说服他再试一次吗？
+pick|You can pick a book from this shelf.|你可以从这个书架上挑一本书。
+pick up|Please pick up the pen.|请捡起那支笔。
+postpone|We have to postpone the trip.|我们不得不推迟旅行。
+pour|Pour the water into the cup.|把水倒进杯子里。
+pray|They pray for peace.|他们为和平祈祷。
+predict|Can you predict the end of the story?|你能预测故事的结尾吗？
+press|Press the green button.|按绿色按钮。
+prevent|A coat can prevent you from getting cold.|外套能防止你受凉。
+print|Please print this page.|请打印这一页。
+produce|These trees produce sweet fruit.|这些树结出甜美的果实。
+promote|The new park will promote health.|这个新公园会促进健康。
+pronounce|How do you pronounce this word?|这个词怎么发音？
+protect|This hat can protect you from the sun.|这顶帽子能为你遮阳。
+prove|Can you prove that your answer is right?|你能证明你的答案是对的吗？
+provide|The school will provide lunch.|学校会提供午餐。
+publish|They plan to publish her story.|他们计划出版她的故事。
+pull|Pull the door to open it.|拉门就能打开。
+punish|They will punish people who break the rules.|他们会处罚违反规则的人。
+put|Put your bag on the chair.|把包放在椅子上。
+put away|Please put away your toys.|请把玩具收好。
+put down|Put down the heavy box.|放下那个重箱子。
+put off|We must put off the game until Friday.|我们必须把比赛推迟到周五。
+put on|Put on your coat.|穿上你的外套。
+put out|Please put out the fire.|请把火熄灭。
+put through|Can you put me through to the office?|你能帮我接通办公室吗？
+put up|Let's put up the tent.|我们把帐篷搭起来吧。
+quit|He wants to quit his job.|他想辞职。
+raise|Raise your hand if you know.|如果知道，请举手。
+reach|We can reach the town before dark.|我们能在天黑前到达镇上。
+react|How did she react to the news?|她对这个消息有什么反应？
+realise|I realise that I need more practice.|我意识到我需要更多练习。
+recognise|I recognise her voice.|我认出了她的声音。
+recommend|Can you recommend a good book?|你能推荐一本好书吗？
+recover|I hope you recover soon.|我希望你很快恢复健康。
+reduce|We can reduce the amount of rubbish.|我们可以减少垃圾的数量。
+refuse|It is fine to refuse more food politely.|礼貌地谢绝更多食物是可以的。
+register|Please register for the class today.|请今天报名这个课程。
+relax|Let's relax after the game.|比赛后我们放松一下吧。
+rely|You can rely on me.|你可以依靠我。
+remain|Please remain in your seat.|请留在你的座位上。
+remind|Please remind me to bring my book.|请提醒我带书。
+remove|Please remove your shoes.|请脱鞋。
+replace|We need to replace the old chair.|我们需要更换旧椅子。
+require|Some games require a lot of space.|有些游戏需要很大空间。
+retire|She plans to retire next year.|她计划明年退休。
+revise|I need to revise for my test.|我需要为考试复习。
+ring back|I will ring back after lunch.|我午饭后会回电话。
+ring up|Let's ring up our friend.|我们给朋友打电话吧。
+rise|Warm air can rise.|暖空气会上升。
+rob|It is a crime to rob a bank.|抢银行是犯罪。
+run out|Our food may run out soon.|我们的食物可能很快就用完了。
+save|I save money for a new bike.|我攒钱买新自行车。
+say|What did you say?|你刚才说什么？
+see|I can see a bird.|我能看见一只鸟。
+seem|You seem happy today.|你今天看起来很开心。
+select|Please select one answer.|请选择一个答案。
+sell|They sell fruit here.|他们在这里卖水果。
+send|Please send me a message.|请给我发条消息。
+serve|They serve lunch at twelve.|他们十二点供应午餐。
+set off|We set off early in the morning.|我们一大早出发。
+set out|We set out on our trip at nine.|我们九点启程旅行。
+set up|Let's set up a new club.|我们成立一个新俱乐部吧。
+sew|Can you sew a button on my shirt?|你能帮我在衬衫上缝颗扣子吗？
+shake|Shake the bottle before you open it.|打开瓶子前摇一摇。
+shall|Shall we go for a walk?|我们去散步好吗？
+shave|He needs to shave before work.|他上班前需要刮胡子。
+shine|The stars shine at night.|星星在夜晚闪耀。
+shoot|The player is ready to shoot.|那位队员准备射门。
+should|You should drink some water.|你应该喝些水。
+show up|Will he show up on time?|他会准时出现吗？
+sign up|You can sign up for the club today.|你今天可以报名加入俱乐部。
+sit|Please sit on this chair.|请坐这把椅子。
+sit down|Please sit down.|请坐下。
+slip|Be careful not to slip on the wet floor.|小心别在湿地板上滑倒。
+speak|Can you speak English?|你会说英语吗？
+spend|I spend an hour reading every day.|我每天花一小时读书。
+spill|Do not spill the milk.|不要把牛奶洒了。
+split up|Let's split up into two teams.|我们分成两队吧。
+spoil|Rain could spoil our picnic.|下雨可能会破坏我们的野餐。
+stand|Please stand by the door.|请站在门旁。
+stay behind|I will stay behind to help.|我会留下来帮忙。
+steal|It is wrong to steal.|偷东西是不对的。
+step forward|Please step forward when I call your name.|我叫到你的名字时请向前一步。
+stir|Stir the soup with a spoon.|用勺子搅一搅汤。
+subtract|Subtract two from five to get three.|五减二得三。
+succeed|Keep trying and you can succeed.|继续尝试，你会成功。
+suffer|Some people suffer from back pain.|有些人受背痛困扰。
+sunbathe|They like to sunbathe by the pool.|他们喜欢在泳池边晒太阳。
+supply|This farm will supply milk to the school.|这个农场会给学校供应牛奶。
+suppose|I suppose you are right.|我想你是对的。
+surf|He can surf on big waves.|他能在大浪上冲浪。
+surround|Tall trees surround the house.|大树围绕着房子。
+take|Please take this book home.|请把这本书带回家。
+take away|Please take away the empty plates.|请把空盘子拿走。
+take care of|I take care of our cat.|我照顾我们家的猫。
+take off|The plane will take off soon.|飞机很快就要起飞。
+take part|Would you like to take part in the game?|你想参加这个游戏吗？
+take place|The show will take place on Friday.|表演将在周五举行。
+take up|I want to take up swimming.|我想开始学游泳。
+tell|Tell me about your day.|跟我说说你今天的事。
+think|What do you think of this book?|你觉得这本书怎么样？
+throw|Throw the ball to me.|把球扔给我。
+throw away|Do not throw away this box.|不要扔掉这个箱子。
+tidy up|Let's tidy up the room.|我们收拾房间吧。
+touch|Please do not touch the hot cup.|请不要碰那个热杯子。
+transfer|Can you transfer the photos to my phone?|你能把照片传到我手机上吗？
+translate|Can you translate this word into Chinese?|你能把这个词译成中文吗？
+trust|You can trust your friend.|你可以信任你的朋友。
+try|Let's try a new game.|我们试试一个新游戏吧。
+try on|May I try on this coat?|我可以试穿这件外套吗？
+turn down|Please turn down the music.|请把音乐调小声。
+turn into|This room can turn into a classroom.|这个房间可以变成教室。
+turn off|Please turn off the light.|请关灯。
+turn on|Please turn on the light.|请开灯。
+turn up|Please turn up the sound.|请把声音调大。
+underline|Underline the word you do not know.|在你不认识的词下面画线。
+understand|I understand the question.|我明白这个问题。
+undress|The baby needs help to undress.|这个婴儿脱衣服需要帮助。
+unpack|Let's unpack our bags.|我们把包里的东西拿出来吧。
+used to|I used to live near the sea.|我以前住在海边。
+wake|Please do not wake the baby.|请不要叫醒婴儿。
+wake up|I wake up at seven.|我七点醒来。
+want|I want a glass of water.|我想要一杯水。
+warn|Please warn us if the road is closed.|如果道路关闭，请提醒我们。
+wash up|We wash up after dinner.|我们晚饭后洗碗。
+wear|I wear a hat in the sun.|我在阳光下戴帽子。
+wear out|These shoes will wear out soon.|这些鞋很快就要穿坏了。
+weigh|Can you weigh this bag?|你能称一下这个包吗？
+will|I will help you tomorrow.|我明天会帮你。
+win|We want to win the game.|我们想赢得比赛。
+wonder|I wonder where she is.|我想知道她在哪里。
+work out|Can you work out the answer?|你能算出答案吗？
+would|I would like some water.|我想要一些水。
+wrap|Wrap the gift in blue paper.|用蓝纸包好礼物。
+write down|Please write down your name.|请写下你的名字。
+solve|Let's solve this problem together.|我们一起解决这个问题吧。

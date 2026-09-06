@@ -1,0 +1,110 @@
+airline|air:空中|line:路线
+airmail|air:航空|mail:邮件
+armchair|arm:手臂；扶手|chair:椅子
+backache|back:背部|ache:疼痛
+backpack|back:背|pack:包
+baseball|base:垒|ball:球
+bathroom|bath:洗澡|room:房间
+bathtub|bath:洗澡|tub:浴盆
+bedtime|bed:床|time:时间
+blackboard|black:黑色的|board:板
+bookcase|book:书|case:箱柜
+bookmark|book:书|mark:标记
+bookshelf|book:书|shelf:架子
+bookshop|book:书|shop:商店
+bookstore|book:书|store:商店
+boyfriend|boy:男孩|friend:朋友
+bus stop|bus:公共汽车|stop:停靠点
+bus station|bus:公共汽车|station:车站
+campsite|camp:露营|site:地点
+car park|car:汽车|park:停车
+carpet|carpet:地毯
+cashpoint|cash:现金|point:地点；机器点位
+classmate|class:班级|mate:伙伴
+classroom|class:班级|room:房间
+countryside|country:乡村|side:地区
+crossroads|cross:交叉|roads:道路
+daylight|day:白天|light:光
+dishwasher|dish:餐具|washer:清洗器
+doorbell|door:门|bell:铃
+download|down:向下（到本机）|load:装载
+earache|ear:耳朵|ache:疼痛
+earring|ear:耳朵|ring:环
+firefighter|fire:火|fighter:战斗者
+firework|fire:火|work:制作品
+girlfriend|girl:女孩|friend:朋友
+greenhouse|green:绿色的植物|house:房屋
+guesthouse|guest:客人|house:房屋
+haircut|hair:头发|cut:剪
+hairdresser|hair:头发|dresser:整理者
+handwriting|hand:手|writing:书写
+headache|head:头|ache:疼痛
+headphone|head:头|phone:传声器
+headphones|head:头|phones:传声器
+homework|home:家|work:功课
+hometown|home:家|town:城镇
+housework|house:房屋|work:劳动
+ice cream|ice:冰|cream:奶油
+ice skating|ice:冰|skating:滑行
+key ring|key:钥匙|ring:环
+keyboard|key:按键|board:板
+living room|living:起居|room:房间
+mobile phone|mobile:移动的|phone:电话
+motorbike|motor:发动机|bike:自行车
+motorcycle|motor:发动机|cycle:自行车
+motorway|motor:机动车|way:道路
+network|net:网|work:系统
+newspaper|news:新闻|paper:纸
+nightlife|night:夜晚|life:生活
+notebook|note:笔记|book:本子
+online|on:接通|line:线路
+outdoor|out:外面|door:门
+outdoors|out:外面|doors:门
+police car|police:警察|car:汽车
+policeman|police:警察|man:男子
+policewoman|police:警察|woman:女子
+postcard|post:邮政|card:卡片
+postman|post:邮政|man:人
+raincoat|rain:雨|coat:外套
+rainforest|rain:雨|forest:森林
+rainwater|rain:雨|water:水
+schoolchild|school:学校|child:孩子
+schoolwork|school:学校|work:功课
+seafood|sea:海|food:食物
+seaside|sea:海|side:边
+seat belt|seat:座位|belt:带子
+skateboard|skate:滑行|board:板
+snowball|snow:雪|ball:球
+snowboard|snow:雪|board:板
+snowman|snow:雪|man:人
+software|soft:软的（比喻）|ware:制品
+sports centre|sports:运动|centre:中心
+stomach ache|stomach:胃|ache:疼痛
+sunglasses|sun:太阳|glasses:眼镜
+sunlight|sun:太阳|light:光
+sunrise|sun:太阳|rise:升起
+sunset|sun:太阳|set:落下
+sunshine|sun:太阳|shine:照耀
+surfboard|surf:冲浪|board:板
+sweatshirt|sweat:汗|shirt:衬衫
+swimsuit|swim:游泳|suit:套装
+table tennis|table:桌子|tennis:网球
+teamwork|team:团队|work:工作
+textbook|text:文本|book:书
+thunderstorm|thunder:雷|storm:暴风雨
+timetable|time:时间|table:表格
+toothache|tooth:牙|ache:疼痛
+toothbrush|tooth:牙|brush:刷子
+toothpaste|tooth:牙|paste:膏
+upload|up:向上（到服务器）|load:装载
+video game|video:影像|game:游戏
+wallpaper|wall:墙|paper:纸
+waterfall|water:水|fall:落下
+waterproof|water:水|proof:防……的
+website|web:网络|site:站点
+weekday|week:周|day:天
+weekend|week:周|end:末尾
+wheelchair|wheel:轮子|chair:椅子
+whiteboard|white:白色的|board:板
+wildlife|wild:野生的|life:生物
+windsurfing|wind:风|surfing:冲浪

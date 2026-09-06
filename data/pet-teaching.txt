@@ -1,0 +1,61 @@
+#构词与进阶表达
+achievement|n.|成就|Finishing the race is an achievement.|跑完全程是一项成就。
+agreement|n.|协议；一致意见|We finally reach an agreement.|我们终于达成了一致。
+development|n.|发展|The town's development brings new jobs.|城镇的发展带来了新工作。
+improvement|n.|进步；改善|Your writing shows a clear improvement.|你的写作有了明显进步。
+entertainment|n.|娱乐|The hotel offers evening entertainment.|这家酒店提供晚间娱乐活动。
+equipment|n.|设备；装备|Check your camping equipment before the trip.|旅行前检查你的露营装备。
+encouragement|n.|鼓励|Her encouragement helps me try again.|她的鼓励让我再次尝试。
+movement|n.|移动；运动|I notice a movement behind the curtain.|我注意到窗帘后面有动静。
+appointment|n.|预约|I have an appointment with my teacher.|我和老师有预约。
+arrangement|n.|安排|Our travel arrangement is simple.|我们的旅行安排很简单。
+happiness|n.|幸福；快乐|Music brings her happiness.|音乐带给她快乐。
+kindness|n.|善良；善意|Thank you for your kindness.|谢谢你的好意。
+sadness|n.|悲伤|I could hear sadness in her voice.|我能听出她声音中的悲伤。
+fitness|n.|健康；体能|Swimming can improve your fitness.|游泳可以改善体能。
+weakness|n.|弱点|Spelling is my main weakness.|拼写是我主要的弱项。
+illness|n.|疾病|He returns to school after his illness.|他病后回到了学校。
+careless|adj.|粗心的|A careless mistake changes the result.|一个粗心的错误改变了结果。
+homeless|adj.|无家可归的|The centre helps homeless people.|这个中心帮助无家可归的人。
+hopeless|adj.|没有希望的|The situation is difficult but not hopeless.|情况困难但并非没有希望。
+useless|adj.|无用的|A broken lock is useless.|坏了的锁没有用。
+harmless|adj.|无害的|This small insect is harmless.|这只小昆虫无害。
+successful|adj.|成功的|Our school fair was successful.|我们学校的集市很成功。
+powerful|adj.|强大的|That machine has a powerful engine.|那台机器有强劲的发动机。
+peaceful|adj.|宁静的|The village is peaceful at night.|村庄在夜晚很宁静。
+colourful|adj.|色彩丰富的|The market is full of colourful fruit.|集市里满是色彩缤纷的水果。
+painful|adj.|疼痛的|My knee is still painful.|我的膝盖仍然疼。
+reliable|adj.|可靠的|Our neighbour is a reliable friend.|我们的邻居是个可靠的朋友。
+comfortable|adj.|舒适的|This chair is comfortable enough to sleep in.|这把椅子舒服得可以在上面睡觉。
+suitable|adj.|合适的|These shoes are suitable for walking.|这双鞋适合走路。
+reasonable|adj.|合理的|The shop sells books at reasonable prices.|这家店以合理的价格售书。
+valuable|adj.|宝贵的；值钱的|Your advice is valuable to me.|你的建议对我很宝贵。
+enjoyable|adj.|令人愉快的|We had an enjoyable afternoon.|我们度过了愉快的下午。
+uncomfortable|adj.|不舒服的|The wet clothes make me uncomfortable.|湿衣服让我不舒服。
+unfriendly|adj.|不友好的|He seems unfriendly at first.|一开始他显得不友好。
+unfortunately|adv.|不幸地|Unfortunately, the bus has already left.|不幸的是公共汽车已经开走了。
+unusual|adj.|不寻常的|We hear an unusual sound outside.|我们听见外面有奇怪的声音。
+disagree|v.|不同意|We disagree about the best way to travel.|我们对最佳旅行方式意见不同。
+dislike|v.; n.|不喜欢|I dislike getting up in the dark.|我不喜欢天没亮就起床。
+disappear|v.|消失|The boat disappears into the fog.|小船消失在雾中。
+dishonest|adj.|不诚实的|It is dishonest to copy another answer.|抄别人的答案是不诚实的。
+rebuild|v.|重建|They plan to rebuild the bridge.|他们计划重建这座桥。
+recycle|v.|回收利用|We recycle paper at school.|我们在学校回收纸张。
+rewrite|v.|重写|Please rewrite the last sentence.|请重写最后一句话。
+international|adj.|国际的|We visit an international food festival.|我们参观国际美食节。
+musician|n.|音乐家|The musician plays three instruments.|这位音乐家会演奏三种乐器。
+scientist|n.|科学家|The scientist studies how birds fly.|这位科学家研究鸟如何飞行。
+journalist|n.|记者|The journalist asks about our project.|记者询问我们的项目。
+inventor|n.|发明家|The inventor shows us a new machine.|发明家向我们展示一台新机器。
+decision|n.|决定|We make the decision together.|我们一起做决定。
+education|n.|教育|Good education helps children grow.|良好的教育帮助孩子成长。
+environment|n.|环境|We want to protect the environment.|我们想保护环境。
+experience|n.|经历；经验|The trip is a new experience for me.|这次旅行对我来说是新的经历。
+responsible|adj.|负责任的；负责的|I am responsible for feeding the cat.|我负责喂猫。
+opportunity|n.|机会|The visit is an opportunity to learn.|这次参观是一次学习机会。
+confident|adj.|有信心的|I feel confident after practising.|练习后我感到有信心。
+curious|adj.|好奇的|The curious child asks many questions.|好奇的孩子问了许多问题。
+patient|adj.|耐心的|Please be patient with the younger children.|请对年幼的孩子有耐心。
+independent|adj.|独立的|She becomes more independent each year.|她一年比一年独立。
+creative|adj.|有创造力的|The students find a creative solution.|学生们找到了有创意的解决方法。
+ambitious|adj.|有抱负的|He is ambitious and works hard.|他有抱负而且努力。

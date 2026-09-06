@@ -1,0 +1,154 @@
+# Reviewed concrete contexts replacing over-general adjective and noun templates.
+available|This seat is available.|这个座位可以使用。
+average|The average age is ten.|平均年龄是十岁。
+basic|We are learning basic English.|我们正在学习基础英语。
+blank|Please write on the blank page.|请在空白页上写。
+bottom|The key is at the bottom of the bag.|钥匙在包的底部。
+broad|The river is broad.|这条河很宽。
+clear|Your answer is clear.|你的回答很清楚。
+cosy|The small room is cosy.|这个小房间很舒适。
+crowded|The bus is crowded.|公交车很拥挤。
+double|Two is double one.|二是一的两倍。
+extra|We need an extra chair.|我们需要多一把椅子。
+frozen|The lake is frozen.|湖结冰了。
+great|You did a great job.|你做得很棒。
+high|The wall is high.|这堵墙很高。
+loose|This shirt is too loose.|这件衬衫太宽松了。
+loud|The music is loud.|音乐声很大。
+low|The table is low.|这张桌子很低。
+medium|I need a medium size.|我需要中等尺寸。
+pale|She looks pale today.|她今天看起来脸色苍白。
+poor|The family in the story is poor.|故事中的那家人很穷。
+pure|This is pure water.|这是纯净水。
+raw|Do not eat raw chicken.|不要吃生鸡肉。
+recycled|We use recycled paper.|我们使用再生纸。
+sharp|Be careful. The knife is sharp.|小心。这把刀很锋利。
+silk|This scarf is made of silk.|这条围巾是丝绸做的。
+spare|Do you have a spare pen?|你有一支多余的笔吗？
+thick|This book is thick.|这本书很厚。
+tight|These shoes are too tight.|这双鞋太紧了。
+tiny|The box is tiny.|这个盒子很小。
+top|The book is on top of the box.|书在箱子顶部。
+waste|Do not waste water.|不要浪费水。
+whole|We spent the whole day together.|我们一起度过了一整天。
+written|Please give me a written answer.|请给我一个书面答案。
+annual|We have an annual school party.|我们每年有一次学校聚会。
+central|The park is in the central part of town.|公园在镇的中心地区。
+eastern|We live in the eastern part of town.|我们住在镇的东部。
+final|This is the final question.|这是最后一个问题。
+following|Please read the following sentence.|请读下面这个句子。
+furthest|Choose the seat furthest from the door.|选离门最远的座位。
+last|This is the last page.|这是最后一页。
+latest|Have you heard the latest news?|你听到最新消息了吗？
+main|This is the main road.|这是主路。
+next|We will read the next page tomorrow.|我们明天会读下一页。
+northern|We live in the northern part of town.|我们住在镇的北部。
+previous|Look at the previous page.|看看前一页。
+southern|We live in the southern part of town.|我们住在镇的南部。
+upper|The books are on the upper shelf.|书在上层架子上。
+western|We live in the western part of town.|我们住在镇的西部。
+regular|We take regular breaks.|我们定时休息。
+acceptable|Your answer is acceptable.|你的回答可以接受。
+accurate|This clock is accurate.|这只钟很准。
+advanced|She is in an advanced English class.|她在高级英语班上课。
+antique|This is an antique clock.|这是一只古董钟。
+attractive|The garden is attractive.|这个花园很迷人。
+challenging|This game is challenging.|这个游戏很有挑战性。
+classical|I enjoy classical music.|我喜欢古典音乐。
+comic|We watched a comic play.|我们看了一部喜剧。
+complicated|The rules are complicated.|规则很复杂。
+cultural|Food is part of our cultural life.|食物是我们文化生活的一部分。
+disappointing|The result was disappointing.|这个结果令人失望。
+disgusting|The old food smells disgusting.|变质的食物气味令人恶心。
+embarrassing|It was an embarrassing mistake.|那是一个令人尴尬的错误。
+essential|Water is essential for life.|水是生命必需的。
+extraordinary|That was an extraordinary game.|那是一场非同寻常的比赛。
+fair|The rules are fair.|这些规则是公平的。
+familiar|This song sounds familiar.|这首歌听起来很熟悉。
+fashionable|She wears fashionable clothes.|她穿时髦的衣服。
+financial|The family needs financial help.|这个家庭需要经济上的帮助。
+folk|We listened to a folk song.|我们听了一首民歌。
+foreign|I want to learn a foreign language.|我想学一门外语。
+general|I have a general idea of the plan.|我大致了解这个计划。
+historical|We visited a historical museum.|我们参观了一座历史博物馆。
+horror|I do not like horror films.|我不喜欢恐怖电影。
+individual|Each child has an individual desk.|每个孩子都有单独的课桌。
+lively|The children are lively.|孩子们很活泼。
+local|We buy food at the local shop.|我们在当地商店买食物。
+modern|This is a modern building.|这是一座现代建筑。
+musical|She has a musical instrument.|她有一件乐器。
+national|We visited a national park.|我们参观了一个国家公园。
+natural|This lake is a natural home for birds.|这个湖是鸟类的天然家园。
+necessary|A coat is necessary today.|今天需要穿外套。
+negative|She gave a negative answer.|她给出了否定的回答。
+normal|It is normal to feel tired after a game.|比赛后感到疲惫是正常的。
+obvious|The answer is obvious.|答案很明显。
+ordinary|It was an ordinary day.|那是普通的一天。
+original|This is her original drawing.|这是她的原创画作。
+outdoor|Football is an outdoor game.|足球是一种户外运动。
+particular|Are you looking for a particular book?|你在找某一本特定的书吗？
+personal|Please keep your personal things here.|请把个人物品放在这里。
+political|We read about a political leader.|我们读到了一位政治领袖。
+positive|Try to stay positive.|尽量保持积极。
+private|This is a private garden.|这是私人花园。
+public|This is a public park.|这是公共公园。
+rare|This bird is rare.|这种鸟很少见。
+realistic|Her drawing is realistic.|她的画很逼真。
+recent|This is a recent photo.|这是最近拍的照片。
+relaxing|Reading is relaxing.|阅读让人放松。
+satisfactory|The result was satisfactory.|结果令人满意。
+scientific|We did a scientific test.|我们做了一项科学测试。
+secondary|My sister goes to secondary school.|我姐姐上中学。
+secret|Please keep this a secret.|请保守这个秘密。
+silent|The room was silent.|房间里很安静。
+similar|Our bags are similar.|我们的包很相似。
+social|We enjoy social activities.|我们喜欢社交活动。
+spectacular|The view is spectacular.|景色壮观。
+stressful|It was a stressful day.|那是充满压力的一天。
+sudden|There was a sudden noise.|突然传来一阵声响。
+traditional|This is a traditional game.|这是一个传统游戏。
+typical|This is a typical school day.|这是平常的一个上学日。
+unbelievable|The news was unbelievable.|这个消息令人难以置信。
+unexpected|We had an unexpected guest.|我们来了一位意想不到的客人。
+unfair|The rule is unfair.|这条规则不公平。
+unhealthy|Too much sugar is unhealthy.|过量的糖不利于健康。
+unimportant|This small mistake is unimportant.|这个小错误不重要。
+unknown|The answer is still unknown.|答案仍然未知。
+unlikely|It is unlikely to rain today.|今天不太可能下雨。
+unlucky|We were unlucky to miss the bus.|我们没赶上公交车，真不走运。
+unnecessary|This extra bag is unnecessary.|这个多带的包不需要。
+unpleasant|The smell is unpleasant.|这个气味不好闻。
+urgent|This message is urgent.|这条消息很紧急。
+various|We tried various games.|我们试了各种游戏。
+worse|The weather is worse today.|今天天气更糟。
+worst|That was the worst part of the trip.|那是旅程中最糟的部分。
+wrong|This answer is wrong.|这个答案不对。
+flour|Put the flour in a bowl.|把面粉放在碗里。
+oil|Put a little oil in the pan.|往锅里放一点油。
+ingredient|Milk is an ingredient in this cake.|牛奶是这个蛋糕的一种原料。
+herb|We add this herb to the soup.|我们往汤里加这种香草。
+mushroom|This mushroom tastes good.|这个蘑菇味道很好。
+apartment|We live in a small apartment.|我们住在一套小公寓里。
+pool|We can swim in this pool.|我们可以在这个泳池里游泳。
+mall|We buy clothes at the mall.|我们在购物中心买衣服。
+gallery|We saw pictures in the gallery.|我们在美术馆看了画。
+palace|The king lives in a palace.|国王住在宫殿里。
+parking|Parking is free here.|这里停车免费。
+country|China is a large country.|中国是一个大国。
+world|We learn about the world at school.|我们在学校了解世界。
+crew|The ship has a crew of ten.|这艘船有十名船员。
+century|A century is one hundred years.|一个世纪是一百年。
+act|You must act now.|你现在必须行动。
+bunch|She gave me a bunch of flowers.|她给了我一束花。
+amount|We need a small amount of water.|我们需要少量水。
+few|There are few chairs in the room.|房间里的椅子很少。
+clear|Your answer is clear.|你的回答很清楚。
+person|There is one person in the room.|房间里有一个人。
+youth|He tells stories about his youth.|他讲自己年轻时的故事。
+willing|I am willing to help.|我愿意帮忙。
+pence|This pen costs fifty pence.|这支笔要五十便士。
+crossing|Use the crossing to cross the road.|从人行横道过马路。
+chest of drawers|My socks are in the chest of drawers.|我的袜子在抽屉柜里。
+web page|Open the school web page.|打开学校的网页。
+handlebars|Keep both hands on the handlebars.|双手握住车把。
+clock|The clock on the wall says five.|墙上的钟指向五点。
