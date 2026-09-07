@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "id": "photographer-v1",
+  "word": "photographer",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "摄影师",
+  "created_at": "2026-09-07",
+  "provenance": {
+    "text": "AI-assisted original classroom writing, reviewed for KET and primary-school readability",
+    "images": "Built-in imagegen; exact prompts and SHA-256 stored per image"
+  },
+  "teaching": {
+    "meaning_zh": "摄影师",
+    "pos": "n.",
+    "example": "The photographer takes our photo.",
+    "example_zh": "摄影师给我们拍照。",
+    "extra_examples": [
+      {
+        "en": "I want to be a photographer.",
+        "zh": "我想成为一名摄影师。"
+      }
+    ],
+    "story_title": "照片里多了一位朋友",
+    "story_zh": "摄影师举起相机：“看这里！”Ben 和 Mia 笑了。咔嚓！照片里还有靴子上的小蜥蜴。这次 photographer 拍下了一位意想不到的小客人。",
+    "student_prompt": "假装你是 photographer，用手比作相机，请同伴摆一个动作。",
+    "cloze": "The __________ takes our photo.",
+    "cloze_answer": "photographer",
+    "cloze_zh": "摄影师给我们拍照。",
+    "cloze_type": "context",
+    "parts": [
+      {
+        "text": "photograph",
+        "kind": "root",
+        "meaning": "照片；拍照",
+        "story": "photo- 可以追溯到希腊语里表示“光”的成分。光让相机留下画面。先记 photograph（照片／拍照），再加表示人的 -er，就得到 photographer（摄影师）。",
+        "source": "https://www.merriam-webster.com/dictionary/photo-"
+      },
+      {
+        "text": "-er",
+        "kind": "suffix",
+        "meaning": "做某事的人或物",
+        "story": "表示做事者的 -er 有古英语 -ere 等历史来源。sing（唱歌）加 -er 成为 singer（歌手）。photograph（拍照）加 -er 成为 photographer（摄影师）。先找到动作，再问“谁来做”。",
+        "source": "https://www.merriam-webster.com/dictionary/-er"
+      }
+    ],
+    "note": "本课图片和首句对应常用词义；故事为原创记忆情景。"
+  },
+  "images": [
+    {
+      "id": "photographer-v1",
+      "file": "words/photographer/v1/4313c515f9c97f685dd7617d25946438d07df68d2dd0612fadce2670b2eeca98.png",
+      "sha256": "4313c515f9c97f685dd7617d25946438d07df68d2dd0612fadce2670b2eeca98",
+      "width": 1536,
+      "height": 1024,
+      "alt": "一名摄影师拿着相机给农场门口的两个孩子拍照",
+      "caption": "The photographer takes our photo.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: classroom vocabulary/story photograph for Chinese primary-school KET learners, shown large on a projector.\nStyle: beautiful, playful, predominantly photorealistic natural editorial educational photography; bright daylight, rich but plausible colors, realistic skin, real materials, correct anatomy, warm humour. Uncluttered composition with a strong main subject and high visual quality. Landscape 3:2 composition, ideally 1536 by 1024.\nGlobal constraints: no embedded text, letters, captions, logos, watermarks, UI labels, decorative frames, cartoons or clipart. All children are fictional, ordinary fully clothed, in benign learning scenes. Natural plausible scale and perspective. Friendly safe environments.\nRecurring characters whenever named: Mia is a fictional East Asian girl about 9, black ponytail, coral-red light jacket, pale-blue jeans, white trainers. Ben is a fictional East Asian boy about 9, short black hair. In farm-story scenes Ben wears a child-size blue two-piece formal suit, white shirt, yellow rain boots. A recurring lizard is a small vivid green realistic garden lizard, long tail, four anatomically correct legs, not a chameleon.\n\nPrimary request: an adult woman professional photographer in the foreground, holding a visible realistic camera correctly to her eye and taking a photo of Mia and Ben at a sunny wooden farm gate. Camera and photographer are the strongest main subject, with proper two-handed camera handling, index finger on shutter and left hand supporting lens. Mia and Ben stand together happily in the midground facing her camera, Ben in his blue suit, white shirt and yellow boots; Mia in coral-red jacket. A natural cheerful school-visit scene. View at a clear side angle that shows the photographer, real camera silhouette and the children. No brands or visible camera lettering.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-07",
+      "reference_asset_ids": []
+    }
+  ]
+}

@@ -5,6 +5,32 @@ export type Part = {
   story?: string;
   source?: string;
 };
+export type TeachingImage = {
+  id: string;
+  src: string;
+  sha256: string;
+  alt: string;
+  caption: string;
+};
+export type StoryScene = {
+  id: string;
+  title: string;
+  en: string;
+  zh: string;
+  image?: TeachingImage | null;
+  question: { en: string; zh: string; answer_en: string; answer_zh: string };
+};
+export type LessonMaterials = {
+  bundle_id?: string;
+  bundle_digest?: string;
+  story?: {
+    title_en: string;
+    title_zh: string;
+    level: string;
+    covered_words: string[];
+    scenes: StoryScene[];
+  };
+};
 export type Word = {
   id: number;
   word: string;
@@ -34,6 +60,8 @@ export type Word = {
   accepted: string[];
   seen?: boolean;
   reserved?: boolean;
+  asset_id?: string;
+  images?: TeachingImage[];
 };
 export type Group = Part & {
   id: string;
@@ -77,6 +105,8 @@ export type Lesson = {
   level: string;
   version_id: string;
   version_number: number;
+  course_code: string;
+  materials: LessonMaterials;
   status: string;
   is_current: boolean;
   read_only: boolean;
@@ -122,7 +152,7 @@ export type State = {
 };
 export const defaults: Config = {
   level: 'KET',
-  count: 30,
+  count: 10,
   difficulty_min: 1,
   difficulty_max: 3,
   exclude_basic: true,

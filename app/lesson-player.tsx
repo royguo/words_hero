@@ -21,6 +21,7 @@ import {
   StickyNote,
 } from 'lucide-react';
 import { TemporaryNotes, type NotePosition } from './temporary-notes';
+import { TeachingPicture, TargetText } from './teaching-picture';
 import {
   Dialog,
   DialogContent,
@@ -98,9 +99,17 @@ export function LessonPlayer({
   const wasFull = useRef(false);
   const slide = slides[index] || slides[0];
   const chapter = chapters.find((c) => c.id === slide.chapter)!;
-  const canReveal = ['word', 'root', 'root-quiz', 'practice'].includes(
-    slide.kind,
+  const visibleChapters = chapters.filter((c) =>
+    slides.some((s) => s.chapter === c.id),
   );
+  const canReveal = [
+    'word',
+    'root',
+    'root-quiz',
+    'practice',
+    'scene',
+    'scene-question',
+  ].includes(slide.kind);
   const close = useCallback(() => {
     if (document.fullscreenElement)
       void document.exitFullscreen().catch(() => {});
@@ -264,7 +273,7 @@ export function LessonPlayer({
             <i>/</i>第 {lesson.number} 课
           </span>
           <nav className="player-chapters" aria-label="讲课章节">
-            {chapters.map((c) => (
+            {visibleChapters.map((c) => (
               <button
                 key={c.id}
                 className={c.id === slide.chapter ? 'active' : ''}
@@ -429,7 +438,7 @@ export function LessonPlayer({
               </button>
             </header>
             <div className="outline-scroll">
-              {chapters.map((c) => (
+              {visibleChapters.map((c) => (
                 <section key={c.id}>
                   <h3>
                     {c.number} / {c.label}
@@ -483,6 +492,8 @@ function slideLabel(slide: Slide) {
     practice: '单词挑战',
     finish: '回顾',
     whole: '场景联想',
+    scene: '图文故事',
+    'scene-question': '故事互动',
   }[slide.kind];
 }
 function SlideBody({
@@ -562,7 +573,7 @@ function SlideBody({
             onClick={onReveal}
           >
             {revealed ? (
-              w.meaning_zh
+              slide.meaning || w.meaning_zh
             ) : (
               <>
                 <Eye /> 读一读，猜猜它的意思
@@ -577,6 +588,7 @@ function SlideBody({
               </span>
             ))}
           </div>
+          <TeachingPicture images={w.images} className="word-picture" />
         </div>
         <div className="slide-examples">
           {examples.map((e, i) => (
@@ -604,6 +616,84 @@ function SlideBody({
             </article>
           ))}
           <p className="slide-question">这个词，让你想到了什么？</p>
+        </div>
+      </div>
+    );
+  }
+  if (
+    (slide.kind === 'scene' || slide.kind === 'scene-question') &&
+    slide.scene
+  ) {
+    const scene = slide.scene;
+    const question = slide.kind === 'scene-question';
+    return (
+      <div className={'scene-spread ' + (question ? 'scene-challenge' : '')}>
+        <div className="scene-visual">
+          <p className="slide-kicker">{lesson.materials.story?.title_en}</p>
+          <TeachingPicture
+            images={scene.image ? [scene.image] : []}
+            className="scene-picture"
+          />
+          <p className="scene-caption">
+            {lesson.materials.story?.title_zh} · {slide.part} / {slide.total}
+          </p>
+        </div>
+        <div className="scene-copy">
+          <p className="slide-kicker">
+            {question ? 'YOUR TURN · 轮到你了' : 'STORY TIME · 一起读故事'}
+          </p>
+          <h1>{question ? '你发现了吗？' : scene.title}</h1>
+          {question ? (
+            <>
+              <p className="scene-english" lang="en">
+                {scene.question.en}
+              </p>
+              <p className="scene-chinese">{scene.question.zh}</p>
+              <button
+                className={'scene-answer ' + (revealed ? 'revealed' : '')}
+                onClick={onReveal}
+              >
+                {revealed ? (
+                  <>
+                    <span lang="en">{scene.question.answer_en}</span>
+                    <small>{scene.question.answer_zh}</small>
+                  </>
+                ) : (
+                  <>
+                    <Eye /> 先说一说，再揭晓
+                  </>
+                )}
+              </button>
+            </>
+          ) : (
+            <>
+              <div className="scene-reading" aria-live="polite">
+                {revealed ? (
+                  <p className="scene-chinese full-translation">{scene.zh}</p>
+                ) : (
+                  <p className="scene-english" lang="en">
+                    <TargetText
+                      text={scene.en}
+                      words={lesson.materials.story?.covered_words || []}
+                    />
+                  </p>
+                )}
+              </div>
+              <div className="scene-tools">
+                <button onClick={onReveal}>
+                  <Eye size={24} />
+                  {revealed ? '返回英文' : '看看中文'}
+                </button>
+                <button onClick={() => onSpeak(scene.en)}>
+                  <Volume2 size={24} />
+                  听故事
+                </button>
+              </div>
+              <p className="scene-read-hint">
+                分角色读一读，试着把画面演出来。
+              </p>
+            </>
+          )}
         </div>
       </div>
     );

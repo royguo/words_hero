@@ -9,10 +9,12 @@ from contextlib import contextmanager
 from datetime import datetime, timedelta
 from pathlib import Path
 from content import ROOT, LEVELS, UserError, dump, integer, now, parse_csv, root_groups, normalize_answer
+from assets import ASSET_ROOT, enrich_words, load_bundle
 
 class Store:
-    def __init__(self, path, seed=ROOT/"data"/"ket.csv"):
+    def __init__(self, path, seed=ROOT/"data"/"ket.csv", asset_root=ASSET_ROOT):
         self.path=Path(path)
+        self.asset_root=Path(asset_root)
         self.path.parent.mkdir(parents=True,exist_ok=True)
         with self.connect() as db:
             db.executescript("""
@@ -47,8 +49,11 @@ CREATE TABLE IF NOT EXISTS lesson_drafts(id TEXT PRIMARY KEY,class_id TEXT NOT N
  words TEXT NOT NULL,revision INTEGER NOT NULL DEFAULT 1,created_at TEXT NOT NULL,updated_at TEXT NOT NULL,
  committed_version TEXT REFERENCES versions(id));
 CREATE INDEX IF NOT EXISTS idx_draft_context ON lesson_drafts(class_id,lesson_id,created_at);
+CREATE TABLE IF NOT EXISTS course_codes(code TEXT PRIMARY KEY,version_id TEXT NOT NULL UNIQUE REFERENCES versions(id));
 """)
             db.execute("INSERT OR IGNORE INTO meta VALUES('schema_version','2')")
+            for row in db.execute("SELECT id FROM versions WHERE id NOT IN (SELECT version_id FROM course_codes)").fetchall():
+                self.assign_course_code(db,row["id"])
             seeds=[seed] if seed else []
             if seed and seed.name=="ket.csv": seeds.append(seed.with_name("pet.csv"))
             for source in seeds:
@@ -75,6 +80,47 @@ CREATE INDEX IF NOT EXISTS idx_draft_context ON lesson_drafts(class_id,lesson_id
             db.execute("""INSERT INTO vocabulary(level,word,difficulty,is_basic,data) VALUES(?,?,?,?,?)
 ON CONFLICT(level,word) DO UPDATE SET difficulty=excluded.difficulty,is_basic=excluded.is_basic,data=excluded.data""",
                 (w["level"],w["word"],w["difficulty"],int(w["is_basic"]),dump(w)))
+
+    def assign_course_code(self,db,vid):
+        while True:
+            code="WG-"+uuid.uuid4().hex[:10].upper()
+            if not db.execute("SELECT 1 FROM course_codes WHERE code=?",(code,)).fetchone():
+                db.execute("INSERT INTO course_codes VALUES(?,?)",(code,vid))
+                return code
+
+    def course_by_code(self,db,code):
+        row=db.execute("SELECT version_id FROM course_codes WHERE code=?",(str(code).strip().upper(),)).fetchone()
+        if not row:raise UserError("课程编号不存在，请从课程页面复制完整编号",404)
+        return self.by_version(db,row["version_id"])
+
+    def material_brief(self,code):
+        with self.connect() as db:
+            lesson=self.course_by_code(db,code)
+        return {"schema_version":1,"course_code":lesson["course_code"],"level":lesson["level"],
+            "word_order":[w["word"] for w in lesson["words"]],
+            "instructions":"阅读 AGENTS.md，保持词单和顺序不变。复用适合词义的素材，为每个词准备写实图片；故事每页一个情节，放在构词之后。制作后 validate，再 apply 到此编号。",
+            "words":[{k:w.get(k) for k in ("word","level","meaning_zh","pos","difficulty","example","example_zh","extra_examples","parts","asset_id")} for w in lesson["words"]],
+            "materials":lesson["materials"]}
+
+    def attach_materials(self,code,bundle_id):
+        with self.connect() as db:
+            db.execute("BEGIN IMMEDIATE")
+            previous=self.course_by_code(db,code)
+            if previous["read_only"]:raise UserError("只能给当前未结课版本绑定素材，历史版本保持原样",409)
+            words,materials=load_bundle(bundle_id,previous["words"],self.asset_root)
+            if previous["materials"]==materials and previous["words"]==words:return previous
+            vid=uuid.uuid4().hex
+            number=db.execute("SELECT MAX(number)+1 FROM versions WHERE lesson_id=?",(previous["id"],)).fetchone()[0]
+            config=dict(previous["config"],materials=materials,root_groups=root_groups(words))
+            config.pop("presentation_slide",None)
+            db.execute("INSERT INTO versions(id,lesson_id,number,level,mode,created_at,config,notes) VALUES(?,?,?,?,?,?,?,?)",
+                (vid,previous["id"],number,previous["level"],previous["mode"],now(),dump(config),previous["notes"]))
+            self.assign_course_code(db,vid)
+            for i,w in enumerate(words):
+                snapshot={k:v for k,v in w.items() if k not in ("id","result")}
+                db.execute("INSERT INTO version_words(version_id,word_id,position,snapshot,result) VALUES(?,?,?,?,?)",(vid,w["id"],i,dump(snapshot),w["result"]))
+            db.execute("UPDATE lessons SET active_version=? WHERE id=?",(vid,previous["id"]))
+            return self.lesson(previous["id"],db=db)
 
     def create_class(self,data):
         name=data.get("name","")
@@ -125,6 +171,8 @@ FROM lessons l JOIN versions v ON v.id=l.active_version WHERE l.class_id=? ORDER
         lesson["is_current"]=version_id==row["active_version"]
         lesson["read_only"]=not lesson["is_current"] or v["status"]=="completed"
         lesson["config"]=json.loads(v["config"])
+        lesson["course_code"]=db.execute("SELECT code FROM course_codes WHERE version_id=?",(version_id,)).fetchone()[0]
+        lesson["materials"]=lesson["config"].get("materials",{})
         lesson["draft"]=json.loads(v["draft"])
         lesson["words"]=[dict(json.loads(w["snapshot"]),id=w["word_id"],result=w["result"]) for w in
             db.execute("SELECT * FROM version_words WHERE version_id=? ORDER BY position",(version_id,))]
@@ -177,7 +225,7 @@ WHERE v.level=? AND v.difficulty BETWEEN ? AND ? AND NOT EXISTS(
         return previous
 
     def select_words(self,db,cid,data,lid=None,previous=None):
-        count=integer(data.get("count",30),5,100,"每课词数")
+        count=integer(data.get("count",10),5,100,"每课词数")
         title=data.get("title","")
         if not isinstance(title,str) or len(title)>80:raise UserError("课程名称最多 80 个字符")
         rows=self.candidates(db,cid,data,lid)
@@ -209,20 +257,22 @@ WHERE v.level=? AND v.difficulty BETWEEN ? AND ? AND NOT EXISTS(
                 (lid,cid,number,data.get("title","").strip() or "第 %02d 课"%number,now()))
         vid=uuid.uuid4().hex
         vn=db.execute("SELECT COALESCE(MAX(number),0)+1 FROM versions WHERE lesson_id=?",(lid,)).fetchone()[0]
-        config={k:data.get(k,v) for k,v in {"level":"KET","count":30,"difficulty_min":1,"difficulty_max":3,"exclude_basic":True,"exclude_seen":True,"mode":"new"}.items()}
+        config={k:data.get(k,v) for k,v in {"level":"KET","count":10,"difficulty_min":1,"difficulty_max":3,"exclude_basic":True,"exclude_seen":True,"mode":"new"}.items()}
         forward=[r["id"] for r in chosen];reverse=list(forward)
         rng.shuffle(forward);rng.shuffle(reverse)
         config["worksheet_order"]={"english_to_chinese":forward,"chinese_to_english":reverse}
         content=[json.loads(r["data"]) for r in chosen]
+        if not confirmed:content=enrich_words(content,self.asset_root)
         config["root_groups"]=root_groups(content)
         config["materials_version"]="2026-09-v2"
         levels=[level for level in LEVELS if any(w["level"]==level for w in content)]
-        config.update(new_count=sum(not r["due_at"] for r in chosen),review_count=sum(bool(r["due_at"]) for r in chosen),requested_count=data.get("count",30),source_levels=levels,selection_confirmed=confirmed)
+        config.update(new_count=sum(not r["due_at"] for r in chosen),review_count=sum(bool(r["due_at"]) for r in chosen),requested_count=data.get("count",10),source_levels=levels,selection_confirmed=confirmed)
         if confirmed:config["count"]=len(chosen)
         db.execute("INSERT INTO versions(id,lesson_id,number,level,mode,created_at,config) VALUES(?,?,?,?,?,?,?)",
             (vid,lid,vn," + ".join(levels),config["mode"],now(),dump(config)))
+        self.assign_course_code(db,vid)
         for i,r in enumerate(chosen):
-            db.execute("INSERT INTO version_words(version_id,word_id,position,snapshot) VALUES(?,?,?,?)",(vid,r["id"],i,r["data"]))
+            db.execute("INSERT INTO version_words(version_id,word_id,position,snapshot) VALUES(?,?,?,?)",(vid,r["id"],i,dump(content[i])))
         db.execute("UPDATE lessons SET active_version=? WHERE id=?",(vid,lid))
         return self.lesson(lid,db=db)
 
@@ -231,9 +281,9 @@ WHERE v.level=? AND v.difficulty BETWEEN ? AND ? AND NOT EXISTS(
             db.execute("BEGIN IMMEDIATE")
             previous=self.selection_target(db,cid,lid)
             chosen=self.select_words(db,cid,data,lid,previous)
-            words=[dict(json.loads(r["data"]),id=r["id"]) for r in chosen]
+            words=enrich_words([dict(json.loads(r["data"]),id=r["id"]) for r in chosen],self.asset_root)
             did=uuid.uuid4().hex
-            config={k:data.get(k,v) for k,v in {"level":"KET","count":30,"difficulty_min":1,"difficulty_max":3,"exclude_basic":True,"exclude_seen":True,"mode":"new"}.items()}
+            config={k:data.get(k,v) for k,v in {"level":"KET","count":10,"difficulty_min":1,"difficulty_max":3,"exclude_basic":True,"exclude_seen":True,"mode":"new"}.items()}
             db.execute("INSERT INTO lesson_drafts(id,class_id,lesson_id,base_version_id,title,config,words,created_at,updated_at) VALUES(?,?,?,?,?,?,?,?,?)",
                 (did,cid,lid,previous["version_id"] if previous else None,data.get("title","").strip(),dump(config),dump(words),now(),now()))
             return self.read_draft(db,did)
@@ -281,7 +331,7 @@ WHERE v.level=? AND v.difficulty BETWEEN ? AND ? AND NOT EXISTS(
                 if word is None:
                     row=db.execute("SELECT data FROM vocabulary WHERE id=?",(wid,)).fetchone()
                     if not row:raise UserError("所选单词已不在词库中，请重新搜索。")
-                    word=dict(json.loads(row[0]),id=wid)
+                    word=enrich_words([dict(json.loads(row[0]),id=wid)],self.asset_root)[0]
                 key=normalize_answer(word["word"])
                 if key in seen:raise UserError("同一英文单词在不同词库中也只需选择一次。")
                 seen.add(key);words.append(word)
@@ -327,7 +377,7 @@ ORDER BY CASE WHEN v.word=? COLLATE NOCASE THEN 0 ELSE 1 END,v.word,v.level LIMI
             lesson=self.by_version(db,vid)
             if lesson["read_only"]:raise UserError("此版本已归档，保留原来的课堂记录")
             if "stage" in data:
-                if data["stage"] not in ("preview","roots","practice","workbook"):raise UserError("课堂步骤不正确")
+                if data["stage"] not in ("preview","roots","scenes","practice","workbook"):raise UserError("课堂步骤不正确")
                 db.execute("UPDATE versions SET stage=? WHERE id=?",(data["stage"],vid))
             if "presentation_slide" in data:
                 sid=data["presentation_slide"]

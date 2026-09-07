@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "id": "afterwards-v1",
+  "word": "afterwards",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "然后；后来",
+  "created_at": "2026-09-07",
+  "provenance": {
+    "text": "AI-assisted original classroom writing, reviewed for KET and primary-school readability",
+    "images": "Built-in imagegen; exact prompts and SHA-256 stored per image"
+  },
+  "teaching": {
+    "meaning_zh": "然后；后来",
+    "pos": "adv.",
+    "example": "We eat lunch. Afterwards, we play.",
+    "example_zh": "我们吃午饭。然后，我们去玩。",
+    "extra_examples": [
+      {
+        "en": "We visit the farm. Afterwards, we go home.",
+        "zh": "我们参观农场。然后，我们回家。"
+      }
+    ],
+    "story_title": "先吃饭，再出发",
+    "story_zh": "Ben 先吃完午饭，再跑到草地上踢球。把两个画面排好：先吃饭，之后玩耍。Afterwards 像一座小桥，把前后两件事连起来。",
+    "student_prompt": "你放学后先做什么？再用 afterwards 说说接下来做什么。",
+    "cloze": "We eat lunch. __________, we play.",
+    "cloze_answer": "afterwards",
+    "cloze_zh": "我们吃午饭。然后，我们去玩。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "本课图片和首句对应常用词义；故事为原创记忆情景。"
+  },
+  "images": [
+    {
+      "id": "afterwards-v1",
+      "file": "words/afterwards/v1/4608fa4f86467b4cd758202db2eb818415d5fe8679511f3e0bbccc4f3a6e6069.png",
+      "sha256": "4608fa4f86467b4cd758202db2eb818415d5fe8679511f3e0bbccc4f3a6e6069",
+      "width": 1536,
+      "height": 1024,
+      "alt": "同一个男孩先吃午饭，然后在草地上踢足球的两个画面",
+      "caption": "We eat lunch. Afterwards, we play.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: classroom vocabulary/story photograph for Chinese primary-school KET learners, shown large on a projector.\nStyle: beautiful, playful, predominantly photorealistic natural editorial educational photography; bright daylight, rich but plausible colors, realistic skin, real materials, correct anatomy, warm humour. Uncluttered composition with a strong main subject and high visual quality. Landscape 3:2 composition, ideally 1536 by 1024.\nGlobal constraints: no embedded text, letters, captions, logos, watermarks, UI labels, decorative frames, cartoons or clipart. All children are fictional, ordinary fully clothed, in benign learning scenes. Natural plausible scale and perspective. Friendly safe environments.\nRecurring characters whenever named: Mia is a fictional East Asian girl about 9, black ponytail, coral-red light jacket, pale-blue jeans, white trainers. Ben is a fictional East Asian boy about 9, short black hair. In farm-story scenes Ben wears a child-size blue two-piece formal suit, white shirt, yellow rain boots. A recurring lizard is a small vivid green realistic garden lizard, long tail, four anatomically correct legs, not a chameleon.\n\nPrimary request: a clear before/afterwards sequence made of exactly two equal photographic panels side by side, separated only by a small clean white gutter. The SAME fictional East Asian boy about 9 with short black hair wears the same blue school jumper in both panels, in a sunny school environment. LEFT panel: the boy at a school picnic table finishing lunch, looking at his plate with a few remaining lunch pieces. RIGHT panel: later the same boy happily playing football with a soccer ball on the school grass. Each panel has one strong unmistakable action. No arrows, no words, no panel labels. Meaning to convey without rendering words: We eat lunch. Afterwards, we play.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-07",
+      "reference_asset_ids": []
+    }
+  ]
+}

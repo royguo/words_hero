@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "id": "song-v1",
+  "word": "song",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "歌；歌曲",
+  "created_at": "2026-09-07",
+  "provenance": {
+    "text": "AI-assisted original classroom writing, reviewed for KET and primary-school readability",
+    "images": "Built-in imagegen; exact prompts and SHA-256 stored per image"
+  },
+  "teaching": {
+    "meaning_zh": "歌；歌曲",
+    "pos": "n.",
+    "example": "We sing a song at school.",
+    "example_zh": "我们在学校唱一首歌。",
+    "extra_examples": [
+      {
+        "en": "Can you sing this song?",
+        "zh": "你会唱这首歌吗？"
+      }
+    ],
+    "story_title": "送给蜥蜴的一首歌",
+    "story_zh": "蜥蜴停在 Ben 的靴子上。Ben 轻轻唱起一首 song，Mia 也跟着唱。小蜥蜴一动不动，像一个安静的小听众。",
+    "student_prompt": "把 song 这个词放进你熟悉的旋律，轻轻唱出来。",
+    "cloze": "We sing a __________ at school.",
+    "cloze_answer": "song",
+    "cloze_zh": "我们在学校唱一首歌。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "本课图片和首句对应常用词义；故事为原创记忆情景。"
+  },
+  "images": [
+    {
+      "id": "song-v1",
+      "file": "words/song/v1/d707831e0c44cde09678ac8a5201375ed286d46859a0e1a34b7d3808cd0d4ccf.png",
+      "sha256": "d707831e0c44cde09678ac8a5201375ed286d46859a0e1a34b7d3808cd0d4ccf",
+      "width": 1536,
+      "height": 1024,
+      "alt": "孩子们唱歌，身边的大人弹着吉他",
+      "caption": "We sing a song at school.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: classroom vocabulary/story photograph for Chinese primary-school KET learners, shown large on a projector.\nStyle: beautiful, playful, predominantly photorealistic natural editorial educational photography; bright daylight, rich but plausible colors, realistic skin, real materials, correct anatomy, warm humour. Uncluttered composition with a strong main subject and high visual quality. Landscape 3:2 composition, ideally 1536 by 1024.\nGlobal constraints: no embedded text, letters, captions, logos, watermarks, UI labels, decorative frames, cartoons or clipart. All children are fictional, ordinary fully clothed, in benign learning scenes. Natural plausible scale and perspective. Friendly safe environments.\nRecurring characters whenever named: Mia is a fictional East Asian girl about 9, black ponytail, coral-red light jacket, pale-blue jeans, white trainers. Ben is a fictional East Asian boy about 9, short black hair. In farm-story scenes Ben wears a child-size blue two-piece formal suit, white shirt, yellow rain boots. A recurring lizard is a small vivid green realistic garden lizard, long tail, four anatomically correct legs, not a chameleon.\n\nPrimary request: Mia and Ben in a blue school jumper singing happily together with naturally open mouths and cheerful expressions. A friendly adult beside them plays a real acoustic guitar correctly in a sunny school music corner. The children are the main subjects and clearly singing, not shouting. Simple classroom music setting with uncluttered warm daylight. No music-note clipart, magical symbols, embedded text or notation. Real hands and realistic guitar.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-07",
+      "reference_asset_ids": []
+    }
+  ]
+}

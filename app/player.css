@@ -1359,3 +1359,167 @@
     display: none !important;
   }
 }
+
+/* Pictures keep their space even before a word has artwork. */
+.teaching-picture {
+  position: relative;
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  aspect-ratio: 3 / 2;
+}
+.teaching-picture img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.picture-controls {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #172b49e8;
+  color: white;
+  border-radius: 28px;
+  padding: 5px 10px;
+  font-size: 18px;
+}
+.picture-controls button {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  color: white;
+  border: 0;
+}
+.slide-word-layout {
+  gap: 48px;
+  grid-template-columns: 0.96fr 1.04fr;
+}
+.slide-word-main h1 {
+  font-size: 78px;
+  margin: 8px 0 12px;
+}
+.slide-word-main h1.long-word {
+  font-size: 60px;
+}
+.slide-word-main .slide-phonetic {
+  font-size: 24px;
+}
+.slide-word-main .slide-meaning {
+  font-size: 30px;
+  min-height: 72px;
+  padding: 12px 18px;
+  margin: 14px 0;
+}
+.slide-word-main .slide-parts {
+  gap: 10px;
+}
+.slide-word-main .slide-parts > span {
+  font-size: 25px;
+  padding-bottom: 3px;
+  gap: 8px;
+}
+.word-picture {
+  height: 245px;
+  width: 100%;
+  margin-top: 18px;
+}
+.scene-spread {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.06fr 1fr;
+  gap: 46px;
+  align-items: center;
+}
+.scene-visual {
+  min-width: 0;
+}
+.scene-picture {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  margin: 20px 0 14px;
+}
+.scene-caption {
+  color: #6b7992;
+  font-size: 23px;
+}
+.scene-copy {
+  min-width: 0;
+}
+.scene-copy h1 {
+  font-size: 48px;
+  letter-spacing: -0.8px;
+  line-height: 1.2;
+  margin: 16px 0 26px;
+}
+.scene-english {
+  font-size: 35px;
+  line-height: 1.55;
+  font-weight: 520;
+}
+.scene-chinese {
+  font-size: 28px;
+  line-height: 1.7;
+  color: #52637d;
+  margin-top: 16px;
+}
+.scene-chinese.full-translation {
+  font-size: 34px;
+  color: #20365e;
+}
+.scene-reading {
+  min-height: 310px;
+}
+.scene-tools {
+  display: flex;
+  gap: 14px;
+  margin-top: 24px;
+}
+.scene-tools button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #eaf0ff;
+  border: 1px solid #cedaf4;
+  border-radius: 12px;
+  padding: 12px 18px;
+  color: #3155a3;
+  font-size: 24px;
+}
+.scene-read-hint {
+  color: #70809b;
+  font-size: 22px;
+  margin-top: 20px;
+}
+.scene-answer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px dashed #bbcae9;
+  border-radius: 16px;
+  padding: 24px;
+  background: #edf2fc;
+  color: #506c9f;
+  margin-top: 34px;
+  min-height: 150px;
+  font-size: 32px;
+  line-height: 1.4;
+}
+.scene-answer.revealed {
+  border-style: solid;
+  color: #2248a0;
+  animation: answer-in 0.2s ease;
+}
+.scene-answer small {
+  font-size: 26px;
+}

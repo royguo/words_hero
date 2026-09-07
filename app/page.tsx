@@ -791,20 +791,21 @@ function Setup({
                 required
               />
               <span>个</span>
-              {[20, 30, 50].map((n) => (
+              {[10, 20, 30, 50].map((n) => (
                 <button
                   className={
                     'count-preset ' + (config.count === n ? 'active' : '')
                   }
                   type="button"
                   key={n}
+                  aria-pressed={config.count === n}
                   onClick={() => change('count', n)}
                 >
                   {n}
                 </button>
               ))}
             </div>
-            <small>初次教学可从 20–30 词开始，根据课堂情况调整。</small>
+            <small>推荐每课 10 个单词，也可选择 20、30、50 个或自定义数量。</small>
           </div>
           <div className="field">
             本课目标

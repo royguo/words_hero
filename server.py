@@ -14,6 +14,7 @@ from pathlib import Path
 from urllib.parse import parse_qs,unquote,urlparse
 from content import ROOT,UserError,dump,integer,parse_csv,worksheet
 from storage import Store
+from assets import asset_path, IMAGE_TYPES
 
 class Handler(SimpleHTTPRequestHandler):
     def __init__(self,*args,store,static_dir,**kwargs):
@@ -79,6 +80,8 @@ class Handler(SimpleHTTPRequestHandler):
                 raise UserError("接口不存在",404)
             if p==["api","health"]:return self.respond({"app":"word-garden","version":2,"database_id":hashlib.sha256(str(self.store.path.resolve()).encode()).hexdigest()[:16]})
             if p==["api","state"]:return self.respond(self.store.state(q.get("class_id")))
+            if len(p)==4 and p[:2]==["api","courses"] and p[3]=="brief":
+                return self.respond(self.store.material_brief(p[2]),filename="word-garden-material-brief.json")
             if p==["api","drafts"]:return self.respond(self.store.latest_draft(q.get("class_id"),q.get("lesson_id")))
             if p==["api","vocabulary"]:
                 offset=integer(q.get("offset","0"),0,100000,"页码")
@@ -104,6 +107,12 @@ class Handler(SimpleHTTPRequestHandler):
                 with self.store.connect() as db:lesson=self.store.by_version(db,p[2])
                 return self.respond(worksheet(lesson,q.get("kind","classroom")),kind="text/html; charset=utf-8")
             if p and p[0]=="api":raise UserError("接口不存在",404)
+            if p and p[0]=="assets":
+                target=asset_path(unquote("/".join(p[1:])),self.store.asset_root)
+                if target.suffix.lower() not in IMAGE_TYPES:raise UserError("图片不存在",404)
+                body=target.read_bytes()
+                if hashlib.sha256(body).hexdigest()!=target.stem:raise UserError("图片完整性校验失败",409)
+                return self.respond(body,kind=IMAGE_TYPES[target.suffix.lower()])
             clean=Path(unquote(url.path).lstrip("/"))
             if any(x.startswith(".") for x in clean.parts) or ".." in clean.parts:raise UserError("文件不存在",404)
             target=(Path(self.directory)/clean).resolve()

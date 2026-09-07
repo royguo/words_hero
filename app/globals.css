@@ -1010,6 +1010,7 @@ small {
 }
 .count-line {
   display: flex;
+  flex-wrap: wrap;
   gap: 9px;
   align-items: center;
   font-weight: 400;
@@ -2695,5 +2696,118 @@ small {
 @media (prefers-reduced-motion: reduce) {
   .memory-story[open] p {
     animation: none;
+  }
+}
+
+.lesson-materials-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 12px 0 20px;
+  color: #64758f;
+  font-size: 14px;
+}
+.lesson-materials-bar > div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.lesson-materials-bar strong {
+  color: #304564;
+  letter-spacing: 1px;
+  font-family: ui-monospace, monospace;
+  font-size: 16px;
+}
+.material-copy {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px;
+  background: transparent;
+  border: 0;
+  color: #5270b6;
+}
+.lesson-materials-bar > a {
+  margin-left: auto;
+  text-decoration: none;
+}
+.story-workspace-heading {
+  padding: 24px 0;
+}
+.story-workspace-heading h2 {
+  font-size: 28px;
+  margin: 8px 0;
+}
+.story-workspace-heading > p {
+  color: #63758d;
+  font-size: 20px;
+}
+.story-preview-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 24px;
+  padding: 26px;
+  background: white;
+  border: 1px solid #e1e7f1;
+  border-radius: 20px;
+  align-items: start;
+}
+.story-preview-page h3 {
+  margin: 8px 0 18px;
+  font-size: 24px;
+}
+.story-preview-page p[lang='en'] {
+  font-size: 23px;
+  line-height: 1.65;
+}
+.story-preview-page mark {
+  background: #fce8b0;
+  padding: 0 2px;
+  border-radius: 3px;
+}
+.story-preview-page details {
+  margin-top: 16px;
+  font-size: 17px;
+  line-height: 1.75;
+  color: #586b88;
+}
+.story-preview-page summary {
+  cursor: pointer;
+  color: #3259b5;
+  font-size: 15px;
+}
+.story-preview-question {
+  border-top: 1px solid #e1e7f1;
+  margin-top: 20px;
+  padding-top: 20px;
+  line-height: 1.7;
+}
+.story-preview-question strong {
+  font-size: 19px;
+}
+.story-preview-question > p {
+  color: #63758d;
+}
+.story-empty {
+  text-align: center;
+  padding: 50px 24px;
+  color: #61728b;
+}
+.story-empty svg {
+  margin: 0 auto 18px;
+}
+.story-empty h2 {
+  margin-bottom: 12px;
+}
+.lesson-tab-list {
+  overflow-x: auto;
+}
+.lesson-tab-list > button {
+  white-space: nowrap;
+}
+@media (max-width: 1050px) {
+  .story-preview-page {
+    grid-template-columns: 1fr;
   }
 }

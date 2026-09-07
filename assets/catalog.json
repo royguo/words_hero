@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "words": {
+    "KET:afterwards": "words/afterwards/v1/manifest.json",
+    "PET:afterwards": "words/afterwards/v1/manifest.json",
+    "KET:farm": "words/farm/v1/manifest.json",
+    "PET:farm": "words/farm/v1/manifest.json",
+    "KET:online": "words/online/v1/manifest.json",
+    "PET:online": "words/online/v1/manifest.json",
+    "KET:matter": "words/matter/v1/manifest.json",
+    "PET:matter": "words/matter/v1/manifest.json",
+    "KET:suit": "words/suit/v1/manifest.json",
+    "PET:suit": "words/suit/v1/manifest.json",
+    "KET:song": "words/song/v1/manifest.json",
+    "PET:song": "words/song/v1/manifest.json",
+    "KET:classmate": "words/classmate/v1/manifest.json",
+    "PET:classmate": "words/classmate/v1/manifest.json",
+    "KET:photographer": "words/photographer/v1/manifest.json",
+    "PET:photographer": "words/photographer/v1/manifest.json",
+    "KET:lizard": "words/lizard/v1/manifest.json",
+    "PET:lizard": "words/lizard/v1/manifest.json",
+    "KET:stamp": "words/stamp/v1/manifest.json",
+    "PET:stamp": "words/stamp/v1/manifest.json"
+  }
+}

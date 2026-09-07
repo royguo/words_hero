@@ -34,6 +34,19 @@ with tempfile.TemporaryDirectory(prefix="word-garden-release-") as tmp:
         assets={p for p in re.findall(r'(?:src|href)="([^"]+)"',page) if p.startswith("/")}
         assert assets
         for asset in assets:request(asset)
+        # Canonical picture packs must work in the relocated, offline installation.
+        validation=subprocess.run([sys.executable,"scripts/lesson_assets.py","validate"],cwd=app,capture_output=True,text=True,timeout=20)
+        assert validation.returncode==0,validation.stderr
+        catalog=json.loads((app/"assets/catalog.json").read_text())
+        picture_files=set()
+        for relative in set(catalog["words"].values()):
+            entry=json.loads((app/"assets"/relative).read_text())
+            picture_files.update(i["file"] for i in entry["images"])
+        bundle=json.loads((app/"assets/lessons/farm-friend-v1/manifest.json").read_text())
+        picture_files.update(s["image"]["file"] for s in bundle["story"]["scenes"] if s["image"])
+        for image in picture_files:
+            raw=request("/assets/"+image)
+            assert raw.startswith(b"\x89PNG"),image
         cid=json.loads(request("/api/classes",{"name":"Release check"}))["id"]
         draft=json.loads(request("/api/preview",{"class_id":cid,"level":"PET","count":50}))
         assert not json.loads(request("/api/state?class_id="+cid))["lessons"]
@@ -51,8 +64,12 @@ with tempfile.TemporaryDirectory(prefix="word-garden-release-") as tmp:
         again=subprocess.run([sys.executable,"server.py","--port",str(port),"--no-browser"],
                              cwd=app,capture_output=True,text=True,timeout=10)
         assert again.returncode==0 and "already running" in again.stdout,again.stderr
+        demo=subprocess.run([sys.executable,"scripts/lesson_assets.py","--db","tmp/demo.sqlite3","create-demo","farm-friend-v1"],cwd=app,capture_output=True,text=True,timeout=20)
+        assert demo.returncode==0,demo.stderr
+        assert json.loads(demo.stdout)["course_code"].startswith("WG-")
         print(json.dumps({"release":"passed","words":len(lesson["words"]),
                           "assets_served":len(assets),"materials_complete":True,
+                          "teaching_images_served":len(picture_files),"portable_demo":"recreated",
                           "a4_views":3,"backup":"valid","repeat_launch":"reused"},indent=2))
     finally:
         process.terminate()

@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "id": "classmate-v1",
+  "word": "classmate",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "同班同学",
+  "created_at": "2026-09-07",
+  "provenance": {
+    "text": "AI-assisted original classroom writing, reviewed for KET and primary-school readability",
+    "images": "Built-in imagegen; exact prompts and SHA-256 stored per image"
+  },
+  "teaching": {
+    "meaning_zh": "同班同学",
+    "pos": "n.",
+    "example": "Ben is my classmate.",
+    "example_zh": "Ben 是我的同班同学。",
+    "extra_examples": [
+      {
+        "en": "I sit next to my classmate.",
+        "zh": "我坐在同班同学旁边。"
+      }
+    ],
+    "story_title": "同一个班里的伙伴",
+    "story_zh": "Mia 忘带铅笔了。Ben 把自己的另一支递给她。他们在同一个 class 里学习，又是互相帮助的 mate。合起来，Ben 就是 Mia 的 classmate。",
+    "student_prompt": "指向一位同班同学，用 This is my classmate. 介绍对方。",
+    "cloze": "Ben is in my class. He is my __________.",
+    "cloze_answer": "classmate",
+    "cloze_zh": "Ben 在我班里。他是我的同班同学。",
+    "cloze_type": "context",
+    "parts": [
+      {
+        "text": "class",
+        "kind": "compound",
+        "meaning": "班级",
+        "story": "class 在这里是班级。把 class 和 mate（伙伴）接在一起，就得到 classmate。Merriam-Webster 记录这个词最早的已知用例在 1713 年。几百年前的学生也有同班伙伴！",
+        "source": "https://www.merriam-webster.com/dictionary/classmate"
+      },
+      {
+        "text": "mate",
+        "kind": "compound",
+        "meaning": "伙伴",
+        "story": "mate 是伙伴。同一个 class 里的伙伴叫 classmate（同班同学）；同一个 team 里的伙伴叫 teammate（队友）。先说出共同的地方或活动，再找到伙伴。"
+      }
+    ],
+    "note": "本课图片和首句对应常用词义；故事为原创记忆情景。"
+  },
+  "images": [
+    {
+      "id": "classmate-v1",
+      "file": "words/classmate/v1/3ce2b387e609bbfdec55f893eb3cbe89d316b98476cecaab3dacf4fbaa5795f9.png",
+      "sha256": "3ce2b387e609bbfdec55f893eb3cbe89d316b98476cecaab3dacf4fbaa5795f9",
+      "width": 1536,
+      "height": 1024,
+      "alt": "同一个班里的两名孩子在课桌前一起学习，分享铅笔",
+      "caption": "Ben is my classmate.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: classroom vocabulary/story photograph for Chinese primary-school KET learners, shown large on a projector.\nStyle: beautiful, playful, predominantly photorealistic natural editorial educational photography; bright daylight, rich but plausible colors, realistic skin, real materials, correct anatomy, warm humour. Uncluttered composition with a strong main subject and high visual quality. Landscape 3:2 composition, ideally 1536 by 1024.\nGlobal constraints: no embedded text, letters, captions, logos, watermarks, UI labels, decorative frames, cartoons or clipart. All children are fictional, ordinary fully clothed, in benign learning scenes. Natural plausible scale and perspective. Friendly safe environments.\nRecurring characters whenever named: Mia is a fictional East Asian girl about 9, black ponytail, coral-red light jacket, pale-blue jeans, white trainers. Ben is a fictional East Asian boy about 9, short black hair. In farm-story scenes Ben wears a child-size blue two-piece formal suit, white shirt, yellow rain boots. A recurring lizard is a small vivid green realistic garden lizard, long tail, four anatomically correct legs, not a chameleon.\n\nPrimary request: Mia and Ben working together at the SAME school desk with open exercise books. In this one classroom photo both children wear matching blue school jumpers over white shirts; Mia still has her recognizable black ponytail. They cheerfully share one pencil, with one child naturally passing it to the other's open hand. Background subtly but clearly shows other classroom desks and a plain board without writing. The context must communicate classmates at school, not siblings at home. Exercise-book pages have faint blank ruling only, no legible words or numbers.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-07",
+      "reference_asset_ids": []
+    }
+  ]
+}

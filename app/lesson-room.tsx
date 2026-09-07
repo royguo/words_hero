@@ -21,6 +21,9 @@ import {
   BookMarked,
   Save,
   ArrowUpRight,
+  Image as ImageIcon,
+  Copy,
+  Download,
 } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import {
@@ -51,10 +54,12 @@ import {
 } from '@/lib/classroom';
 import { LessonPlayer } from './lesson-player';
 import { buildSlides } from '@/lib/slides';
+import { TeachingPicture, TargetText } from './teaching-picture';
 type SaveFn = (data: unknown, action?: string) => Promise<Lesson | undefined>;
 const steps = [
   { id: 'preview', label: '认识单词', icon: BookOpen },
   { id: 'roots', label: '词根和词汇', icon: Layers },
+  { id: 'scenes', label: '情景图文故事', icon: ImageIcon },
   { id: 'practice', label: '课堂互动练习', icon: Pencil },
   { id: 'workbook', label: '练习册打印', icon: Printer },
 ];
@@ -189,6 +194,37 @@ export function LessonRoom({
           正在回看旧版本。讲义、单词和课堂记录均保留当时内容。
         </div>
       )}
+      <section className="lesson-materials-bar" aria-label="课程编号与素材">
+        <div>
+          <span className="muted">课程编号</span>{' '}
+          <strong>{lesson.course_code}</strong>
+          <button
+            className="material-copy"
+            aria-label="复制课程编号"
+            onClick={() => {
+              void navigator.clipboard.writeText(lesson.course_code).then(
+                () => notify('课程编号已复制'),
+                () => notify('复制失败，请选中课程编号手动复制。'),
+              );
+            }}
+          >
+            <Copy size={16} />
+          </button>
+        </div>
+        <span>
+          {lesson.words.filter((w) => w.images?.length).length} /{' '}
+          {lesson.words.length} 词有配图 <span>·</span>{' '}
+          {lesson.materials.story?.scenes.length || 0} 页故事
+        </span>
+        <a
+          className="btn secondary"
+          href={'/api/courses/' + lesson.course_code + '/brief'}
+          download
+        >
+          <Download size={15} />
+          下载素材任务
+        </a>
+      </section>
       <section className="lecture-launch">
         <div className="lecture-launch-icon">
           <Presentation size={29} />
@@ -197,8 +233,8 @@ export function LessonRoom({
           <p className="eyebrow">READY FOR CLASS</p>
           <h2>把今天的单词，搬上大屏幕</h2>
           <p>
-            单词与故事 <span>→</span> 构词线索 <span>→</span> 一起练习{' '}
-            <span>·</span> {deck.length} 页
+            认识单词 <span>→</span> 构词线索 <span>→</span> 情景故事{' '}
+            <span>→</span> 一起练习 <span>·</span> {deck.length} 页
           </p>
         </div>
         <div className="lecture-launch-actions">
@@ -279,6 +315,69 @@ export function LessonRoom({
           />
           <div className="step-footer">
             <span>试着解释这条线索，再用本课单词举例。</span>
+            <button
+              className="btn primary"
+              onClick={() => void changeStage('scenes')}
+            >
+              走进图文故事
+              <ArrowRight size={17} />
+            </button>
+          </div>
+        </TabsContent>
+        <TabsContent value="scenes">
+          {lesson.materials.story ? (
+            <div className="story-workspace">
+              <div className="story-workspace-heading">
+                <span className="eyebrow">STORY TIME</span>
+                <h2>{lesson.materials.story.title_zh}</h2>
+                <p lang="en">{lesson.materials.story.title_en}</p>
+              </div>
+              {lesson.materials.story.scenes.map((scene, i) => (
+                <article className="story-preview-page" key={scene.id}>
+                  <TeachingPicture images={scene.image ? [scene.image] : []} />
+                  <div>
+                    <span className="eyebrow">
+                      {String(i + 1).padStart(2, '0')} /{' '}
+                      {lesson.materials.story?.scenes.length}
+                    </span>
+                    <h3>{scene.title}</h3>
+                    <p lang="en">
+                      <TargetText
+                        text={scene.en}
+                        words={lesson.materials.story?.covered_words || []}
+                      />
+                    </p>
+                    <details>
+                      <summary>看看中文</summary>
+                      <p>{scene.zh}</p>
+                    </details>
+                    <div className="story-preview-question">
+                      <strong>{scene.question.en}</strong>
+                      <p>{scene.question.zh}</p>
+                      <details>
+                        <summary>揭晓答案</summary>
+                        <p>
+                          {scene.question.answer_en}
+                          <br />
+                          {scene.question.answer_zh}
+                        </p>
+                      </details>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div className="panel story-empty">
+              <ImageIcon size={32} />
+              <h2>这节课还没有图文故事</h2>
+              <p>
+                使用上方课程编号和素材任务补充故事，保存后即可在大屏幕中讲读。
+              </p>
+            </div>
+          )}
+          <div className="step-footer">
+            <span>把故事讲给同伴听，再试试这些单词。</span>
             <button
               className="btn primary"
               onClick={() => void changeStage('practice')}

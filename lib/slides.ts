@@ -1,11 +1,12 @@
-import type { Group, Lesson, Word } from './classroom';
+import type { Group, Lesson, Word, StoryScene } from './classroom';
 
 export const chapters = [
   { id: 'welcome', label: '今天的任务', short: '出发', number: '01' },
   { id: 'words', label: '认识单词', short: '认识单词', number: '02' },
   { id: 'roots', label: '发现构词线索', short: '词根与故事', number: '03' },
-  { id: 'practice', label: '轮到你了', short: '一起练习', number: '04' },
-  { id: 'finish', label: '全课单词回顾', short: '回顾', number: '05' },
+  { id: 'scenes', label: '情景图文故事', short: '情景故事', number: '04' },
+  { id: 'practice', label: '轮到你了', short: '一起练习', number: '05' },
+  { id: 'finish', label: '全课单词回顾', short: '回顾', number: '06' },
 ] as const;
 export type Chapter = (typeof chapters)[number]['id'];
 export type RecapEntry = {
@@ -25,6 +26,8 @@ export type Slide = {
     | 'welcome'
     | 'word'
     | 'story'
+    | 'scene'
+    | 'scene-question'
     | 'root'
     | 'family'
     | 'root-quiz'
@@ -38,8 +41,10 @@ export type Slide = {
   words?: Word[];
   recap?: RecapEntry[];
   text?: string;
+  meaning?: string;
   part?: number;
   total?: number;
+  scene?: StoryScene;
 };
 export function wordLabel(w: Pick<Word, 'word' | 'display_word'>) {
   return w.display_word || w.word;
@@ -107,7 +112,10 @@ export function buildSlides(lesson: Lesson): Slide[] {
       { en: w.example, zh: w.example_zh },
       ...(w.extra_examples || []),
     ];
-    for (let i = 0; i < examples.length; i += 2)
+    const meanings = textPages(w.meaning_zh, 40);
+    const wordPages = Math.max(Math.ceil(examples.length / 2), meanings.length);
+    for (let page = 0; page < wordPages; page++) {
+      const i = page * 2;
       result.push({
         id: 'word:' + w.id + (i ? ':' + i : ''),
         chapter: 'words',
@@ -115,9 +123,11 @@ export function buildSlides(lesson: Lesson): Slide[] {
         title: wordLabel(w),
         word: w,
         examples: examples.slice(i, i + 2),
-        part: i / 2 + 1,
-        total: Math.ceil(examples.length / 2),
+        meaning: meanings[Math.min(page, meanings.length - 1)],
+        part: page + 1,
+        total: wordPages,
       });
+    }
     const pages = textPages(studentStory(w));
     pages.forEach((text, i) =>
       result.push({
@@ -174,6 +184,27 @@ export function buildSlides(lesson: Lesson): Slide[] {
         total: Math.ceil(related.length / 2),
       });
   }
+  const story = lesson.materials?.story;
+  story?.scenes.forEach((scene, i) => {
+    result.push({
+      id: 'scene:' + scene.id,
+      chapter: 'scenes',
+      kind: 'scene',
+      title: scene.title,
+      scene,
+      part: i + 1,
+      total: story.scenes.length,
+    });
+    result.push({
+      id: 'scene-question:' + scene.id,
+      chapter: 'scenes',
+      kind: 'scene-question',
+      title: scene.question.en,
+      scene,
+      part: i + 1,
+      total: story.scenes.length,
+    });
+  });
   for (const g of lesson.groups)
     result.push({
       id: 'root-quiz:' + g.id,
@@ -241,6 +272,7 @@ export function buildSlides(lesson: Lesson): Slide[] {
   return result;
 }
 export function sectionFor(slide?: Slide) {
+  if (slide?.chapter === 'scenes') return 'scenes';
   return slide?.chapter === 'roots'
     ? 'roots'
     : slide?.chapter === 'practice'

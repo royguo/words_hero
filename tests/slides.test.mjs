@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { buildSlides, textPages } from '../lib/slides.ts';
+import { buildSlides, textPages, sectionFor } from '../lib/slides.ts';
 
 const words = Array.from({ length: 50 }, (_, i) => ({
   id: i + 1,
@@ -77,6 +77,22 @@ test('long bilingual stories are paginated without dropping text or splitting or
   assert.equal(pages.join('').replace(/\s/g, ''), text.replace(/\s/g, ''));
   assert.ok(pages.every((p) => !p.endsWith('note')));
 });
+test('word definitions paginate to leave space for pictures without dropping meaning', () => {
+  const word = {
+    ...words[2],
+    meaning_zh: '完整的中文释义需要分页保留。'.repeat(10),
+  };
+  const slides = buildSlides({ ...lesson, words: [word], groups: [] }).filter(
+    (s) => s.kind === 'word',
+  );
+  assert.ok(slides.length > 1);
+  assert.ok(slides.every((s) => s.meaning.length <= 40));
+  assert.equal(slides.map((s) => s.meaning).join(''), word.meaning_zh);
+  assert.deepEqual(
+    slides.flatMap((s) => s.examples),
+    [{ en: word.example, zh: word.example_zh }],
+  );
+});
 test('a whole-word lesson still has a complete route through every chapter', () => {
   const slides = buildSlides({ ...lesson, groups: [] });
   assert.ok(slides.some((s) => s.kind === 'whole'));
@@ -84,6 +100,37 @@ test('a whole-word lesson still has a complete route through every chapter', () 
     [...new Set(slides.map((s) => s.chapter))],
     ['welcome', 'words', 'roots', 'practice', 'finish'],
   );
+});
+test('illustrated story and questions follow roots and precede vocabulary practice', () => {
+  const scenes = Array.from({ length: 4 }, (_, i) => ({
+    id: 'scene-' + i,
+    title: 'A new friend',
+    en: 'We visit a farm.',
+    zh: '我们参观农场。',
+    image: i ? null : { id: 'farm', src: '/assets/words/farm/image.png' },
+    question: {
+      en: 'Where are we?',
+      zh: '我们在哪里？',
+      answer_en: 'On a farm.',
+      answer_zh: '在农场。',
+    },
+  }));
+  const slides = buildSlides({ ...lesson, materials: { story: { scenes } } });
+  assert.deepEqual(
+    [...new Set(slides.map((s) => s.chapter))],
+    ['welcome', 'words', 'roots', 'scenes', 'practice', 'finish'],
+  );
+  const story = slides.filter((s) => s.kind === 'scene');
+  assert.deepEqual(
+    story.map((s) => s.scene),
+    scenes,
+  );
+  assert.equal(slides.filter((s) => s.kind === 'scene-question').length, 4);
+  story.forEach((slide) => {
+    assert.equal(sectionFor(slide), 'scenes');
+    assert.equal(slides[slides.indexOf(slide) + 1].kind, 'scene-question');
+  });
+  assert.equal(new Set(slides.map((s) => s.id)).size, slides.length);
 });
 test('the final recap contains all 50 words, meanings and every bilingual example in lesson order', () => {
   const recap = buildSlides(lesson).filter((s) => s.kind === 'finish');
