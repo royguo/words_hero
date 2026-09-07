@@ -193,7 +193,7 @@ export function LessonRoom({
           </Select>
           <button
             className="btn secondary"
-            disabled={lesson.read_only || busy || pending}
+            disabled={!lesson.is_current || busy || pending}
             onClick={onRegenerate}
           >
             <RefreshCw size={16} />
@@ -512,6 +512,7 @@ function WordPreview({
 }) {
   const [hide, setHide] = useState(false),
     [open, setOpen] = useState<Record<string, boolean>>({});
+  const [studyWord, setStudyWord] = useState<Word | null>(null);
   return (
     <div className="stage-body">
       <div className="section-toolbar">
@@ -596,16 +597,12 @@ function WordPreview({
                 </div>
               ))}
               {visible && (
-                <details className="memory-story word-study-details">
-                  <summary>
-                    <Layers size={15} /> 单词来源和构成
-                  </summary>
-                  <WordStudyPage
-                    word={w}
-                    compact
-                    onSpeak={(text) => speak(text, notify)}
-                  />
-                </details>
+                <button
+                  className="word-study-open"
+                  onClick={() => setStudyWord(w)}
+                >
+                  <Layers size={15} /> 来源和构成 <ChevronRight size={15} />
+                </button>
               )}
               <div className="word-card-bottom">
                 <span className={'difficulty d' + w.difficulty}>
@@ -619,6 +616,32 @@ function WordPreview({
           );
         })}
       </div>
+      <Dialog
+        open={!!studyWord}
+        onOpenChange={(value) => {
+          if (!value) {
+            setStudyWord(null);
+            stopSpeech();
+          }
+        }}
+      >
+        <DialogContent className="word-study-modal">
+          <DialogTitle className="sr-only">
+            {studyWord?.word} · 来源和构成
+          </DialogTitle>
+          <DialogDescription className="sr-only">
+            查看单词构成、相关单词与例句。
+          </DialogDescription>
+          {studyWord && (
+            <WordStudyPage
+              key={studyWord.id}
+              word={studyWord}
+              compact
+              onSpeak={(text) => speak(text, notify)}
+            />
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

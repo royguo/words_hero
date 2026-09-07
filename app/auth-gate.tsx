@@ -1,25 +1,49 @@
 /* oxlint-disable next/no-img-element -- Static PNG brand assets require no remote image service. */
 'use client';
-import { useEffect, useState, type ReactNode } from 'react';
+import { useCallback, useEffect, useState, type ReactNode } from 'react';
 import { Loader2, ArrowRight } from 'lucide-react';
-export function AuthGate({ children }: { children: ReactNode }) {
+export function AuthGate({
+  children,
+  requiredRole = 'teacher',
+}: {
+  children: ReactNode;
+  requiredRole?: 'teacher' | 'student';
+}) {
   const [phase, setPhase] = useState<'loading' | 'login' | 'ready' | 'error'>(
       'loading',
     ),
     [error, setError] = useState(''),
     [password, setPassword] = useState(''),
-    [username, setUsername] = useState('admin'),
+    [username, setUsername] = useState(
+      requiredRole === 'teacher' ? 'admin' : '',
+    ),
     [busy, setBusy] = useState(false);
+  const [role, setRole] = useState<'teacher' | 'student'>(requiredRole);
+  const enter = useCallback(
+    (userRole: 'teacher' | 'student') => {
+      if (userRole !== requiredRole)
+        location.replace(userRole === 'student' ? '/learn' : '/');
+      else setPhase('ready');
+    },
+    [requiredRole],
+  );
   useEffect(() => {
     let active = true;
     fetch('/api/auth/session')
       .then(async (r) => {
-        if (r.status === 404) return { authenticated: true };
+        if (r.status === 404 && requiredRole === 'teacher')
+          return { authenticated: true, role: 'teacher' as const };
         if (!r.ok) throw new Error('无法连接课堂服务，请刷新重试。');
-        return r.json() as Promise<{ authenticated: boolean }>;
+        return r.json() as Promise<{
+          authenticated: boolean;
+          role: 'teacher' | 'student';
+        }>;
       })
       .then((v) => {
-        if (active) setPhase(v.authenticated ? 'ready' : 'login');
+        if (active) {
+          if (v.authenticated) enter(v.role);
+          else setPhase('login');
+        }
       })
       .catch((e) => {
         if (active) {
@@ -52,7 +76,7 @@ export function AuthGate({ children }: { children: ReactNode }) {
       window.removeEventListener('kite-auth-required', expired);
       window.removeEventListener('kite-logout', logout);
     };
-  }, []);
+  }, [enter, requiredRole]);
   if (phase === 'ready') return children;
   return (
     <main className="login-screen">
@@ -60,7 +84,6 @@ export function AuthGate({ children }: { children: ReactNode }) {
         <img className="login-icon" src="/favicon.png" alt="风筝与翻开的书" />
         <p className="eyebrow">KiteDance</p>
         <h1>风筝单词</h1>
-        <p className="login-tagline">让每一个单词，带想象力起飞。</p>
         {phase === 'loading' ? (
           <p className="login-loading">
             <Loader2 className="spin" /> 正在打开课堂…
@@ -85,12 +108,12 @@ export function AuthGate({ children }: { children: ReactNode }) {
                 const r = await fetch('/api/auth/login', {
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ username, password }),
+                  body: JSON.stringify({ username, password, role }),
                 });
                 const v = (await r.json()) as { error?: string };
                 if (!r.ok) throw new Error(v.error || '登录失败');
                 setPassword('');
-                setPhase('ready');
+                enter(role);
               } catch (e) {
                 setError(e instanceof Error ? e.message : '登录没有完成');
               } finally {
@@ -98,6 +121,25 @@ export function AuthGate({ children }: { children: ReactNode }) {
               }
             }}
           >
+            <div className="login-tabs" role="tablist" aria-label="登录身份">
+              {(['student', 'teacher'] as const).map((value) => (
+                <button
+                  key={value}
+                  type="button"
+                  role="tab"
+                  aria-selected={role === value}
+                  onClick={() => {
+                    setRole(value);
+                    setUsername(value === 'teacher' ? 'admin' : '');
+                    setPassword('');
+                    setError('');
+                  }}
+                  disabled={busy}
+                >
+                  {value === 'student' ? '学生登录' : '老师登录'}
+                </button>
+              ))}
+            </div>
             <label htmlFor="login-user">账号</label>
             <input
               id="login-user"
@@ -128,7 +170,7 @@ export function AuthGate({ children }: { children: ReactNode }) {
               ) : (
                 <ArrowRight size={18} />
               )}
-              进入课堂
+              {role === 'student' ? '开始背词' : '进入课堂'}
             </button>
             <p className="login-remember">
               登录后自动记住此设备，下次直接进入。

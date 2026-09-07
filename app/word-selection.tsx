@@ -131,9 +131,9 @@ export function WordSelection({
       <div className="title-row">
         <div>
           <p className="eyebrow">
-            LESSON {String(number).padStart(2, '0')} / 02 确认词表
+            第 {String(number).padStart(2, '0')} 课 · 确认词单
           </p>
-          <h1>把这节课的单词，选得刚刚好。</h1>
+          <h1>确认单词列表</h1>
           <p className="muted">
             {draft.title} · 确认后，按这里的顺序保存例句、故事、课件和练习。
           </p>

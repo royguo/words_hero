@@ -165,11 +165,13 @@ export function validateStudy(s: WordStudy) {
     typeof v === 'string' && v.trim().length > 0 && v.length <= n;
   if (
     !s ||
-    s.schema_version !== 1 ||
+    ![1, 2].includes(s.schema_version) ||
     !['simple', 'compound', 'derived', 'phrase'].includes(s.formation) ||
     !str(s.construction, 64) ||
     !str(s.explanation_zh, 100) ||
-    !str(s.origin_zh, 100) ||
+    (s.origin_zh !== undefined &&
+      (typeof s.origin_zh !== 'string' ||
+        s.origin_zh.length > (s.schema_version === 2 ? 60 : 100))) ||
     !Array.isArray(s.components) ||
     s.components.length > 4 ||
     (s.formation === 'simple'
@@ -189,7 +191,7 @@ export function validateStudy(s: WordStudy) {
     fail();
   if (
     !Array.isArray(s.family) ||
-    s.family.length < 1 ||
+    s.family.length < (s.schema_version === 2 ? 0 : 1) ||
     s.family.length > 2 ||
     s.family.some(
       (f) =>
@@ -217,7 +219,13 @@ export function validateStudy(s: WordStudy) {
     !str(s.challenge.prompt_zh, 100) ||
     !str(s.challenge.answer_zh, 70) ||
     !Array.isArray(s.sources) ||
-    !s.sources.length ||
+    s.sources.length <
+      (s.schema_version === 1 ||
+      s.origin_zh ||
+      s.components.length ||
+      s.family.length
+        ? 1
+        : 0) ||
     s.sources.length > 6 ||
     s.sources.some((x) => {
       try {

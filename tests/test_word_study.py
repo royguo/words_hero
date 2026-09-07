@@ -12,6 +12,13 @@ class WordStudyCase(unittest.TestCase):
     def test_family_examples_and_source_links_are_required(self):
         for change in ({'family':[]},{'sources':[{'title':'bad','url':'javascript:alert(1)'}]},{'origin_zh':'字'*101}):
             with self.subTest(change=change),self.assertRaises(ValueError):validate_study(dict(self.study,**change))
+    def test_new_material_can_omit_unhelpful_history(self):
+        value=copy.deepcopy(self.study);value['schema_version']=2;value.pop('origin_zh')
+        self.assertEqual(validate_study(value)['origin_zh'],'')
+        value.update(origin_zh='',family=[],sources=[])
+        self.assertEqual(validate_study(value)['family'],[])
+        with self.assertRaises(ValueError):validate_study(dict(value,origin_zh='字'*61))
+        with self.assertRaises(ValueError):validate_study(dict(value,origin_zh='有趣的真实来源'))
     def test_balanced_paper_questions_keep_ids_and_answers(self):
         questions=[{'id':'sentence-'+str(i),'word_id':i,'prompt':'I see a __________.','hint':'我看见一只猫。','answer':'cat'} for i in range(10)]
         pages=question_pages(questions);self.assertEqual([len(p) for p in pages],[5,5]);self.assertEqual(sum(pages,[]),questions)

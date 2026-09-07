@@ -1,6 +1,7 @@
 import { Store } from './store';
 import { AppError, integer, string } from './model';
-import { authenticated, login, logout } from './auth';
+import { identity, login, logout, studentLogin } from './auth';
+import { Students } from './students';
 import { configuration, prepare, inventory } from './audio';
 import { renderWorksheet } from './worksheets';
 import { parseCSV } from './csv';
@@ -121,26 +122,69 @@ export default {
       )
         throw new AppError('不允许跨站写入', 403);
       if (path === '/api/health')
-        return json({ app: 'kite-words', version: 3, storage: 'D1 + R2' });
-      if (path === '/api/auth/session' && !write)
-        return json({
-          authenticated: await authenticated(request, env.SESSION_SECRET),
-          username: 'admin',
-          role: 'teacher',
-          storage: 'cloud',
+        return json({ app: 'kite-words', version: 4, storage: 'D1 + R2' });
+      if (path === '/api/auth/session' && !write) {
+        const user = await identity(request, env);
+        return json({ authenticated: !!user, ...user, storage: 'cloud' });
+      }
+      if (path === '/api/auth/login' && method === 'POST') {
+        const credentials = await body(request);
+        const role = credentials.role || 'teacher';
+        if (role !== 'teacher' && role !== 'student')
+          throw new AppError('请选择老师或学生登录');
+        const value =
+          role === 'student'
+            ? await studentLogin(request, credentials, env)
+            : await login(request, credentials, env);
+        return json({ authenticated: true, role }, 200, {
+          'Set-Cookie': value,
         });
-      if (path === '/api/auth/login' && method === 'POST')
-        return json({ authenticated: true, username: 'admin' }, 200, {
-          'Set-Cookie': await login(request, await body(request), env),
-        });
-      if (!(await authenticated(request, env.SESSION_SECRET)))
-        throw new AppError('请先登录', 401);
+      }
       if (path === '/api/auth/logout' && method === 'POST')
         return json({ authenticated: false }, 200, {
           'Set-Cookie': logout(request),
         });
+      const user = await identity(request, env);
+      if (!user) throw new AppError('请先登录', 401);
       const store = new Store(env.DB),
         data = write && method !== 'DELETE' ? await body(request) : {};
+      const students = new Students(env.DB);
+      if (user.role === 'student') {
+        if (path === '/api/student/state' && !write)
+          return json(await students.dashboard(user.id));
+        if (path === '/api/student/sessions' && method === 'POST')
+          return json({ session: await students.start(user.id, data) });
+        if (
+          p[1] === 'student' &&
+          p[2] === 'sessions' &&
+          p.length === 5 &&
+          p[4] === 'actions' &&
+          method === 'POST'
+        )
+          return json(await students.act(user.id, p[3], data));
+        if (path === '/api/audio/configuration' && !write)
+          return json(configuration(env.AUDIO_ONLINE));
+        if (path === '/api/audio' && method === 'POST') {
+          const words = await students.eligible(user.class_id);
+          const text =
+            typeof data.text === 'string'
+              ? data.text.trim().replace(/\s+/g, ' ')
+              : '';
+          if (!words.some((w) => [w.word, w.example].includes(text)))
+            throw new AppError('只能朗读本班已结课词汇', 403);
+          return json(await prepare(env.MEDIA, text, env.AUDIO_ONLINE, env.DB));
+        }
+        throw new AppError('学生账号无权访问此功能', 403);
+      }
+      if (p[1] === 'classes' && p.length === 4 && p[3] === 'students') {
+        if (!write) return json(await students.list(p[2]));
+        if (method === 'POST')
+          return json(await students.create(p[2], data), 201);
+      }
+      if (p[1] === 'students' && p.length === 3) {
+        if (method === 'PATCH') return json(await students.edit(p[2], data));
+        if (method === 'DELETE') return json(await students.remove(p[2]));
+      }
       if (path === '/api/state' && !write)
         return json(await store.state(q.get('class_id') || undefined));
       if (path === '/api/classes' && method === 'POST')

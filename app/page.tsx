@@ -12,10 +12,9 @@ import {
   Loader2,
   RefreshCw,
   Check,
-  Layers,
   ChevronRight,
-  SlidersHorizontal,
   Upload,
+  ChartNoAxesCombined,
   Trash2,
   LogOut,
 } from 'lucide-react';
@@ -138,10 +137,34 @@ function Classrooms() {
   const writes = useRef<Promise<unknown>>(Promise.resolve());
   const current = state.classes.find((c) => c.id === classId);
   useEffect(() => {
-    api<State>('/state')
-      .then(setState)
-      .catch((e) => setNotice(e.message))
-      .finally(() => setLoading(false));
+    let live = true;
+    const requested = new URLSearchParams(window.location.search).get('class');
+    async function load() {
+      try {
+        const value = await api<State>(
+          '/state' +
+            (requested ? '?class_id=' + encodeURIComponent(requested) : ''),
+        );
+        const first = value.lessons[0];
+        const selected =
+          requested && first ? await api<Lesson>('/lessons/' + first.id) : null;
+        if (!live) return;
+        setState(value);
+        if (requested && value.classes.some((c) => c.id === requested)) {
+          setClassId(requested);
+          setLesson(selected);
+          setSetup(first ? null : 'new');
+        }
+      } catch (e) {
+        if (live) setNotice(e instanceof Error ? e.message : '读取失败');
+      } finally {
+        if (live) setLoading(false);
+      }
+    }
+    void load();
+    return () => {
+      live = false;
+    };
   }, []);
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
@@ -417,6 +440,7 @@ function Classrooms() {
       <CourseSidebar
         state={state}
         className={current?.name || ''}
+        classId={classId}
         lessonId={!setup ? lesson?.id : undefined}
         busy={busy}
         onHome={() => {
@@ -435,13 +459,6 @@ function Classrooms() {
         }}
         onChoose={chooseLesson}
         onLibrary={() => setManager(true)}
-        onDelete={() =>
-          setDeletion({
-            kind: 'class',
-            id: classId,
-            name: current?.name || '当前班级',
-          })
-        }
       />
       <main className="workspace">
         <header className="workspace-header">
@@ -571,7 +588,7 @@ function CourseSidebar({
   onNew,
   onChoose,
   onLibrary,
-  onDelete,
+  classId,
 }: {
   state: State;
   className: string;
@@ -581,7 +598,7 @@ function CourseSidebar({
   onNew: () => void;
   onChoose: (id: string) => Promise<void>;
   onLibrary: () => void;
-  onDelete: () => void;
+  classId: string;
 }) {
   const { setOpenMobile } = useSidebar();
   return (
@@ -637,13 +654,7 @@ function CourseSidebar({
               {l.status === 'completed' && <Check size={14} />}
             </button>
           ))}
-          {!state.lessons.length && (
-            <p className="sidebar-empty">
-              从第一节课开始，
-              <br />
-              留下共同学习的足迹。
-            </p>
-          )}
+          {!state.lessons.length && <p className="sidebar-empty">暂无课程</p>}
         </nav>
       </SidebarContent>
       <SidebarFooter>
@@ -660,15 +671,18 @@ function CourseSidebar({
           管理词库
           <ChevronRight size={16} />
         </button>
-        <button
-          className="sidebar-library delete-link"
-          disabled={busy}
-          onClick={onDelete}
+        <a
+          className="sidebar-library"
+          href={'/students?class=' + encodeURIComponent(classId)}
         >
-          <Trash2 size={16} />
-          删除当前班级
+          <Users size={17} />
+          学生管理
+          <ChevronRight size={16} />
+        </a>
+        <button className="sidebar-library" disabled title="暂未开放">
+          <ChartNoAxesCombined size={17} />
+          班级进度<small>待开放</small>
         </button>
-        <p className="sidebar-note">一点一滴，让单词生根。</p>
       </SidebarFooter>
     </Sidebar>
   );
@@ -822,16 +836,10 @@ function Setup({
       <div className="title-row">
         <div>
           <p className="eyebrow">
-            LESSON {String(number).padStart(2, '0')} / 01 设置范围
+            第 {String(number).padStart(2, '0')} 课 · 设置范围 → 确认词单
           </p>
-          <h1>
-            {existing
-              ? '为这节课，换一组新单词。'
-              : '一节新课，从选好单词开始。'}
-          </h1>
-          <p className="muted">
-            先生成候选词表，调整并确认后，再保存完整课程。
-          </p>
+          <h1>{existing ? '重新选词' : '新建课程'}</h1>
+          <p className="muted">生成候选词单后可增删调整，确认后保存课程。</p>
         </div>
         {onCancel && (
           <button className="btn ghost" onClick={onCancel} disabled={busy}>
@@ -848,10 +856,6 @@ function Setup({
             void preview();
           }}
         >
-          <div className="panel-heading">
-            <SlidersHorizontal size={20} />
-            <h2>设置本课词汇</h2>
-          </div>
           <label className="field">
             课程名称
             <Input
@@ -1010,49 +1014,10 @@ function Setup({
           </button>
           {existing && (
             <p className="caption">
-              现有版本会保留。新内容生成成功后，才切换到新版本。
+              现有版本会保留。确认新版本后，本课需再次结课才会开放给学生。
             </p>
           )}
         </form>
-        <aside className="preparation-note">
-          <div className="lesson-plan-board">
-            <span className="board-eyebrow">ONE LESSON, FOUR LITTLE STEPS</span>
-            <h2>
-              看懂关联，
-              <br />
-              记住单词。
-            </h2>
-            <div className="step-outline">
-              {[
-                ['01', '认识单词', '读单词、看释义，在例句中认识它'],
-                ['02', '词根和词汇', '找出构词规律，把相关单词连起来'],
-                ['03', '课堂互动练习', '先回忆，再揭晓，和老师一起查漏'],
-                ['04', '练习册打印', '随堂跟写与课后填空，各有一份'],
-              ].map(([n, t, d]) => (
-                <div key={n}>
-                  <span>{n}</span>
-                  <div>
-                    <strong>{t}</strong>
-                    <p>{d}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="print-reminder">
-            <Layers size={23} />
-            <div>
-              <h3>先备课，也先备好纸笔</h3>
-              <p>
-                生成后即可打印随堂跟写纸。学生边听边写；课后再用另一份填空练习巩固。
-              </p>
-            </div>
-          </div>
-          <p className="caption">
-            KET、PET
-            已提供本地词表。先按范围随机抽词，确认时可从全部词库搜索添加或替换。构词成分会随最终词表汇总，没有明确拆分的词按整体记忆学习。
-          </p>
-        </aside>
       </div>
     </div>
   );

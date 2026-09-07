@@ -215,19 +215,17 @@ export class Store {
         id,
         total: counters.find((c) => c.level === id)?.total || 0,
       })),
-      lessons: courses
-        .reverse()
-        .map((l) => ({
-          id: l.id,
-          title: l.title,
-          number: l.number,
-          status: l.status,
-          level: l.level,
-          word_count: l.words.length,
-          remembered: l.words.filter((w) => w.result === 'remembered').length,
-          active_version: l.version_id,
-          version_count: l.version_number,
-        })),
+      lessons: courses.reverse().map((l) => ({
+        id: l.id,
+        title: l.title,
+        number: l.number,
+        status: l.status,
+        level: l.level,
+        word_count: l.words.length,
+        remembered: l.words.filter((w) => w.result === 'remembered').length,
+        active_version: l.version_id,
+        version_count: l.version_number,
+      })),
       learned: progress.size,
       due: [...progress.values()].filter((p) => p.due_at <= now()).length,
       database: 'Cloudflare D1',
@@ -263,7 +261,7 @@ export class Store {
     if (!lid) return null;
     const l = await this.lesson(lid);
     if (l.class_id !== cid) throw new AppError('课程不属于当前班级', 403);
-    if (l.read_only) throw new AppError('已结课，请新建一课');
+    // Regeneration creates a new active version; completed snapshots remain immutable.
     return l;
   }
   async candidates(cid: string, config: Config, lid?: string | null) {
@@ -752,7 +750,7 @@ export class Store {
       level: l.level,
       word_order: l.words.map((w) => w.word),
       instructions:
-        '阅读 AGENTS.md。保持词单、词义与顺序。为每词编写 word_study，词源记录可靠来源；新增素材版本，经 validate 后应用本课编号。',
+        '阅读 AGENTS.md 与 docs/word-study.md。保持词单、词义与顺序。用 word_study schema_version=2；只教容易理解且有助记忆的构词联系。origin_zh 可省略或留空，只有有趣、可靠且帮助记忆的背景才用一两句说明（最多60字），不要罗列古语拼写或生僻词源。可靠出处留在 sources 中。新增素材版本，经 validate 后应用本课编号。',
       words: l.words.map(
         ({
           word,
@@ -828,6 +826,10 @@ export class Store {
       'versions',
       'drafts',
       'attempts',
+      'students',
+      'student_memory',
+      'student_sessions',
+      'student_events',
       'meta',
     ];
     const result: Record<string, unknown> = {

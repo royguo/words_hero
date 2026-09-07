@@ -38,7 +38,7 @@ npm run cf:deploy
 
 固定教师账号 `admin`，默认密码按用户要求为 `95279527`。生产密码与会话签名值存为 Worker secrets `ADMIN_PASSWORD`、`SESSION_SECRET`，用 `wrangler secret bulk --config cloudflare/wrangler.jsonc` 从本地私密文件/stdin 配置。普通部署不会重设密码或轮换签名值。
 
-成功登录使用 30 天 HttpOnly、SameSite=Strict 会话 Cookie，HTTPS 下加 Secure；网页不将明文密码写入 localStorage。浏览器再次访问会自动登录，也可以主动退出。学生账号本轮未实现；以后只支持教师手动创建，学生只访问学习和分析报告，权限必须在服务端校验。
+成功登录使用 30 天 HttpOnly、SameSite=Strict 会话 Cookie，HTTPS 下加 Secure；网页不将明文密码写入 localStorage。浏览器再次访问会自动登录，也可以主动退出。学生只由教师创建；首页 tab 区分身份，学生登录到 `/learn`，服务端禁止访问教师接口和其他学生会话。学生密码 PBKDF2 加盐存储，不回显；修改账号/密码或移除学生会撤销旧 Cookie。迁移 `0003_students.sql` 新增学生、练习会话、答题事件和记忆表；备份 JSON 包含这些私人数据，禁止提交 Git。
 
 ## 一次性迁移旧 SQLite
 
@@ -53,7 +53,7 @@ npx wrangler d1 execute kite-words-db --config cloudflare/wrangler.jsonc --remot
 
 ## 删除与恢复边界
 
-删除课程或班级使用 `deleted_at`，从正常列表、选词占用及学习进度中排除。删除班级会隐藏其全部课程。R2 图片、音频、词库、内容包和音频索引没有与课堂记录级联删除的外键；删除后仍可复用。
+删除课程或班级使用 `deleted_at`，从正常列表、选词占用及学习进度中排除。删除班级会隐藏其全部课程，同时阻止其中学生登录；学生的历史记录继续保留。最新课程版本需要结课后才进入学生词库，未完成的旧练习会在下一次请求时检查并失效。R2 图片、音频、词库、内容包和音频索引没有与课堂记录级联删除的外键；删除后仍可复用。
 
 当前没有回收站 UI。误删可由维护者将目标记录的 `deleted_at` 设为 NULL 恢复；如果所属班级也被删除，需要先恢复班级。恢复前检查课堂编号与目标 ID。未删除课程的历史版本继续完整回溯。
 

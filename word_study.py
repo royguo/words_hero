@@ -20,13 +20,18 @@ def validate_study(study):
         if not isinstance(value, str) or not value.strip() or len(value) > limit:
             raise ValueError("单词来源与构成的文本为空或超过单页长度限制")
 
+    if isinstance(study, dict) and study.get("schema_version") == 2 and "origin_zh" not in study:
+        study = {**study, "origin_zh": ""}
     fields(study, "schema_version formation construction components explanation_zh origin_zh family challenge sources")
-    if type(study["schema_version"]) is not int or study["schema_version"] != 1:
+    if type(study["schema_version"]) is not int or study["schema_version"] not in (1, 2):
         raise ValueError("单词来源与构成的版本不支持")
     if study["formation"] not in FORMATIONS:
         raise ValueError("构成类型不正确")
-    for name, limit in (("construction", 64), ("explanation_zh", 100), ("origin_zh", 100)):
+    for name, limit in (("construction", 64), ("explanation_zh", 100)):
         text(study[name], limit)
+    origin = study["origin_zh"]
+    if not isinstance(origin, str) or len(origin) > (60 if study["schema_version"] == 2 else 100):
+        raise ValueError("来源提示应短而有助记忆；没有合适内容请留空")
     parts = study["components"]
     if not isinstance(parts, list) or len(parts) > 4:
         raise ValueError("每个词最多 4 个构成成分")
@@ -39,7 +44,7 @@ def validate_study(study):
         text(part["text"], 24)
         text(part["meaning_zh"], 18)
     family = study["family"]
-    if not isinstance(family, list) or not 1 <= len(family) <= 2:
+    if not isinstance(family, list) or not (0 if study["schema_version"] == 2 else 1) <= len(family) <= 2:
         raise ValueError("每个词提供 1–2 个关联词，保证大屏一页可读")
     for related in family:
         fields(related, "word meaning_zh relation connection_zh example")
@@ -54,7 +59,8 @@ def validate_study(study):
     text(study["challenge"]["prompt_zh"], 100)
     text(study["challenge"]["answer_zh"], 70)
     sources = study["sources"]
-    if not isinstance(sources, list) or not 1 <= len(sources) <= 6:
+    minimum_sources = 1 if study["schema_version"] == 1 or origin or parts or family else 0
+    if not isinstance(sources, list) or not minimum_sources <= len(sources) <= 6:
         raise ValueError("需记录可核查的词源或构词资料来源")
     for source in sources:
         fields(source, "title url")

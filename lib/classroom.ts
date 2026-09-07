@@ -174,6 +174,14 @@ export const kinds: Record<string, string> = {
 };
 export const date = (s: string) =>
   new Date(s).toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric' });
+export class ApiError extends Error {
+  constructor(
+    message: string,
+    public status: number,
+  ) {
+    super(message);
+  }
+}
 export async function api<T>(
   path: string,
   data?: unknown,
@@ -185,8 +193,10 @@ export async function api<T>(
     body: data === undefined ? undefined : JSON.stringify(data),
   });
   const result = (await response.json()) as { error?: string };
-  if (response.status===401&&typeof window!=='undefined')window.dispatchEvent(new Event('kite-auth-required'));
-  if (!response.ok) throw new Error(result.error || '请求失败，请重试');
+  if (response.status === 401 && typeof window !== 'undefined')
+    window.dispatchEvent(new Event('kite-auth-required'));
+  if (!response.ok)
+    throw new ApiError(result.error || '请求失败，请重试', response.status);
   return result as T;
 }
 export { speak } from './audio';

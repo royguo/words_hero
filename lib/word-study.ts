@@ -1,7 +1,7 @@
 import type { Word } from './classroom';
 
 export type WordStudy = {
-  schema_version: 1;
+  schema_version: 1 | 2;
   formation: 'simple' | 'compound' | 'derived' | 'phrase';
   construction: string;
   components: {
@@ -10,7 +10,7 @@ export type WordStudy = {
     meaning_zh: string;
   }[];
   explanation_zh: string;
-  origin_zh: string;
+  origin_zh?: string;
   family: {
     word: string;
     meaning_zh: string;

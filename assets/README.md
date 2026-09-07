@@ -64,3 +64,5 @@ python3 scripts/lesson_assets.py --db tmp/demo.sqlite3 create-demo farm-friend-v
 构词说明参考 Merriam-Webster 的 [online](https://www.merriam-webster.com/dictionary/online)、[classmate](https://www.merriam-webster.com/dictionary/classmate)、[photo-](https://www.merriam-webster.com/dictionary/photo-) 与 [-er](https://www.merriam-webster.com/dictionary/-er)，核对日期 2026-09-07。仅整理词义和来源，不复制词典例句；课堂例句和故事独立编写。联想故事不代表真实词源。
 
 当前云端绑定方式：先 `npm run cf:deploy` 发布新素材包，再调用经教师登录的 `POST /api/courses/WG-…/materials`，JSON 为 `{"bundle_id":"新版本素材包 ID"}`。保留词单/顺序并新建版本。Python apply / create-demo 命令仅用于旧 SQLite 与素材测试。结构化单词来源见 [规范](../docs/word-study.md)。
+
+新教材采用 `word_study.schema_version=2`。来源提示 `origin_zh` 可省略；只保留有趣、可靠且有助记忆的简短背景（最多 60 字），不堆砌古语拼写和复杂演变。旧版长词源在学生教学页面隐藏，原快照和出处保留。详见 [结构规范](../docs/word-study.md)。

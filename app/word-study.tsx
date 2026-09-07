@@ -24,7 +24,7 @@ export function WordStudyPage({
     <section className={'word-study ' + (compact ? 'study-compact' : '')}>
       <header className="study-header">
         <div>
-          <span className="study-eyebrow">WORD DETECTIVE / 单词来源和构成</span>
+          <span className="study-eyebrow">来源和构成</span>
           <h2 lang="en">{word.display_word || word.word}</h2>
         </div>
         <span className="study-type">{formationLabels[study.formation]}</span>
@@ -56,7 +56,7 @@ export function WordStudyPage({
             </p>
           )}
           <p className="study-explanation">{study.explanation_zh}</p>
-          {study.origin_zh && (
+          {study.schema_version === 2 && study.origin_zh && (
             <div className="study-origin">
               <h3>它从哪里来？</h3>
               <p>{study.origin_zh}</p>
