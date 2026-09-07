@@ -1,12 +1,11 @@
-import type { Group, Lesson, Word, StoryScene } from './classroom';
+import type { Lesson, Word, StoryScene } from './classroom';
 
 export const chapters = [
   { id: 'welcome', label: '今天的任务', short: '出发', number: '01' },
   { id: 'words', label: '认识单词', short: '认识单词', number: '02' },
-  { id: 'roots', label: '发现构词线索', short: '词根与故事', number: '03' },
-  { id: 'scenes', label: '情景图文故事', short: '情景故事', number: '04' },
-  { id: 'practice', label: '轮到你了', short: '一起练习', number: '05' },
-  { id: 'finish', label: '全课单词回顾', short: '回顾', number: '06' },
+  { id: 'scenes', label: '情景图文故事', short: '情景故事', number: '03' },
+  { id: 'practice', label: '轮到你了', short: '一起练习', number: '04' },
+  { id: 'finish', label: '全课单词回顾', short: '回顾', number: '05' },
 ] as const;
 export type Chapter = (typeof chapters)[number]['id'];
 export type RecapEntry = {
@@ -25,19 +24,15 @@ export type Slide = {
   kind:
     | 'welcome'
     | 'word'
-    | 'story'
+    | 'study'
     | 'scene'
     | 'scene-question'
-    | 'root'
-    | 'family'
-    | 'root-quiz'
+    | 'cards'
     | 'practice'
-    | 'finish'
-    | 'whole';
+    | 'finish';
   title: string;
   word?: Word;
   examples?: { en: string; zh: string }[];
-  group?: Group;
   words?: Word[];
   recap?: RecapEntry[];
   text?: string;
@@ -90,18 +85,15 @@ export function textPages(text: string, limit = 135): string[] {
   if (page.trim()) pages.push(page.trim());
   return pages.length ? pages : [''];
 }
-export function studentStory(word: Word): string {
-  // Old lesson snapshots remain intact. Only their obsolete classroom directions are omitted on screen.
-  return word.story_zh
-    .replace(
-      '老师和小乐做一个情境小练习。小乐先听懂画面，再试着用英语表达。',
-      '',
-    )
-    .replace('画面是：', '')
-    .replace(
-      /小乐给缺课的朋友补一页课堂笔记。/g,
-      '小乐和朋友聊起今天的一件事。',
-    );
+export function cardPages(words: Word[]): Word[][] {
+  const count = words.some(
+    (w) => (w.display_word || w.word).length > 22 || w.meaning_zh.length > 40,
+  )
+    ? 2
+    : 4;
+  return Array.from({ length: Math.ceil(words.length / count) }, (_, i) =>
+    words.slice(i * count, (i + 1) * count),
+  );
 }
 export function buildSlides(lesson: Lesson): Slide[] {
   const result: Slide[] = [
@@ -128,61 +120,13 @@ export function buildSlides(lesson: Lesson): Slide[] {
         total: wordPages,
       });
     }
-    const pages = textPages(studentStory(w));
-    pages.forEach((text, i) =>
-      result.push({
-        id: 'story:' + w.id + ':' + i,
-        chapter: 'words',
-        kind: 'story',
-        title: w.story_title?.replace(' · 画面小故事', '') || wordLabel(w),
-        word: w,
-        text,
-        part: i + 1,
-        total: pages.length,
-      }),
-    );
-  }
-  if (!lesson.groups.length)
     result.push({
-      id: 'whole',
-      chapter: 'roots',
-      kind: 'whole',
-      title: '让单词和生活连起来',
-      words: lesson.words.slice(0, 3),
+      id: 'study:' + w.id,
+      chapter: 'words',
+      kind: 'study',
+      title: wordLabel(w) + ' · 来源和构成',
+      word: w,
     });
-  for (const g of lesson.groups) {
-    const source =
-      g.story ||
-      (g.kind === 'compound'
-        ? '两个熟悉的成分可以组合成一个新词。先看看每一部分的意思，再想想它们放在一起会是什么。'
-        : '词基带着核心意思，词缀可以改变意思或词性。观察这个成分在完整单词中的作用。相同字母未必属于同一个词根。');
-    const pages = textPages(source);
-    pages.forEach((text, i) =>
-      result.push({
-        id: 'root:' + g.id + ':' + i,
-        chapter: 'roots',
-        kind: 'root',
-        title: g.text,
-        group: g,
-        text,
-        part: i + 1,
-        total: pages.length,
-      }),
-    );
-    const related = lesson.words.filter((w) =>
-      g.words.some((item) => item.word === w.word),
-    );
-    for (let i = 0; i < related.length; i += 2)
-      result.push({
-        id: 'family:' + g.id + ':' + i,
-        chapter: 'roots',
-        kind: 'family',
-        title: g.text + ' 的单词家族',
-        group: g,
-        words: related.slice(i, i + 2),
-        part: i / 2 + 1,
-        total: Math.ceil(related.length / 2),
-      });
   }
   const story = lesson.materials?.story;
   story?.scenes.forEach((scene, i) => {
@@ -205,14 +149,18 @@ export function buildSlides(lesson: Lesson): Slide[] {
       total: story.scenes.length,
     });
   });
-  for (const g of lesson.groups)
+  const cards = cardPages(lesson.words);
+  cards.forEach((words, i) =>
     result.push({
-      id: 'root-quiz:' + g.id,
+      id: 'cards:' + i,
       chapter: 'practice',
-      kind: 'root-quiz',
-      title: g.text,
-      group: g,
-    });
+      kind: 'cards',
+      title: '翻卡回忆 · ' + words.map(wordLabel).join(' / '),
+      words,
+      part: i + 1,
+      total: cards.length,
+    }),
+  );
   for (const w of lesson.words)
     result.push({
       id: 'practice:' + w.id,
@@ -273,9 +221,5 @@ export function buildSlides(lesson: Lesson): Slide[] {
 }
 export function sectionFor(slide?: Slide) {
   if (slide?.chapter === 'scenes') return 'scenes';
-  return slide?.chapter === 'roots'
-    ? 'roots'
-    : slide?.chapter === 'practice'
-      ? 'practice'
-      : 'preview';
+  return slide?.chapter === 'practice' ? 'practice' : 'preview';
 }

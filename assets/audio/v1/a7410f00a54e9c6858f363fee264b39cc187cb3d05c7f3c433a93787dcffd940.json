@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "a7410f00a54e9c6858f363fee264b39cc187cb3d05c7f3c433a93787dcffd940",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The little dog walks backwards."
+  },
+  "file": "audio/v1/fbd8bea8d8fe9264a2ada375ea6fc25fb15553a8cf98cba2a0b154abc4c61575.mp3",
+  "sha256": "fbd8bea8d8fe9264a2ada375ea6fc25fb15553a8cf98cba2a0b154abc4c61575",
+  "bytes": 15984,
+  "created_at": "2026-09-07T15:58:44+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

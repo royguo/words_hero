@@ -1,8 +1,8 @@
-# Word Garden 工作约定
+# 风筝单词工作约定
 
 ## 产品与边界
 
-- 这是本地优先的师生背单词工具：Python 标准库 HTTP 服务 + SQLite + React 静态页面。保持离线授课、A4 网页打印，不引入课堂运行时的远程模型或图片依赖。语音允许课前或首次点击时联网生成；完成缓存后只播放本地 MP3。
+- 产品名为“风筝单词 / KiteDance”，生产域名 kitedance.com。当前架构是 React 静态前端 + Cloudflare Worker API + D1 课堂数据 + R2 独立素材；本地仅用 Wrangler 模拟同一 API 测试。Python 保留教材编译、历史 SQLite 迁移与旧发行包参考。A4 打印与大屏授课不能回退。
 - 在本仓库内工作，先读 README、入口、相关测试和 `git status`；保留已有修改，不操作父目录的其他项目。
 - 流程固定为：班级 → 新建课程 → 词表/难度/数量 → 确认并编辑词单 → 持久化课程。默认 10 词，可选 20、30、50；手动补词可以跨词库。
 - 随堂书写纸与课后考察练习是独立的 A4 文档，都能课前打印，保留姓名、年龄、日期填写处。
@@ -10,12 +10,12 @@
 
 ## 先定课程，再制作素材
 
-1. 先创建并确认词单。记录页面上的 `WG-…` 课程编号；编号唯一映射到 SQLite 中的课程版本，不使用容易混淆的“第几课”定位。
-2. 用页面的“下载素材任务”或 `python3 scripts/lesson_assets.py brief WG-…` 读取固定内容。不要为方便画图重新抽词。
+1. 先创建并确认词单。记录页面上的 `WG-…` 课程编号；编号唯一映射到 D1 中的课程版本，不使用容易混淆的“第几课”定位。
+2. 用页面的“下载素材任务”或 `python3 scripts/cf_course.py brief WG-…` 读取固定内容。不要为方便画图重新抽词。
 3. 检查 `assets/catalog.json`，优先复用词义匹配的已有素材。每个单词支持一张或多张图片；没有图片时授课位置留空，不显示虚假图片或占位文案。
 4. 新素材放入 `assets/words/<word>/vN/`；跨词故事放入 `assets/lessons/<bundle-id>/`。图片、文字、原始生成提示词、生成方式、日期、词义、来源与 SHA-256 必须一起提交 Git。不要仅保存模型临时路径或外链。
 5. manifest 中使用单词、级别和素材 ID，不依赖某台机器的词库数字 ID。课程包必须声明固定 `word_order`，故事声明实际覆盖的 `covered_words`。
-6. 用 `python3 scripts/lesson_assets.py validate` 检查，再用 `python3 scripts/lesson_assets.py apply WG-… <bundle-id>` 绑定。绑定创建新的课程版本，旧内容、题序和素材文件应可回溯；不要直接改历史 SQLite 快照。
+6. 用 `python3 scripts/lesson_assets.py validate` 检查，先 `npm run cf:deploy` 发布素材，再用 `python3 scripts/cf_course.py apply WG-… <bundle-id>` 绑定。绑定创建新的课程版本，旧内容、题序和素材文件应可回溯；不要直接改历史课程快照。
 7. 后续改稿新增 v2 等目录和素材 ID，不覆盖已发布的图片或 manifest。图片用内容哈希命名；同一图片可以被多个课程引用。`catalog.json` 只负责为新课程选择默认素材，不改写旧课。
 
 ## 图片与语言标准
@@ -31,16 +31,24 @@
 
 ## 数据、交付与验证
 
-- 语音使用 `edge-tts` 在线神经语音，默认 `en-GB-SoniaNeural`、语速 `-10%`，不需要 API Key。用户已要求删除 GPT API 通道，不再添加或保留 GPT 配音配置，不使用 Codex 登录凭证调用其他 API，也不自动退回系统合成声音。
-- 单词、完整例句、故事正文与问答共用 `audio.py` 和 `lib/audio.ts`，前端不要直接请求第三方语音 URL。先检查磁盘缓存；未命中才由隔离的 `.venv-audio` 工作进程联网获取。文本、声音、语速和格式参与缓存键，MP3 以内容哈希命名。
+- 语音使用 Edge 在线神经语音；Worker 的 WebSocket 适配在 `worker/audio.ts`，本地素材制作使用 `edge-tts`。默认 `en-GB-SoniaNeural`、语速 `-10%`，不需要 API Key。用户已要求删除 GPT API 通道，不再添加或保留 GPT 配音配置，不使用 Codex 登录凭证调用其他 API，也不自动退回系统合成声音。
+- 单词、完整例句、关联词、故事正文与问答共用 `worker/audio.ts` 和 `lib/audio.ts`，前端不要直接请求第三方语音 URL。先检查 R2 缓存，未命中才联网获取；本地素材制作可由隔离的 `.venv-audio` 工作进程生成。文本、声音、语速和格式参与缓存键，MP3 以内容哈希命名。
 - `assets/audio/v1/` 内的 MP3 及 JSON（原文、生成方式、声音参数、日期、来源、SHA-256）一起进 Git；不保存班级名、学生信息、课堂笔记或答题记录。相同文本跨课复用，不改课程快照。每轮任务提交新增的公共教材录音；网页本身不自动执行 Git 命令。
 - 保留“课前缓存本课语音”、进度、暂停/继续、例句和故事播放入口。缓存中断不丢已有录音，失败或损坏文件不能算缓存成功；翻页、切课、退出讲课必须停止播放并取消过期请求。页面注明“AI 合成语音”。
-- 语音相关改动额外运行 `npm run test:audio`、`python3 scripts/lesson_audio.py validate`。自动测试不调用在线语音服务，使用临时素材目录和数据库；实际生成录音后验证文件可解码、缓存命中和离线发布包复用。
+- 语音相关改动额外运行 `npm run test:audio`、`python3 scripts/lesson_audio.py validate`。自动测试不调用在线语音服务，使用临时素材目录和数据库；实际生成录音后验证文件可解码、缓存命中、R2 复用与 Cloudflare 实际运行。WebSocket 必须在 accept 前显式设 binaryType="arraybuffer"，不要依赖旧默认值。
 
-- `assets/`、词表、内容包、生成脚本与文档进入 Git；学生资料、班级记录、SQLite、备份、临时文件和发布 ZIP 留在忽略目录。清课仅在用户要求时执行，先用 SQLite backup API 备份，保留词库；本项目不在启动时清库或自动创建演示课。
+- `assets/`、词表、内容包、生成脚本与文档进入 Git；学生资料、班级记录、SQLite、D1 导出、备份、密钥、Wrangler 状态、临时文件和发布 ZIP 留在忽略目录。清课仅在用户要求时执行，先用 SQLite backup API 备份，保留词库；本项目不在启动或发布时清库或自动创建演示课；删除班级/课程采用软删除，不删除任何独立单词资产。
 - 支持在全新数据库显式运行 `create-demo` 重建仓库里的示例课程；普通启动只导入词表。
-- 按改动运行 `npm run typecheck`、`npm run lint`、`npm test`、`npm run test:slides`、`python3 scripts/lesson_assets.py validate`、`npm run build`。涉及发行内容时更新打包清单并运行发布 smoke。
-- 验证素材完整性、路径约束、课程词单不变、历史快照不变、无图片课程可用、故事章节顺序和分页；不得用真实课堂数据库跑自动化测试。
+- 按改动运行 `npm run typecheck`、`npm run lint`、`npm test`、`npm run test:slides`、`python3 scripts/lesson_assets.py validate`、`npm run build`。Cloudflare 改动还须运行 `npm run test:cloudflare`；该测试必须在临时独立 D1/R2 状态目录执行。涉及旧离线包时才运行对应发布 smoke。
+- 验证素材完整性、路径约束、课程词单不变、历史快照不变、无图片课程可用、故事章节顺序和分页；不得用真实课堂数据库或生产 D1 跑自动化破坏性测试。
 - 每完成一轮本项目任务，在相关验证通过后，必须提交本轮代码、素材与文档变更，并 push 到 GitHub 仓库 `git@github.com:royguo/words_hero.git`（当前为 `origin/main`）。这是用户持续授权的默认收尾步骤，无需再次确认；只提交本轮范围内应追踪的文件，继续排除本地数据库等私人数据。
 - 推送后核实远端已包含本轮提交，汇报提交哈希和推送结果。若本轮没有可提交的文件变更，核实并同步已有提交，不创建空提交；若推送失败，说明原因，不把仅完成本地提交说成已同步 GitHub。
-- 完成后保留本地预览服务，按任务内容说明课程编号、素材路径和验证结果。
+- 完成后保留 Wrangler 本地预览服务，按任务内容说明课程编号、素材路径和验证结果。
+
+## 云端更新、教材与账号
+
+- 部署前阅读 [docs/cloudflare.md](docs/cloudflare.md)。`npm run cf:deploy` 自动执行未执行迁移、R2 上传和词库 upsert，再发布 Worker；绝不把本地测试课堂默认导入生产。新迁移追加编号，不改已发布迁移。
+- 每轮提交前先 `npm run assets:pull` 收回线上新录音，验证 MP3 和 manifest，再提交 Git。R2 与词库均独立于班级/课程，删除课堂不影响资产。
+- 逐词小故事已退役。“认识单词”紧接“来源和构成”；精编词填写 `word_study`，详见 [docs/word-study.md](docs/word-study.md)。课堂题目与答案一次性存入版本 `config.worksheets`，打印时不重新抽题。
+- 默认教师账号 admin / 95279527，生产凭据存 Worker secrets；记住登录使用 HttpOnly 会话 Cookie，不存明文密码。学生账号暂不开发；以后仅支持手动创建，服务端限制为学习与分析报告。
+- 部署与切换 kitedance.com、每轮 commit & push 是用户持续授权，正常更新无需重复申请。保留旧产品资源及回退路径，不扩展到无关子域名或数据库。

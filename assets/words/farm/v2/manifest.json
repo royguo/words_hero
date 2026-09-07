@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "id": "farm-v2",
+  "word": "farm",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "农场；农田",
+  "created_at": "2026-09-07",
+  "provenance": {
+    "text": "Original A2 word study; dictionary sources checked 2026-09-07; imagery reused from farm-v1.",
+    "images": "Built-in imagegen; exact prompts and SHA-256 stored per image"
+  },
+  "teaching": {
+    "meaning_zh": "农场；农田",
+    "pos": "n.",
+    "example": "There are sheep on the farm.",
+    "example_zh": "农场里有羊。",
+    "extra_examples": [
+      {
+        "en": "We visit a farm on Sunday.",
+        "zh": "我们星期天参观一个农场。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "如果你去农场，想先看哪一种动物？试着说 on the farm。",
+    "cloze": "There are sheep on the __________.",
+    "cloze_answer": "farm",
+    "cloze_zh": "农场里有羊。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "先读单词与例句，再用 word_study 学习来源和构成；关联例句均为原创。",
+    "word_study": {
+      "schema_version": 1,
+      "formation": "simple",
+      "construction": "farm",
+      "components": [],
+      "explanation_zh": "farm 是一个完整词，先不拆。它可以作词基，加上 -er 变成 farmer，也能和 house 组成 farmhouse。",
+      "origin_zh": "farm 经法语进入英语，早期有“固定租金”的意思。这个和租地有关的词，后来也用来称呼种庄稼、养动物的地方。",
+      "family": [
+        {
+          "word": "farmer",
+          "meaning_zh": "农民；农场主",
+          "relation": "derivation",
+          "connection_zh": "farm + -er；-er 可以表示做这项工作的人。",
+          "example": {
+            "en": "The farmer has three cows.",
+            "zh": "这个农民养了三头奶牛。"
+          }
+        },
+        {
+          "word": "farmhouse",
+          "meaning_zh": "农舍",
+          "relation": "compound",
+          "connection_zh": "farm + house：农场里的房屋。",
+          "example": {
+            "en": "We eat in the farmhouse.",
+            "zh": "我们在农舍里吃饭。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "farm + -er = farmer。-er 在这里表示什么？farmer 是人还是房子？",
+        "answer_zh": "做这项工作的人；farmer 是人。"
+      },
+      "sources": [
+        {
+          "title": "Merriam-Webster · farm",
+          "url": "https://www.merriam-webster.com/dictionary/farm"
+        },
+        {
+          "title": "Merriam-Webster · farmer",
+          "url": "https://www.merriam-webster.com/dictionary/farmer"
+        },
+        {
+          "title": "Merriam-Webster · farmhouse",
+          "url": "https://www.merriam-webster.com/dictionary/farmhouse"
+        },
+        {
+          "title": "Merriam-Webster · -er",
+          "url": "https://www.merriam-webster.com/dictionary/-er"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "farm-v1",
+      "file": "words/farm/v1/ab88b6cf6ff164b783429e629dfefaf9be11f61cb18d3487f6f05b14d6b25577.png",
+      "sha256": "ab88b6cf6ff164b783429e629dfefaf9be11f61cb18d3487f6f05b14d6b25577",
+      "width": 1536,
+      "height": 1024,
+      "alt": "一座有菜地、谷仓、小羊和小鸡的农场，农场主人正在喂鸡",
+      "caption": "There are sheep on the farm.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: classroom vocabulary/story photograph for Chinese primary-school KET learners, shown large on a projector.\nStyle: beautiful, playful, predominantly photorealistic natural editorial educational photography; bright daylight, rich but plausible colors, realistic skin, real materials, correct anatomy, warm humour. Uncluttered composition with a strong main subject and high visual quality. Landscape 3:2 composition, ideally 1536 by 1024.\nGlobal constraints: no embedded text, letters, captions, logos, watermarks, UI labels, decorative frames, cartoons or clipart. All children are fictional, ordinary fully clothed, in benign learning scenes. Natural plausible scale and perspective. Friendly safe environments.\nRecurring characters whenever named: Mia is a fictional East Asian girl about 9, black ponytail, coral-red light jacket, pale-blue jeans, white trainers. Ben is a fictional East Asian boy about 9, short black hair. In farm-story scenes Ben wears a child-size blue two-piece formal suit, white shirt, yellow rain boots. A recurring lizard is a small vivid green realistic garden lizard, long tail, four anatomically correct legs, not a chameleon.\n\nPrimary request: an inviting small working farm in bright natural daylight. A warm red barn, neat vegetable beds, a few sheep and a farmer feeding a small group of chickens are all clearly visible in a broad but clean establishing view. The farmer and chickens in middle foreground, vegetable beds to the side, barn and a small pasture behind, naturally integrated. It must be unmistakably a farm, with readable farm activity and farming structures, not merely a countryside landscape. Friendly atmosphere and realistic livestock.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-07",
+      "reference_asset_ids": []
+    }
+  ]
+}

@@ -315,7 +315,10 @@ class StoreCase(unittest.TestCase):
         self.assertEqual(homework, worksheet(lesson, "homework"))
         self.assertEqual(len(lesson["groups"]), 3)
         self.assertEqual(len(next(g for g in lesson["groups"] if g["text"] == "care")["words"]), 2)
-        self.assertIn("<td>careful</td>", answers)
+        self.assertIn("careful", answers)
+        self.assertIn("把单词放回句子", homework)
+        self.assertEqual(lesson["config"]["worksheets"]["schema_version"], 2)
+        self.assertGreaterEqual(homework.count('class="paper-page"'), 2)
         with self.assertRaises(UserError):
             worksheet(lesson, "invalid")
 

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "03986dcadb5bbf8b37c3d844ad95f93bc3334b358612b0d6fe8b2ffba0ce9648",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "This photograph shows our farm."
+  },
+  "file": "audio/v1/d03118cd24b375b5f10edf7e55e3c7638b3d216ed1422f4b1911d104a1952e02.mp3",
+  "sha256": "d03118cd24b375b5f10edf7e55e3c7638b3d216ed1422f4b1911d104a1952e02",
+  "bytes": 16272,
+  "created_at": "2026-09-07T15:59:42+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

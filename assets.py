@@ -5,11 +5,12 @@ import json
 import re
 from pathlib import Path
 from content import ROOT, LEVELS, UserError
+from word_study import validate_study
 
 ASSET_ROOT = ROOT / "assets"
 TEACHING_FIELDS = {"meaning_zh", "pos", "example", "example_zh", "extra_examples",
                    "story_title", "story_zh", "student_prompt", "cloze", "cloze_answer",
-                   "cloze_zh", "cloze_type", "parts", "note"}
+                   "cloze_zh", "cloze_type", "parts", "note", "word_study"}
 IMAGE_TYPES = {".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg",
                ".webp": "image/webp", ".avif": "image/avif", ".gif": "image/gif"}
 
@@ -55,8 +56,13 @@ def validate_teaching(teaching, word):
     if not isinstance(teaching, dict) or set(teaching) - TEACHING_FIELDS:
         raise UserError("单词教学字段不正确：" + word)
     for key, value in teaching.items():
-        if key not in ("parts", "extra_examples") and (not isinstance(value, str) or len(value) > 3000):
+        if key not in ("parts", "extra_examples", "word_study") and (not isinstance(value, str) or len(value) > 3000):
             raise UserError("单词教学文本不正确：" + word)
+    if "word_study" in teaching:
+        try:
+            validate_study(teaching["word_study"])
+        except (ValueError, TypeError) as exc:
+            raise UserError("单词来源与构成不正确：" + word + "；" + str(exc))
     extras = teaching.get("extra_examples", [])
     if not isinstance(extras, list) or len(extras) > 6 or any(
         not isinstance(e, dict) or not all(isinstance(e.get(k), str) and 0 < len(e[k]) <= 300 for k in ("en", "zh")) for e in extras

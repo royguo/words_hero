@@ -34,7 +34,7 @@ function fixture(request = async (text) => clip(text), play = async () => {}) {
     notify: (message) => notices.push(message),
   };
 }
-test('a late download never starts the previous word after a new click', async () => {
+void test('a late download never starts the previous word after a new click', async () => {
   const requests = new Map();
   const f = fixture(
     (text, signal) =>
@@ -52,7 +52,7 @@ test('a late download never starts the previous word after a new click', async (
   assert.equal(f.player.snapshot().text, 'lizard');
   f.player.stop();
 });
-test('navigation cancels a pending fetch and prevents late playback', async () => {
+void test('navigation cancels a pending fetch and prevents late playback', async () => {
   let resolve;
   const f = fixture(
     () =>
@@ -67,7 +67,7 @@ test('navigation cancels a pending fetch and prevents late playback', async () =
   assert.deepEqual(f.player.snapshot(), { phase: 'idle', text: '' });
   assert.equal(f.recordings.length, 0);
 });
-test('repeated click toggles off, and later playback reuses the local URL', async () => {
+void test('repeated click toggles off, and later playback reuses the local URL', async () => {
   let requests = 0;
   const f = fixture(async (text) => {
     requests++;
@@ -83,7 +83,7 @@ test('repeated click toggles off, and later playback reuses the local URL', asyn
   assert.equal(f.recordings.length, 2);
   f.player.stop();
 });
-test('a blocked autoplay retains the recording for a second user gesture', async () => {
+void test('a blocked autoplay retains the recording for a second user gesture', async () => {
   let calls = 0;
   let requests = 0;
   const f = fixture(
@@ -103,7 +103,7 @@ test('a blocked autoplay retains the recording for a second user gesture', async
   assert.equal(requests, 1);
   f.player.stop();
 });
-test('media failure invalidates the transient URL and a retry checks the server', async () => {
+void test('media failure invalidates the transient URL and a retry checks the server', async () => {
   let requests = 0;
   const f = fixture(async (text) => {
     requests++;
@@ -117,7 +117,7 @@ test('media failure invalidates the transient URL and a retry checks the server'
   f.recordings[1].onended();
   assert.equal(f.player.snapshot().phase, 'idle');
 });
-test('an unavailable service reports the error without system speech fallback', async () => {
+void test('an unavailable service reports the error without system speech fallback', async () => {
   const f = fixture(async () => {
     throw new Error('Service unavailable');
   });

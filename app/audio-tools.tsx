@@ -146,10 +146,10 @@ export function AudioPreparation({ versionId }: { versionId: string }) {
       <Volume2 size={21} />
       <div className="audio-preparation-copy">
         <strong>{inventory?.configuration.label || '课堂语音'}</strong>
-        <p>AI 合成语音 · 首次联网保存，之后离线播放</p>
+        <p>AI 合成语音 · 首次联网合成，之后复用已存录音</p>
         <output aria-live="polite">
           {inventory
-            ? `${inventory.cached} / ${inventory.total} 段已保存${ready ? ' · 本课可以离线播放' : ' · 单词、例句、故事与问答'}`
+            ? `${inventory.cached} / ${inventory.total} 段已保存${ready ? ' · 本课语音已准备齐全' : ' · 单词、例句、故事与问答'}`
             : '正在读取本地录音…'}
         </output>
         {inventory && (

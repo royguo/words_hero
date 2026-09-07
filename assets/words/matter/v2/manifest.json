@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "id": "matter-v2",
+  "word": "matter",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "事情；要紧",
+  "created_at": "2026-09-07",
+  "provenance": {
+    "text": "Original A2 word study; dictionary sources checked 2026-09-07; imagery reused from matter-v1.",
+    "images": "Built-in imagegen; exact prompts and SHA-256 stored per image"
+  },
+  "teaching": {
+    "meaning_zh": "事情；要紧",
+    "pos": "n.; v.",
+    "example": "What is the matter, Ben?",
+    "example_zh": "Ben，怎么了？",
+    "extra_examples": [
+      {
+        "en": "It doesn't matter. I have another pencil.",
+        "zh": "没关系。我还有一支铅笔。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "和同伴演一演：一人遇到小问题，另一人先问 What is the matter?",
+    "cloze": "You look sad. What is the __________?",
+    "cloze_answer": "matter",
+    "cloze_zh": "你看起来很难过。怎么了？",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "先读单词与例句，再用 word_study 学习来源和构成；关联例句均为原创。",
+    "word_study": {
+      "schema_version": 1,
+      "formation": "simple",
+      "construction": "matter",
+      "components": [],
+      "explanation_zh": "matter 不拆成 mat + ter。本课先记“事情；问题”，如 What is the matter? 它也能表示“物质”。",
+      "origin_zh": "matter 经法语追溯到拉丁语 materia，意思与“材料、物质”有关。今天的 material 和它有共同的历史来源。",
+      "family": [
+        {
+          "word": "material",
+          "meaning_zh": "材料；布料",
+          "relation": "shared_root",
+          "connection_zh": "与 matter 同源；不是把今天的 matter 直接加字母而成。",
+          "example": {
+            "en": "This material is soft.",
+            "zh": "这种布料很柔软。"
+          }
+        },
+        {
+          "word": "no matter",
+          "meaning_zh": "无论；不管",
+          "relation": "phrase",
+          "connection_zh": "no matter what 是“不管怎样”的常见搭配。",
+          "example": {
+            "en": "No matter what, we are friends.",
+            "zh": "不管怎样，我们都是朋友。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "matter 和 material 有“物质、材料”的同源联系。material 可以表示什么？",
+        "answer_zh": "材料或布料。"
+      },
+      "sources": [
+        {
+          "title": "Merriam-Webster · matter",
+          "url": "https://www.merriam-webster.com/dictionary/matter"
+        },
+        {
+          "title": "Merriam-Webster · material",
+          "url": "https://www.merriam-webster.com/dictionary/material"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "matter-v1",
+      "file": "words/matter/v1/9852ca3c408343c2b9f69e9006b64547791b5e4d5417489c82bf128fa90de1b9.png",
+      "sha256": "9852ca3c408343c2b9f69e9006b64547791b5e4d5417489c82bf128fa90de1b9",
+      "width": 1536,
+      "height": 1024,
+      "alt": "同学关心地询问拿着断铅笔的小男孩发生了什么",
+      "caption": "What is the matter, Ben?",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: classroom vocabulary/story photograph for Chinese primary-school KET learners, shown large on a projector.\nStyle: beautiful, playful, predominantly photorealistic natural editorial educational photography; bright daylight, rich but plausible colors, realistic skin, real materials, correct anatomy, warm humour. Uncluttered composition with a strong main subject and high visual quality. Landscape 3:2 composition, ideally 1536 by 1024.\nGlobal constraints: no embedded text, letters, captions, logos, watermarks, UI labels, decorative frames, cartoons or clipart. All children are fictional, ordinary fully clothed, in benign learning scenes. Natural plausible scale and perspective. Friendly safe environments.\nRecurring characters whenever named: Mia is a fictional East Asian girl about 9, black ponytail, coral-red light jacket, pale-blue jeans, white trainers. Ben is a fictional East Asian boy about 9, short black hair. In farm-story scenes Ben wears a child-size blue two-piece formal suit, white shirt, yellow rain boots. A recurring lizard is a small vivid green realistic garden lizard, long tail, four anatomically correct legs, not a chameleon.\n\nPrimary request: Mia gently asking what is wrong as Ben, in a blue school jumper, holds one visibly broken wooden pencil in two pieces at a bright classroom desk. Ben has a small puzzled, slightly worried expression, Mia looks kindly concerned. Another intact pencil is clearly visible on the desk as a reassuring solution. The minor problem is light-hearted and obvious, no distress. Frame their faces, natural hands and the broken pencil so the problem is readable. The teaching meaning is 'What is the matter?' as a question about a small problem, not scientific matter. Render no words.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-07",
+      "reference_asset_ids": []
+    }
+  ]
+}

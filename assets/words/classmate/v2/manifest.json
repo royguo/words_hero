@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "id": "classmate-v2",
+  "word": "classmate",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "同班同学",
+  "created_at": "2026-09-07",
+  "provenance": {
+    "text": "Original A2 word study; dictionary sources checked 2026-09-07; imagery reused from classmate-v1.",
+    "images": "Built-in imagegen; exact prompts and SHA-256 stored per image"
+  },
+  "teaching": {
+    "meaning_zh": "同班同学",
+    "pos": "n.",
+    "example": "Ben is my classmate.",
+    "example_zh": "Ben 是我的同班同学。",
+    "extra_examples": [
+      {
+        "en": "I sit next to my classmate.",
+        "zh": "我坐在同班同学旁边。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "指向一位同班同学，用 This is my classmate. 介绍对方。",
+    "cloze": "Ben is in my class. He is my __________.",
+    "cloze_answer": "classmate",
+    "cloze_zh": "Ben 在我班里。他是我的同班同学。",
+    "cloze_type": "context",
+    "parts": [
+      {
+        "text": "class",
+        "kind": "compound",
+        "meaning": "班级"
+      },
+      {
+        "text": "mate",
+        "kind": "compound",
+        "meaning": "伙伴"
+      }
+    ],
+    "note": "先读单词与例句，再用 word_study 学习来源和构成；关联例句均为原创。",
+    "word_study": {
+      "schema_version": 1,
+      "formation": "compound",
+      "construction": "class + mate → classmate",
+      "components": [
+        {
+          "text": "class",
+          "kind": "word",
+          "meaning_zh": "班级"
+        },
+        {
+          "text": "mate",
+          "kind": "word",
+          "meaning_zh": "伙伴"
+        }
+      ],
+      "explanation_zh": "同一个 class 里的 mate，就是 classmate（同班同学）。把前半部分换掉，就能描述另一种伙伴。",
+      "origin_zh": "mate 作“伙伴”时，词源与古英语中“一起吃饭的客人”的词有亲缘关系。今天它能和班级、学校、球队等词组合。",
+      "family": [
+        {
+          "word": "schoolmate",
+          "meaning_zh": "校友；同校同学",
+          "relation": "compound",
+          "connection_zh": "school + mate：同校的伙伴，不一定同班。",
+          "example": {
+            "en": "My schoolmate lives near me.",
+            "zh": "我的同校同学住在我附近。"
+          }
+        },
+        {
+          "word": "teammate",
+          "meaning_zh": "队友",
+          "relation": "compound",
+          "connection_zh": "team + mate：同一队里的伙伴。",
+          "example": {
+            "en": "My teammate can run fast.",
+            "zh": "我的队友跑得很快。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "classmate、schoolmate 和 teammate 都有 mate。mate 在这些词中是什么意思？",
+        "answer_zh": "伙伴。"
+      },
+      "sources": [
+        {
+          "title": "Merriam-Webster · classmate",
+          "url": "https://www.merriam-webster.com/dictionary/classmate"
+        },
+        {
+          "title": "Merriam-Webster · mate",
+          "url": "https://www.merriam-webster.com/dictionary/mate"
+        },
+        {
+          "title": "Merriam-Webster · schoolmate",
+          "url": "https://www.merriam-webster.com/dictionary/schoolmate"
+        },
+        {
+          "title": "Merriam-Webster · teammate",
+          "url": "https://www.merriam-webster.com/dictionary/teammate"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "classmate-v1",
+      "file": "words/classmate/v1/3ce2b387e609bbfdec55f893eb3cbe89d316b98476cecaab3dacf4fbaa5795f9.png",
+      "sha256": "3ce2b387e609bbfdec55f893eb3cbe89d316b98476cecaab3dacf4fbaa5795f9",
+      "width": 1536,
+      "height": 1024,
+      "alt": "同一个班里的两名孩子在课桌前一起学习，分享铅笔",
+      "caption": "Ben is my classmate.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: classroom vocabulary/story photograph for Chinese primary-school KET learners, shown large on a projector.\nStyle: beautiful, playful, predominantly photorealistic natural editorial educational photography; bright daylight, rich but plausible colors, realistic skin, real materials, correct anatomy, warm humour. Uncluttered composition with a strong main subject and high visual quality. Landscape 3:2 composition, ideally 1536 by 1024.\nGlobal constraints: no embedded text, letters, captions, logos, watermarks, UI labels, decorative frames, cartoons or clipart. All children are fictional, ordinary fully clothed, in benign learning scenes. Natural plausible scale and perspective. Friendly safe environments.\nRecurring characters whenever named: Mia is a fictional East Asian girl about 9, black ponytail, coral-red light jacket, pale-blue jeans, white trainers. Ben is a fictional East Asian boy about 9, short black hair. In farm-story scenes Ben wears a child-size blue two-piece formal suit, white shirt, yellow rain boots. A recurring lizard is a small vivid green realistic garden lizard, long tail, four anatomically correct legs, not a chameleon.\n\nPrimary request: Mia and Ben working together at the SAME school desk with open exercise books. In this one classroom photo both children wear matching blue school jumpers over white shirts; Mia still has her recognizable black ponytail. They cheerfully share one pencil, with one child naturally passing it to the other's open hand. Background subtly but clearly shows other classroom desks and a plain board without writing. The context must communicate classmates at school, not siblings at home. Exercise-book pages have faint blank ruling only, no legible words or numbers.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-07",
+      "reference_asset_ids": []
+    }
+  ]
+}

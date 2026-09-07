@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "a7777f5a3421ea4d75613b9fce29b335d214b55133686d69b32508a8ba3015b2",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "My schoolmate lives near me."
+  },
+  "file": "audio/v1/add1bbd84da506b35c9d1b43f85aca9d5244cbc3462afb324355dc8252b8acdf.mp3",
+  "sha256": "add1bbd84da506b35c9d1b43f85aca9d5244cbc3462afb324355dc8252b8acdf",
+  "bytes": 14400,
+  "created_at": "2026-09-07T15:59:33+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

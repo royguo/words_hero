@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "795c744c847d50234923d948375a021fc99454818598fe9d26a66f6f24097fc6",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "My pet lizard is small."
+  },
+  "file": "audio/v1/989daa99788947daa50226e3c4d47b8192d3c47b71d1d73decb2a641713479c9.mp3",
+  "sha256": "989daa99788947daa50226e3c4d47b8192d3c47b71d1d73decb2a641713479c9",
+  "bytes": 14112,
+  "created_at": "2026-09-07T15:59:55+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

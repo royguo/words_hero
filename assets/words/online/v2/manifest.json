@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "id": "online-v2",
+  "word": "online",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "在线的；在线地",
+  "created_at": "2026-09-07",
+  "provenance": {
+    "text": "Original A2 word study; dictionary sources checked 2026-09-07; imagery reused from online-v1.",
+    "images": "Built-in imagegen; exact prompts and SHA-256 stored per image"
+  },
+  "teaching": {
+    "meaning_zh": "在线的；在线地",
+    "pos": "adj.; adv.",
+    "example": "Mum and I look at farm photos online.",
+    "example_zh": "妈妈和我在网上看农场照片。",
+    "extra_examples": [
+      {
+        "en": "We can buy tickets online.",
+        "zh": "我们可以在网上买票。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "你和家人会在网上看什么？用 online 说一句话。",
+    "cloze": "We can buy tickets __________.",
+    "cloze_answer": "online",
+    "cloze_zh": "我们可以在网上买票。",
+    "cloze_type": "context",
+    "parts": [
+      {
+        "text": "on",
+        "kind": "compound",
+        "meaning": "接通；处于运转中"
+      },
+      {
+        "text": "line",
+        "kind": "compound",
+        "meaning": "线路"
+      }
+    ],
+    "note": "先读单词与例句，再用 word_study 学习来源和构成；关联例句均为原创。",
+    "word_study": {
+      "schema_version": 1,
+      "formation": "compound",
+      "construction": "on + line → online",
+      "components": [
+        {
+          "text": "on",
+          "kind": "word",
+          "meaning_zh": "接通；处于运转中"
+        },
+        {
+          "text": "line",
+          "kind": "word",
+          "meaning_zh": "线路"
+        }
+      ],
+      "explanation_zh": "把 on 和 line 连起来，得到 online：接入系统、在线。想象电脑接上了一条看不见的线路。",
+      "origin_zh": "这个词在早期计算机语境中表示设备直接相连；后来常用于互联网。这里的 line 是“线路”，不是排队的“队伍”。",
+      "family": [
+        {
+          "word": "offline",
+          "meaning_zh": "离线的；离线地",
+          "relation": "compound",
+          "connection_zh": "off + line：从连接中断开，与 online 相对。",
+          "example": {
+            "en": "This game works offline.",
+            "zh": "这个游戏离线也能玩。"
+          }
+        },
+        {
+          "word": "online class",
+          "meaning_zh": "网课",
+          "relation": "phrase",
+          "connection_zh": "online 修饰 class，是两个词的搭配。",
+          "example": {
+            "en": "Our online class starts at ten.",
+            "zh": "我们的网课十点开始。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "online 是在线；把 on 换成 off，得到哪个词？它是什么意思？",
+        "answer_zh": "offline；离线。"
+      },
+      "sources": [
+        {
+          "title": "Merriam-Webster · online",
+          "url": "https://www.merriam-webster.com/dictionary/online"
+        },
+        {
+          "title": "Merriam-Webster · offline",
+          "url": "https://www.merriam-webster.com/dictionary/offline"
+        },
+        {
+          "title": "Etymonline · online",
+          "url": "https://www.etymonline.com/word/online"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "online-v1",
+      "file": "words/online/v1/f656e64bfa35768594c9f431badb73b0cbb81919dbf9f32be0c7e7de1070023e.png",
+      "sha256": "f656e64bfa35768594c9f431badb73b0cbb81919dbf9f32be0c7e7de1070023e",
+      "width": 1536,
+      "height": 1024,
+      "alt": "孩子和妈妈在电脑上浏览农场照片",
+      "caption": "Mum and I look at farm photos online.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: classroom vocabulary/story photograph for Chinese primary-school KET learners, shown large on a projector.\nStyle: beautiful, playful, predominantly photorealistic natural editorial educational photography; bright daylight, rich but plausible colors, realistic skin, real materials, correct anatomy, warm humour. Uncluttered composition with a strong main subject and high visual quality. Landscape 3:2 composition, ideally 1536 by 1024.\nGlobal constraints: no embedded text, letters, captions, logos, watermarks, UI labels, decorative frames, cartoons or clipart. All children are fictional, ordinary fully clothed, in benign learning scenes. Natural plausible scale and perspective. Friendly safe environments.\nRecurring characters whenever named: Mia is a fictional East Asian girl about 9, black ponytail, coral-red light jacket, pale-blue jeans, white trainers. Ben is a fictional East Asian boy about 9, short black hair. In farm-story scenes Ben wears a child-size blue two-piece formal suit, white shirt, yellow rain boots. A recurring lizard is a small vivid green realistic garden lizard, long tail, four anatomically correct legs, not a chameleon.\n\nPrimary request: Mia sitting at a bright kitchen table, a friendly adult beside her, using a laptop. Ben in a blue school jumper sits next to Mia looking interested. Laptop is prominent and its screen faces enough toward camera to see a simple large farm photograph with a row of smaller farm picture thumbnails, a nonverbal visual browsing page with absolutely no readable letters, numbers, labels or brand marks. Mia's hand uses the laptop trackpad. Communicate supervised online browsing through the laptop interaction and photo thumbnails. Warm daylight, cheerful interested faces, uncluttered table.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-07",
+      "reference_asset_ids": []
+    }
+  ]
+}

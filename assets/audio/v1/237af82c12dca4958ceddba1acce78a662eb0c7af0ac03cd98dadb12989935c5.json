@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "237af82c12dca4958ceddba1acce78a662eb0c7af0ac03cd98dadb12989935c5",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "We take two steps forwards."
+  },
+  "file": "audio/v1/90f8ad5a6e27a27500fc46eca06cb998d373912fcac5304b7225ff601a42fce3.mp3",
+  "sha256": "90f8ad5a6e27a27500fc46eca06cb998d373912fcac5304b7225ff601a42fce3",
+  "bytes": 15840,
+  "created_at": "2026-09-07T15:58:49+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "5a6a359b8fbe9e45b30c09f71b06391bb93f64092d2e2572f929bb75c5fce565",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "pet lizard"
+  },
+  "file": "audio/v1/998f6e6c1314448987d9858c9444019f94c097e5168942b533c2ff735667326f.mp3",
+  "sha256": "998f6e6c1314448987d9858c9444019f94c097e5168942b533c2ff735667326f",
+  "bytes": 9360,
+  "created_at": "2026-09-07T15:59:53+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

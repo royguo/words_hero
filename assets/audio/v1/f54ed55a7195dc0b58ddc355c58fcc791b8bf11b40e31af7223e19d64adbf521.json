@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "f54ed55a7195dc0b58ddc355c58fcc791b8bf11b40e31af7223e19d64adbf521",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "farmhouse"
+  },
+  "file": "audio/v1/0acacf5b2ee57c281858b082290920a12ed762eb5d9f44daa8c8c6a6da9ebfed.mp3",
+  "sha256": "0acacf5b2ee57c281858b082290920a12ed762eb5d9f44daa8c8c6a6da9ebfed",
+  "bytes": 9072,
+  "created_at": "2026-09-07T15:58:54+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

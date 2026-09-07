@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "6c1a795bbc82eaf4329832c4ff3740bf62fd877e1340ca32755bd86ce392d9f8",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "schoolmate"
+  },
+  "file": "audio/v1/ff35545292f040f32ecb903dc130d8c8865a9ea78f970b2a8e92bba4359a7144.mp3",
+  "sha256": "ff35545292f040f32ecb903dc130d8c8865a9ea78f970b2a8e92bba4359a7144",
+  "bytes": 8928,
+  "created_at": "2026-09-07T15:59:30+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

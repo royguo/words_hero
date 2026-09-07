@@ -5,7 +5,7 @@
 ## 声音与来源
 
 - 在线服务：Microsoft Edge 在线朗读，经社区维护的 [edge-tts](https://github.com/rany2/edge-tts) 客户端调用。
-- 生成工具：`edge-tts==7.2.8`，在独立的 `.venv-audio` 中安装，上游代码使用 LGPLv3 许可；本仓库不内嵌该依赖代码或虚拟环境。
+- 生成工具：`edge-tts==7.2.8`，在独立的 `.venv-audio` 中安装，上游代码使用 LGPLv3 许可；Worker 内含适配后的协议代码，上游许可保留在 `LICENSES/`，不提交虚拟环境。
 - 声音：`en-GB-SoniaNeural`，英式英语女声；合成语速 `-10%`。
 - 音频：MP3，24 kHz、单声道、48 kbit/s。合成语音并非真人现场录音。
 - 示例 `farm-friend-v1` 的 42 段语音于 2026-09-07 实际联网生成，包括 10 个单词、20 条例句、4 页故事和 8 条问题/答案。
@@ -44,3 +44,7 @@ WORD_GARDEN_TTS_OFFLINE=1 python3 server.py
 没有语音组件、离线或服务异常时，已缓存的 MP3 仍可用。损坏的文件会报告校验失败，先从 Git 或素材备份恢复配套 JSON 和 MP3 后重试；不将损坏缓存静默替换为其他录音。
 
 后续任务将新 MP3 与 JSON 一并提交并推送。网页本身不自动执行 Git；临时 `.audio-*` 文件、`.venv-audio` 和本地数据库不进入版本控制。备份数据库时另行保留整个 `assets/` 目录。
+
+## Cloudflare 生产
+
+当前示例 farm-friend-v2 共 82 段录音，新增关联词与双语例句的英语配音。生产由 `worker/audio.ts` 调用同一 Edge 语音协议，MP3 和 manifest 写入 R2，D1 `audio_index` 为独立索引。每轮开发执行 `npm run assets:pull` 下载新增公共录音并验证、提交 Git。浏览器网站本身需要联网；不要把 R2 缓存误称为整个网站可离线使用。

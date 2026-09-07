@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "id": "stamp-v2",
+  "word": "stamp",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "邮票；印章",
+  "created_at": "2026-09-07",
+  "provenance": {
+    "text": "Original A2 word study; dictionary sources checked 2026-09-07; imagery reused from stamp-v1.",
+    "images": "Built-in imagegen; exact prompts and SHA-256 stored per image"
+  },
+  "teaching": {
+    "meaning_zh": "邮票；印章",
+    "pos": "n.",
+    "example": "Put a stamp on the card.",
+    "example_zh": "在卡片上贴一张邮票。",
+    "extra_examples": [
+      {
+        "en": "I need a stamp for this letter.",
+        "zh": "我寄这封信需要一张邮票。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "假如你设计一张邮票，会把本课哪个画面印在 stamp 上？",
+    "cloze": "Put a __________ on the card.",
+    "cloze_answer": "stamp",
+    "cloze_zh": "在卡片上贴一张邮票。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "先读单词与例句，再用 word_study 学习来源和构成；关联例句均为原创。",
+    "word_study": {
+      "schema_version": 1,
+      "formation": "simple",
+      "construction": "stamp",
+      "components": [],
+      "explanation_zh": "stamp 本课表示“邮票”。它也可以表示“盖章”；本身整体记忆，不按 st + amp 拆分。",
+      "origin_zh": "stamp 的旧动词用法与“重重地踩、压”有关，也能指压出印记。今天它既能说盖章的动作，也能指印章或邮票。",
+      "family": [
+        {
+          "word": "stamps",
+          "meaning_zh": "邮票（复数）",
+          "relation": "inflection",
+          "connection_zh": "stamp + -s：多张邮票；这里是名词的复数形式。",
+          "example": {
+            "en": "I have three stamps.",
+            "zh": "我有三张邮票。"
+          }
+        },
+        {
+          "word": "stamp album",
+          "meaning_zh": "集邮册",
+          "relation": "phrase",
+          "connection_zh": "stamp 说明收什么；album 是放照片或收藏品的册子。",
+          "example": {
+            "en": "My stamp album is green.",
+            "zh": "我的集邮册是绿色的。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "stamp album 是收集邮票的册子。stamp 在这个搭配中表示什么？",
+        "answer_zh": "邮票。"
+      },
+      "sources": [
+        {
+          "title": "Merriam-Webster · stamp",
+          "url": "https://www.merriam-webster.com/dictionary/stamp"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "stamp-v1",
+      "file": "words/stamp/v1/70e6ea885ff20af0f092057e7876d3e13a27eff0390f903d73116a52243e96a7.png",
+      "sha256": "70e6ea885ff20af0f092057e7876d3e13a27eff0390f903d73116a52243e96a7",
+      "width": 1536,
+      "height": 1024,
+      "alt": "手指把一张带齿孔的小鸟邮票贴在明信片右上角",
+      "caption": "Put a stamp on the card.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: classroom vocabulary/story photograph for Chinese primary-school KET learners, shown large on a projector.\nStyle: beautiful, playful, predominantly photorealistic natural editorial educational photography; bright daylight, rich but plausible colors, realistic skin, real materials, correct anatomy, warm humour. Uncluttered composition with a strong main subject and high visual quality. Landscape 3:2 composition, ideally 1536 by 1024.\nGlobal constraints: no embedded text, letters, captions, logos, watermarks, UI labels, decorative frames, cartoons or clipart. All children are fictional, ordinary fully clothed, in benign learning scenes. Natural plausible scale and perspective. Friendly safe environments.\nRecurring characters whenever named: Mia is a fictional East Asian girl about 9, black ponytail, coral-red light jacket, pale-blue jeans, white trainers. Ben is a fictional East Asian boy about 9, short black hair. In farm-story scenes Ben wears a child-size blue two-piece formal suit, white shirt, yellow rain boots. A recurring lizard is a small vivid green realistic garden lizard, long tail, four anatomically correct legs, not a chameleon.\n\nPrimary request: close-up of a postcard lying on a clean table in bright daylight, viewed from above at a gentle angle. One small colorful POSTAGE STAMP with unmistakable fine perforated edges and simple bird artwork is at the postcard's upper-right corner. A child's natural fingertip is pressing down one edge of this stamp; the stamp remains mostly visible. The card has only blank address lines, no legible written words, numbers or brands. The printed farm-photo face of a second turned-over postcard is partly visible to communicate the reverse side. Crisp foreground detail, minimal scene, unmistakably a postage stamp, not a rubber stamp.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-07",
+      "reference_asset_ids": []
+    }
+  ]
+}

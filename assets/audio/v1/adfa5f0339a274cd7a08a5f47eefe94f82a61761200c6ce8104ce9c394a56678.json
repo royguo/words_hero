@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "adfa5f0339a274cd7a08a5f47eefe94f82a61761200c6ce8104ce9c394a56678",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "My shoes are in my suitcase."
+  },
+  "file": "audio/v1/ef8b163fade0984200093e0e9c5d7c1e8047b1c2a124e632680dddab4ea6f5a8.mp3",
+  "sha256": "ef8b163fade0984200093e0e9c5d7c1e8047b1c2a124e632680dddab4ea6f5a8",
+  "bytes": 15840,
+  "created_at": "2026-09-07T15:59:21+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

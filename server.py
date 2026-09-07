@@ -135,7 +135,7 @@ class Handler(SimpleHTTPRequestHandler):
                 return self.respond(self.store.lesson(p[2],q.get("version")))
             if len(p)==4 and p[:2]==["api","versions"] and p[3]=="worksheet":
                 with self.store.connect() as db:lesson=self.store.by_version(db,p[2])
-                return self.respond(worksheet(lesson,q.get("kind","classroom")),kind="text/html; charset=utf-8")
+                return self.respond(worksheet(lesson,q.get("kind","classroom"),q.get("view")=="embedded"),kind="text/html; charset=utf-8")
             if p and p[0]=="api":raise UserError("接口不存在",404)
             if p and p[0]=="assets":
                 target=asset_path(unquote("/".join(p[1:])),self.store.asset_root)

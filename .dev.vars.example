@@ -1,0 +1,3 @@
+ADMIN_PASSWORD=95279527
+SESSION_SECRET=replace-with-random-local-test-secret
+AUDIO_ONLINE=false

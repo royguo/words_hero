@@ -2,7 +2,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   ArrowLeft,
-  ArrowRight,
   BookOpen,
   Check,
   ChevronLeft,
@@ -15,7 +14,6 @@ import {
   RotateCcw,
   Volume2,
   X,
-  Sparkles,
   PencilLine,
   Loader2,
   StickyNote,
@@ -38,9 +36,10 @@ import {
 import { kinds, speak, type Lesson, type Word } from '@/lib/classroom';
 import { stopSpeech } from '@/lib/audio';
 import { StopAudioButton } from './audio-tools';
+import { WordStudyPage } from './word-study';
+import { WordCards } from './word-cards';
 
 type SaveFn = (data: unknown, action?: string) => Promise<Lesson | undefined>;
-type PracticeMode = 'context' | 'english' | 'chinese';
 
 function Sentence({ text, word }: { text: string; word: Word }) {
   const candidates = [word.word, ...(word.accepted || [])].sort(
@@ -85,7 +84,6 @@ export function LessonPlayer({
     ),
   );
   const [revealed, setRevealed] = useState(false);
-  const [mode, setMode] = useState<PracticeMode>('context');
   const [outline, setOutline] = useState(false);
   const [notesOpen, setNotesOpen] = useState(false);
   const [noteText, setNoteText] = useState('');
@@ -110,8 +108,7 @@ export function LessonPlayer({
   );
   const canReveal = [
     'word',
-    'root',
-    'root-quiz',
+    'cards',
     'practice',
     'scene',
     'scene-question',
@@ -238,11 +235,6 @@ export function LessonPlayer({
       setPending(false);
     }
   }
-  const changeMode = (value: PracticeMode) => {
-    stopSpeech();
-    setMode(value);
-    setRevealed(false);
-  };
   return (
     <Dialog
       open
@@ -315,7 +307,7 @@ export function LessonPlayer({
                 <i>·</i>
                 {slide.part && slide.total && slide.total > 1
                   ? slide.part + ' / ' + slide.total
-                  : 'WORD GARDEN'}
+                  : 'KiteDance'}
               </span>
             </div>
             <div className="slide-body" key={slide.id}>
@@ -323,19 +315,22 @@ export function LessonPlayer({
                 slide={slide}
                 lesson={lesson}
                 revealed={revealed}
-                mode={mode}
-                onMode={changeMode}
                 onReveal={() => setRevealed(!revealed)}
                 onSpeak={(word) => speak(word, setMessage)}
+                onRate={async (word, result) => {
+                  if (lesson.read_only) return;
+                  const saved = await onSave({ word_id: word.id, result });
+                  setMessage(
+                    saved ? '课堂标记已保存。' : '标记未保存，请重试。',
+                  );
+                }}
               />
             </div>
             <div className="slide-baseline">
               <span>
-                {slide.kind === 'practice' || slide.kind === 'root-quiz'
+                {slide.kind === 'practice' || slide.kind === 'cards'
                   ? '先想一想 · 说一说 · 写下来'
-                  : slide.kind === 'story'
-                    ? '记住画面，再说出这个词'
-                    : '看见联系，记住单词'}
+                  : '看见联系，记住单词'}
               </span>
               <span>
                 {String(index + 1).padStart(2, '0')} / {slides.length}
@@ -492,13 +487,10 @@ function slideLabel(slide: Slide) {
   return {
     welcome: '出发',
     word: '单词',
-    story: '故事',
-    root: '线索',
-    family: '例词',
-    'root-quiz': '构词挑战',
-    practice: '单词挑战',
+    study: '来源与构成',
+    cards: '翻卡回忆',
+    practice: '句子填空',
     finish: '回顾',
-    whole: '场景联想',
     scene: '图文故事',
     'scene-question': '故事互动',
   }[slide.kind];
@@ -507,21 +499,18 @@ function SlideBody({
   slide,
   lesson,
   revealed,
-  mode,
-  onMode,
   onReveal,
   onSpeak,
+  onRate,
 }: {
   slide: Slide;
   lesson: Lesson;
   revealed: boolean;
-  mode: PracticeMode;
-  onMode: (v: PracticeMode) => void;
   onReveal: () => void;
   onSpeak: (v: string) => void;
+  onRate: (word: Word, result: 'remembered' | 'again') => Promise<void>;
 }) {
   const w = slide.word;
-  const g = slide.group;
   if (slide.kind === 'welcome')
     return (
       <div className="slide-welcome">
@@ -536,13 +525,13 @@ function SlideBody({
         <div className="slide-agenda">
           <div>
             <BookOpen />
-            <strong>认识与想象</strong>
-            <span>读单词，走进小故事</span>
+            <strong>认识与理解</strong>
+            <span>读例句，发现单词的来历</span>
           </div>
           <div>
             <Layers />
             <strong>发现联系</strong>
-            <span>找到构词的线索</span>
+            <span>用单词，一起讲故事</span>
           </div>
           <div>
             <PencilLine />
@@ -727,183 +716,33 @@ function SlideBody({
       </div>
     );
   }
-  if (slide.kind === 'story' && w)
+  if (slide.kind === 'study' && w)
+    return <WordStudyPage word={w} onSpeak={onSpeak} />;
+  if (slide.kind === 'cards')
     return (
-      <div className="slide-story-layout">
-        <div className="story-word">
-          <Sparkles />
-          <p className="slide-kicker">A LITTLE STORY</p>
-          <h1 lang="en">{wordLabel(w)}</h1>
-          <p>{w.meaning_zh}</p>
-        </div>
-        <div className="story-paper">
-          <span className="story-label">故事里的 {wordLabel(w)}</span>
-          <p className="story-prose">{slide.text}</p>
-          <div className="story-turn">
-            <span>换成你呢？</span>
-            <p>
-              {w.student_prompt || '想象你也在这个场景里，用这个词说一句话。'}
-            </p>
-          </div>
-        </div>
-      </div>
-    );
-  if (slide.kind === 'root' && g)
-    return (
-      <div className="slide-root-layout">
-        <div className="slide-root-mark">
-          <span>{kinds[g.kind]}</span>
-          <h1 lang="en">{g.text}</h1>
-          <button onClick={onReveal} className="root-reveal">
-            {revealed ? (
-              g.meaning
-            ) : (
-              <>
-                <Eye /> 这条线索是什么意思？
-              </>
-            )}
-          </button>
-        </div>
-        <div className="slide-root-history">
-          <p className="slide-kicker">
-            {g.source ? '它从哪里来？' : '它是怎样起作用的？'}
-          </p>
-          <h2>{g.source ? '单词也有自己的旅程' : '从一部分，发现整个词'}</h2>
-          <p className="history-prose">{slide.text}</p>
-          <div className="history-footer">
-            <Layers />
-            <span>{g.words.length} 个本课单词藏着这条线索，下一页一起找。</span>
-          </div>
-          {g.source?.startsWith('https://') && (
-            <span className="slide-source">
-              来历参考：
-              {g.source.includes('merriam-webster.com')
-                ? 'Merriam-Webster'
-                : '英语词典与构词资料'}
-            </span>
-          )}
-        </div>
-      </div>
-    );
-  if (slide.kind === 'family' && g)
-    return (
-      <div className="slide-family">
-        <h1>
-          <span lang="en">{g.text}</span> 连接了哪些词？
-        </h1>
-        <p className="family-meaning">{g.meaning}</p>
-        <div className="family-cards">
-          {slide.words?.map((item) => (
-            <article key={item.id}>
-              <div className="family-parts">
-                {item.parts.map((p, i) => (
-                  <span key={i} className={p.text === g.text ? 'active' : ''}>
-                    <strong lang="en">{p.text}</strong>
-                    <small>{p.meaning}</small>
-                  </span>
-                ))}
-                <ArrowRight />
-              </div>
-              <h2 lang="en">
-                {wordLabel(item)}
-                <button
-                  className="slide-sound"
-                  onClick={() => onSpeak(item.word)}
-                  aria-label={'朗读 ' + item.word}
-                >
-                  <Volume2 />
-                </button>
-              </h2>
-              <p className="family-definition">{item.meaning_zh}</p>
-              <p className="family-example" lang="en">
-                <Sentence text={item.example} word={item} />
-              </p>
-              <p className="family-zh">{item.example_zh}</p>
-              <p className="family-note">{item.note}</p>
-            </article>
-          ))}
-        </div>
-      </div>
-    );
-  if (slide.kind === 'root-quiz' && g)
-    return (
-      <div className="slide-root-quiz">
-        <p className="slide-kicker">FIND THE CONNECTION</p>
-        <h1 lang="en">{g.text}</h1>
-        <h2>它是什么意思？你能举出一个本课单词吗？</h2>
-        <div className={'root-quiz-answer ' + (revealed ? 'revealed' : '')}>
-          {revealed ? (
-            <>
-              <strong>{g.meaning}</strong>
-              <p>
-                {g.words
-                  .slice(0, 6)
-                  .map((item) => item.display_word || item.word)
-                  .join(' · ')}
-              </p>
-              {g.words.length > 6 && (
-                <small>还可以回到“词根与故事”，找到更多本课例词。</small>
-              )}
-            </>
-          ) : (
-            <>
-              <PencilLine />
-              <span>先说给同伴听，再写在随堂练习纸上。</span>
-            </>
-          )}
-        </div>
-      </div>
+      <WordCards
+        words={slide.words || []}
+        revealed={revealed}
+        readOnly={lesson.read_only}
+        onSpeak={onSpeak}
+        onRate={onRate}
+      />
     );
   if (slide.kind === 'practice' && w)
     return (
       <div className="slide-practice">
-        <div className="slide-practice-modes" aria-label="练习方式">
-          {(
-            [
-              ['context', '句子填空'],
-              ['chinese', '看中文说英文'],
-              ['english', '看英文说中文'],
-            ] as const
-          ).map(([id, label]) => (
-            <button
-              key={id}
-              aria-pressed={mode === id}
-              className={mode === id ? 'active' : ''}
-              onClick={() => onMode(id)}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
-        <p className="slide-kicker">YOUR TURN / {w.pos}</p>
-        <h1
-          className={mode === 'context' ? 'cloze-question' : ''}
-          lang={mode === 'chinese' ? 'zh-CN' : 'en'}
-        >
-          {mode === 'context'
-            ? w.cloze_type === 'context'
-              ? w.cloze
-              : w.meaning_zh
-            : mode === 'chinese'
-              ? w.meaning_zh
-              : wordLabel(w)}
+        <p className="slide-kicker">YOUR TURN / 句子填空 · {w.pos}</p>
+        <h1 className="cloze-question" lang="en">
+          {w.cloze_type === 'context' ? w.cloze : w.meaning_zh}
         </h1>
-        {mode === 'context' && (
-          <p className="practice-clue">
-            {w.cloze_type === 'context' ? w.cloze_zh : '写出词表中的目标单词'}
-          </p>
-        )}
+        <p className="practice-clue">
+          {w.cloze_type === 'context' ? w.cloze_zh : '写出词表中的目标单词'}
+        </p>
         <div className={'practice-reveal ' + (revealed ? 'revealed' : '')}>
           {revealed ? (
             <>
-              <strong lang={mode === 'english' ? 'zh-CN' : 'en'}>
-                {mode === 'english'
-                  ? w.meaning_zh
-                  : mode === 'context'
-                    ? w.cloze_answer
-                    : wordLabel(w)}
-              </strong>
-              <p>{mode === 'english' ? w.example : w.meaning_zh}</p>
+              <strong lang="en">{w.cloze_answer}</strong>
+              <p>{w.meaning_zh}</p>
             </>
           ) : (
             <>
@@ -912,25 +751,6 @@ function SlideBody({
             </>
           )}
         </div>
-      </div>
-    );
-  if (slide.kind === 'whole')
-    return (
-      <div className="slide-whole">
-        <p className="slide-kicker">WORDS & OUR WORLD</p>
-        <h1>让单词和生活连起来</h1>
-        <p className="slide-lead">
-          有些词适合完整记忆。给它一个画面，就有了回忆的线索。
-        </p>
-        <div className="whole-cards">
-          {slide.words?.map((item) => (
-            <div key={item.id}>
-              <strong lang="en">{wordLabel(item)}</strong>
-              <p>{item.meaning_zh}</p>
-            </div>
-          ))}
-        </div>
-        <h2>选一个词：你会在哪里见到它、用到它？</h2>
       </div>
     );
   return (

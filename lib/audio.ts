@@ -65,7 +65,7 @@ export async function prepareAudio(
     if (controller.signal.aborted && !signal?.aborted)
       throw new Error('准备语音超时，请稍后重试；已经保存的录音可以继续使用。');
     if (error instanceof TypeError && !signal?.aborted)
-      throw new Error('无法连接本地课堂服务，请保持启动窗口打开后重试。');
+      throw new Error('无法连接课堂服务，请检查网络后重试。');
     throw error;
   } finally {
     clearTimeout(timeout);

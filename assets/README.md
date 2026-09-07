@@ -1,6 +1,6 @@
 # 可复用课堂素材
 
-本目录的正式素材全部进入 Git。图片和教材只读取本地文件；语音首次使用时可以联网合成，保存后本地复用，详见 [语音素材说明](audio/README.md)。班级、课程进度、学生信息和数据库备份不存放在这里。
+本目录的正式素材全部进入 Git。生产图片与录音从独立 R2 读取；课堂教材在 D1 保存版本快照；语音首次使用时可以联网合成，保存后复用，详见 [语音素材说明](audio/README.md)。班级、课程进度、学生信息和数据库备份不存放在这里。
 
 ## 目录与版本
 
@@ -27,7 +27,7 @@ assets/
 2. 下载页面上的“素材任务”，或导出：
 
    ```bash
-   python3 scripts/lesson_assets.py brief WG-XXXXXXXXXX --output tmp/lesson-brief.json
+   python3 scripts/cf_course.py brief WG-XXXXXXXXXX --output tmp/lesson-brief.json
    ```
 
 3. 按仓库 [AGENTS.md](../AGENTS.md) 制作或复用素材。先读旧 manifest；新增文件和 v2 版本，不覆盖旧资产。记录原始完整提示词，使用内置 imagegen，保存实际生成结果。
@@ -35,7 +35,8 @@ assets/
 
    ```bash
    python3 scripts/lesson_assets.py validate
-   python3 scripts/lesson_assets.py apply WG-XXXXXXXXXX farm-friend-v1
+   npm run cf:deploy
+   python3 scripts/cf_course.py apply WG-XXXXXXXXXX farm-friend-v2
    ```
 
 绑定只接受与当前课程完全一致的词单和顺序；创建新课程版本并返回新编号，保留原词序和打印题序，不重新随机抽词。不允许修改已结课或旧版本。重复绑定完全相同的内容不新增版本。
@@ -44,14 +45,14 @@ assets/
 
 ## 仓库示例：农场里的新同学
 
-`farm-friend-v1` 来自一次随机抽取的 10 个非基础 KET 词，先定词单再写作，没有为了作图换词。包含 10 张词图、20 条简短例句、10 个记忆情景，以及 4 页原创图文对话和 4 道口头问题。故事共 101 个英文词，恰好自然用到了这 10 个词。图片采用明快、写实的儿童生活摄影风格，人物和衣服跨页保持一致。
+`farm-friend-v2` 来自一次随机抽取的 10 个非基础 KET 词，先定词单再写作，没有为了作图换词。包含 10 张词图、20 条简短例句、10 组来源和构成说明、20 个关联词及双语例句，以及 4 页原创图文对话和 4 道口头问题。故事共 101 个英文词，恰好自然用到了这 10 个词。图片采用明快、写实的儿童生活摄影风格，人物和衣服跨页保持一致。
 
 可以在任何新的本地数据库中显式重建这节示例课：
 
 ```bash
-python3 scripts/lesson_assets.py create-demo farm-friend-v1
+python3 scripts/lesson_assets.py create-demo farm-friend-v2
 # 也可以指定另一个数据库；--db 放在子命令之前。
-python3 scripts/lesson_assets.py --db tmp/demo.sqlite3 create-demo farm-friend-v1
+python3 scripts/lesson_assets.py --db tmp/demo.sqlite3 create-demo farm-friend-v2
 ```
 
 普通启动不创建演示课，仓库不包含真实课堂数据库。
@@ -61,3 +62,5 @@ python3 scripts/lesson_assets.py --db tmp/demo.sqlite3 create-demo farm-friend-v
 本批图片使用内置 imagegen 生成，文字为 AI 辅助原创并逐词整理。每张图片的完整提示词位于相应 manifest，生成方法明确记录；没有抓取第三方图片。AI 图片是教学情景，不作为真实人物、农场或事件的照片证据。
 
 构词说明参考 Merriam-Webster 的 [online](https://www.merriam-webster.com/dictionary/online)、[classmate](https://www.merriam-webster.com/dictionary/classmate)、[photo-](https://www.merriam-webster.com/dictionary/photo-) 与 [-er](https://www.merriam-webster.com/dictionary/-er)，核对日期 2026-09-07。仅整理词义和来源，不复制词典例句；课堂例句和故事独立编写。联想故事不代表真实词源。
+
+当前云端绑定方式：先 `npm run cf:deploy` 发布新素材包，再调用经教师登录的 `POST /api/courses/WG-…/materials`，JSON 为 `{"bundle_id":"新版本素材包 ID"}`。保留词单/顺序并新建版本。Python apply / create-demo 命令仅用于旧 SQLite 与素材测试。结构化单词来源见 [规范](../docs/word-study.md)。

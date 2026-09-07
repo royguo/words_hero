@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "id": "suit-v2",
+  "word": "suit",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "套装；适合",
+  "created_at": "2026-09-07",
+  "provenance": {
+    "text": "Original A2 word study; dictionary sources checked 2026-09-07; imagery reused from suit-v1.",
+    "images": "Built-in imagegen; exact prompts and SHA-256 stored per image"
+  },
+  "teaching": {
+    "meaning_zh": "套装；适合",
+    "pos": "n.; v.",
+    "example": "Ben wears a blue suit.",
+    "example_zh": "Ben 穿着一套蓝色西装。",
+    "extra_examples": [
+      {
+        "en": "Does this colour suit me?",
+        "zh": "这个颜色适合我吗？"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看一看外套和裤子：什么让它们成为一套 suit？",
+    "cloze": "Ben wears a blue __________.",
+    "cloze_answer": "suit",
+    "cloze_zh": "Ben 穿着一套蓝色西装。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "先读单词与例句，再用 word_study 学习来源和构成；关联例句均为原创。",
+    "word_study": {
+      "schema_version": 1,
+      "formation": "simple",
+      "construction": "suit",
+      "components": [],
+      "explanation_zh": "suit 本课表示“一套衣服；西装”。它本身整体记忆，还能和 swim、case 组成新词。",
+      "origin_zh": "suit 经法语而来，更早与“跟随”有关。历史用法中有“一组、一套”的意思；今天一套搭配的衣服也叫 suit。",
+      "family": [
+        {
+          "word": "swimsuit",
+          "meaning_zh": "泳衣",
+          "relation": "compound",
+          "connection_zh": "swim（游泳）+ suit（服装）：游泳穿的衣服。",
+          "example": {
+            "en": "My swimsuit is blue.",
+            "zh": "我的泳衣是蓝色的。"
+          }
+        },
+        {
+          "word": "suitcase",
+          "meaning_zh": "手提箱；行李箱",
+          "relation": "compound",
+          "connection_zh": "suit + case（箱子）：把衣服装进行李箱。",
+          "example": {
+            "en": "My shoes are in my suitcase.",
+            "zh": "我的鞋在行李箱里。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "swim + suit 组成哪个词？这个词表示什么衣服？",
+        "answer_zh": "swimsuit；泳衣。"
+      },
+      "sources": [
+        {
+          "title": "Merriam-Webster · suit",
+          "url": "https://www.merriam-webster.com/dictionary/suit"
+        },
+        {
+          "title": "Merriam-Webster · swimsuit",
+          "url": "https://www.merriam-webster.com/dictionary/swimsuit"
+        },
+        {
+          "title": "Merriam-Webster · suitcase",
+          "url": "https://www.merriam-webster.com/dictionary/suitcase"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "suit-v1",
+      "file": "words/suit/v1/471bc576476a7b3604b96b190bb9f88397784403d28b3301ff5fead8518c6637.png",
+      "sha256": "471bc576476a7b3604b96b190bb9f88397784403d28b3301ff5fead8518c6637",
+      "width": 1536,
+      "height": 1024,
+      "alt": "男孩穿着成套的蓝色西装和黄色雨靴站在农场门口",
+      "caption": "Ben wears a blue suit.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: classroom vocabulary/story photograph for Chinese primary-school KET learners, shown large on a projector.\nStyle: beautiful, playful, predominantly photorealistic natural editorial educational photography; bright daylight, rich but plausible colors, realistic skin, real materials, correct anatomy, warm humour. Uncluttered composition with a strong main subject and high visual quality. Landscape 3:2 composition, ideally 1536 by 1024.\nGlobal constraints: no embedded text, letters, captions, logos, watermarks, UI labels, decorative frames, cartoons or clipart. All children are fictional, ordinary fully clothed, in benign learning scenes. Natural plausible scale and perspective. Friendly safe environments.\nRecurring characters whenever named: Mia is a fictional East Asian girl about 9, black ponytail, coral-red light jacket, pale-blue jeans, white trainers. Ben is a fictional East Asian boy about 9, short black hair. In farm-story scenes Ben wears a child-size blue two-piece formal suit, white shirt, yellow rain boots. A recurring lizard is a small vivid green realistic garden lizard, long tail, four anatomically correct legs, not a chameleon.\n\nPrimary request: full-length natural editorial portrait of Ben in a well-fitting vivid blue two-piece formal suit consisting of tailored jacket and matching trousers, a crisp white shirt, and bright yellow rain boots. He stands at a wooden farm gate in daylight with a charming confident smile. His complete outfit from head to the bottoms of both boots is clearly visible. Suit is the central unmistakable subject, not covered or obscured; arms relaxed by his sides. Softly visible friendly farm behind, no other people, no lizard in this portrait.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-07",
+      "reference_asset_ids": []
+    }
+  ]
+}

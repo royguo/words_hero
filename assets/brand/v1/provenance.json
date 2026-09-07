@@ -1,0 +1,59 @@
+{
+  "task": "风筝单词 / KiteDance brand assets for kitedance.com",
+  "generator": "built-in image_gen.imagegen",
+  "skill": "/Users/bytedance/.codex/skills/.system/imagegen/SKILL.md",
+  "recorded_at_utc": "2026-09-07 15:45:24 UTC",
+  "generation_policy": "Exactly one generation per requested asset; two calls total. No regeneration or pixel editing.",
+  "assets": [
+    {
+      "asset": "favicon.png",
+      "path": "assets/brand/v1/logo-mark.png",
+      "source_path": "/Users/bytedance/.codex/generated_images/01a07c87-f907-7833-9b3c-39eacc51c85b/exec-25f68f1b-30a9-41f6-9eac-c38034a7dfda.png",
+      "width": 1254,
+      "height": 1254,
+      "format": "PNG",
+      "bit_depth": 8,
+      "color_type": "RGBA",
+      "transparency_verified": true,
+      "alpha_zero_pixel_count": 1184328,
+      "file_bytes": 491953,
+      "sha256": "3a7d3e1d1a1bdd256e1d790e2de5c433bbc0b7d40a785727bcbb07fe35bdc95a",
+      "prompt": "Use case: logo-brand\nAsset type: single standalone square PNG favicon and app icon for a vocabulary classroom app, brand 风筝单词 / KiteDance.\nPrimary request: create one polished minimal symbol, a diamond kite imaginatively integrated with an open book / open word-card motif.\nSubject and geometry: a bold diamond kite in rich forest green #28624e; its two broad lower facets form the spread pages of an open book, divided by a clean central negative-space fold; a small warm golden #e7ad45 upper-right facet adds warmth. Below, one short confident gently curving green kite string with a single simple golden bow. Strong closed silhouettes, generous shapes, very few internal details.\nStyle: refined flat vector-like professional educational brand identity. Cheerful and welcoming for teachers and primary-school pupils, elegant and memorable. Slightly softened corners, balanced geometry and clean crisp edges.\nComposition: exactly one centered mark, square canvas, mark fills approximately 80% of the canvas with comfortable even padding. Optimize the silhouette for legibility at 32px and 16px.\nBackground: genuinely transparent alpha background, preserve transparency.\nText: none. No letters, numbers or words.\nConstraints: one final standalone icon only; no logo sheet, no multiple options, no layout panels, no mockup, no watermark. No shadows, no gradients, no texture, no 3D, no decorative background. Do not draw many small page lines or tiny details.",
+      "tool_arguments": {
+        "prompt": "Use case: logo-brand\nAsset type: single standalone square PNG favicon and app icon for a vocabulary classroom app, brand 风筝单词 / KiteDance.\nPrimary request: create one polished minimal symbol, a diamond kite imaginatively integrated with an open book / open word-card motif.\nSubject and geometry: a bold diamond kite in rich forest green #28624e; its two broad lower facets form the spread pages of an open book, divided by a clean central negative-space fold; a small warm golden #e7ad45 upper-right facet adds warmth. Below, one short confident gently curving green kite string with a single simple golden bow. Strong closed silhouettes, generous shapes, very few internal details.\nStyle: refined flat vector-like professional educational brand identity. Cheerful and welcoming for teachers and primary-school pupils, elegant and memorable. Slightly softened corners, balanced geometry and clean crisp edges.\nComposition: exactly one centered mark, square canvas, mark fills approximately 80% of the canvas with comfortable even padding. Optimize the silhouette for legibility at 32px and 16px.\nBackground: genuinely transparent alpha background, preserve transparency.\nText: none. No letters, numbers or words.\nConstraints: one final standalone icon only; no logo sheet, no multiple options, no layout panels, no mockup, no watermark. No shadows, no gradients, no texture, no 3D, no decorative background. Do not draw many small page lines or tiny details."
+      },
+      "tool_output_hint": "Generated images are saved to /Users/bytedance/.codex/generated_images/01a07c87-f907-7833-9b3c-39eacc51c85b as /Users/bytedance/.codex/generated_images/01a07c87-f907-7833-9b3c-39eacc51c85b/exec-25f68f1b-30a9-41f6-9eac-c38034a7dfda.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "inspection": "Square, no text; green diamond kite with book-page lower facets, gold upper-right facet and one gold bow. Actual alpha transparency verified by PNG decoding.",
+      "postprocessing": "Copied original output byte-for-byte; source retained.",
+      "published_as": [
+        "public/favicon.png",
+        "public/logo.png"
+      ]
+    },
+    {
+      "asset": "logo.png",
+      "path": "assets/brand/v1/source-logo.png",
+      "source_path": "/Users/bytedance/.codex/generated_images/01a07c87-f907-7833-9b3c-39eacc51c85b/exec-924f73a8-40c0-4c36-9563-8f1e37d0cda9.png",
+      "width": 1774,
+      "height": 887,
+      "format": "PNG",
+      "bit_depth": 8,
+      "color_type": "RGB",
+      "transparency_verified": false,
+      "file_bytes": 955476,
+      "sha256": "f69bab6590e172193902f64f8bec5a72814fe5755371431d871ddd9a7971cfe4",
+      "prompt": "Use case: logo-brand\nAsset type: one standalone wide horizontal transparent PNG brand logo for the vocabulary classroom web app 风筝单词 / KiteDance at kitedance.com.\nInput image: the attached image is a reference brand mark. Reuse its recognizable green diamond kite with open-book lower facets, golden upper-right facet and short green string with one golden bow. Preserve this exact visual idea, proportions, softened geometry and green/gold palette consistently.\nPrimary request: create a polished horizontal logo lockup: the kite-and-open-book mark on the left; on its right the large exact word \"KiteDance\"; under the word a smaller exact Chinese brand name \"风筝单词\". The icon and lettering form one unified compact horizontal asset.\nText (verbatim): \"KiteDance\" and \"风筝单词\". Spell English exactly K-i-t-e-D-a-n-c-e, with uppercase K and D only, rendered as one word without hyphens or spaces. Render the Chinese characters exactly 风 筝 单 词, as the single unspaced phrase 风筝单词. No domain name, no slogan, no other text.\nTypography: custom-feeling refined rounded humanist sans serif, confident medium-bold strokes, generous clean counters, cheerful but professional. English text rich forest green #28624e. Chinese text in the same forest green with calm slightly open character spacing and approximately half the English letter height. Excellent kerning and optical alignment.\nComposition: a wide horizontal canvas, approximately 3:1 aspect ratio; mark on left occupies about one quarter of the logo width; text block occupies the remaining right area, vertically centered against mark. Comfortable gap between mark and type. Logo fills most of canvas with modest even padding and no large empty borders.\nStyle: beautifully controlled flat vector-like professional identity appropriate for teachers and primary pupils. Solid forest green #28624e with warm golden #e7ad45 accent. Crisp, smooth clean edges.\nBackground: genuinely transparent alpha background; all negative space is transparent.\nConstraints: single standalone final logo only, no presentation sheet, no alternate versions, no multiple panels, no mockup, no watermark. No heavy gradients, no shadows, no texture, no 3D. Do not redesign the motif as a different object.",
+      "tool_arguments": {
+        "prompt": "Use case: logo-brand\nAsset type: one standalone wide horizontal transparent PNG brand logo for the vocabulary classroom web app 风筝单词 / KiteDance at kitedance.com.\nInput image: the attached image is a reference brand mark. Reuse its recognizable green diamond kite with open-book lower facets, golden upper-right facet and short green string with one golden bow. Preserve this exact visual idea, proportions, softened geometry and green/gold palette consistently.\nPrimary request: create a polished horizontal logo lockup: the kite-and-open-book mark on the left; on its right the large exact word \"KiteDance\"; under the word a smaller exact Chinese brand name \"风筝单词\". The icon and lettering form one unified compact horizontal asset.\nText (verbatim): \"KiteDance\" and \"风筝单词\". Spell English exactly K-i-t-e-D-a-n-c-e, with uppercase K and D only, rendered as one word without hyphens or spaces. Render the Chinese characters exactly 风 筝 单 词, as the single unspaced phrase 风筝单词. No domain name, no slogan, no other text.\nTypography: custom-feeling refined rounded humanist sans serif, confident medium-bold strokes, generous clean counters, cheerful but professional. English text rich forest green #28624e. Chinese text in the same forest green with calm slightly open character spacing and approximately half the English letter height. Excellent kerning and optical alignment.\nComposition: a wide horizontal canvas, approximately 3:1 aspect ratio; mark on left occupies about one quarter of the logo width; text block occupies the remaining right area, vertically centered against mark. Comfortable gap between mark and type. Logo fills most of canvas with modest even padding and no large empty borders.\nStyle: beautifully controlled flat vector-like professional identity appropriate for teachers and primary pupils. Solid forest green #28624e with warm golden #e7ad45 accent. Crisp, smooth clean edges.\nBackground: genuinely transparent alpha background; all negative space is transparent.\nConstraints: single standalone final logo only, no presentation sheet, no alternate versions, no multiple panels, no mockup, no watermark. No heavy gradients, no shadows, no texture, no 3D. Do not redesign the motif as a different object.",
+        "referenced_image_paths": [
+          "/private/tmp/kite-words-brand/favicon.png"
+        ]
+      },
+      "tool_output_hint": "Generated images are saved to /Users/bytedance/.codex/generated_images/01a07c87-f907-7833-9b3c-39eacc51c85b as /Users/bytedance/.codex/generated_images/01a07c87-f907-7833-9b3c-39eacc51c85b/exec-924f73a8-40c0-4c36-9563-8f1e37d0cda9.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "inspection": "English KiteDance and Chinese 风筝单词 are visually correct; consistent kite/book motif. Output aspect ratio is 2:1. The requested alpha transparency was not fulfilled: a light checkerboard is baked into the RGB background. This limitation is recorded and communicated to the integrating agent.",
+      "postprocessing": "Copied original output byte-for-byte; source retained.",
+      "used_on_site": false
+    }
+  ],
+  "site_wordmark": "Generated transparent mark paired with native HTML KiteDance / 风筝单词 text; baked checkerboard logo source archived, not used in UI."
+}

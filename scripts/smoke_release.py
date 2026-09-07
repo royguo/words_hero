@@ -45,7 +45,7 @@ with tempfile.TemporaryDirectory(prefix="word-garden-release-") as tmp:
         for relative in set(catalog["words"].values()):
             entry=json.loads((app/"assets"/relative).read_text())
             picture_files.update(i["file"] for i in entry["images"])
-        bundle=json.loads((app/"assets/lessons/farm-friend-v1/manifest.json").read_text())
+        bundle=json.loads((app/"assets/lessons/farm-friend-v2/manifest.json").read_text())
         picture_files.update(s["image"]["file"] for s in bundle["story"]["scenes"] if s["image"])
         for image in picture_files:
             raw=request("/assets/"+image)
@@ -68,18 +68,19 @@ with tempfile.TemporaryDirectory(prefix="word-garden-release-") as tmp:
         lesson=json.loads(request("/api/drafts/"+draft["id"]+"/confirm",{"revision":draft["revision"]}))
         assert [w["id"] for w in lesson["words"]]==[w["id"] for w in draft["words"]]
         assert len(lesson["words"])==50
-        assert all(w["story_zh"] and w["example"] and w["cloze"] for w in lesson["words"])
+        assert all((w.get("word_study") or w["story_zh"]) and w["example"] and w["cloze"] for w in lesson["words"])
         assert len(lesson["config"]["worksheet_order"]["english_to_chinese"])==50
         for kind in ("classroom","homework","answers"):
             html=request("/api/versions/"+lesson["version_id"]+"/worksheet?kind="+kind).decode()
             assert "@page{size:A4" in html
             assert 'aria-label="' in html
+            assert html.count('class="paper-page"') >= 2
         backup=request("/api/backup")
         assert backup.startswith(b"SQLite format 3")
         again=subprocess.run([sys.executable,"server.py","--port",str(port),"--no-browser"],
                              cwd=app,capture_output=True,text=True,timeout=10)
         assert again.returncode==0 and "already running" in again.stdout,again.stderr
-        demo=subprocess.run([sys.executable,"scripts/lesson_assets.py","--db","tmp/demo.sqlite3","create-demo","farm-friend-v1"],cwd=app,capture_output=True,text=True,timeout=20)
+        demo=subprocess.run([sys.executable,"scripts/lesson_assets.py","--db","tmp/demo.sqlite3","create-demo","farm-friend-v2"],cwd=app,capture_output=True,text=True,timeout=20)
         assert demo.returncode==0,demo.stderr
         assert json.loads(demo.stdout)["course_code"].startswith("WG-")
         print(json.dumps({"release":"passed","words":len(lesson["words"]),

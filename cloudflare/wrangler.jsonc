@@ -1,0 +1,55 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "kite-words",
+  "main": "../worker/index.ts",
+  "account_id": "88605f9233b2ecd7bf21e0e4751c1928",
+  "compatibility_date": "2026-09-07",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "workers_dev": true,
+  "preview_urls": false,
+  "assets": {
+    "directory": "../out",
+    "binding": "STATIC",
+    "run_worker_first": [
+      "/api/*",
+      "/assets/*"
+    ]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "kite-words-db",
+      "database_id": "5c9edcbc-7c5e-4baa-af11-cf18ba1028e2",
+      "migrations_dir": "../migrations"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "MEDIA",
+      "bucket_name": "kite-words-assets"
+    }
+  ],
+  "vars": {
+    "APP_NAME": "风筝单词",
+    "AUDIO_ONLINE": "true"
+  },
+  "observability": {
+    "enabled": true
+  },
+  "dev": {
+    "ip": "127.0.0.1",
+    "port": 8787
+  },
+  "routes": [
+    {
+      "pattern": "kitedance.com/*",
+      "zone_id": "420075a33928bfd55ddd406ea4100221"
+    },
+    {
+      "pattern": "www.kitedance.com/*",
+      "zone_id": "420075a33928bfd55ddd406ea4100221"
+    }
+  ]
+}

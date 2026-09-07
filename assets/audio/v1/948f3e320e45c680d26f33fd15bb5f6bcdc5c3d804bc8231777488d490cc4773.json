@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "948f3e320e45c680d26f33fd15bb5f6bcdc5c3d804bc8231777488d490cc4773",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Our online class starts at ten."
+  },
+  "file": "audio/v1/a89a9f77977cbd2bdfbc55d53463f07bc01f2a0f6ebd8bb3536283013affadc7.mp3",
+  "sha256": "a89a9f77977cbd2bdfbc55d53463f07bc01f2a0f6ebd8bb3536283013affadc7",
+  "bytes": 17424,
+  "created_at": "2026-09-07T15:59:05+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "fc1b7eee50e694d5705a53b825c8fef4cda9efadf6b6e4eda4023ba7a30aad73",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The farmer has three cows."
+  },
+  "file": "audio/v1/ccc16270b04bdca52c1d5fc6fd2840e7f9ba80bbfbdedaffb5250ef6db45e9d4.mp3",
+  "sha256": "ccc16270b04bdca52c1d5fc6fd2840e7f9ba80bbfbdedaffb5250ef6db45e9d4",
+  "bytes": 14544,
+  "created_at": "2026-09-07T15:58:52+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -32,14 +32,14 @@ const groups = [
   },
 ];
 const lesson = { title: 'A real class', words, groups };
-test('a 50-word lecture preserves every word, question, story and family example', () => {
+void test('a 50-word lecture pairs each word with one study page and preserves every sentence exercise', () => {
   const slides = buildSlides(lesson);
   assert.equal(slides[0].kind, 'welcome');
   assert.equal(slides.at(-1).kind, 'finish');
   assert.equal(new Set(slides.map((s) => s.id)).size, slides.length);
   for (const w of words) {
     assert.ok(slides.some((s) => s.kind === 'word' && s.word.id === w.id));
-    assert.ok(slides.some((s) => s.kind === 'story' && s.word.id === w.id));
+    assert.ok(slides.some((s) => s.kind === 'study' && s.word.id === w.id));
     assert.ok(slides.some((s) => s.kind === 'practice' && s.word.id === w.id));
   }
   assert.equal(
@@ -48,26 +48,22 @@ test('a 50-word lecture preserves every word, question, story and family example
       .flatMap((s) => s.examples).length,
     5,
   );
-  assert.equal(
-    slides.filter((s) => s.kind === 'family').flatMap((s) => s.words).length,
-    50,
-  );
-  assert.ok(
-    slides.filter((s) => s.kind === 'family').every((s) => s.words.length <= 2),
-  );
-  assert.equal(
-    slides
-      .filter((s) => s.kind === 'root')
-      .map((s) => s.text)
-      .join(''),
-    groups[0].story,
-  );
+  assert.equal(slides.filter(s => s.kind === 'study').length, words.length);
+  for (const w of words) {
+    const own = slides.filter(s => s.word?.id === w.id && ['word', 'study'].includes(s.kind));
+    assert.equal(own.at(-1).kind, 'study');
+    assert.equal(slides[slides.indexOf(own.at(-1)) - 1].word.id, w.id);
+  }
+  const cards = slides.filter(s => s.kind === 'cards');
+  assert.deepEqual(cards.flatMap(s => s.words).map(w => w.id), words.map(w => w.id));
+  assert.ok(cards.every(s => s.words.length > 0 && s.words.length <= 4));
+  assert.ok(!slides.some(s => ['story', 'root', 'family', 'whole'].includes(s.kind)));
   assert.deepEqual(
     buildSlides(structuredClone(lesson)).map((s) => s.id),
     slides.map((s) => s.id),
   );
 });
-test('long bilingual stories are paginated without dropping text or splitting ordinary English words', () => {
+void test('long bilingual stories are paginated without dropping text or splitting ordinary English words', () => {
   const text = '小乐说：I have a beautiful notebook. 她记下今天的故事。'.repeat(
     25,
   );
@@ -77,7 +73,7 @@ test('long bilingual stories are paginated without dropping text or splitting or
   assert.equal(pages.join('').replace(/\s/g, ''), text.replace(/\s/g, ''));
   assert.ok(pages.every((p) => !p.endsWith('note')));
 });
-test('word definitions paginate to leave space for pictures without dropping meaning', () => {
+void test('word definitions paginate to leave space for pictures without dropping meaning', () => {
   const word = {
     ...words[2],
     meaning_zh: '完整的中文释义需要分页保留。'.repeat(10),
@@ -93,15 +89,15 @@ test('word definitions paginate to leave space for pictures without dropping mea
     [{ en: word.example, zh: word.example_zh }],
   );
 });
-test('a whole-word lesson still has a complete route through every chapter', () => {
+void test('a whole-word lesson still has a complete route through every chapter', () => {
   const slides = buildSlides({ ...lesson, groups: [] });
-  assert.ok(slides.some((s) => s.kind === 'whole'));
+  assert.equal(slides.filter(s => s.kind === 'study').length, 50);
   assert.deepEqual(
     [...new Set(slides.map((s) => s.chapter))],
-    ['welcome', 'words', 'roots', 'practice', 'finish'],
+    ['welcome', 'words', 'practice', 'finish'],
   );
 });
-test('illustrated story and questions follow roots and precede vocabulary practice', () => {
+void test('illustrated story and questions follow word studies and precede vocabulary practice', () => {
   const scenes = Array.from({ length: 4 }, (_, i) => ({
     id: 'scene-' + i,
     title: 'A new friend',
@@ -118,7 +114,7 @@ test('illustrated story and questions follow roots and precede vocabulary practi
   const slides = buildSlides({ ...lesson, materials: { story: { scenes } } });
   assert.deepEqual(
     [...new Set(slides.map((s) => s.chapter))],
-    ['welcome', 'words', 'roots', 'scenes', 'practice', 'finish'],
+    ['welcome', 'words', 'scenes', 'practice', 'finish'],
   );
   const story = slides.filter((s) => s.kind === 'scene');
   assert.deepEqual(
@@ -132,7 +128,7 @@ test('illustrated story and questions follow roots and precede vocabulary practi
   });
   assert.equal(new Set(slides.map((s) => s.id)).size, slides.length);
 });
-test('the final recap contains all 50 words, meanings and every bilingual example in lesson order', () => {
+void test('the final recap contains all 50 words, meanings and every bilingual example in lesson order', () => {
   const recap = buildSlides(lesson).filter((s) => s.kind === 'finish');
   assert.equal(recap[0].id, 'finish');
   assert.ok(recap.length > 1);
@@ -151,7 +147,7 @@ test('the final recap contains all 50 words, meanings and every bilingual exampl
     );
   }
 });
-test('long recap definitions and examples continue onto readable pages with no missing text', () => {
+void test('long recap definitions and examples continue onto readable pages with no missing text', () => {
   const word = {
     ...words[1],
     meaning_zh: '很长但必须完整保留的中文释义。'.repeat(15),
@@ -178,7 +174,7 @@ test('long recap definitions and examples continue onto readable pages with no m
     );
   }
 });
-test('long word phrases receive a whole recap page instead of shrinking the type', () => {
+void test('long word phrases receive a whole recap page instead of shrinking the type', () => {
   const phrases = ['tourist information centre', 'public transport'];
   const longWords = phrases.map((word, i) => ({
     ...words[i],

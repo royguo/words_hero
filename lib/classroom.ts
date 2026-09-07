@@ -1,3 +1,4 @@
+import type { WordStudy } from './word-study';
 export type Part = {
   text: string;
   kind: string;
@@ -53,6 +54,7 @@ export type Word = {
   cloze_type: 'context' | 'headword';
   materials_version: string;
   parts: Part[];
+  word_study?: WordStudy;
   note: string;
   is_basic: boolean;
   phonetic?: string;
@@ -183,6 +185,7 @@ export async function api<T>(
     body: data === undefined ? undefined : JSON.stringify(data),
   });
   const result = (await response.json()) as { error?: string };
+  if (response.status===401&&typeof window!=='undefined')window.dispatchEvent(new Event('kite-auth-required'));
   if (!response.ok) throw new Error(result.error || '请求失败，请重试');
   return result as T;
 }

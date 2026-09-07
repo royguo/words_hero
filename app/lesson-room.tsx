@@ -1,5 +1,5 @@
 'use client';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {
   BookOpen,
   Play,
@@ -11,19 +11,17 @@ import {
   Volume2,
   Eye,
   ArrowRight,
-  Check,
   ChevronLeft,
   ChevronRight,
   RotateCcw,
-  Lightbulb,
   CheckCircle2,
   Loader2,
   BookMarked,
   Save,
-  ArrowUpRight,
   Image as ImageIcon,
   Copy,
   Download,
+  Trash2,
 } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import {
@@ -53,14 +51,16 @@ import {
   type Word,
 } from '@/lib/classroom';
 import { LessonPlayer } from './lesson-player';
-import { buildSlides } from '@/lib/slides';
+import { buildSlides, cardPages } from '@/lib/slides';
 import { TeachingPicture, TargetText } from './teaching-picture';
 import { AudioPreparation, SpeakButton } from './audio-tools';
 import { stopSpeech } from '@/lib/audio';
+import { WordStudyPage } from './word-study';
+import { WordCards } from './word-cards';
+import { Workbook } from './workbook';
 type SaveFn = (data: unknown, action?: string) => Promise<Lesson | undefined>;
 const steps = [
   { id: 'preview', label: '认识单词', icon: BookOpen },
-  { id: 'roots', label: '词根和词汇', icon: Layers },
   { id: 'scenes', label: '情景图文故事', icon: ImageIcon },
   { id: 'practice', label: '课堂互动练习', icon: Pencil },
   { id: 'workbook', label: '练习册打印', icon: Printer },
@@ -71,6 +71,7 @@ export function LessonRoom({
   onSave,
   onVersion,
   onRegenerate,
+  onDelete,
   notify,
 }: {
   lesson: Lesson;
@@ -78,6 +79,7 @@ export function LessonRoom({
   onSave: SaveFn;
   onVersion: (id: string) => Promise<void>;
   onRegenerate: () => void;
+  onDelete: () => void;
   notify: (s: string) => void;
 }) {
   const [player, setPlayer] = useState(false);
@@ -102,11 +104,12 @@ export function LessonRoom({
       void document.documentElement.requestFullscreen().catch(() => {});
     }
   }
-  const [stage, setStage] = useState(lesson.stage),
+  const [stage, setStage] = useState(
+      lesson.stage === 'roots' ? 'preview' : lesson.stage,
+    ),
     [pending, setPending] = useState(false),
     [complete, setComplete] = useState(false),
-    [notes, setNotes] = useState(lesson.notes),
-    [rootId, setRootId] = useState('');
+    [notes, setNotes] = useState(lesson.notes);
   const remembered = lesson.words.filter(
       (w) => w.result === 'remembered',
     ).length,
@@ -160,6 +163,15 @@ export function LessonRoom({
           </p>
         </div>
         <div className="lesson-actions">
+          <button
+            className="icon-btn delete-link"
+            aria-label="删除本节课"
+            title="删除本节课"
+            disabled={busy || pending}
+            onClick={onDelete}
+          >
+            <Trash2 size={18} />
+          </button>
           <Select
             value={lesson.version_id}
             onValueChange={(v) => v && void onVersion(String(v))}
@@ -296,34 +308,9 @@ export function LessonRoom({
           ))}
         </TabsList>
         <TabsContent value="preview">
-          <WordPreview
-            words={lesson.words}
-            notify={notify}
-            onRoot={(id) => {
-              setRootId(id);
-              void changeStage('roots');
-            }}
-          />
+          <WordPreview words={lesson.words} notify={notify} />
           <div className="step-footer">
-            <span>读过一遍，再寻找单词之间的关系。</span>
-            <button
-              className="btn primary"
-              onClick={() => void changeStage('roots')}
-            >
-              看看构词规律
-              <ArrowRight size={17} />
-            </button>
-          </div>
-        </TabsContent>
-        <TabsContent value="roots">
-          <Roots
-            lesson={lesson}
-            selectedId={rootId}
-            onSelected={setRootId}
-            notify={notify}
-          />
-          <div className="step-footer">
-            <span>试着解释这条线索，再用本课单词举例。</span>
+            <span>读懂例句，发现来历，再走进今天的故事。</span>
             <button
               className="btn primary"
               onClick={() => void changeStage('scenes')}
@@ -415,7 +402,7 @@ export function LessonRoom({
           <Practice lesson={lesson} onSave={onSave} notify={notify} />
         </TabsContent>
         <TabsContent value="workbook">
-          <Workbook lesson={lesson} />
+          <Workbook key={lesson.version_id} lesson={lesson} />
         </TabsContent>
       </Tabs>
       <footer className="lesson-record panel">
@@ -519,11 +506,9 @@ export function LessonRoom({
 function WordPreview({
   words,
   notify,
-  onRoot,
 }: {
   words: Word[];
   notify: (s: string) => void;
-  onRoot: (id: string) => void;
 }) {
   const [hide, setHide] = useState(false),
     [open, setOpen] = useState<Record<string, boolean>>({});
@@ -610,172 +595,29 @@ function WordPreview({
                   {visible && <p className="example-zh">{example.zh}</p>}
                 </div>
               ))}
-              {w.story_zh && visible && (
-                <details className="memory-story">
+              {visible && (
+                <details className="memory-story word-study-details">
                   <summary>
-                    <BookMarked size={15} /> 单词里的小故事
+                    <Layers size={15} /> 单词来源和构成
                   </summary>
-                  <p>{w.story_zh}</p>
-                  <small>
-                    {w.student_prompt || '换成你的经历，试着用这个词说一句话。'}
-                  </small>
+                  <WordStudyPage
+                    word={w}
+                    compact
+                    onSpeak={(text) => speak(text, notify)}
+                  />
                 </details>
               )}
               <div className="word-card-bottom">
                 <span className={'difficulty d' + w.difficulty}>
                   {bands[w.difficulty]}
                 </span>
-                {w.parts.length ? (
-                  <button onClick={() => onRoot(w.parts[0].text)}>
-                    <Layers size={13} />
-                    {w.parts.map((p) => p.text).join(' + ')}
-                    <ArrowRight size={13} />
-                  </button>
-                ) : (
-                  <span className="caption">整体记忆</span>
-                )}
+                <span className="caption">
+                  {w.word_study ? '读例句 · 找联系' : '完整记忆 · 理解用法'}
+                </span>
               </div>
             </article>
           );
         })}
-      </div>
-    </div>
-  );
-}
-function Roots({
-  lesson,
-  selectedId,
-  onSelected,
-  notify,
-}: {
-  lesson: Lesson;
-  selectedId: string;
-  onSelected: (id: string) => void;
-  notify: (s: string) => void;
-}) {
-  const [show, setShow] = useState(true);
-  const group =
-    lesson.groups.find((g) => g.id === selectedId || g.text === selectedId) ||
-    lesson.groups[0];
-  if (!group)
-    return (
-      <div className="empty-roots">
-        <Layers size={40} />
-        <h2>这组词，先从整体记忆开始</h2>
-        <p>
-          这些词适合完整记忆。把它们放进例句和生活场景，找到自己的记忆线索。
-        </p>
-        <div className="whole-word-prompt">
-          课堂小任务：挑三个词，说一说它们会出现在生活中的什么地方。
-        </div>
-      </div>
-    );
-  const related = lesson.words.filter((w) =>
-    group.words.some((g) => g.word === w.word),
-  );
-  return (
-    <div className="stage-body">
-      <div className="section-toolbar">
-        <div>
-          <h2>找到线索，让单词连起来</h2>
-          <p>
-            词基承载核心意思，词缀改变含义或词性；合成词把熟悉的成分组合起来。
-          </p>
-        </div>
-        <label className="inline-switch">
-          <Switch checked={!show} onCheckedChange={(v) => setShow(!v)} />
-          先猜意思
-        </label>
-      </div>
-      <div className="roots-layout">
-        <aside className="root-list" aria-label="本课构词成分">
-          {lesson.groups.map((g) => (
-            <button
-              key={g.id}
-              className={g.id === group.id ? 'active' : ''}
-              onClick={() => onSelected(g.id)}
-            >
-              <strong lang="en">{g.text}</strong>
-              <span>
-                {kinds[g.kind]} <em>{g.words.length} 词</em>
-              </span>
-            </button>
-          ))}
-        </aside>
-        <div className="root-exploration" key={group.id}>
-          <div className="root-feature">
-            <span className="root-kind">{kinds[group.kind]}</span>
-            <h3 lang="en">{group.text}</h3>
-            <p>{show ? group.meaning : '这个成分表达什么意思？'}</p>
-            {!show && (
-              <button className="btn light" onClick={() => setShow(true)}>
-                <Eye size={16} />
-                一起揭晓
-              </button>
-            )}
-            <span className="root-connections">
-              {related.length} 个本课单词与它相连 ↓
-            </span>
-          </div>
-          <div className="related-words">
-            {related.map((w) => (
-              <article key={w.id}>
-                <div className="decomposition">
-                  {w.parts.map((p, i) => (
-                    <span key={i}>
-                      {i > 0 && <em> + </em>}
-                      <strong
-                        className={p.text === group.text ? 'highlight' : ''}
-                      >
-                        {p.text}
-                      </strong>
-                    </span>
-                  ))}
-                </div>
-                <div className="related-result">
-                  <h4 lang="en">{w.word}</h4>
-                  <button
-                    className="icon-btn"
-                    aria-label={'朗读 ' + w.word}
-                    onClick={() => speak(w.word, notify)}
-                  >
-                    <Volume2 size={17} />
-                  </button>
-                </div>
-                <p>{show ? w.meaning_zh : '先用自己的话猜猜词义'}</p>
-                <div className="family-example-inline">
-                  <p lang="en">{w.example}</p>
-                  {show && <small>{w.example_zh}</small>}
-                </div>
-                {show && <small>{w.note}</small>}
-              </article>
-            ))}
-          </div>
-          <div className="root-story">
-            <Lightbulb size={23} />
-            <div>
-              <h3>{group.story ? '构词小故事' : '理解这条线索'}</h3>
-              <p>
-                {group.story ||
-                  (group.kind === 'compound'
-                    ? '合成词把已有的词组合起来表达新事物。找出哪个成分告诉我们“是什么”，哪个成分补充它的特征。'
-                    : '这里标出的成分来自已整理的现代英语构词关系。相同字母不一定来自相同词根，请结合完整词义判断。')}
-              </p>
-              {group.source && group.source.startsWith('https://') && (
-                <a href={group.source} target="_blank" rel="noreferrer">
-                  查看来历出处 <ArrowUpRight size={13} />
-                </a>
-              )}
-            </div>
-          </div>
-          <div className="teacher-cue">
-            <span>轮到你来讲</span>
-            <p>
-              选一个单词，说说它与 <strong>{group.text}</strong>{' '}
-              的联系，再用它说一句自己的话。
-            </p>
-          </div>
-        </div>
       </div>
     </div>
   );
@@ -841,129 +683,72 @@ function Recall({
   onSave: SaveFn;
   notify: (s: string) => void;
 }) {
-  const [cursor, setCursor] = useState(lesson.cursor || 0),
-    [flipped, setFlipped] = useState(false),
-    [reverse, setReverse] = useState(false),
-    [pending, setPending] = useState(false);
-  const w = lesson.words[cursor];
-  async function move(next: number, result?: string) {
+  const pages = cardPages(lesson.words);
+  const [page, setPage] = useState(() =>
+    Math.max(
+      0,
+      pages.findIndex((words) =>
+        words.some((w) => w.id === lesson.words[lesson.cursor || 0]?.id),
+      ),
+    ),
+  );
+  const [revealed, setRevealed] = useState(false);
+  const [pending, setPending] = useState(false);
+  async function go(next: number) {
     stopSpeech();
-    setPending(true);
-    const n = (next + lesson.words.length) % lesson.words.length;
-    try {
-      if (!lesson.read_only) {
-        const updated = await onSave({
-          cursor: n,
-          ...(result ? { word_id: w.id, result } : {}),
-        });
-        if (!updated) return;
-      }
-      setCursor(n);
-      setFlipped(false);
-    } finally {
-      setPending(false);
-    }
+    const n = Math.max(0, Math.min(next, pages.length - 1));
+    setPage(n);
+    setRevealed(false);
+    if (!lesson.read_only)
+      await onSave({
+        cursor: lesson.words.findIndex((w) => w.id === pages[n][0].id),
+      });
   }
   return (
-    <div className="recall-area">
-      <div className="recall-toolbar">
-        <span>
-          单词 <strong>{cursor + 1}</strong> / {lesson.words.length}
-        </span>
-        <label className="inline-switch">
-          <Switch
-            checked={reverse}
-            onCheckedChange={(v) => {
-              stopSpeech();
-              setReverse(v);
-              setFlipped(false);
-            }}
-          />
-          看中文，想英文
-        </label>
-      </div>
-      <button
-        className={'flashcard ' + (flipped ? 'is-flipped' : '')}
-        onClick={() => setFlipped(!flipped)}
-        aria-label={flipped ? '隐藏答案，继续回忆' : '翻开卡片，查看答案'}
-      >
-        <span className="flash-face front" aria-hidden={flipped}>
-          <span className="eyebrow">
-            {reverse ? 'SAY IT IN ENGLISH' : 'WHAT DOES IT MEAN?'}
-          </span>
-          <strong lang={reverse ? 'zh-CN' : 'en'}>
-            {reverse ? w.meaning_zh : w.display_word || w.word}
-          </strong>
-          <span className="muted">{w.pos}</span>
-          <span className="flip-hint">
-            <RotateCcw size={16} />
-            先说出答案，再翻开卡片
-          </span>
-        </span>
-        <span className="flash-face back" aria-hidden={!flipped}>
-          <span className="eyebrow">LET&apos;S CHECK</span>
-          <strong lang={reverse ? 'en' : 'zh-CN'}>
-            {reverse ? w.display_word || w.word : w.meaning_zh}
-          </strong>
-          <span className="flash-parts">
-            {w.parts.length
-              ? w.parts.map((p) => p.text + '（' + p.meaning + '）').join(' + ')
-              : '把它放进自己的生活场景里记忆'}
-          </span>
-          {w.example && <span lang="en">{w.example}</span>}
-        </span>
-      </button>
-      <div className="recall-actions">
-        <button
-          className="icon-btn"
-          onClick={() => void move(cursor - 1)}
-          disabled={pending}
-          aria-label="上一个单词"
-        >
-          <ChevronLeft />
-        </button>
+    <div className="recall-pages">
+      <WordCards
+        key={page}
+        words={pages[page]}
+        revealed={revealed}
+        readOnly={lesson.read_only}
+        onSpeak={(text) => speak(text, notify)}
+        onRate={async (word, result) => {
+          setPending(true);
+          try {
+            if (!(await onSave({ word_id: word.id, result })))
+              notify('标记没有保存成功，请重试。');
+          } finally {
+            setPending(false);
+          }
+        }}
+      />
+      <div className="recall-page-controls">
         <button
           className="btn secondary"
-          disabled={pending || lesson.read_only}
-          onClick={() => void move(cursor + 1, 'again')}
+          disabled={!page || pending}
+          onClick={() => void go(page - 1)}
         >
-          <RotateCcw size={17} />
-          再练一次
+          <ChevronLeft size={18} />
+          上一组
+        </button>
+        <span>
+          第 {page + 1} / {pages.length} 组
+        </span>
+        <button
+          className="btn secondary"
+          onClick={() => setRevealed(!revealed)}
+        >
+          {revealed ? '全部盖上' : '全部翻开'}
         </button>
         <button
-          className="btn success"
-          disabled={pending || lesson.read_only}
-          onClick={() => void move(cursor + 1, 'remembered')}
+          className="btn primary"
+          disabled={page === pages.length - 1 || pending}
+          onClick={() => void go(page + 1)}
         >
-          <Check size={18} />
-          记住了
-        </button>
-        <button
-          className="icon-btn"
-          onClick={() => void move(cursor + 1)}
-          disabled={pending}
-          aria-label="下一个单词"
-        >
-          <ChevronRight />
+          下一组
+          <ChevronRight size={18} />
         </button>
       </div>
-      <button
-        className="btn ghost recall-sound"
-        onClick={() => speak(w.word, notify)}
-      >
-        <Volume2 size={17} />
-        听听发音
-      </button>
-      <p className="caption">
-        {lesson.read_only
-          ? '历史课可以继续翻卡复习，当时的掌握标记会保留。'
-          : '每次标记会自动保存，并切换到下一个单词。'}
-        {w.result === 'remembered'
-          ? ' 上次标记：记住了。'
-          : w.result === 'again'
-            ? ' 上次标记：再练一次。'
-            : ''}
-      </p>
     </div>
   );
 }
@@ -1173,96 +958,6 @@ function RootChallenge({ lesson }: { lesson: Lesson }) {
           <ArrowRight size={16} />
         </button>
       </div>
-    </div>
-  );
-}
-function Workbook({ lesson }: { lesson: Lesson }) {
-  const [kind, setKind] = useState('classroom'),
-    [ready, setReady] = useState(false);
-  const frame = useRef<HTMLIFrameElement>(null);
-  const src = '/api/versions/' + lesson.version_id + '/worksheet?kind=' + kind;
-  function print() {
-    frame.current?.contentWindow?.focus();
-    frame.current?.contentWindow?.print();
-  }
-  return (
-    <div className="stage-body workbook">
-      <div className="section-toolbar">
-        <div>
-          <h2>纸上的练习，也准备好了</h2>
-          <p>
-            课前打印随堂跟写纸，课后发放填空练习。两份材料都对应本课版本{' '}
-            {lesson.version_number}。
-          </p>
-        </div>
-      </div>
-      <Tabs
-        value={kind}
-        onValueChange={(v) => {
-          setReady(false);
-          setKind(String(v));
-        }}
-      >
-        <TabsList className="print-kind-tabs">
-          <TabsTrigger value="classroom">
-            <Pencil size={16} />
-            随堂跟写
-          </TabsTrigger>
-          <TabsTrigger value="homework">
-            <BookMarked size={16} />
-            课后填空
-          </TabsTrigger>
-          <TabsTrigger value="answers">
-            <CheckCircle2 size={16} />
-            教师答案
-          </TabsTrigger>
-        </TabsList>
-      </Tabs>
-      <div className="print-toolbar">
-        <div>
-          <span className="a4-badge">A4</span>
-          <span>
-            {kind === 'classroom'
-              ? '课堂跟读 · 连续书写 · 下课收取'
-              : kind === 'homework'
-                ? '构词理解 · 单词举例 · 双向填空'
-                : '教师核对使用，请与学生练习分开打印'}
-          </span>
-        </div>
-        <div>
-          <a
-            className="btn secondary"
-            href={src}
-            target="_blank"
-            rel="noreferrer"
-          >
-            单独打开
-            <ArrowUpRight size={15} />
-          </a>
-          <button className="btn primary" disabled={!ready} onClick={print}>
-            <Printer size={17} />
-            打印这份材料
-          </button>
-        </div>
-      </div>
-      <iframe
-        key={src}
-        ref={frame}
-        src={src}
-        title={
-          kind === 'classroom'
-            ? '随堂跟写 A4 打印预览'
-            : kind === 'homework'
-              ? '课后填空 A4 打印预览'
-              : '教师答案 A4 打印预览'
-        }
-        className="worksheet-preview"
-        onLoad={() => setReady(true)}
-      />
-      <p className="caption">
-        可先在预览中填写姓名、年龄和时间，也可打印后手写。选择 A4
-        纵向，建议关闭页眉页脚。
-      </p>
     </div>
   );
 }

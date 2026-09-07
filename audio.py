@@ -51,6 +51,9 @@ def lesson_texts(lesson):
         add(word.get("example"), "example")
         for example in word.get("extra_examples", []):
             add(example.get("en"), "example")
+        for related in word.get("word_study", {}).get("family", []):
+            add(related.get("word"), "word")
+            add(related.get("example", {}).get("en"), "example")
     for scene in lesson.get("materials", {}).get("story", {}).get("scenes", []):
         add(scene.get("en"), "story")
         add(scene.get("question", {}).get("en"), "question")

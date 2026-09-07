@@ -1,7 +1,7 @@
+/* oxlint-disable next/no-img-element -- Static PNG brand assets require no remote image service. */
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import {
-  Sprout,
   Users,
   Plus,
   ArrowRight,
@@ -16,6 +16,8 @@ import {
   ChevronRight,
   SlidersHorizontal,
   Upload,
+  Trash2,
+  LogOut,
 } from 'lucide-react';
 import {
   Sidebar,
@@ -61,6 +63,7 @@ import {
   type Word,
   type SelectionDraft,
 } from '@/lib/classroom';
+import { AuthGate } from './auth-gate';
 import { LessonRoom } from './lesson-room';
 import { WordSelection } from './word-selection';
 
@@ -75,11 +78,9 @@ const empty: State = {
 function Brand() {
   return (
     <div className="brand">
-      <span className="brand-symbol">
-        <Sprout size={25} />
-      </span>
+      <img className="brand-image" src="/favicon.png" alt="" />
       <div>
-        词芽课堂<small>WORD GARDEN</small>
+        风筝单词<small>KiteDance</small>
       </div>
     </div>
   );
@@ -113,6 +114,13 @@ function Choice({
   );
 }
 export default function Home() {
+  return (
+    <AuthGate>
+      <Classrooms />
+    </AuthGate>
+  );
+}
+function Classrooms() {
   const [state, setState] = useState<State>(empty),
     [classId, setClassId] = useState<string | null>(null),
     [lesson, setLesson] = useState<Lesson | null>(null);
@@ -121,6 +129,11 @@ export default function Home() {
     [notice, setNotice] = useState(''),
     [setup, setSetup] = useState<'new' | 'regenerate' | null>(null),
     [manager, setManager] = useState(false);
+  const [deletion, setDeletion] = useState<{
+    kind: 'class' | 'lesson';
+    id: string;
+    name: string;
+  } | null>(null);
   const navigation = useRef(0);
   const writes = useRef<Promise<unknown>>(Promise.resolve());
   const current = state.classes.find((c) => c.id === classId);
@@ -234,6 +247,75 @@ export default function Home() {
       );
     });
   }
+  async function deleteRecord() {
+    if (!deletion) return;
+    await run(async () => {
+      await writes.current.catch(() => {});
+      navigation.current += 1;
+      await api(
+        '/' +
+          (deletion.kind === 'class' ? 'classes' : 'lessons') +
+          '/' +
+          deletion.id,
+        {},
+        'DELETE',
+      );
+      if (deletion.kind === 'class') {
+        setClassId(null);
+        setLesson(null);
+        setSetup(null);
+        setState(await api<State>('/state'));
+      } else {
+        const s = await api<State>('/state?class_id=' + classId);
+        setState(s);
+        setLesson(
+          s.lessons[0]
+            ? await api<Lesson>('/lessons/' + s.lessons[0].id)
+            : null,
+        );
+        setSetup(s.lessons.length ? null : 'new');
+      }
+      setDeletion(null);
+      setNotice('已删除课堂记录；单词、图片和语音素材仍可复用。');
+    });
+  }
+  const deletionDialog = (
+    <Dialog
+      open={!!deletion}
+      onOpenChange={(open) => {
+        if (!open && !busy) setDeletion(null);
+      }}
+    >
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>
+            删除{deletion?.kind === 'class' ? '班级' : '课程'}？
+          </DialogTitle>
+          <DialogDescription>
+            “{deletion?.name}”
+            {deletion?.kind === 'class' ? '及其中全部课程' : ''}
+            将从课堂记录中移除。关联的图片、音频和词汇素材会保留。
+          </DialogDescription>
+        </DialogHeader>
+        <div className="delete-actions">
+          <button
+            className="btn secondary"
+            disabled={busy}
+            onClick={() => setDeletion(null)}
+          >
+            取消
+          </button>
+          <button
+            className="btn danger"
+            disabled={busy}
+            onClick={() => void deleteRecord()}
+          >
+            {busy ? '正在删除…' : '确认删除'}
+          </button>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
   const banner = notice && (
     <output className="notice">
       <span>{notice}</span>
@@ -248,7 +330,14 @@ export default function Home() {
         <header className="home-header">
           <Brand />
           <div className="header-tools">
-            <span className="local-dot">本地课堂</span>
+            <span className="local-dot">云端课堂</span>
+            <button
+              className="btn ghost"
+              onClick={() => window.dispatchEvent(new Event('kite-logout'))}
+            >
+              <LogOut size={16} />
+              退出
+            </button>
             <button className="btn ghost" onClick={() => setManager(true)}>
               <Library size={17} />
               词库
@@ -274,24 +363,35 @@ export default function Home() {
           ) : (
             <div className="class-grid">
               {state.classes.map((c, i) => (
-                <button
-                  className="class-card"
-                  key={c.id}
-                  disabled={busy}
-                  onClick={() => void chooseClass(c.id)}
-                >
-                  <span className={'class-icon color-' + (i % 3)}>
-                    <Users />
-                  </span>
-                  <h2>{c.name}</h2>
-                  <p>
-                    {c.lesson_count} 节课程 <span>·</span> {c.learned}{' '}
-                    个已学单词
-                  </p>
-                  <span className="class-enter">
-                    进入班级 <ArrowRight size={18} />
-                  </span>
-                </button>
+                <div className="class-card-wrap" key={c.id}>
+                  <button
+                    className="class-card"
+                    disabled={busy}
+                    onClick={() => void chooseClass(c.id)}
+                  >
+                    <span className={'class-icon color-' + (i % 3)}>
+                      <Users />
+                    </span>
+                    <h2>{c.name}</h2>
+                    <p>
+                      {c.lesson_count} 节课程 <span>·</span> {c.learned}{' '}
+                      个已学单词
+                    </p>
+                    <span className="class-enter">
+                      进入班级 <ArrowRight size={18} />
+                    </span>
+                  </button>
+                  <button
+                    className="delete-class icon-btn"
+                    aria-label={'删除班级 ' + c.name}
+                    disabled={busy}
+                    onClick={() =>
+                      setDeletion({ kind: 'class', id: c.id, name: c.name })
+                    }
+                  >
+                    <Trash2 size={16} />
+                  </button>
+                </div>
               ))}
               <NewClass busy={busy} onCreate={createClass} />
             </div>
@@ -301,6 +401,7 @@ export default function Home() {
             <span>选词备课 → 先打印随堂练习 → 师生一起练 → 带走课后练习</span>
           </div>
         </main>
+        {deletionDialog}
         <VocabManager
           open={manager}
           onOpenChange={setManager}
@@ -334,6 +435,13 @@ export default function Home() {
         }}
         onChoose={chooseLesson}
         onLibrary={() => setManager(true)}
+        onDelete={() =>
+          setDeletion({
+            kind: 'class',
+            id: classId,
+            name: current?.name || '当前班级',
+          })
+        }
       />
       <main className="workspace">
         <header className="workspace-header">
@@ -354,7 +462,7 @@ export default function Home() {
             </strong>
           </div>
           <div className="header-tools">
-            <span className="local-dot">课程保存在本机</span>
+            <span className="local-dot">课程自动保存</span>
             <a
               href="/api/backup"
               download
@@ -389,10 +497,18 @@ export default function Home() {
               onVersion={(v) => chooseLesson(lesson.id, v)}
               onRegenerate={() => setSetup('regenerate')}
               notify={setNotice}
+              onDelete={() =>
+                setDeletion({
+                  kind: 'lesson',
+                  id: lesson.id,
+                  name: lesson.title,
+                })
+              }
             />
           )}
         </div>
       </main>
+      {deletionDialog}
       <VocabManager
         open={manager}
         onOpenChange={setManager}
@@ -455,6 +571,7 @@ function CourseSidebar({
   onNew,
   onChoose,
   onLibrary,
+  onDelete,
 }: {
   state: State;
   className: string;
@@ -464,6 +581,7 @@ function CourseSidebar({
   onNew: () => void;
   onChoose: (id: string) => Promise<void>;
   onLibrary: () => void;
+  onDelete: () => void;
 }) {
   const { setOpenMobile } = useSidebar();
   return (
@@ -541,6 +659,14 @@ function CourseSidebar({
           <Library size={17} />
           管理词库
           <ChevronRight size={16} />
+        </button>
+        <button
+          className="sidebar-library delete-link"
+          disabled={busy}
+          onClick={onDelete}
+        >
+          <Trash2 size={16} />
+          删除当前班级
         </button>
         <p className="sidebar-note">一点一滴，让单词生根。</p>
       </SidebarFooter>

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "786d1111eb198da9f40f961852fceee507ad5ea0afd1a78f1c3cb06992ad5c8b",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "swimsuit"
+  },
+  "file": "audio/v1/be6e628ac67caddba51896d4af67c975fd3f99970931212e6ac891e2fcf2beaf.mp3",
+  "sha256": "be6e628ac67caddba51896d4af67c975fd3f99970931212e6ac891e2fcf2beaf",
+  "bytes": 9360,
+  "created_at": "2026-09-07T15:59:16+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

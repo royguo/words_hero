@@ -10,6 +10,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from content import ROOT, LEVELS, UserError, dump, integer, now, parse_csv, root_groups, normalize_answer
 from assets import ASSET_ROOT, enrich_words, load_bundle
+from worksheets import worksheet_plan
 
 class Store:
     def __init__(self, path, seed=ROOT/"data"/"ket.csv", asset_root=ASSET_ROOT):
@@ -99,7 +100,7 @@ ON CONFLICT(level,word) DO UPDATE SET difficulty=excluded.difficulty,is_basic=ex
         return {"schema_version":1,"course_code":lesson["course_code"],"level":lesson["level"],
             "word_order":[w["word"] for w in lesson["words"]],
             "instructions":"阅读 AGENTS.md，保持词单和顺序不变。复用适合词义的素材，为每个词准备写实图片；故事每页一个情节，放在构词之后。制作后 validate，再 apply 到此编号。",
-            "words":[{k:w.get(k) for k in ("word","level","meaning_zh","pos","difficulty","example","example_zh","extra_examples","parts","asset_id")} for w in lesson["words"]],
+            "words":[{k:w.get(k) for k in ("word","level","meaning_zh","pos","difficulty","example","example_zh","extra_examples","parts","word_study","asset_id")} for w in lesson["words"]],
             "materials":lesson["materials"]}
 
     def attach_materials(self,code,bundle_id):
@@ -112,6 +113,7 @@ ON CONFLICT(level,word) DO UPDATE SET difficulty=excluded.difficulty,is_basic=ex
             vid=uuid.uuid4().hex
             number=db.execute("SELECT MAX(number)+1 FROM versions WHERE lesson_id=?",(previous["id"],)).fetchone()[0]
             config=dict(previous["config"],materials=materials,root_groups=root_groups(words))
+            config["worksheets"]=worksheet_plan(words,config["root_groups"],config.get("worksheet_order"),vid)
             config.pop("presentation_slide",None)
             db.execute("INSERT INTO versions(id,lesson_id,number,level,mode,created_at,config,notes) VALUES(?,?,?,?,?,?,?,?)",
                 (vid,previous["id"],number,previous["level"],previous["mode"],now(),dump(config),previous["notes"]))
@@ -264,7 +266,8 @@ WHERE v.level=? AND v.difficulty BETWEEN ? AND ? AND NOT EXISTS(
         content=[json.loads(r["data"]) for r in chosen]
         if not confirmed:content=enrich_words(content,self.asset_root)
         config["root_groups"]=root_groups(content)
-        config["materials_version"]="2026-09-v2"
+        config["worksheets"]=worksheet_plan([dict(w,id=r["id"]) for w,r in zip(content,chosen)],config["root_groups"],config["worksheet_order"],vid)
+        config["materials_version"]="2026-09-v3"
         levels=[level for level in LEVELS if any(w["level"]==level for w in content)]
         config.update(new_count=sum(not r["due_at"] for r in chosen),review_count=sum(bool(r["due_at"]) for r in chosen),requested_count=data.get("count",10),source_levels=levels,selection_confirmed=confirmed)
         if confirmed:config["count"]=len(chosen)

@@ -33,10 +33,10 @@ class MaterialCase(unittest.TestCase):
                                                       "result":"remembered","notes":"Saved"})
         self.assertEqual(worksheet(after,"homework"),before)
 
-    def test_missing_story_and_wrong_cloze_are_rejected(self):
+    def test_wrong_cloze_is_rejected_but_retired_per_word_stories_are_optional(self):
         source=fixtures.csv_text(fixtures.rows_for()[:1])
         rows=list(csv.DictReader(io.StringIO(source)))
-        for key,value in (("story_zh",""),("cloze","No blank here"),
+        for key,value in (("cloze","No blank here"),
                           ("cloze_answer","wrong"),("cloze_type","unknown")):
             row=dict(rows[0]);row[key]=value
             buf=io.StringIO();out=csv.DictWriter(buf,fieldnames=list(row))
@@ -80,6 +80,7 @@ class MaterialCase(unittest.TestCase):
         lesson=self.store.generate(self.cid,dict(fixtures.BASE,count=5))
         for i,word in enumerate(("cat","air conditioning","tourist information centre")):
             lesson["words"][i].update(word=word,display_word=word)
+        lesson["config"].pop("worksheets")
         html=worksheet(lesson,"classroom")
         self.assertIn("<h1>随堂跟写练习</h1>",html)
         self.assertIn('1. cat</td>'+('<td colspan="1"><div class="writing-line"></div></td>'*4),html)
@@ -88,9 +89,12 @@ class MaterialCase(unittest.TestCase):
 
     def test_same_affix_different_usage_is_distinguished_on_paper(self):
         lesson=self.store.generate(self.cid,dict(fixtures.BASE,count=5))
-        lesson["groups"]=[
-            {"text":"-ly","kind":"suffix","meaning":"以某种方式（构成副词）","words":[{"word":"quickly"}]},
-            {"text":"-ly","kind":"suffix","meaning":"具有某种特点（构成形容词）","words":[{"word":"friendly"}]}]
-        html=worksheet(lesson,"homework")
-        self.assertIn("-ly（副词）",html)
-        self.assertIn("-ly（形容词）",html)
+        lesson["words"][0].update(word="quickly",display_word="quickly",parts=[{"text":"-ly","kind":"suffix","meaning":"以某种方式（构成副词）"}])
+        lesson["words"][1].update(word="friendly",display_word="friendly",parts=[{"text":"-ly","kind":"suffix","meaning":"具有某种特点（构成形容词）"}])
+        lesson["config"].pop("worksheets")
+        paper=worksheet(lesson,"homework")
+        answers=worksheet(lesson,"answers")
+        self.assertIn("quickly 中的 -ly",paper)
+        self.assertIn("friendly 中的 -ly",paper)
+        self.assertIn("以某种方式（构成副词）",answers)
+        self.assertIn("具有某种特点（构成形容词）",answers)

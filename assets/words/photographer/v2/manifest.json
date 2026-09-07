@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "id": "photographer-v2",
+  "word": "photographer",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "摄影师",
+  "created_at": "2026-09-07",
+  "provenance": {
+    "text": "Original A2 word study; dictionary sources checked 2026-09-07; imagery reused from photographer-v1.",
+    "images": "Built-in imagegen; exact prompts and SHA-256 stored per image"
+  },
+  "teaching": {
+    "meaning_zh": "摄影师",
+    "pos": "n.",
+    "example": "The photographer takes our photo.",
+    "example_zh": "摄影师给我们拍照。",
+    "extra_examples": [
+      {
+        "en": "I want to be a photographer.",
+        "zh": "我想成为一名摄影师。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "假装你是 photographer，用手比作相机，请同伴摆一个动作。",
+    "cloze": "The __________ takes our photo.",
+    "cloze_answer": "photographer",
+    "cloze_zh": "摄影师给我们拍照。",
+    "cloze_type": "context",
+    "parts": [
+      {
+        "text": "photo-",
+        "kind": "root",
+        "meaning": "光"
+      },
+      {
+        "text": "-graph",
+        "kind": "root",
+        "meaning": "写；记录"
+      },
+      {
+        "text": "-er",
+        "kind": "suffix",
+        "meaning": "做这件事的人"
+      }
+    ],
+    "note": "先读单词与例句，再用 word_study 学习来源和构成；关联例句均为原创。",
+    "word_study": {
+      "schema_version": 1,
+      "formation": "derived",
+      "construction": "photo- + -graph + -er → photographer",
+      "components": [
+        {
+          "text": "photo-",
+          "kind": "root",
+          "meaning_zh": "光"
+        },
+        {
+          "text": "-graph",
+          "kind": "root",
+          "meaning_zh": "写；记录"
+        },
+        {
+          "text": "-er",
+          "kind": "suffix",
+          "meaning_zh": "做这件事的人"
+        }
+      ],
+      "explanation_zh": "先合成 photograph（照片；拍照），再加 -er：拍照的人就是 photographer。记忆画面：让光替你留下一幅画。",
+      "origin_zh": "photo- 和 -graph 的来历都与希腊语有关，分别有“光”和“写”的意思。photograph 像“用光记录”，这是构词联想。",
+      "family": [
+        {
+          "word": "photograph",
+          "meaning_zh": "照片；拍照",
+          "relation": "shared_root",
+          "connection_zh": "photo-（光）+ -graph（记录），是 photographer 的词基。",
+          "example": {
+            "en": "This photograph shows our farm.",
+            "zh": "这张照片拍的是我们的农场。"
+          }
+        },
+        {
+          "word": "photocopy",
+          "meaning_zh": "复印件；复印",
+          "relation": "shared_root",
+          "connection_zh": "这里的 photo- 延伸为“摄影的”，与 copy（复制）组合。",
+          "example": {
+            "en": "I need a photocopy of this page.",
+            "zh": "我需要这一页的复印件。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "photographer 中 photo- 与 -graph 分别有什么含义？末尾 -er 表示什么？",
+        "answer_zh": "光；写或记录；做这件事的人。"
+      },
+      "sources": [
+        {
+          "title": "Merriam-Webster · photo-",
+          "url": "https://www.merriam-webster.com/dictionary/photo-"
+        },
+        {
+          "title": "Merriam-Webster · -graph",
+          "url": "https://www.merriam-webster.com/dictionary/-graph"
+        },
+        {
+          "title": "Merriam-Webster · -er",
+          "url": "https://www.merriam-webster.com/dictionary/-er"
+        },
+        {
+          "title": "Merriam-Webster · photograph",
+          "url": "https://www.merriam-webster.com/dictionary/photograph"
+        },
+        {
+          "title": "Merriam-Webster · photocopy",
+          "url": "https://www.merriam-webster.com/dictionary/photocopy"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "photographer-v1",
+      "file": "words/photographer/v1/4313c515f9c97f685dd7617d25946438d07df68d2dd0612fadce2670b2eeca98.png",
+      "sha256": "4313c515f9c97f685dd7617d25946438d07df68d2dd0612fadce2670b2eeca98",
+      "width": 1536,
+      "height": 1024,
+      "alt": "一名摄影师拿着相机给农场门口的两个孩子拍照",
+      "caption": "The photographer takes our photo.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: classroom vocabulary/story photograph for Chinese primary-school KET learners, shown large on a projector.\nStyle: beautiful, playful, predominantly photorealistic natural editorial educational photography; bright daylight, rich but plausible colors, realistic skin, real materials, correct anatomy, warm humour. Uncluttered composition with a strong main subject and high visual quality. Landscape 3:2 composition, ideally 1536 by 1024.\nGlobal constraints: no embedded text, letters, captions, logos, watermarks, UI labels, decorative frames, cartoons or clipart. All children are fictional, ordinary fully clothed, in benign learning scenes. Natural plausible scale and perspective. Friendly safe environments.\nRecurring characters whenever named: Mia is a fictional East Asian girl about 9, black ponytail, coral-red light jacket, pale-blue jeans, white trainers. Ben is a fictional East Asian boy about 9, short black hair. In farm-story scenes Ben wears a child-size blue two-piece formal suit, white shirt, yellow rain boots. A recurring lizard is a small vivid green realistic garden lizard, long tail, four anatomically correct legs, not a chameleon.\n\nPrimary request: an adult woman professional photographer in the foreground, holding a visible realistic camera correctly to her eye and taking a photo of Mia and Ben at a sunny wooden farm gate. Camera and photographer are the strongest main subject, with proper two-handed camera handling, index finger on shutter and left hand supporting lens. Mia and Ben stand together happily in the midground facing her camera, Ben in his blue suit, white shirt and yellow boots; Mia in coral-red jacket. A natural cheerful school-visit scene. View at a clear side angle that shows the photographer, real camera silhouette and the children. No brands or visible camera lettering.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-07",
+      "reference_asset_ids": []
+    }
+  ]
+}
