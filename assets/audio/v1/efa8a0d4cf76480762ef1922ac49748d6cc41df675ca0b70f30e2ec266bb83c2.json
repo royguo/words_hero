@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "efa8a0d4cf76480762ef1922ac49748d6cc41df675ca0b70f30e2ec266bb83c2",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "I need a stamp for this letter."
+  },
+  "file": "audio/v1/281b7b76d768be5a6b9d0e7b4eef9d912a97ab591cba8d983f604d16a1991651.mp3",
+  "sha256": "281b7b76d768be5a6b9d0e7b4eef9d912a97ab591cba8d983f604d16a1991651",
+  "bytes": 14832,
+  "created_at": "2026-09-07T13:50:58+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

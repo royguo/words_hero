@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "7a9df8fb1e6067b9aa2e8e5b17e2298e7984c29670ad87901672f12268655a4f",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "What is the matter, Ben?"
+  },
+  "file": "audio/v1/b886cab60ff38ab8217f16eea773b98085c9729d45601ef6d3a7d5099df810ff.mp3",
+  "sha256": "b886cab60ff38ab8217f16eea773b98085c9729d45601ef6d3a7d5099df810ff",
+  "bytes": 14256,
+  "created_at": "2026-09-07T13:50:12+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

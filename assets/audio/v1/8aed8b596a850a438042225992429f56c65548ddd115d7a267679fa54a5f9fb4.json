@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "8aed8b596a850a438042225992429f56c65548ddd115d7a267679fa54a5f9fb4",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "I sit next to my classmate."
+  },
+  "file": "audio/v1/e06658142c8f4e2ed07fcf3fe86954e37518d9b6b21f7eb4433b57e8825a898a.mp3",
+  "sha256": "e06658142c8f4e2ed07fcf3fe86954e37518d9b6b21f7eb4433b57e8825a898a",
+  "bytes": 16128,
+  "created_at": "2026-09-07T13:50:37+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

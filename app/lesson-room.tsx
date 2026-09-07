@@ -1,5 +1,5 @@
 'use client';
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import {
   BookOpen,
   Play,
@@ -55,6 +55,8 @@ import {
 import { LessonPlayer } from './lesson-player';
 import { buildSlides } from '@/lib/slides';
 import { TeachingPicture, TargetText } from './teaching-picture';
+import { AudioPreparation, SpeakButton } from './audio-tools';
+import { stopSpeech } from '@/lib/audio';
 type SaveFn = (data: unknown, action?: string) => Promise<Lesson | undefined>;
 const steps = [
   { id: 'preview', label: '认识单词', icon: BookOpen },
@@ -79,6 +81,10 @@ export function LessonRoom({
   notify: (s: string) => void;
 }) {
   const [player, setPlayer] = useState(false);
+  useEffect(() => {
+    stopSpeech();
+    return stopSpeech;
+  }, [lesson.version_id]);
   const [startAt, setStartAt] = useState('welcome');
   const closePlayer = useCallback(() => setPlayer(false), []);
   const deck = buildSlides(lesson);
@@ -86,6 +92,7 @@ export function LessonRoom({
     (s) => s.id === lesson.config.presentation_slide,
   );
   function startLecture(resume = false) {
+    stopSpeech();
     setStartAt(
       resume ? lesson.config.presentation_slide || 'welcome' : 'welcome',
     );
@@ -105,6 +112,7 @@ export function LessonRoom({
     ).length,
     again = lesson.words.filter((w) => w.result === 'again').length;
   async function changeStage(id: string) {
+    stopSpeech();
     setStage(id);
     if (!lesson.read_only) await onSave({ stage: id });
   }
@@ -225,6 +233,7 @@ export function LessonRoom({
           下载素材任务
         </a>
       </section>
+      <AudioPreparation versionId={lesson.version_id} />
       <section className="lecture-launch">
         <div className="lecture-launch-icon">
           <Presentation size={29} />
@@ -346,6 +355,11 @@ export function LessonRoom({
                         text={scene.en}
                         words={lesson.materials.story?.covered_words || []}
                       />
+                      <SpeakButton
+                        text={scene.en}
+                        label="朗读故事"
+                        notify={notify}
+                      />
                     </p>
                     <details>
                       <summary>看看中文</summary>
@@ -353,11 +367,21 @@ export function LessonRoom({
                     </details>
                     <div className="story-preview-question">
                       <strong>{scene.question.en}</strong>
+                      <SpeakButton
+                        text={scene.question.en}
+                        label="朗读故事问题"
+                        notify={notify}
+                      />
                       <p>{scene.question.zh}</p>
                       <details>
                         <summary>揭晓答案</summary>
                         <p>
                           {scene.question.answer_en}
+                          <SpeakButton
+                            text={scene.question.answer_en}
+                            label="朗读故事答案"
+                            notify={notify}
+                          />
                           <br />
                           {scene.question.answer_zh}
                         </p>
@@ -564,20 +588,28 @@ function WordPreview({
               </button>
               {w.example && (
                 <div className="word-example">
-                  <p lang="en">{w.example}</p>
+                  <div className="example-with-audio">
+                    <p lang="en">{w.example}</p>
+                    <SpeakButton text={w.example} notify={notify} />
+                  </div>
                   {visible && w.example_zh && (
                     <p className="example-zh">{w.example_zh}</p>
                   )}
                 </div>
               )}
-              {w.extra_examples?.[0] && (
-                <div className="word-example extra-example">
-                  <p lang="en">{w.extra_examples[0].en}</p>
-                  {visible && (
-                    <p className="example-zh">{w.extra_examples[0].zh}</p>
-                  )}
+              {(w.extra_examples || []).map((example, index) => (
+                <div className="word-example extra-example" key={index}>
+                  <div className="example-with-audio">
+                    <p lang="en">{example.en}</p>
+                    <SpeakButton
+                      text={example.en}
+                      label={'朗读补充例句 ' + (index + 1)}
+                      notify={notify}
+                    />
+                  </div>
+                  {visible && <p className="example-zh">{example.zh}</p>}
                 </div>
-              )}
+              ))}
               {w.story_zh && visible && (
                 <details className="memory-story">
                   <summary>
@@ -766,7 +798,13 @@ function Practice({
           <p>先独立回忆，再和同伴轮流出题，一起核对。</p>
         </div>
       </div>
-      <Tabs value={mode} onValueChange={(v) => setMode(String(v))}>
+      <Tabs
+        value={mode}
+        onValueChange={(v) => {
+          stopSpeech();
+          setMode(String(v));
+        }}
+      >
         <TabsList className="practice-modes">
           <TabsTrigger value="recall">
             <RotateCcw size={16} />
@@ -809,6 +847,7 @@ function Recall({
     [pending, setPending] = useState(false);
   const w = lesson.words[cursor];
   async function move(next: number, result?: string) {
+    stopSpeech();
     setPending(true);
     const n = (next + lesson.words.length) % lesson.words.length;
     try {
@@ -835,6 +874,7 @@ function Recall({
           <Switch
             checked={reverse}
             onCheckedChange={(v) => {
+              stopSpeech();
               setReverse(v);
               setFlipped(false);
             }}

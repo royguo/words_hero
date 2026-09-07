@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "a8cc09224b382e22eab050ca7509cc8353ae082d3defd87aed637ebd0addefda",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Where is the lizard?"
+  },
+  "file": "audio/v1/689bcf934fd3d61df0c1988b4fb280c2eae67831063f93a069c9cd2a4f971161.mp3",
+  "sha256": "689bcf934fd3d61df0c1988b4fb280c2eae67831063f93a069c9cd2a4f971161",
+  "bytes": 11088,
+  "created_at": "2026-09-07T13:51:13+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "b8642a35fed40feb5fa5124e91d22246b44af3bd1fca1c0d368b9229ca44d214",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "I want to be a photographer."
+  },
+  "file": "audio/v1/f696fdc535a11c3bdeacbccf5a783da52e038040c147631e99dc959a6ab4f295.mp3",
+  "sha256": "f696fdc535a11c3bdeacbccf5a783da52e038040c147631e99dc959a6ab4f295",
+  "bytes": 13824,
+  "created_at": "2026-09-07T13:50:44+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

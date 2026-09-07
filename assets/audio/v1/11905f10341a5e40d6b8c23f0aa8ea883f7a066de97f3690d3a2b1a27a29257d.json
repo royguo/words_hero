@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "11905f10341a5e40d6b8c23f0aa8ea883f7a066de97f3690d3a2b1a27a29257d",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Ben is my classmate."
+  },
+  "file": "audio/v1/56b1698b57fb3cad10d7e02e53b2ded5c3fb40272c48ed59ff8b6eeda55b746d.mp3",
+  "sha256": "56b1698b57fb3cad10d7e02e53b2ded5c3fb40272c48ed59ff8b6eeda55b746d",
+  "bytes": 12816,
+  "created_at": "2026-09-07T13:50:34+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

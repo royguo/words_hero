@@ -7,12 +7,12 @@ if not (ROOT/"out/index.html").exists():raise SystemExit("Run npm run build firs
 release=ROOT/"release"
 release.mkdir(exist_ok=True)
 output=release/"WordGarden-v1.zip"
-files=[ROOT/name for name in ("README.md","AGENTS.md","THIRD_PARTY_NOTICES.txt","server.py","content.py","storage.py","assets.py","start.command","start.sh","start.bat")]
+files=[ROOT/name for name in ("README.md","AGENTS.md","THIRD_PARTY_NOTICES.txt","server.py","content.py","storage.py","assets.py","audio.py","requirements-audio.txt","start.command","start.sh","start.bat")]
 files += [ROOT/"data"/name for name in ("ket.csv","pet.csv","pet-extension.csv","coverage.json","ECDICT-LICENSE.txt")]
 files += [p for p in (ROOT/"out").rglob("*") if p.is_file()]
 files += [ROOT/name for name in ("package.json","package-lock.json","tsconfig.json","next.config.ts","vite.config.ts","components.json",".oxlintrc.json",".gitignore") if (ROOT/name).is_file()]
 for folder in ("app","lib","components","hooks","scripts","tests","public","assets"):
-    files += [p for p in (ROOT/folder).rglob("*") if p.is_file() and "__pycache__" not in p.parts and p.suffix != ".pyc"]
+    files += [p for p in (ROOT/folder).rglob("*") if p.is_file() and "__pycache__" not in p.parts and p.suffix != ".pyc" and not p.name.startswith(".audio-")]
 files += [p for p in (ROOT/"data").rglob("*") if p.is_file() and p.suffix in (".txt",".json",".md") and p not in files]
 files += [ROOT/"data/ket-teaching.csv"]
 files = sorted(set(files))

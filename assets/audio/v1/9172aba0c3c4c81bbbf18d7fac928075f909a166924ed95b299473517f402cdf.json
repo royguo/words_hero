@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "9172aba0c3c4c81bbbf18d7fac928075f909a166924ed95b299473517f402cdf",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Mum and I look at farm photos online."
+  },
+  "file": "audio/v1/7455cf9a97fde643522e440222e665aa6db5c221ed5aa2a590a5d5481fbd0f7f.mp3",
+  "sha256": "7455cf9a97fde643522e440222e665aa6db5c221ed5aa2a590a5d5481fbd0f7f",
+  "bytes": 19584,
+  "created_at": "2026-09-07T13:50:06+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

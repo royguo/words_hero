@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "3ba9534af3d208b53424238c1bef435cc189e83547438a6cabc6469093e6bf13",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Afterwards, they send a card to their class. Mia puts a stamp on it. Ben writes, “Our new classmate has four feet!” The photo shows the lizard."
+  },
+  "file": "audio/v1/976e1c67777223bb47282f384bf14c2077c37a3da2d84b0a0437cc6774a429b6.mp3",
+  "sha256": "976e1c67777223bb47282f384bf14c2077c37a3da2d84b0a0437cc6774a429b6",
+  "bytes": 69408,
+  "created_at": "2026-09-07T13:51:31+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

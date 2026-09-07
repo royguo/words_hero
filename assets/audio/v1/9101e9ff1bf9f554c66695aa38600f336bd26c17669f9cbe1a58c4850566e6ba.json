@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "9101e9ff1bf9f554c66695aa38600f336bd26c17669f9cbe1a58c4850566e6ba",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "We eat lunch. Afterwards, we play."
+  },
+  "file": "audio/v1/7160c9f9812eaa859c39445ecdb9ba4f7b8c28a99fd4d36734011097d4bd37b3.mp3",
+  "sha256": "7160c9f9812eaa859c39445ecdb9ba4f7b8c28a99fd4d36734011097d4bd37b3",
+  "bytes": 23472,
+  "created_at": "2026-09-07T13:49:51+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "015e6e7f087e5a279d888baaca749c45720926e50c6687087b398c41ede5bf94",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The lizard has a long tail."
+  },
+  "file": "audio/v1/46bb2137c1c93285ccb2f0dd6fe46054d9f435a331d771f524f4bdd27a345140.mp3",
+  "sha256": "46bb2137c1c93285ccb2f0dd6fe46054d9f435a331d771f524f4bdd27a345140",
+  "bytes": 14400,
+  "created_at": "2026-09-07T13:50:51+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

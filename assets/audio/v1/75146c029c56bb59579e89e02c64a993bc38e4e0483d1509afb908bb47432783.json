@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "75146c029c56bb59579e89e02c64a993bc38e4e0483d1509afb908bb47432783",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "There are sheep on the farm."
+  },
+  "file": "audio/v1/5116ac4a2dc8f996069c4fc5e725a75c7e8a2bad3850998baa9b9fdce3a05b59.mp3",
+  "sha256": "5116ac4a2dc8f996069c4fc5e725a75c7e8a2bad3850998baa9b9fdce3a05b59",
+  "bytes": 12384,
+  "created_at": "2026-09-07T13:49:59+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

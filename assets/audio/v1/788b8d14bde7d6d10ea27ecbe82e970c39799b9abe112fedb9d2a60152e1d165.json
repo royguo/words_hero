@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "788b8d14bde7d6d10ea27ecbe82e970c39799b9abe112fedb9d2a60152e1d165",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "It doesn't matter. I have another pencil."
+  },
+  "file": "audio/v1/dfbfd769746e32f94df1869b49bb5f8926f32475dd10261d024753cee7d4ec21.mp3",
+  "sha256": "dfbfd769746e32f94df1869b49bb5f8926f32475dd10261d024753cee7d4ec21",
+  "bytes": 22464,
+  "created_at": "2026-09-07T13:50:16+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

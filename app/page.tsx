@@ -129,7 +129,6 @@ export default function Home() {
       .then(setState)
       .catch((e) => setNotice(e.message))
       .finally(() => setLoading(false));
-    if ('speechSynthesis' in window) window.speechSynthesis.getVoices();
   }, []);
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
@@ -805,7 +804,9 @@ function Setup({
                 </button>
               ))}
             </div>
-            <small>推荐每课 10 个单词，也可选择 20、30、50 个或自定义数量。</small>
+            <small>
+              推荐每课 10 个单词，也可选择 20、30、50 个或自定义数量。
+            </small>
           </div>
           <div className="field">
             本课目标

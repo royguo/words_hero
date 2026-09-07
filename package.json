@@ -15,7 +15,8 @@
     "typecheck": "tsc --noEmit",
     "materials": "python3 scripts/build_materials.py",
     "package": "python3 scripts/package_release.py",
-    "test:slides": "node --test tests/slides.test.mjs"
+    "test:slides": "node --test tests/slides.test.mjs",
+    "test:audio": "node --test tests/audio.test.mjs"
   },
   "dependencies": {
     "react": "19.2.6",

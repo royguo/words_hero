@@ -1,6 +1,6 @@
 # 可复用课堂素材
 
-本目录全部进入 Git。课堂运行时只读取本地文件；不请求图片网站或模型。班级、课程进度、学生信息和数据库备份不存放在这里。
+本目录的正式素材全部进入 Git。图片和教材只读取本地文件；语音首次使用时可以联网合成，保存后本地复用，详见 [语音素材说明](audio/README.md)。班级、课程进度、学生信息和数据库备份不存放在这里。
 
 ## 目录与版本
 
@@ -11,6 +11,8 @@ assets/
   words/<word>/v1/<sha256>.png          内置 imagegen 生成的原始图片
   lessons/<bundle-id>/manifest.json    固定词单、单词素材引用、故事与互动问答
   lessons/<bundle-id>/<sha256>.png     故事配图
+  audio/v1/<request-sha256>.json       语音原文、声音参数、来源及录音哈希
+  audio/v1/<audio-sha256>.mp3          可跨课程复用的神经语音录音
 ```
 
 所有 JSON 都有 `schema_version: 1`。词单用 `KET:word` 等语义键映射，不依赖 SQLite 的数字 ID。`levels` 明确允许使用该词义素材的范围；一个词可有多套词义素材和多个版本。catalog 的键指向当前推荐版本，已创建的课程保存自己的文字和图片引用快照。

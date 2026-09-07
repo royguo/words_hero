@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "b119d16cd786c8f6621ad3ed457556e78e3969cc63e5745deee020fde0041865",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "No. It stays on Ben’s shoe."
+  },
+  "file": "audio/v1/ffae26f2447ac5f6e005b46e0c97e00c01622114d993ea4da6470da42e73deac.mp3",
+  "sha256": "ffae26f2447ac5f6e005b46e0c97e00c01622114d993ea4da6470da42e73deac",
+  "bytes": 19296,
+  "created_at": "2026-09-07T13:51:26+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

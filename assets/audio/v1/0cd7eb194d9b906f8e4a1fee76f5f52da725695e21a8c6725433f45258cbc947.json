@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "0cd7eb194d9b906f8e4a1fee76f5f52da725695e21a8c6725433f45258cbc947",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "At the farm, Ben wears a blue suit. “Why?” asks Mia. “I want a nice photo!” A small lizard sits on his shoe. “Hello!” says Ben."
+  },
+  "file": "audio/v1/39997b6610702dcacfb19dc5c99adbfbd9002ae565f77c1634c1667d4978c60f.mp3",
+  "sha256": "39997b6610702dcacfb19dc5c99adbfbd9002ae565f77c1634c1667d4978c60f",
+  "bytes": 70848,
+  "created_at": "2026-09-07T13:51:11+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

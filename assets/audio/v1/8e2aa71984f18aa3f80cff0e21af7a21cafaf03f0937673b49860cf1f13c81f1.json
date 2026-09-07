@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "8e2aa71984f18aa3f80cff0e21af7a21cafaf03f0937673b49860cf1f13c81f1",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Can you sing this song?"
+  },
+  "file": "audio/v1/7e50c701d7c153a08a232137a03c406581083e0339aae02af2bc63e35b619c02.mp3",
+  "sha256": "7e50c701d7c153a08a232137a03c406581083e0339aae02af2bc63e35b619c02",
+  "bytes": 11808,
+  "created_at": "2026-09-07T13:50:28+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

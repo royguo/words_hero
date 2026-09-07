@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "3e934de1c6f9f43cb3333b5d1b9945fc1fcdf6bfa7c6810eae5a99be1a3f40d0",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Who is the new “classmate”?"
+  },
+  "file": "audio/v1/a2fc645490009deab6f57779470c00fa5bcdc0e1fe961892dcac7beeb085ed3a.mp3",
+  "sha256": "a2fc645490009deab6f57779470c00fa5bcdc0e1fe961892dcac7beeb085ed3a",
+  "bytes": 13680,
+  "created_at": "2026-09-07T13:51:33+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -2708,6 +2708,96 @@ small {
   color: #64758f;
   font-size: 14px;
 }
+.audio-preparation {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 22px;
+  margin: 12px 0 20px;
+  background: #f3f7f4;
+  border: 1px solid #dce7df;
+  border-radius: 14px;
+  color: #37624b;
+}
+.audio-preparation-copy {
+  flex: 1;
+  min-width: 0;
+}
+.audio-preparation-copy strong {
+  font-size: 14px;
+}
+.audio-preparation-copy p,
+.audio-preparation-copy output {
+  font-size: 12px;
+  margin: 4px 0;
+  display: block;
+}
+.audio-preparation-copy [data-slot='progress'] {
+  margin-top: 8px;
+  max-width: 340px;
+  height: 4px;
+}
+.audio-preparation-copy .audio-error {
+  color: #9a472e;
+}
+.inline-sound {
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  margin-left: 6px;
+  border: 1px solid #dce7df;
+  border-radius: 50%;
+  color: #37624b;
+  background: #fff;
+  cursor: pointer;
+}
+.inline-sound:hover,
+.inline-sound.active {
+  background: #e2eee6;
+  border-color: #7da68b;
+}
+.example-with-audio {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+.example-with-audio p {
+  flex: 1;
+  min-width: 0;
+}
+.recap-audio-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.recap-audio-label .slide-sound {
+  width: 34px;
+  height: 34px;
+}
+.recap-audio-label .slide-sound svg {
+  width: 21px;
+  height: 21px;
+}
+.scene-question-sounds {
+  display: inline-flex;
+  vertical-align: middle;
+  gap: 12px;
+  margin-left: 18px;
+}
+@media (max-width: 767px) {
+  .audio-preparation {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px;
+  }
+  .audio-preparation-copy {
+    flex-basis: calc(100% - 40px);
+  }
+}
 .lesson-materials-bar > div {
   display: flex;
   align-items: center;

@@ -1,0 +1,2 @@
+# Optional online speech worker; the local app and cached MP3s need only stdlib.
+edge-tts==7.2.8

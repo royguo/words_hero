@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "f62aa4a84f91a831ecf5b65b73656dc35b2b526e317312873a5dc2139b820a3b",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "“What’s the matter?” asks Mia. “My little friend won’t move!” Ben sings a song. The lizard stays on his shoe. Mia laughs. “It likes your song!”"
+  },
+  "file": "audio/v1/e0f0af27588f5c87f9a583c2536ed98c8d1284f7a1d9a2edfae6e6eabe0384ea.mp3",
+  "sha256": "e0f0af27588f5c87f9a583c2536ed98c8d1284f7a1d9a2edfae6e6eabe0384ea",
+  "bytes": 74016,
+  "created_at": "2026-09-07T13:51:21+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

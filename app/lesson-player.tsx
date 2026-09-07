@@ -36,6 +36,8 @@ import {
   type Slide,
 } from '@/lib/slides';
 import { kinds, speak, type Lesson, type Word } from '@/lib/classroom';
+import { stopSpeech } from '@/lib/audio';
+import { StopAudioButton } from './audio-tools';
 
 type SaveFn = (data: unknown, action?: string) => Promise<Lesson | undefined>;
 type PracticeMode = 'context' | 'english' | 'chinese';
@@ -71,6 +73,10 @@ export function LessonPlayer({
   onSave: SaveFn;
   onExit: () => void;
 }) {
+  useEffect(() => {
+    stopSpeech();
+    return stopSpeech;
+  }, []);
   const slides = useMemo(() => buildSlides(lesson), [lesson]);
   const [index, setIndex] = useState(() =>
     Math.max(
@@ -113,7 +119,7 @@ export function LessonPlayer({
   const close = useCallback(() => {
     if (document.fullscreenElement)
       void document.exitFullscreen().catch(() => {});
-    window.speechSynthesis?.cancel();
+    stopSpeech();
     onExit();
   }, [onExit]);
   useEffect(() => {
@@ -150,7 +156,7 @@ export function LessonPlayer({
         setOutline(false);
         return;
       }
-      window.speechSynthesis?.cancel();
+      stopSpeech();
       setIndex(n);
       setRevealed(false);
       setOutline(false);
@@ -181,10 +187,7 @@ export function LessonPlayer({
         )
       )
         return;
-      if (
-        target.closest('[data-player-notes-toggle]') &&
-        [' ', 'Enter'].includes(event.key)
-      )
+      if (target.closest('button') && [' ', 'Enter'].includes(event.key))
         return;
       if (outline || pending) return;
       if (['ArrowRight', 'ArrowDown', 'PageDown', ' '].includes(event.key)) {
@@ -236,6 +239,7 @@ export function LessonPlayer({
     }
   }
   const changeMode = (value: PracticeMode) => {
+    stopSpeech();
     setMode(value);
     setRevealed(false);
   };
@@ -285,6 +289,7 @@ export function LessonPlayer({
               </button>
             ))}
           </nav>
+          <StopAudioButton className="player-icon" />
           <button
             className="player-icon"
             onClick={() => (full ? close() : void fullScreen())}
@@ -362,7 +367,9 @@ export function LessonPlayer({
           </button>
           <output className="player-feedback">
             {message ||
-              (lesson.read_only ? '复习放映' : '← 返回 · → / 空格 揭晓与翻页')}
+              (lesson.read_only
+                ? '复习放映 · AI 合成语音'
+                : 'AI 合成语音 · ← 返回 · → / 空格 揭晓与翻页')}
           </output>
           {slide.kind === 'practice' && revealed && !lesson.read_only && (
             <div className="player-ratings">
@@ -642,7 +649,29 @@ function SlideBody({
           <p className="slide-kicker">
             {question ? 'YOUR TURN · 轮到你了' : 'STORY TIME · 一起读故事'}
           </p>
-          <h1>{question ? '你发现了吗？' : scene.title}</h1>
+          <h1>
+            {question ? '你发现了吗？' : scene.title}
+            {question && (
+              <span className="scene-question-sounds">
+                <button
+                  className="slide-sound"
+                  aria-label="朗读故事问题"
+                  onClick={() => onSpeak(scene.question.en)}
+                >
+                  <Volume2 />
+                </button>
+                {revealed && (
+                  <button
+                    className="slide-sound"
+                    aria-label="朗读故事答案"
+                    onClick={() => onSpeak(scene.question.answer_en)}
+                  >
+                    <Volume2 />
+                  </button>
+                )}
+              </span>
+            )}
+          </h1>
           {question ? (
             <>
               <p className="scene-english" lang="en">
@@ -944,12 +973,24 @@ function SlideBody({
               <p className="recap-meaning">{entry.meaning}</p>
             </div>
             <div className="recap-example">
-              {(entry.exampleTotal > 1 || entry.continuation) && (
-                <span className="recap-example-label">
-                  例句 {entry.exampleNumber} / {entry.exampleTotal}
-                  {entry.continuation ? ' · 分段阅读' : ''}
-                </span>
-              )}
+              <span className="recap-example-label recap-audio-label">
+                例句 {entry.exampleNumber} / {entry.exampleTotal}
+                {entry.continuation ? ' · 分段阅读' : ''}
+                <button
+                  className="slide-sound"
+                  aria-label="朗读完整例句"
+                  onClick={() =>
+                    onSpeak(
+                      entry.exampleNumber === 1
+                        ? entry.word.example
+                        : entry.word.extra_examples?.[entry.exampleNumber - 2]
+                            ?.en || entry.en,
+                    )
+                  }
+                >
+                  <Volume2 />
+                </button>
+              </span>
               {entry.en && (
                 <p lang="en">
                   <Sentence text={entry.en} word={entry.word} />

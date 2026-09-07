@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "eda396d4120cc5b893a9f5eb26d2df0c4ba18e410932c60cd7f8dfece1895fd0",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "We visit the farm. Afterwards, we go home."
+  },
+  "file": "audio/v1/6a0928d059f5902e6e773a67575b0e42dd3de74082733140c469858de7f4941a.mp3",
+  "sha256": "6a0928d059f5902e6e773a67575b0e42dd3de74082733140c469858de7f4941a",
+  "bytes": 25776,
+  "created_at": "2026-09-07T13:49:56+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

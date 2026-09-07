@@ -186,24 +186,4 @@ export async function api<T>(
   if (!response.ok) throw new Error(result.error || '请求失败，请重试');
   return result as T;
 }
-export function speak(word: string, notify: (s: string) => void) {
-  if (!('speechSynthesis' in window)) {
-    notify('这台电脑暂不支持朗读，请老师带读。');
-    return;
-  }
-  const voices = window.speechSynthesis
-    .getVoices()
-    .filter((v) => v.localService && v.lang.toLowerCase().startsWith('en'));
-  const voice = voices.find((v) => v.lang === 'en-GB') || voices[0];
-  if (!voice) {
-    notify('没有可用的本机英语语音，请老师带读，或在系统中安装英语语音。');
-    return;
-  }
-  window.speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(word);
-  utterance.voice = voice;
-  utterance.lang = voice.lang;
-  utterance.rate = 0.82;
-  utterance.onerror = () => notify('这次朗读没有完成，请老师带读。');
-  window.speechSynthesis.speak(utterance);
-}
+export { speak } from './audio';
