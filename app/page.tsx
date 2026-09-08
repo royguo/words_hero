@@ -6,7 +6,6 @@ import {
   Plus,
   ArrowRight,
   ArrowLeft,
-  BookOpen,
   Download,
   Library,
   Loader2,
@@ -37,6 +36,12 @@ import {
 import { Switch } from '@/components/ui/switch';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Input } from '@/components/ui/input';
+import { toast } from '@/components/ui/toast';
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from '@/components/ui/tooltip';
 import {
   Dialog,
   DialogContent,
@@ -77,7 +82,7 @@ const empty: State = {
 function Brand() {
   return (
     <div className="brand">
-      <img className="brand-image" src="/favicon.png" alt="" />
+      <img className="brand-image" src="/favicon.png?v=2" alt="" />
       <div>
         风筝单词<small>KiteDance</small>
       </div>
@@ -125,7 +130,6 @@ function Classrooms() {
     [lesson, setLesson] = useState<Lesson | null>(null);
   const [busy, setBusy] = useState(false),
     [loading, setLoading] = useState(true),
-    [notice, setNotice] = useState(''),
     [setup, setSetup] = useState<'new' | 'regenerate' | null>(null),
     [manager, setManager] = useState(false);
   const [deletion, setDeletion] = useState<{
@@ -136,6 +140,9 @@ function Classrooms() {
   const navigation = useRef(0);
   const writes = useRef<Promise<unknown>>(Promise.resolve());
   const current = state.classes.find((c) => c.id === classId);
+  function setNotice(message: string) {
+    if (message) toast.add({ title: message, type: 'info' });
+  }
   useEffect(() => {
     let live = true;
     const requested = new URLSearchParams(window.location.search).get('class');
@@ -339,21 +346,12 @@ function Classrooms() {
       </DialogContent>
     </Dialog>
   );
-  const banner = notice && (
-    <output className="notice">
-      <span>{notice}</span>
-      <button aria-label="关闭提示" onClick={() => setNotice('')}>
-        ×
-      </button>
-    </output>
-  );
   if (!classId)
     return (
       <div className="class-home">
         <header className="home-header">
           <Brand />
           <div className="header-tools">
-            <span className="local-dot">云端课堂</span>
             <button
               className="btn ghost"
               onClick={() => window.dispatchEvent(new Event('kite-logout'))}
@@ -372,11 +370,9 @@ function Classrooms() {
           </div>
         </header>
         <main className="class-main">
-          {banner}
           <div className="section-intro">
-            <p className="eyebrow">YOUR CLASSROOMS</p>
-            <h1>今天，和哪个班一起学？</h1>
-            <p>每个班拥有自己的课程、单词进度和复习记录。</p>
+            <h1>班级</h1>
+            <span className="class-count">{state.classes.length} 个班级</span>
           </div>
           {loading ? (
             <div className="empty-state">
@@ -419,10 +415,6 @@ function Classrooms() {
               <NewClass busy={busy} onCreate={createClass} />
             </div>
           )}
-          <div className="home-foot">
-            <BookOpen size={18} />
-            <span>选词备课 → 先打印随堂练习 → 师生一起练 → 带走课后练习</span>
-          </div>
         </main>
         {deletionDialog}
         <VocabManager
@@ -435,7 +427,7 @@ function Classrooms() {
     );
   return (
     <SidebarProvider
-      style={{ '--sidebar-width': '264px' } as React.CSSProperties}
+      style={{ '--sidebar-width': '248px' } as React.CSSProperties}
     >
       <CourseSidebar
         state={state}
@@ -475,11 +467,10 @@ function Classrooms() {
                 ? '准备新课'
                 : setup === 'regenerate'
                   ? '重新选词'
-                  : lesson?.title}
+                  : '课程'}
             </strong>
           </div>
           <div className="header-tools">
-            <span className="local-dot">课程自动保存</span>
             <a
               href="/api/backup"
               download
@@ -491,7 +482,6 @@ function Classrooms() {
           </div>
         </header>
         <div className="workspace-inner">
-          {banner}
           {setup || !lesson ? (
             <Setup
               key={(setup || 'new') + lesson?.id}
@@ -610,7 +600,7 @@ function CourseSidebar({
           所有班级
         </button>
         <div className="sidebar-class">
-          <span>当前班级</span>
+          <Users size={16} />
           <strong>{className}</strong>
         </div>
         <button
@@ -622,12 +612,12 @@ function CourseSidebar({
           disabled={busy}
         >
           <Plus size={18} />
-          新建一课
+          新建课程
         </button>
       </SidebarHeader>
       <SidebarContent>
         <div className="nav-caption">
-          课程记录 <span>{state.lessons.length}</span>
+          课程 <span>{state.lessons.length}</span>
         </div>
         <nav aria-label="本班课程">
           {state.lessons.map((l) => (
@@ -658,31 +648,51 @@ function CourseSidebar({
         </nav>
       </SidebarContent>
       <SidebarFooter>
-        <div className="class-progress">
+        <div className="sidebar-stats">
           <span>
-            本班已学 <strong>{state.learned}</strong> 词
+            已学 <strong>{state.learned}</strong> 词
           </span>
           <span>
-            到期复习 <strong>{state.due}</strong> 词
+            待复习 <strong>{state.due}</strong> 词
           </span>
         </div>
-        <button className="sidebar-library" onClick={onLibrary}>
-          <Library size={17} />
-          管理词库
-          <ChevronRight size={16} />
-        </button>
-        <a
-          className="sidebar-library"
-          href={'/students?class=' + encodeURIComponent(classId)}
-        >
-          <Users size={17} />
-          学生管理
-          <ChevronRight size={16} />
-        </a>
-        <button className="sidebar-library" disabled title="暂未开放">
-          <ChartNoAxesCombined size={17} />
-          班级进度<small>待开放</small>
-        </button>
+        <nav className="sidebar-tools" aria-label="班级工具">
+          <Tooltip>
+            <TooltipTrigger
+              render={
+                <a
+                  aria-label="学生管理"
+                  href={'/students?class=' + encodeURIComponent(classId)}
+                />
+              }
+              className="sidebar-tool"
+              aria-label="学生管理"
+            >
+              <Users size={20} />
+            </TooltipTrigger>
+            <TooltipContent>学生管理</TooltipContent>
+          </Tooltip>
+          <Tooltip>
+            <TooltipTrigger
+              className="sidebar-tool"
+              onClick={onLibrary}
+              aria-label="词库管理"
+            >
+              <Library size={20} />
+            </TooltipTrigger>
+            <TooltipContent>词库管理</TooltipContent>
+          </Tooltip>
+          <Tooltip>
+            <TooltipTrigger
+              className="sidebar-tool"
+              aria-disabled="true"
+              aria-label="班级进度（暂未开放）"
+            >
+              <ChartNoAxesCombined size={20} />
+            </TooltipTrigger>
+            <TooltipContent>班级进度 · 暂未开放</TooltipContent>
+          </Tooltip>
+        </nav>
       </SidebarFooter>
     </Sidebar>
   );
@@ -1037,10 +1047,12 @@ function VocabManager({
     [query, setQuery] = useState(''),
     [offset, setOffset] = useState(0),
     [words, setWords] = useState<Word[]>([]),
-    [message, setMessage] = useState(''),
     [busy, setBusy] = useState(false),
     [rev, setRev] = useState(0);
   const file = useRef<HTMLInputElement>(null);
+  function setMessage(message: string) {
+    toast.add({ title: message, type: 'info' });
+  }
   useEffect(() => {
     if (!open) return;
     let active = true;
@@ -1142,7 +1154,6 @@ function VocabManager({
           />
           <span className="caption">CET-4 / CET-6 导入后可选用</span>
         </div>
-        {message && <output className="notice">{message}</output>}
         <div className="vocab-table">
           <Table>
             <TableHeader>

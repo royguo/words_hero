@@ -3,7 +3,6 @@ import { useCallback, useEffect, useState } from 'react';
 import {
   BookOpen,
   Play,
-  Presentation,
   Layers,
   Pencil,
   Printer,
@@ -22,6 +21,8 @@ import {
   Copy,
   Download,
   Trash2,
+  MoreHorizontal,
+  StickyNote,
 } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import {
@@ -40,6 +41,13 @@ import {
   DialogTitle,
   DialogDescription,
 } from '@/components/ui/dialog';
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+} from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import {
@@ -63,7 +71,7 @@ const steps = [
   { id: 'preview', label: '认识单词', icon: BookOpen },
   { id: 'scenes', label: '情景图文故事', icon: ImageIcon },
   { id: 'practice', label: '课堂互动练习', icon: Pencil },
-  { id: 'workbook', label: '练习册打印', icon: Printer },
+  { id: 'workbook', label: '材料打印', icon: Printer },
 ];
 export function LessonRoom({
   lesson,
@@ -83,6 +91,7 @@ export function LessonRoom({
   notify: (s: string) => void;
 }) {
   const [player, setPlayer] = useState(false);
+  const [notesOpen, setNotesOpen] = useState(false);
   useEffect(() => {
     stopSpeech();
     return stopSpeech;
@@ -134,13 +143,11 @@ export function LessonRoom({
   }
   return (
     <div className="lesson-room">
-      <div className="lesson-title">
-        <div>
-          <p className="eyebrow">
-            {lesson.level} / LESSON {String(lesson.number).padStart(2, '0')}
-          </p>
-          <h1>
-            {lesson.title}
+      <section className="course-heading" aria-label="课程概览与操作">
+        <div className="course-heading-top">
+          <div className="course-heading-identity">
+            <span className="course-level">{lesson.level}</span>
+            <h1>{lesson.title}</h1>
             <span
               className={
                 'status-badge ' +
@@ -153,74 +160,88 @@ export function LessonRoom({
                   ? '已结课'
                   : '进行中'}
             </span>
-          </h1>
-          <p className="lesson-meta">
-            {lesson.words.length} 个单词 <span>·</span>{' '}
-            {bands[lesson.config.difficulty_min]}—
-            {bands[lesson.config.difficulty_max]} <span>·</span>{' '}
-            {lesson.groups.length} 个构词成分 <span>·</span>{' '}
-            {date(lesson.created_at)} 生成
-          </p>
-        </div>
-        <div className="lesson-actions">
-          <button
-            className="icon-btn delete-link"
-            aria-label="删除本节课"
-            title="删除本节课"
-            disabled={busy || pending}
-            onClick={onDelete}
-          >
-            <Trash2 size={18} />
-          </button>
-          <Select
-            value={lesson.version_id}
-            onValueChange={(v) => v && void onVersion(String(v))}
-          >
-            <SelectTrigger
-              aria-label="查看课程版本"
-              className="version-picker"
-              disabled={busy || pending}
+          </div>
+          <div className="course-heading-tools">
+            <button
+              className={
+                'btn course-notes-button' +
+                (notes !== lesson.notes ? ' has-changes' : '')
+              }
+              onClick={() => setNotesOpen(true)}
+              aria-label="打开课堂笔记"
             >
-              <SelectValue>版本 {lesson.version_number}</SelectValue>
-            </SelectTrigger>
-            <SelectContent>
-              {lesson.versions.map((v) => (
-                <SelectItem key={v.id} value={v.id}>
-                  版本 {v.number} · {date(v.created_at)}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          <button
-            className="btn secondary"
-            disabled={!lesson.is_current || busy || pending}
-            onClick={onRegenerate}
-          >
-            <RefreshCw size={16} />
-            重新生成
-          </button>
-          <button
-            className="btn secondary"
-            onClick={() => void changeStage('workbook')}
-          >
-            <Printer size={16} />
-            课前打印
-          </button>
+              <StickyNote size={17} />
+              课堂笔记
+              {notes !== lesson.notes && (
+                <span className="unsaved-dot" aria-label="有未保存的修改" />
+              )}
+            </button>
+            <Select
+              value={lesson.version_id}
+              onValueChange={(v) => v && void onVersion(String(v))}
+            >
+              <SelectTrigger
+                aria-label="查看课程版本"
+                className="version-picker"
+                disabled={busy || pending}
+              >
+                <SelectValue>版本 {lesson.version_number}</SelectValue>
+              </SelectTrigger>
+              <SelectContent>
+                {lesson.versions.map((v) => (
+                  <SelectItem key={v.id} value={v.id}>
+                    版本 {v.number} · {date(v.created_at)}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <DropdownMenu>
+              <DropdownMenuTrigger
+                className="icon-btn course-more"
+                aria-label="更多课程操作"
+                disabled={busy || pending}
+              >
+                <MoreHorizontal size={20} />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="course-overflow-menu">
+                <DropdownMenuItem
+                  render={
+                    <a
+                      aria-label="下载素材任务"
+                      href={'/api/courses/' + lesson.course_code + '/brief'}
+                      download
+                    />
+                  }
+                >
+                  <Download size={16} />
+                  下载素材任务
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  disabled={!lesson.is_current}
+                  onClick={onRegenerate}
+                >
+                  <RefreshCw size={16} />
+                  重新生成课程
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem variant="destructive" onClick={onDelete}>
+                  <Trash2 size={16} />
+                  删除本节课
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
         </div>
-      </div>
-      {!lesson.is_current && (
-        <div className="archive-note">
-          <BookMarked size={18} />
-          正在回看旧版本。讲义、单词和课堂记录均保留当时内容。
-        </div>
-      )}
-      <section className="lesson-materials-bar" aria-label="课程编号与素材">
-        <div>
-          <span className="muted">课程编号</span>{' '}
-          <strong>{lesson.course_code}</strong>
+        <div className="course-facts">
+          <span>{lesson.words.length} 个单词</span>
+          <span>
+            {bands[lesson.config.difficulty_min]}—
+            {bands[lesson.config.difficulty_max]}
+          </span>
+          <span>{date(lesson.created_at)}</span>
           <button
-            className="material-copy"
-            aria-label="复制课程编号"
+            className="course-code"
+            aria-label={'复制课程编号 ' + lesson.course_code}
             onClick={() => {
               void navigator.clipboard.writeText(lesson.course_code).then(
                 () => notify('课程编号已复制'),
@@ -228,69 +249,77 @@ export function LessonRoom({
               );
             }}
           >
-            <Copy size={16} />
+            <span>{lesson.course_code}</span>
+            <Copy size={13} />
           </button>
         </div>
-        <span>
-          {lesson.words.filter((w) => w.images?.length).length} /{' '}
-          {lesson.words.length} 词有配图 <span>·</span>{' '}
-          {lesson.materials.story?.scenes.length || 0} 页故事
-        </span>
-        <a
-          className="btn secondary"
-          href={'/api/courses/' + lesson.course_code + '/brief'}
-          download
-        >
-          <Download size={15} />
-          下载素材任务
-        </a>
-      </section>
-      <AudioPreparation versionId={lesson.version_id} />
-      <section className="lecture-launch">
-        <div className="lecture-launch-icon">
-          <Presentation size={29} />
-        </div>
-        <div className="lecture-launch-copy">
-          <p className="eyebrow">READY FOR CLASS</p>
-          <h2>把今天的单词，搬上大屏幕</h2>
-          <p>
-            认识单词 <span>→</span> 构词线索 <span>→</span> 情景故事{' '}
-            <span>→</span> 一起练习 <span>·</span> {deck.length} 页
-          </p>
-        </div>
-        <div className="lecture-launch-actions">
-          <button
-            className="btn lecture-start"
-            disabled={busy || pending}
-            onClick={() => startLecture()}
-          >
-            <Play size={19} fill="currentColor" />
-            开始讲课
-          </button>
-          {savedPage > 0 && (
+        <div className="course-controls">
+          <div className="course-primary-actions">
             <button
-              className="lecture-resume"
+              className="btn primary"
               disabled={busy || pending}
-              onClick={() => startLecture(true)}
+              onClick={() => startLecture()}
             >
-              继续第 {savedPage + 1} 页 <ArrowRight size={14} />
+              <Play size={17} fill="currentColor" />
+              开始讲课
             </button>
-          )}
+            {savedPage > 0 && (
+              <button
+                className="btn ghost course-resume"
+                disabled={busy || pending}
+                onClick={() => startLecture(true)}
+              >
+                继续第 {savedPage + 1} 页<ArrowRight size={15} />
+              </button>
+            )}
+            <button
+              className="btn secondary"
+              onClick={() => void changeStage('workbook')}
+            >
+              <Printer size={16} />
+              材料打印
+            </button>
+            {!lesson.read_only && (
+              <button
+                className="btn ghost"
+                disabled={busy || pending}
+                onClick={() => setComplete(true)}
+              >
+                <CheckCircle2 size={17} />
+                结束课程
+              </button>
+            )}
+          </div>
+          <AudioPreparation versionId={lesson.version_id} compact />
+        </div>
+        <div className="course-overview-bottom">
+          <div className="course-mastery">
+            <span>
+              <strong>{remembered}</strong> / {lesson.words.length} 词已记住
+            </span>
+            <Progress
+              value={
+                lesson.words.length
+                  ? (remembered / lesson.words.length) * 100
+                  : 0
+              }
+              aria-label="本课单词掌握进度"
+            />
+            {again > 0 && <span>{again} 词待巩固</span>}
+          </div>
+          <span className="course-asset-counts">
+            {deck.length} 页课件 ·{' '}
+            {lesson.words.filter((w) => w.images?.length).length} 词配图 ·{' '}
+            {lesson.materials.story?.scenes.length || 0} 页故事
+          </span>
         </div>
       </section>
-      <div className="lesson-progress">
-        <div>
-          <strong>{remembered}</strong>
-          <span> / {lesson.words.length} 词已记住</span>
+      {!lesson.is_current && (
+        <div className="archive-note">
+          <BookMarked size={17} />
+          正在查看历史版本，内容与记录只读。
         </div>
-        <Progress
-          value={(remembered / lesson.words.length) * 100}
-          aria-label="本课单词掌握进度"
-        />
-        <span>
-          {again ? again + ' 词再练一次' : '一步一步来，不必急着记住全部'}
-        </span>
-      </div>
+      )}
       <Tabs
         value={stage}
         onValueChange={(v) => void changeStage(String(v))}
@@ -405,58 +434,45 @@ export function LessonRoom({
           <Workbook key={lesson.version_id} lesson={lesson} />
         </TabsContent>
       </Tabs>
-      <footer className="lesson-record panel">
-        <div>
-          <h3>
-            <Pencil size={18} />
-            课堂记录
-          </h3>
-          <p className="muted">记录容易混淆的词、有效的例子和下次复习重点。</p>
-        </div>
-        <Textarea
-          aria-label="课堂记录"
-          placeholder="例如：-er 的意思理解得很好，拼写还需要多练一次……"
-          value={notes}
-          maxLength={5000}
-          readOnly={lesson.read_only}
-          onChange={(e) => setNotes(e.target.value)}
-        />
-        <div className="record-actions">
-          <span className="caption">
-            {lesson.read_only
-              ? '已保存的课堂记录'
-              : notes === lesson.notes
-                ? '课堂记录已保存'
-                : '记录有修改，记得保存'}
-          </span>
-          <div>
+      <Dialog open={notesOpen} onOpenChange={setNotesOpen}>
+        <DialogContent className="classroom-notes-dialog">
+          <DialogHeader>
+            <DialogTitle>课堂笔记</DialogTitle>
+            <DialogDescription>
+              {lesson.title} · 版本 {lesson.version_number}
+              {lesson.read_only ? ' · 只读' : ''}
+            </DialogDescription>
+          </DialogHeader>
+          <Textarea
+            aria-label="课堂笔记"
+            placeholder="记录易错词、例子或下次复习重点…"
+            value={notes}
+            maxLength={5000}
+            readOnly={lesson.read_only}
+            onChange={(e) => setNotes(e.target.value)}
+          />
+          <div className="notes-dialog-actions">
+            <span>{notes === lesson.notes ? '已保存' : '有未保存的修改'}</span>
             {!lesson.read_only && (
               <button
-                className="btn secondary"
-                disabled={pending || notes === lesson.notes}
+                className="btn primary"
+                disabled={busy || pending || notes === lesson.notes}
                 onClick={async () => {
                   setPending(true);
-                  await onSave({ notes });
-                  setPending(false);
+                  try {
+                    if (await onSave({ notes })) notify('课堂笔记已保存');
+                  } finally {
+                    setPending(false);
+                  }
                 }}
               >
                 <Save size={16} />
-                保存记录
+                {pending ? '正在保存…' : '保存笔记'}
               </button>
             )}
-            <button
-              className="btn primary"
-              disabled={lesson.read_only || pending}
-              onClick={() => setComplete(true)}
-            >
-              <CheckCircle2 size={17} />
-              {lesson.status === 'completed'
-                ? '这节课已完成'
-                : '结束并保存本课'}
-            </button>
           </div>
-        </div>
-      </footer>
+        </DialogContent>
+      </Dialog>
       {player && (
         <LessonPlayer
           lesson={lesson}

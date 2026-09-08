@@ -51,9 +51,15 @@ with tempfile.TemporaryDirectory(prefix='kite-cf-test-') as temp:
         updated,_=request('/api/versions/'+vid,{'notes':'keep me','word_id':l['words'][0]['id'],'result':'remembered','presentation_slide':'word:1'},method='PATCH');assert updated['config']['worksheets']==plan
         for kind in ('classroom','homework','answers'):
             paper,_=request('/api/versions/'+vid+'/worksheet?kind='+kind+'&view=embedded');s=paper.decode();assert 'data-worksheet="'+kind+'"' in s and s.count('class="paper-page"')>=2;assert 'Test &lt;class&gt; &amp; safe' in s and 'data-field="age"' in s
+        cards,_=request('/api/versions/'+vid+'/worksheet?kind=cards&view=embedded');s=cards.decode()
+        assert 'data-worksheet="cards"' in s and s.count('class="paper-page flashcard-page"')==4
+        assert s.count('data-side="front"')==s.count('data-side="back"')==2
+        assert s.count('data-card="blank"')==(12-len(l['words']))*2
+        standalone,_=request('/api/versions/'+vid+'/worksheet?kind=cards');assert '长边翻转' in standalone.decode()
         regen,_=request('/api/preview',{'class_id':cid,'lesson_id':l['id'],'title':'My lesson','count':10},status=201)
         newer,_=request('/api/drafts/'+regen['id']+'/confirm',{'revision':regen['revision']},status=201);assert newer['version_number']==2
         old,_=request('/api/lessons/'+l['id']+'?version='+vid);assert old['read_only'] and old['config']['worksheets']==plan
+        archived_cards,_=request('/api/versions/'+vid+'/worksheet?kind=cards&view=embedded');assert archived_cards==cards
         request('/api/versions/'+vid,{'notes':'overwrite'},method='PATCH',status=400)
         request('/api/versions/'+newer['version_id']+'/complete',{})
         state,_=request('/api/state?class_id='+cid);assert state['learned']==10

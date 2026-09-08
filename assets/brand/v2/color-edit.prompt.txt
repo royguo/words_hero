@@ -1,0 +1,13 @@
+Use case: precise-object-edit / logo-brand
+Asset type: production brand mark and favicon for KiteDance / 风筝单词, no text.
+Input images: Image 1 (logo-mark.png) is the edit target. Image 2 (source-logo.png) is a supporting reference for the original combined kite and open-book identity only; do not reproduce its lettering or checkerboard.
+
+Primary request: edit the existing standalone mark into one brighter, highly recognizable brand symbol that remains clear at 32px and 48px on both dark navy #172139 and pure white backgrounds. Preserve its recognizable upright diamond kite integrated with an open book in the lower half, center fold, single small bow and curling kite tail. Keep the same overall identity and friendly rounded geometry; simplify and strengthen strokes and small details for favicon clarity.
+
+Color palette: replace all dark green with saturated bright blue, around #2196F3 to #1687E8. Use vivid tangerine orange around #FF8A25 for the right upper sail and the small bow. Use clean warm-white/cream #FFF7E6 as opaque structural highlights separating the open-book pages and the central kite fold, so the inner book remains legible on navy. Blue outer edges must define the silhouette clearly on white. Large clean color areas, strong edges, crisp separation, no dark green, no muddy colors.
+
+Style/medium: clean flat vector-like raster brand art, confidently rounded corners, no texture, no gradients, no decorative effects.
+Composition/framing: exactly one centered standalone symbol in a square 1024 x 1024 image. Enlarge the kite/book body relative to its fine details; compact, sturdy bow and slightly shorter thick curling tail. Modest balanced safe margin around the whole mark, approximately 7% to 9%. No lettering, slogan, border, badge, scene, mockup, or additional objects.
+
+Background: genuinely transparent alpha background outside the mark. Preserve actual alpha, not a white background and not a drawn checkerboard. Cream structural details inside the symbol are opaque color.
+Constraints: this is an edit of the supplied kite plus open-book logo, not a new unrelated symbol. Keep the upright kite silhouette, open-book identity, central fold, bow and curling tail. Produce one image only. No text. No watermark. No photographic backdrop.

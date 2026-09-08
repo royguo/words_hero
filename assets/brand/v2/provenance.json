@@ -1,0 +1,37 @@
+{
+  "version": 2,
+  "created_at": "2026-09-08T04:52:14.824367+00:00",
+  "generator": "built-in image_gen.imagegen",
+  "motif": "kite and open book with bow tail",
+  "palette": {
+    "blue": "#087DFF",
+    "orange": "#FF8A16",
+    "surface": "near-white"
+  },
+  "background": "Opaque near-white RGB; no alpha. White icon surface is intentional for contrast on navy.",
+  "source_reference": "assets/brand/v1/logo-mark.png",
+  "used_on_site": "logo-mark.png; color edit source contains a baked checkerboard and is retained only as generation history.",
+  "derivatives": "sips resized original to 256 x 256 favicon and 512 x 512 logo; no pixel recoloring or background removal. CSS supplies corner radius and 3 px inner padding.",
+  "files": [
+    {
+      "path": "assets/brand/v2/logo-mark.png",
+      "bytes": 910491,
+      "sha256": "f3c30260e0f7766c9d7b24633df84c2b34753339b3b0b9cd75eaf06299fd5a40"
+    },
+    {
+      "path": "assets/brand/v2/source-color-edit.png",
+      "bytes": 999348,
+      "sha256": "9ad8f109243fd12aa0af28fed766efd89fcd18823c723de33ad4665e6d90c9a0"
+    },
+    {
+      "path": "public/favicon.png",
+      "bytes": 58474,
+      "sha256": "d290a37896d8af6ca10beb275a82e4ab1a0e70c1f5caf4a179a70b6d05cef729"
+    },
+    {
+      "path": "public/logo.png",
+      "bytes": 236906,
+      "sha256": "04a0bcff08a4ab52cdb178ea2024d8191e49e681a5f7356c9079acd676ffcd10"
+    }
+  ]
+}

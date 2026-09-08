@@ -6,6 +6,7 @@ import {
   BookMarked,
   CheckCircle2,
   Loader2,
+  Layers,
   Pencil,
   Printer,
 } from 'lucide-react';
@@ -67,10 +68,9 @@ export function Workbook({ lesson }: { lesson: Lesson }) {
     <div className="stage-body workbook">
       <div className="section-toolbar">
         <div>
-          <h2>纸上的练习，也准备好了</h2>
+          <h2>材料打印</h2>
           <p>
-            课前印好随堂跟写纸；课后用单词联系和句子填空巩固。本课版本{' '}
-            {lesson.version_number}。
+            {lesson.words.length} 个单词 · 课程版本 {lesson.version_number}
           </p>
         </div>
       </div>
@@ -91,6 +91,10 @@ export function Workbook({ lesson }: { lesson: Lesson }) {
             <BookMarked size={16} />
             课后填空
           </TabsTrigger>
+          <TabsTrigger value="cards">
+            <Layers size={16} />
+            单词卡片
+          </TabsTrigger>
           <TabsTrigger value="answers">
             <CheckCircle2 size={16} />
             教师答案
@@ -105,7 +109,9 @@ export function Workbook({ lesson }: { lesson: Lesson }) {
               ? '逐词跟写 · 构词联系 · 下课收取'
               : kind === 'homework'
                 ? '单词联系 · 句子填空 · 至少 2 页'
-                : '固定题序与参考答案，独立打印'}
+                : kind === 'cards'
+                  ? '每张纸 6 张卡 · 正面英文 · 背面中文'
+                  : '固定题序与参考答案，独立打印'}
           </span>
         </div>
         <div>
@@ -128,6 +134,13 @@ export function Workbook({ lesson }: { lesson: Lesson }) {
           </button>
         </div>
       </div>
+      {kind === 'cards' && (
+        <p className="duplex-guide">
+          <Printer size={17} />
+          A4 纵向 · 实际大小 100% · 双面打印，选择「长边翻转」 ·
+          关闭页眉页脚，沿虚线裁切。
+        </p>
+      )}
       {error ? (
         <div className="worksheet-status" role="alert">
           <p>{error}</p>
@@ -167,8 +180,9 @@ export function Workbook({ lesson }: { lesson: Lesson }) {
         dangerouslySetInnerHTML={{ __html: html }}
       />
       <p className="caption">
-        姓名、年龄、时间可在页面填写，会同步到每一页。打印采用独立页面，保留填写内容；选择
-        A4 纵向并关闭浏览器页眉页脚。
+        {kind === 'cards'
+          ? '正反面相邻排列，背面已左右镜像对应。建议先试印第 1–2 页，确认打印机翻转方向；卡片上的序号用于核对正反面。'
+          : '姓名、年龄、时间可在页面填写并同步到每一页。选择 A4 纵向，关闭浏览器页眉页脚。'}
       </p>
       {mounted &&
         createPortal(

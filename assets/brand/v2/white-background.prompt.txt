@@ -1,0 +1,11 @@
+Use case: precise-object-edit
+Asset type: KiteDance / 风筝单词 app icon and favicon, a colorful kite plus open-book brand mark on a white square.
+
+Input image: the supplied bright-blue and tangerine-orange kite/book image is the edit target.
+Primary request: remove the ENTIRE baked checkerboard pattern and replace every background pixel outside the symbol with uniform solid pure white #FFFFFF. This is an opaque white-background image; do not make it transparent. All four corners, every outer edge, and all open background spaces around the kite, bow and curled tail must be pure white. There must be no checkerboard, texture, gray squares, pattern, paper grain, shading, shadows, glow, or gradient anywhere in the background.
+
+Keep unchanged: the existing recognizable upright kite silhouette, open book in its lower half, central fold, small bow and curled tail; its vivid bright blue, tangerine orange, and opaque warm-white/cream book and fold highlights; the overall clean friendly brand identity. Preserve the supplied graphic design closely. No dark green. No lettering or slogan.
+
+Composition: exactly one centered symbol on a full square white canvas, 1024 by 1024 pixels. Scale the complete symbol proportionally as needed so its outermost point has about 8% safe white space to the nearest canvas edge. Keep every part fully within the square, including the tail. This white app-icon canvas will be displayed with rounded corners in a dark navy sidebar, and will also be downscaled to a favicon.
+Style: crisp clean flat vector-like brand illustration. No mockup, no scene, no separate card border, no additional symbols.
+Output: one opaque PNG image with a truly uniform #FFFFFF background.

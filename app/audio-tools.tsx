@@ -2,6 +2,14 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { Check, Download, Loader2, Square, Volume2 } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from '@/components/ui/dialog';
 import { api } from '@/lib/classroom';
 import {
   onAudioCached,
@@ -77,7 +85,13 @@ export function StopAudioButton({
   );
 }
 
-export function AudioPreparation({ versionId }: { versionId: string }) {
+export function AudioPreparation({
+  versionId,
+  compact = false,
+}: {
+  versionId: string;
+  compact?: boolean;
+}) {
   const [inventory, setInventory] = useState<AudioInventory | null>(null);
   const [error, setError] = useState('');
   const [warming, setWarming] = useState(false);
@@ -141,7 +155,7 @@ export function AudioPreparation({ versionId }: { versionId: string }) {
     }
   }
   const ready = !!inventory && inventory.total === inventory.cached;
-  return (
+  const content = (
     <section className="audio-preparation" aria-label="本课语音">
       <Volume2 size={21} />
       <div className="audio-preparation-copy">
@@ -150,7 +164,7 @@ export function AudioPreparation({ versionId }: { versionId: string }) {
         <output aria-live="polite">
           {inventory
             ? `${inventory.cached} / ${inventory.total} 段已保存${ready ? ' · 本课语音已准备齐全' : ' · 单词、例句、故事与问答'}`
-            : '正在读取本地录音…'}
+            : '正在读取录音…'}
         </output>
         {inventory && (
           <Progress
@@ -188,5 +202,36 @@ export function AudioPreparation({ versionId }: { versionId: string }) {
         </button>
       )}
     </section>
+  );
+  if (!compact) return content;
+  // Keep the cache controller mounted when the dialog closes. Switching lessons
+  // still aborts it in the effect cleanup, while closing only hides the panel.
+  return (
+    <Dialog>
+      <DialogTrigger className="btn ghost course-audio-button">
+        {warming ? (
+          <Loader2 size={16} className="spin" />
+        ) : (
+          <Volume2 size={16} />
+        )}
+        课前语音
+        <span>
+          {error
+            ? '读取失败'
+            : inventory
+              ? `${inventory.cached}/${inventory.total}`
+              : '…'}
+        </span>
+      </DialogTrigger>
+      <DialogContent className="course-audio-dialog">
+        <DialogHeader>
+          <DialogTitle>课前语音</DialogTitle>
+          <DialogDescription>
+            AI 合成语音 · 关闭此窗口后缓存会继续，可随时暂停。
+          </DialogDescription>
+        </DialogHeader>
+        {content}
+      </DialogContent>
+    </Dialog>
   );
 }

@@ -81,7 +81,11 @@ export function AuthGate({
   return (
     <main className="login-screen">
       <div className="login-panel">
-        <img className="login-icon" src="/favicon.png" alt="风筝与翻开的书" />
+        <img
+          className="login-icon"
+          src="/favicon.png?v=2"
+          alt="风筝与翻开的书"
+        />
         <p className="eyebrow">KiteDance</p>
         <h1>风筝单词</h1>
         {phase === 'loading' ? (

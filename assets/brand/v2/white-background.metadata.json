@@ -1,0 +1,167 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "invocation_count_this_revision": 1,
+  "requested_output": {
+    "width": 1024,
+    "height": 1024,
+    "background": "#FFFFFF",
+    "opaque": true,
+    "approximate_safe_margin_percent": 8
+  },
+  "image_path": "/Users/bytedance/.codex/generated_images/01a07f52-d6db-7a43-b677-9479de52f310/exec-df952cfb-e319-46b3-bf09-7e4987a4ca73.png",
+  "prompt_path": "/Users/bytedance/.codex/generated_images/01a07f52-d6db-7a43-b677-9479de52f310/kite-brand-white.prompt.txt",
+  "referenced_image_paths": [
+    "/Users/bytedance/.codex/generated_images/01a07f52-d6db-7a43-b677-9479de52f310/exec-d972e45b-aaaf-40b4-a0ce-481de525ed9b.png"
+  ],
+  "output_hint": "Generated images are saved to /Users/bytedance/.codex/generated_images/01a07f52-d6db-7a43-b677-9479de52f310 as /Users/bytedance/.codex/generated_images/01a07f52-d6db-7a43-b677-9479de52f310/exec-df952cfb-e319-46b3-bf09-7e4987a4ca73.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "returned_fields": [
+    "image_url",
+    "output_hint"
+  ],
+  "verified_output": {
+    "path": "/Users/bytedance/.codex/generated_images/01a07f52-d6db-7a43-b677-9479de52f310/exec-df952cfb-e319-46b3-bf09-7e4987a4ca73.png",
+    "width": 1254,
+    "height": 1254,
+    "bit_depth": 8,
+    "mode": "RGB",
+    "png_color_type": 2,
+    "has_alpha_channel": false,
+    "has_transparency_chunk": false,
+    "file_bytes": 910491,
+    "sha256": "f3c30260e0f7766c9d7b24633df84c2b34753339b3b0b9cd75eaf06299fd5a40",
+    "corner_pixels": [
+      [
+        253,
+        253,
+        255
+      ],
+      [
+        254,
+        255,
+        254
+      ],
+      [
+        254,
+        253,
+        253
+      ],
+      [
+        254,
+        253,
+        254
+      ]
+    ],
+    "outer_2_percent_frame": {
+      "pixel_count": 122900,
+      "exact_white_pixels": 11143,
+      "unique_colors": 24,
+      "top_colors": [
+        [
+          [
+            254,
+            254,
+            254
+          ],
+          71572
+        ],
+        [
+          [
+            253,
+            253,
+            253
+          ],
+          16857
+        ],
+        [
+          [
+            255,
+            255,
+            255
+          ],
+          11143
+        ],
+        [
+          [
+            254,
+            254,
+            253
+          ],
+          6017
+        ],
+        [
+          [
+            254,
+            253,
+            253
+          ],
+          3435
+        ],
+        [
+          [
+            255,
+            254,
+            254
+          ],
+          3294
+        ],
+        [
+          [
+            255,
+            255,
+            254
+          ],
+          3187
+        ],
+        [
+          [
+            253,
+            253,
+            254
+          ],
+          1890
+        ],
+        [
+          [
+            254,
+            254,
+            255
+          ],
+          1055
+        ],
+        [
+          [
+            253,
+            254,
+            254
+          ],
+          1016
+        ]
+      ]
+    },
+    "strong_color_bounding_box_xyxy": [
+      203,
+      67,
+      1051,
+      1194
+    ],
+    "strong_color_safe_margins_percent": {
+      "left": 16.188197767145134,
+      "top": 5.342902711323764,
+      "right": 16.188197767145134,
+      "bottom": 4.784688995215311
+    },
+    "c2pa_chunk_present": true,
+    "generator_c2pa_context": "b'eddwhen\\xc0t2026-09-08T00:00:00ZmsoftwareAgent\\xa2dnameigpt-imagegversionc2.0qdigitalSourceTypexFhttp://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgor'"
+  },
+  "c2pa_software_agent": {
+    "name": "gpt-image",
+    "version": "2.0"
+  },
+  "visual_assessment": "The baked checkerboard is no longer visible. Bright blue and orange kite/open-book, cream dividers, bow, and curled tail are preserved. Background appears white at ordinary viewing scale.",
+  "limitations": [
+    "The actual background is not uniformly RGB 255,255,255. It contains near-white variation; outer-frame modal color is RGB 254,254,254.",
+    "Actual image is 1254 by 1254 pixels, rather than the requested 1024 square.",
+    "Strongly colored pixels have about 5.34% top and 4.78% bottom margins, rather than about 8%."
+  ],
+  "constraints_observed": "One targeted correction generation only. Original retained untouched outside repository. No project files changed. No Sites tools invoked."
+}

@@ -16,6 +16,7 @@
     "materials": "python3 scripts/build_materials.py",
     "package": "python3 scripts/package_release.py",
     "test:slides": "node --test tests/slides.test.mjs",
+    "test:print": "node --test tests/flashcards.test.mjs",
     "test:students": "node --test tests/student-game.test.mjs tests/student-audio.test.mjs tests/student-progress.test.mjs tests/student-account.test.mjs",
     "test:audio": "node --test tests/audio.test.mjs tests/worker-audio.test.mjs",
     "start:legacy": "python3 server.py",

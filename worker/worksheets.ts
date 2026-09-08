@@ -7,6 +7,7 @@ import {
   type Question,
 } from './model';
 import { worksheetCSS } from './worksheet-style';
+import { flashcardCSS, renderFlashcards } from './flashcards';
 const esc = (v: unknown) =>
   String(v).replace(
     /[&<>"']/g,
@@ -136,18 +137,20 @@ export function renderWorksheet(
   kind = 'classroom',
   embedded = false,
 ) {
-  if (!['classroom', 'homework', 'answers'].includes(kind))
-    throw new AppError('练习册类型不正确');
+  if (!['classroom', 'homework', 'answers', 'cards'].includes(kind))
+    throw new AppError('打印材料类型不正确');
   const plan =
       lesson.config.worksheets ||
       worksheetPlan(lesson.words, lesson.config.worksheet_order),
     answers = kind === 'answers';
   const label =
-    kind === 'classroom'
-      ? '随堂跟写练习'
-      : kind === 'homework'
-        ? '课后巩固练习'
-        : '课后练习 · 教师答案';
+    kind === 'cards'
+      ? '单词卡片'
+      : kind === 'classroom'
+        ? '随堂跟写练习'
+        : kind === 'homework'
+          ? '课后巩固练习'
+          : '课后练习 · 教师答案';
   const pages: string[] = [];
   if (kind === 'classroom') {
     for (let start = 0; start < plan.copying.length; start += 12) {
@@ -184,7 +187,7 @@ export function renderWorksheet(
           '<h2>我还发现了……</h2><div class="paper-lines"></div>',
       );
     }
-  } else {
+  } else if (kind !== 'cards') {
     for (const [title, help, questions] of [
       [
         '01 / 发现单词之间的联系',
@@ -211,13 +214,20 @@ export function renderWorksheet(
       }
     }
   }
-  const rendered = pages
-    .map(
-      (page, i) =>
-        `<section class="paper-page" data-page="${i + 1}"><header class="paper-header"><div class="paper-brand">KiteDance / 风筝单词</div><h1>${esc(label)}</h1><div class="paper-meta">${esc(lesson.class_name)} · ${esc(lesson.title)} · ${esc(lesson.level)} · ${lesson.words.length} 词 · 版本 ${lesson.version_number}</div><div class="paper-identity"><label>姓名 <input data-field="name" aria-label="姓名" autocomplete="off"></label><label>年龄 <input data-field="age" aria-label="年龄" autocomplete="off">岁</label><label>时间 <input data-field="time" aria-label="时间" autocomplete="off" placeholder="年 / 月 / 日"></label></div></header>${page}<footer class="paper-footer"><span>${esc(lesson.course_code)}</span><span>第 ${i + 1} / ${pages.length} 页 · A4</span></footer></section>`,
-    )
-    .join('');
-  const fragment = `<style>${worksheetCSS}</style><div class="wg-worksheet" data-worksheet="${kind}">${rendered}</div>`;
+  const rendered =
+    kind === 'cards'
+      ? renderFlashcards(lesson)
+      : pages
+          .map(
+            (page, i) =>
+              `<section class="paper-page" data-page="${i + 1}"><header class="paper-header"><div class="paper-brand">KiteDance / 风筝单词</div><h1>${esc(label)}</h1><div class="paper-meta">${esc(lesson.class_name)} · ${esc(lesson.title)} · ${esc(lesson.level)} · ${lesson.words.length} 词 · 版本 ${lesson.version_number}</div><div class="paper-identity"><label>姓名 <input data-field="name" aria-label="姓名" autocomplete="off"></label><label>年龄 <input data-field="age" aria-label="年龄" autocomplete="off">岁</label><label>时间 <input data-field="time" aria-label="时间" autocomplete="off" placeholder="年 / 月 / 日"></label></div></header>${page}<footer class="paper-footer"><span>${esc(lesson.course_code)}</span><span>第 ${i + 1} / ${pages.length} 页 · A4</span></footer></section>`,
+          )
+          .join('');
+  const fragment = `<style>${worksheetCSS}${kind === 'cards' ? flashcardCSS : ''}</style><div class="wg-worksheet" data-worksheet="${kind}">${rendered}</div>`;
   if (embedded) return fragment;
-  return `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(lesson.title + ' · ' + label)}</title><style>body{margin:0;background:#edf0f2}.paper-toolbar{position:sticky;top:0;z-index:1;padding:14px;display:flex;gap:20px;justify-content:center;align-items:center;background:white;font:14px sans-serif}.paper-toolbar button{padding:10px 20px;cursor:pointer}@media print{body{background:white}.paper-toolbar{display:none}}</style></head><body><div class="paper-toolbar"><button onclick="window.print()">打印 / 保存为 PDF</button><span>A4 纵向 · 关闭浏览器页眉和页脚</span></div>${fragment}<script>document.addEventListener('input',e=>{const f=e.target.dataset.field;if(f)document.querySelectorAll('input[data-field="'+f+'"]').forEach(input=>{input.value=e.target.value;});});</script></body></html>`;
+  const printHelp =
+    kind === 'cards'
+      ? 'A4 纵向 · 实际大小 100% · 双面打印「长边翻转」· 关闭页眉页脚 · 沿虚线裁切'
+      : 'A4 纵向 · 关闭浏览器页眉和页脚';
+  return `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(lesson.title + ' · ' + label)}</title><style>body{margin:0;background:#edf0f2}.paper-toolbar{position:sticky;top:0;z-index:1;padding:14px;display:flex;gap:20px;justify-content:center;align-items:center;background:white;font:14px sans-serif}.paper-toolbar button{padding:10px 20px;cursor:pointer}@media print{body{background:white}.paper-toolbar{display:none}}</style></head><body><div class="paper-toolbar"><button onclick="window.print()">打印 / 保存为 PDF</button><span>${printHelp}</span></div>${fragment}<script>document.addEventListener('input',e=>{const f=e.target.dataset.field;if(f)document.querySelectorAll('input[data-field="'+f+'"]').forEach(input=>{input.value=e.target.value;});});</script></body></html>`;
 }
