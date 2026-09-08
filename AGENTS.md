@@ -22,6 +22,7 @@
 4. 新素材放入 `assets/words/<word>/vN/`；跨词故事放入 `assets/lessons/<bundle-id>/`。图片、文字、原始生成提示词、生成方式、日期、词义、来源与 SHA-256 必须一起提交 Git。不要仅保存模型临时路径或外链。
 5. manifest 中使用单词、级别和素材 ID，不依赖某台机器的词库数字 ID。课程包必须声明固定 `word_order`，故事声明实际覆盖的 `covered_words`。
 6. 用 `python3 scripts/lesson_assets.py validate` 检查，先 `npm run cf:deploy` 发布素材，再用 `python3 scripts/cf_course.py apply WG-… <bundle-id>` 绑定。绑定创建新的课程版本，旧内容、题序和素材文件应可回溯；不要直接改历史课程快照。
+   交付前核对课程页、侧栏与打印材料的显示标题是否为已确认的课程主题；内容包的标题不会自动覆盖创建时的课程名称，不能遗漏“第二课”这类临时名称。仅修正名称时保留课程编号、词单、素材、学习进度和历史版本。
 7. 后续改稿新增 v2 等目录和素材 ID，不覆盖已发布的图片或 manifest。图片用内容哈希命名；同一图片可以被多个课程引用。`catalog.json` 只负责为新课程选择默认素材，不改写旧课。
 
 ## 图片与语言标准
