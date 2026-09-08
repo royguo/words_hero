@@ -6,6 +6,7 @@ import {
   useRef,
   useState,
 } from 'react';
+import Image from 'next/image';
 import {
   ArrowLeft,
   ArrowRight,
@@ -17,10 +18,13 @@ import {
   Loader2,
   RefreshCw,
   CheckCheck,
+  Coins,
+  History,
 } from 'lucide-react';
 import { api, ApiError } from '@/lib/classroom';
 import { StudentAudio } from '@/lib/student-audio';
 import { StudentProgress } from '@/lib/student-progress';
+import { StudentRecords } from './student-records';
 import type {
   GameAction,
   GameFeedback,
@@ -40,6 +44,10 @@ const when = (value: string | null) =>
       })
     : '';
 function englishOnScreen(game: StudyGame) {
+  if (game.practice?.correction)
+    return game.feedback!.keys.map(
+      (key) => game.words.find((w) => w.key === key)!.word,
+    );
   if (game.needs_retry) return [];
   if (game.stage === 'done') return game.words.map((word) => word.word);
   if (game.stage === 1)
@@ -58,6 +66,12 @@ function englishOnScreen(game: StudyGame) {
 export function StudentLearning() {
   const [dashboard, setDashboard] = useState<StudentDashboard | null>(null),
     [session, setSession] = useState<StudentSession | null>(null);
+  const [records, setRecords] = useState<'words' | 'history' | 'points' | null>(
+      null,
+    ),
+    [practiceMode, setPracticeMode] = useState<'practice' | 'challenge'>(
+      'practice',
+    );
   const [mode, setMode] = useState<'home' | 'play'>('home'),
     [busy, setBusy] = useState(false),
     [loading, setLoading] = useState(true),
@@ -74,6 +88,7 @@ export function StudentLearning() {
     [saving, setSaving] = useState(false),
     [storageNotice, setStorageNotice] = useState('');
   const progress = useRef<StudentProgress | null>(null);
+  const correctionTitle = useRef<HTMLHeadingElement | null>(null);
   const audio = useRef<StudentAudio | null>(null),
     lock = useRef(false),
     alive = useRef(true);
@@ -110,12 +125,19 @@ export function StudentLearning() {
     };
   }, [load]);
   const game = session?.game;
+  const correctionPage =
+    mode === 'play' && !records && game?.practice?.correction
+      ? `${session?.id}:${game.answers}`
+      : '';
+  useEffect(() => {
+    if (correctionPage) correctionTitle.current?.focus();
+  }, [correctionPage]);
   const voicePage =
-    mode === 'play' && game
-      ? `${session.id}:${game.stage}:${game.round}:${game.stage === 2 ? game.cursor : 'board'}:${game.needs_retry}`
+    mode === 'play' && game && !records
+      ? `${session.id}:${game.stage}:${game.round}:${game.stage === 2 ? game.cursor : 'board'}:${game.needs_retry}:${game.practice?.correction}`
       : '';
   const onVoicePage = useEffectEvent(() => {
-    if (voice && mode === 'play' && game)
+    if (voice && mode === 'play' && game && !records)
       void audio.current?.play(englishOnScreen(game));
     else audio.current?.stop();
   });
@@ -132,7 +154,7 @@ export function StudentLearning() {
     try {
       const value = await api<{ session: StudentSession | null }>(
         '/student/sessions',
-        { count: 10, extra },
+        { count: 10, extra, mode: practiceMode },
       );
       if (!alive.current) return;
       if (value.session) {
@@ -172,6 +194,15 @@ export function StudentLearning() {
       setSession(result);
       setFailedSave(false);
       setError('');
+      if (result.game.stage === 'done') {
+        try {
+          const latest = await api<StudentDashboard>('/student/state');
+          if (alive.current) setDashboard(latest);
+        } catch {
+          if (alive.current)
+            setError('进度已保存，统计暂时无法读取。返回后可刷新。');
+        }
+      }
       return true;
     } catch (e) {
       if (!alive.current) return false;
@@ -219,17 +250,24 @@ export function StudentLearning() {
           ? ''
           : '浏览器无法暂存进度，刷新将回到上次保存的位置。',
       );
-      if (action.kind !== 'retry' && feedback) {
+      if (
+        action.kind !== 'retry' &&
+        action.kind !== 'acknowledge' &&
+        feedback
+      ) {
         setFlash(feedback);
         if (effects) audio.current?.effect(feedback.correct);
-        if (!feedback.correct && voice)
+        if (!feedback.correct && voice && !result.game.practice)
           void audio.current?.play(
             feedback.keys.map(
               (key) => result.game.words.find((w) => w.key === key)!.word,
             ),
           );
         await new Promise((resolve) =>
-          setTimeout(resolve, feedback.correct ? 220 : 1100),
+          setTimeout(
+            resolve,
+            feedback.correct ? 220 : result.game.practice ? 180 : 1100,
+          ),
         );
       }
       if (alive.current) {
@@ -245,19 +283,15 @@ export function StudentLearning() {
       if (alive.current) setBusy(false);
     }
   }
-  const onRetryTimer = useEffectEvent(() => {
-    if (!document.hidden) void submit({ kind: 'retry' });
-  });
-  const retryPage = game?.needs_retry
-    ? `${session?.id}:${game.stage}:${game.round}`
-    : '';
-  useEffect(() => {
-    if (!retryPage || busy || failedSave || mode !== 'play') return;
-    const timer = setTimeout(() => onRetryTimer(), 1600);
-    return () => clearTimeout(timer);
-  }, [retryPage, busy, failedSave, mode]);
   function pick(side: 'en' | 'zh', key: string) {
-    if (!game || busy || failedSave || game.removed.includes(key)) return;
+    if (
+      !game ||
+      busy ||
+      failedSave ||
+      game.practice?.correction ||
+      game.removed.includes(key)
+    )
+      return;
     audio.current?.stop();
     if (side === 'en' && voice)
       void audio.current?.play([game.words.find((w) => w.key === key)!.word]);
@@ -371,6 +405,48 @@ export function StudentLearning() {
           )}
         </div>
       )}
+      {dashboard && (
+        <div className="learner-progress-strip">
+          <button
+            disabled={busy}
+            onClick={() => setRecords('words')}
+            className="mastery-progress"
+          >
+            <span>
+              已记熟 <b>{dashboard.mastered}</b> / {dashboard.total} 词
+            </span>
+            <progress
+              value={dashboard.mastered}
+              max={Math.max(dashboard.total, 1)}
+              aria-label="记熟单词进度"
+            />
+            <small>
+              初识{' '}
+              {dashboard.practiced -
+                dashboard.mastered -
+                dashboard.consolidating}{' '}
+              · 巩固中 {dashboard.consolidating} · 待复习 {dashboard.due}
+            </small>
+          </button>
+          <button
+            className="points-badge"
+            disabled={busy}
+            onClick={() => setRecords('points')}
+          >
+            <Coins size={23} />
+            <b>{dashboard.points.balance}</b>
+            <span>积分</span>
+          </button>
+          <button
+            className="btn ghost"
+            disabled={busy}
+            onClick={() => setRecords('history')}
+          >
+            <History size={17} />
+            学习记录
+          </button>
+        </div>
+      )}
       {loading ? (
         <div className="empty-state">
           <Loader2 className="spin" />
@@ -420,6 +496,23 @@ export function StudentLearning() {
                         : '暂无到期单词'}
                 </p>
               </div>
+              {!dashboard.session && (
+                <label className="practice-mode">
+                  模式
+                  <select
+                    value={practiceMode}
+                    onChange={(e) =>
+                      setPracticeMode(
+                        e.target.value as 'practice' | 'challenge',
+                      )
+                    }
+                    disabled={busy}
+                  >
+                    <option value="practice">日常练习 · 只补错词</option>
+                    <option value="challenge">挑战模式 · 整轮全对</option>
+                  </select>
+                </label>
+              )}
               <button
                 className="btn primary large"
                 disabled={busy}
@@ -472,6 +565,13 @@ export function StudentLearning() {
               <CheckCheck className="done-icon" />
               <h1>本组完成</h1>
               <p>{game.words.length} 个单词 · 两阶段通过</p>
+              {!!session?.earned?.points && (
+                <p className="earned-reward">
+                  <Coins size={24} />
+                  新记熟 {session.earned.words} 个词，获得{' '}
+                  <b>+{session.earned.points}</b> 积分
+                </p>
+              )}
               <div className="done-word-grid">
                 {game.words.map((w) => (
                   <div key={w.key}>
@@ -515,11 +615,17 @@ export function StudentLearning() {
                   <h1>{game.stage === 1 ? '中英消消乐' : '中英对决'}</h1>
                 </div>
                 <div className="round-counter">
-                  <strong>第 {game.round} 轮</strong>
+                  <strong>
+                    {game.practice
+                      ? game.round > 1
+                        ? '错词补练'
+                        : '日常练习'
+                      : `挑战 · 第 ${game.round} 轮`}
+                  </strong>
                   <span>
                     {game.stage === 1
-                      ? `${game.removed.length} / ${game.words.length} 词`
-                      : `${game.cursor} / ${game.questions.length} 题`}
+                      ? `${game.practice ? game.practice.passed.length : game.removed.length} / ${game.words.length} 词已通过`
+                      : `${game.practice ? game.practice.directions.length : game.cursor} / ${game.practice ? game.words.length * 2 : game.questions.length} 题已通过`}
                   </span>
                 </div>
               </div>
@@ -543,17 +649,100 @@ export function StudentLearning() {
               {audioNotice && (
                 <output className="audio-notice">{audioNotice}</output>
               )}
-              {game.needs_retry ? (
+              {game.practice?.correction ? (
+                <section className="correction-panel" aria-label="看清正确答案">
+                  <h2 ref={correctionTitle} tabIndex={-1}>
+                    {game.feedback?.keys.length === 1
+                      ? '记住这个词的意思'
+                      : '一起看清这两个词的区别'}
+                  </h2>
+                  <div className="correction-grid">
+                    {game.feedback?.keys.map((key) => {
+                      const w = wordsByKey.get(key)!;
+                      return (
+                        <article key={key}>
+                          {w.image && (
+                            <Image
+                              unoptimized
+                              width={600}
+                              height={400}
+                              src={w.image}
+                              alt={w.meaning}
+                              onError={(e) => {
+                                e.currentTarget.hidden = true;
+                              }}
+                            />
+                          )}
+                          <div>
+                            <h3 lang="en">
+                              {w.word}
+                              <button
+                                className="icon-btn"
+                                aria-label={'朗读 ' + w.word}
+                                onClick={() => {
+                                  audio.current?.unlock();
+                                  void audio.current?.play([w.word]);
+                                }}
+                              >
+                                <Volume2 size={22} />
+                              </button>
+                            </h3>
+                            {w.phonetic && (
+                              <small lang="en">{w.phonetic}</small>
+                            )}
+                            <strong>{w.meaning}</strong>
+                            {w.example && (
+                              <>
+                                <p lang="en">
+                                  {w.example}
+                                  <button
+                                    className="icon-btn"
+                                    aria-label={'朗读例句 ' + w.word}
+                                    onClick={() => {
+                                      audio.current?.unlock();
+                                      void audio.current?.play([w.example]);
+                                    }}
+                                  >
+                                    <Volume2 size={18} />
+                                  </button>
+                                </p>
+                                <p className="example-translation">
+                                  {w.example_zh}
+                                </p>
+                              </>
+                            )}
+                          </div>
+                        </article>
+                      );
+                    })}
+                  </div>
+                  <button
+                    className="btn primary large"
+                    disabled={busy || failedSave}
+                    onClick={() => void submit({ kind: 'acknowledge' })}
+                  >
+                    看清了，继续 <ArrowRight size={20} />
+                  </button>
+                </section>
+              ) : game.needs_retry ? (
                 <div className="round-retry">
                   <RefreshCw />
-                  <h2>本轮有 {game.round_errors} 次错误</h2>
-                  <p>重新练习本阶段，整轮全对后继续。</p>
+                  <h2>
+                    {game.practice
+                      ? '把刚才的错词再试一次'
+                      : `本轮有 ${game.round_errors} 次错误`}
+                  </h2>
+                  <p>
+                    {game.practice
+                      ? '答对的进度已经保留，只练还没通过的部分。'
+                      : '重新练习本阶段，整轮全对后继续。'}
+                  </p>
                   <button
                     className="btn primary"
                     disabled={busy || failedSave}
                     onClick={() => void submit({ kind: 'retry' })}
                   >
-                    重试本阶段
+                    {game.practice ? '开始补练' : '重试本阶段'}
                   </button>
                 </div>
               ) : game.stage === 1 ? (
@@ -685,11 +874,15 @@ export function StudentLearning() {
                         .join('　/　')
                   : saving
                     ? '正在同步本阶段…'
-                    : game.round_errors
-                      ? `本轮已记错 ${game.round_errors} 次，做完后重来本阶段`
-                      : game.stage === 1
-                        ? '整轮全对后进入下一阶段'
-                        : '整轮全对后完成本组'}
+                    : game.practice
+                      ? game.practice.correction
+                        ? '看清后再继续，不用着急。'
+                        : '答对的进度会保留，错词稍后再练。'
+                      : game.round_errors
+                        ? `本轮已记错 ${game.round_errors} 次，做完后重来本阶段`
+                        : game.stage === 1
+                          ? '整轮全对后进入下一阶段'
+                          : '整轮全对后完成本组'}
               </output>
             </>
           )}
@@ -704,6 +897,9 @@ export function StudentLearning() {
           </footer>
         </section>
       ) : null}
+      {records && (
+        <StudentRecords initialTab={records} onClose={() => setRecords(null)} />
+      )}
     </main>
   );
 }

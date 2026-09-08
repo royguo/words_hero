@@ -152,6 +152,18 @@ export default {
       if (user.role === 'student') {
         if (path === '/api/student/state' && !write)
           return json(await students.dashboard(user.id));
+        if (path === '/api/student/history' && !write)
+          return json(await students.history(user.id, q.get('before') || ''));
+        if (path === '/api/student/memory' && !write)
+          return json(
+            await students.wordHistory(
+              user.id,
+              string(q.get('word'), 120, '单词'),
+              q.get('before') || '',
+            ),
+          );
+        if (path === '/api/student/points' && !write)
+          return json(await students.points(user.id, q.get('before') || ''));
         if (path === '/api/student/sessions' && method === 'POST')
           return json({ session: await students.start(user.id, data) });
         if (
@@ -180,6 +192,19 @@ export default {
         if (!write) return json(await students.list(p[2]));
         if (method === 'POST')
           return json(await students.create(p[2], data), 201);
+      }
+      if (
+        p[1] === 'classes' &&
+        p.length === 4 &&
+        p[3] === 'reward-settings' &&
+        method === 'PATCH'
+      )
+        return json(await students.rewards.configure(p[2], data));
+      if (p[1] === 'students' && p.length === 4 && p[3] === 'points') {
+        if (!write)
+          return json(await students.points(p[2], q.get('before') || ''));
+        if (method === 'POST')
+          return json(await students.adjustPoints(p[2], data));
       }
       if (p[1] === 'students' && p.length === 3) {
         if (method === 'PATCH') return json(await students.edit(p[2], data));

@@ -7,9 +7,12 @@ import {
   Loader2,
   RefreshCw,
   Trash2,
+  Coins,
 } from 'lucide-react';
-import { api } from '@/lib/classroom';
+import { api, ApiError } from '@/lib/classroom';
 import { suggestStudentAccount } from '@/lib/student-account';
+import type { PointsSummary } from '@/lib/student-game';
+import { StudentRewards } from './student-rewards';
 import {
   Dialog,
   DialogContent,
@@ -22,6 +25,7 @@ type Student = {
   username: string;
   phone: string;
   revision: number;
+  points?: PointsSummary;
 };
 type Row = Partial<Student> & {
   localId: string;
@@ -69,18 +73,33 @@ export function StudentManager() {
     [showPasswords, setShowPasswords] = useState(false),
     [removing, setRemoving] = useState<Row | null>(null);
   const lastInput = useRef<HTMLInputElement | null>(null);
+  const [rewardStudent, setRewardStudent] = useState<{
+      id: string;
+      name: string;
+    } | null>(null),
+    [rewardRule, setRewardRule] = useState({
+      points_per_word: 10,
+      revision: 0,
+    }),
+    [rewardValue, setRewardValue] = useState('10'),
+    [ruleBusy, setRuleBusy] = useState(false);
   useEffect(() => {
     let live = true;
     const id = cid;
     if (!id) return;
-    api<{ class_name: string; students: Student[]; next_username: string }>(
-      '/classes/' + encodeURIComponent(id) + '/students',
-    )
+    api<{
+      class_name: string;
+      students: Student[];
+      next_username: string;
+      reward_settings: { points_per_word: number; revision: number };
+    }>('/classes/' + encodeURIComponent(id) + '/students')
       .then((data) => {
         if (live) {
           setClassName(data.class_name);
           setRows(data.students.map(asRow));
           setNextUsername(data.next_username);
+          setRewardRule(data.reward_settings);
+          setRewardValue(String(data.reward_settings.points_per_word));
         }
       })
       .catch((e) => {
@@ -159,7 +178,7 @@ export function StudentManager() {
         setRows((old) =>
           old.map((r) =>
             r.localId === row.localId
-              ? { ...asRow(result), localId: row.localId }
+              ? { ...asRow(result), points: r.points, localId: row.localId }
               : r,
           ),
         );
@@ -230,6 +249,74 @@ export function StudentManager() {
           </button>
         </div>
       </div>
+      <form
+        className="reward-rule"
+        onSubmit={async (e) => {
+          e.preventDefault();
+          if (ruleBusy) return;
+          setRuleBusy(true);
+          try {
+            const value = await api<typeof rewardRule>(
+              '/classes/' + cid + '/reward-settings',
+              {
+                revision: rewardRule.revision,
+                points_per_word: Number(rewardValue),
+              },
+              'PATCH',
+            );
+            setRewardRule(value);
+            setMessage('积分规则已保存，对之后首次记熟的词生效。');
+          } catch (error) {
+            if (error instanceof ApiError && error.status === 409) {
+              try {
+                const latest = await api<{
+                  reward_settings: typeof rewardRule;
+                }>('/classes/' + cid + '/students');
+                setRewardRule(latest.reward_settings);
+                setMessage(
+                  `积分规则已变化，当前为每词 ${latest.reward_settings.points_per_word} 分。已保留输入，请核对后再保存。`,
+                );
+              } catch {
+                setMessage('积分规则读取失败，请稍后重试保存。');
+              }
+            } else
+              setMessage(error instanceof Error ? error.message : '保存失败');
+          } finally {
+            setRuleBusy(false);
+          }
+        }}
+      >
+        <Coins size={20} />
+        <label>
+          每个单词首次记熟奖励{' '}
+          <input
+            type="number"
+            min={0}
+            max={1000}
+            step={1}
+            required
+            aria-label="每词记熟积分"
+            value={rewardValue}
+            disabled={ruleBusy || loading}
+            onChange={(e) => setRewardValue(e.target.value)}
+          />{' '}
+          分
+        </label>
+        <button
+          className="btn secondary"
+          disabled={
+            ruleBusy ||
+            loading ||
+            !cid ||
+            rewardValue === String(rewardRule.points_per_word)
+          }
+        >
+          保存规则
+        </button>
+        <small>
+          间隔复习达到 7 天视为记熟；每词只奖励一次。设为 0 可关闭自动奖励。
+        </small>
+      </form>
       <div className="manager-hint">
         <span>
           账号为当天日期＋递增序号，保存时确认；初始密码为账号后六位。已保存的密码留空则不修改。
@@ -261,6 +348,7 @@ export function StudentManager() {
                 <th>账号</th>
                 <th>密码</th>
                 <th>手机号（选填）</th>
+                <th>积分</th>
                 <th>操作</th>
               </tr>
             </thead>
@@ -348,6 +436,23 @@ export function StudentManager() {
                     />
                   </td>
                   <td>
+                    {row.id ? (
+                      <button
+                        className="btn ghost student-points-button"
+                        disabled={busy}
+                        aria-label={'管理 ' + row.name + ' 的积分'}
+                        onClick={() =>
+                          setRewardStudent({ id: row.id!, name: row.name })
+                        }
+                      >
+                        <Coins size={16} />
+                        {row.points?.balance ?? 0}
+                      </button>
+                    ) : (
+                      <small>保存后设置</small>
+                    )}
+                  </td>
+                  <td>
                     <button
                       className="icon-btn"
                       aria-label={'移除学生 ' + (row.name || i + 1)}
@@ -367,7 +472,7 @@ export function StudentManager() {
               ))}
               {!rows.length && (
                 <tr>
-                  <td colSpan={6} className="student-table-empty">
+                  <td colSpan={7} className="student-table-empty">
                     暂无学生，点击“添加学生”开始填写。
                   </td>
                 </tr>
@@ -375,6 +480,19 @@ export function StudentManager() {
             </tbody>
           </table>
         </div>
+      )}
+      {rewardStudent && (
+        <StudentRewards
+          student={rewardStudent}
+          onClose={() => setRewardStudent(null)}
+          onUpdate={(points) =>
+            setRows((old) =>
+              old.map((r) =>
+                r.id === rewardStudent.id ? { ...r, points } : r,
+              ),
+            )
+          }
+        />
       )}
       <Dialog
         open={!!removing}

@@ -6,6 +6,8 @@ export type StudyWord = {
   example: string;
   example_zh: string;
   source_version: string;
+  image?: string;
+  phonetic?: string;
 };
 export type DuelQuestion = {
   word: string;
@@ -18,7 +20,7 @@ export type GameFeedback = {
   kind: 'match' | 'judge';
 };
 export type StudyGame = {
-  schema_version: 1;
+  schema_version: 1 | 2;
   words: StudyWord[];
   stage: 1 | 2 | 'done';
   round: number;
@@ -32,11 +34,13 @@ export type StudyGame = {
   needs_retry: boolean;
   answers: number;
   feedback: GameFeedback | null;
+  practice?: { passed: string[]; directions: string[]; correction: boolean };
 };
 export type GameAction =
   | { kind: 'match'; en: string; zh: string }
   | { kind: 'judge'; correct: boolean }
-  | { kind: 'retry' };
+  | { kind: 'retry' }
+  | { kind: 'acknowledge' };
 export function shuffled<T>(items: T[], random = Math.random): T[] {
   const result = [...items];
   for (let i = result.length - 1; i > 0; i--) {
@@ -69,7 +73,11 @@ export function duelQuestions(
     random,
   );
 }
-export function newGame(words: StudyWord[], random = Math.random): StudyGame {
+export function newGame(
+  words: StudyWord[],
+  random = Math.random,
+  mode: 'practice' | 'challenge' = 'challenge',
+): StudyGame {
   if (
     !words.length ||
     words.length > 20 ||
@@ -77,7 +85,10 @@ export function newGame(words: StudyWord[], random = Math.random): StudyGame {
   )
     throw new Error('本组单词不正确');
   return {
-    schema_version: 1,
+    schema_version: mode === 'practice' ? 2 : 1,
+    ...(mode === 'practice'
+      ? { practice: { passed: [], directions: [], correction: false } }
+      : {}),
     words,
     stage: 1,
     round: 1,
@@ -104,6 +115,8 @@ export function advanceGame(
   action: GameAction,
   random = transitionRandom(current),
 ): StudyGame {
+  if (current.schema_version === 2)
+    return advancePractice(current, action, random);
   const game = structuredClone(current);
   if (game.stage === 'done') throw new Error('本组已完成');
   if (action.kind === 'retry') {
@@ -165,6 +178,103 @@ export function advanceGame(
       game.questions = duelQuestions(game.words, random);
     } else game.stage = 'done';
   }
+  return game;
+}
+
+/** Normal practice preserves successes. Only missing pairs/directions are retried. */
+function advancePractice(
+  current: StudyGame,
+  action: GameAction,
+  random: () => number,
+): StudyGame {
+  const game = structuredClone(current),
+    p = game.practice!;
+  if (game.stage === 'done') throw new Error('本组已完成');
+  const settle = () => {
+    const ended =
+      game.stage === 1
+        ? game.en_order.every((key) => game.removed.includes(key))
+        : game.cursor === game.questions.length;
+    if (!ended) return;
+    if (game.stage === 1 && p.passed.length === game.words.length) {
+      game.stage = 2;
+      game.round = 1;
+      game.round_errors = 0;
+      game.cursor = 0;
+      game.questions = duelQuestions(game.words, random);
+    } else if (
+      game.stage === 2 &&
+      p.directions.length === game.words.length * 2
+    )
+      game.stage = 'done';
+    else game.needs_retry = true;
+  };
+  if (action.kind === 'acknowledge') {
+    if (!p.correction) throw new Error('没有待查看的纠错');
+    p.correction = false;
+    game.feedback = null;
+    settle();
+    return game;
+  }
+  if (p.correction) throw new Error('请先看清正确答案，再继续');
+  if (action.kind === 'retry') {
+    if (!game.needs_retry) throw new Error('请先完成当前轮');
+    game.round++;
+    game.round_errors = 0;
+    game.needs_retry = false;
+    game.feedback = null;
+    game.removed = [];
+    game.cursor = 0;
+    if (game.stage === 1) {
+      const remaining = game.words
+        .filter((w) => !p.passed.includes(w.key))
+        .map((w) => w.key);
+      game.en_order = shuffled(remaining, random);
+      game.zh_order = shuffled(remaining, random);
+    } else
+      game.questions = duelQuestions(game.words, random).filter(
+        (q) => !p.directions.includes(q.direction + ':' + q.word),
+      );
+    return game;
+  }
+  if (game.needs_retry) throw new Error('请开始补练');
+  let correct: boolean, keys: string[];
+  if (game.stage === 1 && action.kind === 'match') {
+    if (
+      ![action.en, action.zh].every(
+        (k) => game.en_order.includes(k) && !game.removed.includes(k),
+      )
+    )
+      throw new Error('这张卡片已经移除或不存在');
+    keys = [...new Set([action.en, action.zh])];
+    correct = action.en === action.zh;
+    game.removed.push(...keys);
+    if (correct) p.passed.push(action.en);
+  } else if (
+    game.stage === 2 &&
+    action.kind === 'judge' &&
+    typeof action.correct === 'boolean'
+  ) {
+    const q = game.questions[game.cursor];
+    if (!q) throw new Error('题目不存在');
+    keys = [...new Set([q.word, q.candidate])];
+    correct = action.correct === (q.word === q.candidate);
+    if (correct) {
+      const token = q.direction + ':' + q.word;
+      if (!p.directions.includes(token)) p.directions.push(token);
+    } else
+      p.directions = p.directions.filter(
+        (d) => !keys.some((k) => d === 'en:' + k || d === 'zh:' + k),
+      );
+    game.cursor++;
+  } else throw new Error('当前阶段不支持这个操作');
+  game.answers++;
+  game.feedback = { correct, keys, kind: action.kind };
+  if (!correct) {
+    game.round_errors++;
+    for (const key of keys) game.errors[key] = (game.errors[key] || 0) + 1;
+    p.correction = true;
+  } else settle();
   return game;
 }
 
@@ -247,6 +357,7 @@ export type StudentSession = {
   revision: number;
   game: StudyGame;
   completed_at: string | null;
+  earned?: { points: number; words: number };
 };
 export type StudentIdentity = {
   id: string;
@@ -265,4 +376,62 @@ export type StudentDashboard = {
   completed_groups: number;
   session: StudentSession | null;
   recent: { completed_at: string; words: number; errors: number }[];
+  mastered: number;
+  consolidating: number;
+  points: PointsSummary;
+};
+
+export const MASTERY_STEP = 3;
+export function memoryLevel(memory?: WordMemory) {
+  return !memory
+    ? 'fresh'
+    : memory.step >= MASTERY_STEP
+      ? 'mastered'
+      : memory.step >= 1
+        ? 'consolidating'
+        : 'learning';
+}
+/** Due first, then normalized overdue amount and weakness; early practice never advances spacing. */
+export function compareMemory(
+  a: WordMemory | undefined,
+  b: WordMemory | undefined,
+  at: string,
+) {
+  const stamp = Date.parse(at);
+  const priority = (m?: WordMemory) =>
+    !m ? 1 : Date.parse(m.due_at) <= stamp ? 0 : 2;
+  const urgency = (m?: WordMemory) =>
+    m
+      ? Math.max(0, stamp - Date.parse(m.due_at)) /
+          (REVIEW_MINUTES[m.step] * 60000) +
+        (6 - m.step) * 0.2 +
+        Math.min(m.lapses, 10) * 0.05
+      : 0;
+  return (
+    priority(a) - priority(b) ||
+    urgency(b) - urgency(a) ||
+    (a && b ? a.due_at.localeCompare(b.due_at) : 0)
+  );
+}
+export type PointsSummary = {
+  balance: number;
+  revision: number;
+  earned_words: number;
+  points_per_word: number;
+};
+export type PointsEntry = {
+  id: string;
+  kind: 'mastery' | 'bonus' | 'redeem' | 'adjustment';
+  amount: number;
+  reason: string;
+  word_key: string | null;
+  created_at: string;
+};
+export type WordReview = {
+  session_id: string;
+  created_at: string;
+  errors: number;
+  step_before: number | null;
+  step_after: number;
+  due_at: string;
 };

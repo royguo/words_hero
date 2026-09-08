@@ -161,3 +161,41 @@ void test('invalid batches cannot partly advance a session and storage failure d
   assert.equal(p.storageAvailable, false);
   assert.equal(p.payload().actions.length, 1);
 });
+void test('normal correction and targeted retries survive refresh with no checkpoint before phase completion', () => {
+  const base = { ...server(), game: newGame(words, Math.random, 'practice') },
+    storage = storageMock();
+  let p = new StudentProgress('friendly', base, () => storage);
+  p.choose({ kind: 'match', en: 'farm', zh: 'farm' });
+  p.choose({ kind: 'match', en: 'song', zh: 'stamp' });
+  const restored = new StudentProgress('friendly', base, () => storage);
+  assert.deepEqual(restored.session, p.session);
+  assert(!restored.needsCheckpoint);
+  p = restored;
+  p.choose({ kind: 'acknowledge' });
+  passRound(p);
+  assert(!p.needsCheckpoint);
+  p.choose({ kind: 'retry' });
+  assert.equal(p.session.game.en_order.length, 2);
+  passRound(p);
+  assert(p.needsCheckpoint);
+  assert.deepEqual(
+    replayActions(base.game, p.payload().actions),
+    p.session.game,
+  );
+  const next = { ...p.session, revision: 2 };
+  p.accept(next);
+  const q = p.session.game.questions[0];
+  p.choose({ kind: 'judge', correct: q.word !== q.candidate });
+  p.choose({ kind: 'acknowledge' });
+  passRound(p);
+  if (p.session.game.needs_retry) {
+    p.choose({ kind: 'retry' });
+    passRound(p);
+  }
+  assert.equal(p.session.game.stage, 'done');
+  assert.deepEqual(
+    replayActions(next.game, p.payload().actions),
+    p.session.game,
+  );
+  assert(p.needsCheckpoint);
+});

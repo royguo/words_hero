@@ -74,3 +74,7 @@ npx wrangler d1 execute kite-words-db --config cloudflare/wrangler.jsonc --remot
 Cloudflare Worker 不运行 Python 子进程；`worker/audio.ts` 将原 edge-tts 协议适配到了 Workers。协议参考 edge-tts 7.2.8，保留上游 LGPL 许可于 `LICENSES/`。没有 GPT API 通道，没有系统合成声音回退。首次生成依赖外部语音服务可用性，已有录音独立保存；云端页面仍需网络访问，不把“素材已缓存”表述为整个网站可以离线运行。
 
 参考：[Workers 静态资源](https://developers.cloudflare.com/workers/static-assets/)、[D1 本地开发](https://developers.cloudflare.com/d1/best-practices/local-development/)、[Workers WebSockets](https://developers.cloudflare.com/workers/runtime-apis/websockets/)。
+
+## 学生积分与逐词复习历史
+
+迁移 `0005_student_rewards.sql` 只添加个人逐词历史、班级积分规则、积分流水和余额表，以及流水插入时同步余额的触发器，不改写旧会话、记忆或课程。积分与完成整组后的记忆更新共享 D1 原子事务。新表均属于私人课堂数据，进入教师备份，禁止提交 Git。删除学生、班级、课程不清除这些历史，也不影响独立素材。生产更新前后核对旧记录与课程内容；并发兑换、防重复积分和角色隔离只在 `npm run test:cloudflare` 的临时数据库执行。

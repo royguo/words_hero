@@ -941,6 +941,10 @@ export class Store {
       'student_memory',
       'student_sessions',
       'student_events',
+      'student_review_history',
+      'reward_settings',
+      'student_points',
+      'student_wallets',
       'meta',
     ];
     const result: Record<string, unknown> = {

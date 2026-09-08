@@ -127,3 +127,93 @@ void test('remembered intervals are bounded and stable across serialized history
   assert.equal(memory.reviews, 12);
   assert.equal(memory.lapses, 0);
 });
+void test('normal practice holds correction until acknowledgement, preserving successful matches', () => {
+  let g = newGame(words, Math.random, 'practice');
+  g = advanceGame(g, { kind: 'match', en: 'farm', zh: 'farm' });
+  g = advanceGame(g, { kind: 'match', en: 'song', zh: 'stamp' });
+  assert(g.practice.correction);
+  assert.throws(() =>
+    advanceGame(g, { kind: 'match', en: 'suit', zh: 'suit' }),
+  );
+  assert.throws(() => advanceGame(g, { kind: 'retry' }));
+  g = advanceGame(g, { kind: 'acknowledge' });
+  g = advanceGame(g, { kind: 'match', en: 'suit', zh: 'suit' });
+  assert(g.needs_retry);
+  g = advanceGame(g, { kind: 'retry' });
+  assert.deepEqual(g.en_order.toSorted(), ['song', 'stamp']);
+  assert.deepEqual(g.practice.passed, ['farm', 'suit']);
+  for (const key of ['song', 'stamp'])
+    g = advanceGame(g, { kind: 'match', en: key, zh: key });
+  assert.equal(g.stage, 2);
+  assert.deepEqual(g.errors, { song: 1, stamp: 1 });
+});
+void test('normal duel retries only unproven directions and records both confused words', () => {
+  let g = passMatches(newGame(words, Math.random, 'practice'));
+  const wrong = g.questions.at(-1),
+    wrongKeys = new Set([wrong.word, wrong.candidate]);
+  while (g.cursor < g.questions.length - 1) {
+    const q = g.questions[g.cursor];
+    g = advanceGame(g, { kind: 'judge', correct: q.word === q.candidate });
+  }
+  g = advanceGame(g, {
+    kind: 'judge',
+    correct: wrong.word !== wrong.candidate,
+  });
+  assert(g.practice.correction);
+  assert(!g.needs_retry);
+  assert(
+    g.practice.directions.every(
+      (d) => ![...wrongKeys].some((k) => d === 'en:' + k || d === 'zh:' + k),
+    ),
+  );
+  g = advanceGame(g, { kind: 'acknowledge' });
+  assert(g.needs_retry);
+  const preserved = [...g.practice.directions];
+  g = advanceGame(g, { kind: 'retry' });
+  assert.equal(g.questions.length, wrongKeys.size * 2);
+  assert(g.questions.every((q) => wrongKeys.has(q.word)));
+  assert.deepEqual(g.practice.directions, preserved);
+  g = passDuel(g);
+  assert.equal(g.stage, 'done');
+  assert.deepEqual(
+    Object.keys(g.errors).sort(),
+    [...wrongKeys].sort((a, b) => String(a).localeCompare(String(b))),
+  );
+});
+void test('single-word correction cannot skip the remaining direction or finish before acknowledgement', () => {
+  let g = passMatches(newGame(words.slice(0, 1), Math.random, 'practice'));
+  g = advanceGame(g, { kind: 'judge', correct: false });
+  assert(g.practice.correction);
+  g = advanceGame(g, { kind: 'acknowledge' });
+  g = advanceGame(g, { kind: 'judge', correct: true });
+  assert(g.needs_retry);
+  g = advanceGame(g, { kind: 'retry' });
+  assert.equal(g.questions.length, 1);
+  g = advanceGame(g, { kind: 'judge', correct: true });
+  assert.equal(g.stage, 'done');
+});
+const { memoryLevel, compareMemory } = await import(
+  'data:text/javascript;base64,' + Buffer.from(source).toString('base64')
+);
+void test('mastery requires spaced successes; weakest due memories are prioritized independently', () => {
+  let a = scheduleReview(undefined, 0, '2026-09-08T00:00:00.000Z');
+  for (let i = 0; i < 20; i++) a = scheduleReview(a, 0, a.last_reviewed);
+  assert.equal(a.step, 0);
+  assert.equal(memoryLevel(a), 'learning');
+  for (let i = 0; i < 3; i++) a = scheduleReview(a, 0, a.due_at);
+  assert.equal(memoryLevel(a), 'mastered');
+  const b = scheduleReview(a, 1, a.last_reviewed);
+  assert.equal(memoryLevel(b), 'consolidating');
+  const now = '2026-10-01T00:00:00.000Z';
+  const strong = { ...a, step: 5, due_at: '2026-09-30T00:00:00.000Z' },
+    weak = { ...b, step: 0, due_at: '2026-09-30T00:00:00.000Z' };
+  assert(compareMemory(weak, strong, now) < 0);
+  assert(compareMemory(weak, undefined, now) < 0);
+  assert(
+    compareMemory(
+      undefined,
+      { ...strong, due_at: '2026-11-01T00:00:00.000Z' },
+      now,
+    ) < 0,
+  );
+});

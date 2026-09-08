@@ -1,4 +1,6 @@
 import { Store } from './store';
+import { Rewards } from './rewards';
+import { phoneticFor } from '../lib/word-presentation';
 import {
   AppError,
   integer,
@@ -18,6 +20,10 @@ import {
   newGame,
   scheduleReview,
   shuffled,
+  memoryLevel,
+  compareMemory,
+  MASTERY_STEP,
+  type WordReview,
   type StudentDashboard,
   type StudentIdentity,
   type StudentSession,
@@ -66,6 +72,9 @@ function password(value: unknown) {
   return result;
 }
 export class Students extends Store {
+  get rewards() {
+    return new Rewards(this.db);
+  }
   async student(id: string) {
     const s = await this.one<StudentRow>(
       'SELECT s.*,c.name AS class_name FROM students s JOIN classrooms c ON c.id=s.class_id WHERE s.id=? AND s.deleted_at IS NULL AND c.deleted_at IS NULL',
@@ -76,14 +85,30 @@ export class Students extends Store {
   }
   async list(cid: string) {
     const c = await this.classroom(cid);
-    const rows = await this.all<StudentRow>(
-      'SELECT id,class_id,name,username,phone,revision FROM students WHERE class_id=? AND deleted_at IS NULL ORDER BY created_at,id',
+    const settings = await this.rewards.settings(cid);
+    const rows = await this.all<
+      StudentRow & {
+        balance: number;
+        wallet_revision: number;
+        earned_words: number;
+      }
+    >(
+      "SELECT s.id,s.class_id,s.name,s.username,s.phone,s.revision,coalesce(w.balance,0) AS balance,coalesce(w.revision,0) AS wallet_revision,(SELECT COUNT(*) FROM student_points WHERE student_id=s.id AND kind='mastery' AND amount>0) AS earned_words FROM students s LEFT JOIN student_wallets w ON w.student_id=s.id WHERE s.class_id=? AND s.deleted_at IS NULL ORDER BY s.created_at,s.id",
       cid,
     );
     return {
       class_id: c.id,
       class_name: c.name,
-      students: rows.map(publicStudent),
+      students: rows.map((s) => ({
+        ...publicStudent(s),
+        points: {
+          balance: s.balance,
+          revision: s.wallet_revision,
+          earned_words: s.earned_words,
+          points_per_word: settings.points_per_word,
+        },
+      })),
+      reward_settings: settings,
       next_username: await this.nextUsername(),
     };
   }
@@ -208,6 +233,8 @@ export class Students extends Store {
             example: word.example,
             example_zh: word.example_zh,
             source_version: course.version_id,
+            ...(word.images?.[0]?.src ? { image: word.images[0].src } : {}),
+            phonetic: phoneticFor(word),
           });
       }
     return [...words.values()];
@@ -286,7 +313,78 @@ export class Students extends Store {
       completed_groups: count?.n || 0,
       session: active ? sessionView(active) : null,
       recent,
+      mastered: practiced.filter(
+        (w) => memoryLevel(memory.get(w.key)) === 'mastered',
+      ).length,
+      consolidating: practiced.filter(
+        (w) => memoryLevel(memory.get(w.key)) === 'consolidating',
+      ).length,
+      points: await this.rewards.summary(id, s.class_id),
     };
+  }
+  async history(id: string, before = '') {
+    const s = await this.student(id),
+      memory = await this.memories(id);
+    // Include past words even when a course no longer contributes them to practice.
+    const current = new Map(
+      (await this.eligible(s.class_id)).map((w) => [w.key, w]),
+    );
+    const rows = await this.all<{
+      id: string;
+      completed_at: string;
+      words: number;
+      errors: number;
+    }>(
+      `SELECT id,completed_at,json_array_length(data,'$.words') AS words,coalesce((SELECT SUM(CAST(value AS INTEGER)) FROM json_each(student_sessions.data,'$.errors')),0) AS errors FROM student_sessions WHERE student_id=? AND status='completed' ${before ? 'AND rowid < (SELECT rowid FROM student_sessions WHERE id=? AND student_id=?)' : ''} ORDER BY rowid DESC LIMIT 31`,
+      id,
+      ...(before ? [before, id] : []),
+    );
+    const archived = [...memory.entries()]
+      .filter(([key]) => !current.has(key))
+      .map(([key, m]) => ({
+        key,
+        word: key,
+        meaning: '',
+        example: '',
+        example_zh: '',
+        source_version: '',
+        available: false,
+        memory: m,
+      }));
+    return {
+      words: [...current.values()]
+        .map((w) => ({
+          ...w,
+          available: true,
+          memory: memory.get(w.key) || null,
+        }))
+        .concat(archived),
+      archived_count: archived.length,
+      recent: rows.slice(0, 30),
+      next: rows.length > 30 ? rows[29].id : null,
+    };
+  }
+  async wordHistory(id: string, key: string, before = '') {
+    await this.student(id);
+    const rows = await this.all<WordReview & { review_id: number }>(
+      `SELECT rowid AS review_id,session_id,created_at,errors,step_before,step_after,due_at FROM student_review_history WHERE student_id=? AND word_key=? ${before ? 'AND rowid < ?' : ''} ORDER BY rowid DESC LIMIT 51`,
+      id,
+      normalize(key),
+      ...(before
+        ? [integer(Number(before), 1, Number.MAX_SAFE_INTEGER, '历史位置')]
+        : []),
+    );
+    return {
+      reviews: rows.slice(0, 50),
+      next: rows.length > 50 ? String(rows[49].review_id) : null,
+    };
+  }
+  async points(id: string, before = '') {
+    const s = await this.student(id);
+    return this.rewards.history(id, s.class_id, before);
+  }
+  async adjustPoints(id: string, data: Record<string, unknown>) {
+    return this.rewards.adjust(await this.student(id), data);
   }
   async start(id: string, data: Record<string, unknown>) {
     const s = await this.student(id),
@@ -303,16 +401,9 @@ export class Students extends Store {
         !memory.has(w.key) ||
         memory.get(w.key)!.due_at <= stamp,
     );
-    eligible.sort((a, b) => {
-      const ma = memory.get(a.key),
-        mb = memory.get(b.key);
-      const priority = (m: WordMemory | undefined) =>
-        !m ? 1 : m.due_at <= stamp ? 0 : 2;
-      return (
-        priority(ma) - priority(mb) ||
-        (ma && mb ? ma.due_at.localeCompare(mb.due_at) : 0)
-      );
-    });
+    eligible.sort((a, b) =>
+      compareMemory(memory.get(a.key), memory.get(b.key), stamp),
+    );
     const meanings = new Set<string>(),
       selected: StudyWord[] = [];
     for (const w of eligible) {
@@ -323,8 +414,18 @@ export class Students extends Store {
       if (selected.length === count) break;
     }
     if (!selected.length) return null;
+    if (
+      data.mode !== undefined &&
+      (typeof data.mode !== 'string' ||
+        !['practice', 'challenge'].includes(data.mode))
+    )
+      throw new AppError('练习模式不正确');
     const sid = uid(),
-      game = newGame(selected);
+      game = newGame(
+        selected,
+        Math.random,
+        data.mode === 'practice' ? 'practice' : 'challenge',
+      );
     try {
       await this.db.batch([
         this.guard(c, s),
@@ -393,6 +494,9 @@ export class Students extends Store {
       return {
         ...sessionView(row),
         feedback: saved.feedback,
+        ...(row.completed_at
+          ? { earned: await this.rewards.sessionReward(id, sid) }
+          : {}),
       };
     }
     const active = await this.active(id, await this.eligible(s.class_id));
@@ -435,22 +539,42 @@ export class Students extends Store {
       ),
     );
     if (finished) {
-      const memory = await this.memories(id);
-      for (const word of game.words)
+      const memory = await this.memories(id),
+        settings = await this.rewards.settings(s.class_id);
+      for (const word of game.words) {
+        const before = memory.get(word.key),
+          errors = game.errors[word.key] || 0,
+          after = scheduleReview(before, errors, stamp);
         statements.push(
           this.stmt(
             'INSERT INTO student_memory(student_id,word_key,data) VALUES(?,?,?) ON CONFLICT(student_id,word_key) DO UPDATE SET data=excluded.data',
             id,
             word.key,
-            JSON.stringify(
-              scheduleReview(
-                memory.get(word.key),
-                game.errors[word.key] || 0,
-                stamp,
-              ),
-            ),
+            JSON.stringify(after),
+          ),
+          this.stmt(
+            'INSERT INTO student_review_history(student_id,session_id,word_key,created_at,errors,step_before,step_after,due_at) VALUES(?,?,?,?,?,?,?,?)',
+            id,
+            sid,
+            word.key,
+            stamp,
+            errors,
+            before?.step ?? null,
+            after.step,
+            after.due_at,
           ),
         );
+        if (!errors && after.step >= MASTERY_STEP)
+          statements.push(
+            this.rewards.award(
+              id,
+              sid,
+              word.key,
+              settings.points_per_word,
+              stamp,
+            ),
+          );
+      }
     }
     statements.push(this.stmt('DELETE FROM mutation_guard'));
     try {
@@ -469,6 +593,9 @@ export class Students extends Store {
       game,
       completed_at: finished ? stamp : null,
       feedback: game.feedback,
+      ...(finished
+        ? { earned: await this.rewards.sessionReward(id, sid) }
+        : {}),
     };
   }
 }
