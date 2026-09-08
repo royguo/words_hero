@@ -91,6 +91,7 @@ void test('10 words produce front/back pairs on four pages; every word, sentence
   );
   assert.equal((html.match(/data-card="blank"/g) || []).length, 4);
   const pages = html.split('<section').slice(1);
+  assert.ok(pages.every((page) => page.includes('kitedance.com')));
   assert.deepEqual(
     [...pages[0].matchAll(/data-card="(.*?)"/g)].map((m) => m[1]),
     ['1', '2', '3', '4', '5', '6'],

@@ -39,10 +39,7 @@ export function WordCards({
   return (
     <div className="word-card-practice">
       <header className="word-card-practice-header">
-        <div>
-          <h2>轮流选一张，看看谁记住了</h2>
-          <p>先说答案，再点击卡片翻面。</p>
-        </div>
+        <h2>翻卡回忆</h2>
         <button
           onClick={() => {
             stopSpeech();
@@ -83,19 +80,13 @@ export function WordCards({
               >
                 <span className="flip-inner">
                   <span className="flip-face flip-front" aria-hidden={flipped}>
-                    <small>
-                      {String(i + 1).padStart(2, '0')} /{' '}
-                      {reverse ? '说出英文' : '说出中文'}
-                    </small>
                     <strong lang={reverse ? 'zh-CN' : 'en'}>{cue}</strong>
                     {!reverse && <WordHints word={word} />}
-                    <span>点击翻面</span>
                   </span>
                   <span className="flip-face flip-back" aria-hidden={!flipped}>
                     <small>{cue}</small>
                     <strong lang={reverse ? 'en' : 'zh-CN'}>{answer}</strong>
                     {reverse && <WordHints word={word} />}
-                    <span>你答对了吗？</span>
                   </span>
                 </span>
               </button>

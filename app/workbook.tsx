@@ -1,9 +1,16 @@
 'use client';
-import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from 'react';
 import { createPortal } from 'react-dom';
 import {
   ArrowUpRight,
   BookMarked,
+  BookOpen,
   CheckCircle2,
   Loader2,
   Layers,
@@ -18,8 +25,12 @@ const subscribeToHydration = () => () => {};
 export function Workbook({ lesson }: { lesson: Lesson }) {
   const [kind, setKind] = useState('classroom');
   const [html, setHtml] = useState('');
+  // Updating print progress must not replace the live, user-filled inputs.
+  const previewMarkup = useMemo(() => ({ __html: html }), [html]);
   const [error, setError] = useState('');
   const [retry, setRetry] = useState(0);
+  const [printing, setPrinting] = useState(false);
+  const [printError, setPrintError] = useState('');
   const mounted = useSyncExternalStore(
     subscribeToHydration,
     () => true,
@@ -27,6 +38,10 @@ export function Workbook({ lesson }: { lesson: Lesson }) {
   );
   const preview = useRef<HTMLDivElement>(null);
   const printed = useRef<HTMLDivElement>(null);
+  const printPrepared = useRef(false);
+  useEffect(() => {
+    printed.current?.replaceChildren();
+  }, [html]);
   const src = '/api/versions/' + lesson.version_id + '/worksheet?kind=' + kind;
   useEffect(() => {
     const controller = new AbortController();
@@ -54,15 +69,42 @@ export function Workbook({ lesson }: { lesson: Lesson }) {
       .querySelectorAll('input')
       .forEach((input, i) => input.setAttribute('value', values[i].value));
     printed.current.innerHTML = copy.innerHTML;
+    return printed.current;
   }
   useEffect(() => {
-    window.addEventListener('beforeprint', preparePrint);
-    return () => window.removeEventListener('beforeprint', preparePrint);
+    const beforePrint = () => {
+      if (!printPrepared.current) preparePrint();
+    };
+    window.addEventListener('beforeprint', beforePrint);
+    return () => window.removeEventListener('beforeprint', beforePrint);
   });
   async function print() {
-    await document.fonts.ready;
-    preparePrint();
-    window.print();
+    if (printing) return;
+    const root = preparePrint();
+    if (!root) return;
+    setPrinting(true);
+    setPrintError('');
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    try {
+      await Promise.race([
+        Promise.all([
+          document.fonts.ready,
+          ...Array.from(root.querySelectorAll('img'), (img) => img.decode()),
+        ]),
+        new Promise((_, reject) => {
+          timer = setTimeout(() => reject(new Error('timeout')), 30_000);
+        }),
+      ]);
+      if (!root.isConnected || printed.current !== root) return;
+      printPrepared.current = true;
+      window.print();
+    } catch {
+      setPrintError('图片尚未加载完成，请检查网络后重试打印。');
+    } finally {
+      clearTimeout(timer);
+      printPrepared.current = false;
+      setPrinting(false);
+    }
   }
   return (
     <div className="stage-body workbook">
@@ -79,23 +121,31 @@ export function Workbook({ lesson }: { lesson: Lesson }) {
         onValueChange={(value) => {
           setHtml('');
           setError('');
+          setPrintError('');
           setKind(String(value));
         }}
       >
         <TabsList className="print-kind-tabs">
-          <TabsTrigger value="classroom">
+          <TabsTrigger value="classroom" disabled={printing}>
             <Pencil size={16} />
             随堂跟写
           </TabsTrigger>
-          <TabsTrigger value="homework">
+          <TabsTrigger value="homework" disabled={printing}>
             <BookMarked size={16} />
             课后填空
           </TabsTrigger>
-          <TabsTrigger value="cards">
+          <TabsTrigger value="cards" disabled={printing}>
             <Layers size={16} />
             单词卡片
           </TabsTrigger>
-          <TabsTrigger value="answers">
+          <TabsTrigger
+            value="story"
+            disabled={printing || !lesson.materials?.story?.scenes.length}
+          >
+            <BookOpen size={16} />
+            情景故事
+          </TabsTrigger>
+          <TabsTrigger value="answers" disabled={printing}>
             <CheckCircle2 size={16} />
             教师答案
           </TabsTrigger>
@@ -111,7 +161,9 @@ export function Workbook({ lesson }: { lesson: Lesson }) {
                 ? '单词联系 · 句子填空 · 至少 2 页'
                 : kind === 'cards'
                   ? '每张纸 6 张卡 · 正面英文 · 背面中文'
-                  : '固定题序与参考答案，独立打印'}
+                  : kind === 'story'
+                    ? '英文故事与配图 · 每页一个情节'
+                    : '固定题序与参考答案，独立打印'}
           </span>
         </div>
         <div>
@@ -126,14 +178,19 @@ export function Workbook({ lesson }: { lesson: Lesson }) {
           </a>
           <button
             className="btn primary"
-            disabled={!html}
+            disabled={!html || printing}
             onClick={() => void print()}
           >
-            <Printer size={17} />
-            打印这份材料
+            {printing ? (
+              <Loader2 size={17} className="spin" />
+            ) : (
+              <Printer size={17} />
+            )}
+            {printing ? '正在准备打印…' : '打印这份材料'}
           </button>
         </div>
       </div>
+      {printError && <p role="alert">{printError}</p>}
       {kind === 'cards' && (
         <p className="duplex-guide">
           <Printer size={17} />
@@ -177,7 +234,7 @@ export function Workbook({ lesson }: { lesson: Lesson }) {
                 input.value = target.value;
               });
         }}
-        dangerouslySetInnerHTML={{ __html: html }}
+        dangerouslySetInnerHTML={previewMarkup}
       />
       <p className="caption">
         {kind === 'cards'
@@ -190,7 +247,6 @@ export function Workbook({ lesson }: { lesson: Lesson }) {
             id="worksheet-print-root"
             data-ready={Boolean(html)}
             ref={printed}
-            dangerouslySetInnerHTML={{ __html: html }}
           />,
           document.body,
         )}

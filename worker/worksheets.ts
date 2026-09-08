@@ -8,6 +8,7 @@ import {
 } from './model';
 import { worksheetCSS } from './worksheet-style';
 import { flashcardCSS, renderFlashcards } from './flashcards';
+import { storyPrintCSS, renderStory } from './story-print';
 const esc = (v: unknown) =>
   String(v).replace(
     /[&<>"']/g,
@@ -137,8 +138,14 @@ export function renderWorksheet(
   kind = 'classroom',
   embedded = false,
 ) {
-  if (!['classroom', 'homework', 'answers', 'cards'].includes(kind))
+  if (!['classroom', 'homework', 'answers', 'cards', 'story'].includes(kind))
     throw new AppError('打印材料类型不正确');
+  if (kind === 'story') {
+    const story = lesson.materials?.story;
+    if (!story?.scenes.length) throw new AppError('本课还没有情景故事可打印');
+    if (story.scenes.some((scene) => !scene.en.trim()))
+      throw new AppError('故事英文正文尚未补全');
+  }
   const plan =
       lesson.config.worksheets ||
       worksheetPlan(lesson.words, lesson.config.worksheet_order),
@@ -150,7 +157,9 @@ export function renderWorksheet(
         ? '随堂跟写练习'
         : kind === 'homework'
           ? '课后巩固练习'
-          : '课后练习 · 教师答案';
+          : kind === 'story'
+            ? 'Picture Story'
+            : '课后练习 · 教师答案';
   const pages: string[] = [];
   if (kind === 'classroom') {
     for (let start = 0; start < plan.copying.length; start += 12) {
@@ -187,7 +196,7 @@ export function renderWorksheet(
           '<h2>我还发现了……</h2><div class="paper-lines"></div>',
       );
     }
-  } else if (kind !== 'cards') {
+  } else if (kind !== 'cards' && kind !== 'story') {
     for (const [title, help, questions] of [
       [
         '01 / 发现单词之间的联系',
@@ -217,17 +226,40 @@ export function renderWorksheet(
   const rendered =
     kind === 'cards'
       ? renderFlashcards(lesson)
-      : pages
-          .map(
-            (page, i) =>
-              `<section class="paper-page" data-page="${i + 1}"><header class="paper-header"><div class="paper-brand">KiteDance / 风筝单词</div><h1>${esc(label)}</h1><div class="paper-meta">${esc(lesson.class_name)} · ${esc(lesson.title)} · ${esc(lesson.level)} · ${lesson.words.length} 词 · 版本 ${lesson.version_number}</div><div class="paper-identity"><label>姓名 <input data-field="name" aria-label="姓名" autocomplete="off"></label><label>年龄 <input data-field="age" aria-label="年龄" autocomplete="off">岁</label><label>时间 <input data-field="time" aria-label="时间" autocomplete="off" placeholder="年 / 月 / 日"></label></div></header>${page}<footer class="paper-footer"><span>${esc(lesson.course_code)}</span><span>第 ${i + 1} / ${pages.length} 页 · A4</span></footer></section>`,
-          )
-          .join('');
-  const fragment = `<style>${worksheetCSS}${kind === 'cards' ? flashcardCSS : ''}</style><div class="wg-worksheet" data-worksheet="${kind}">${rendered}</div>`;
+      : kind === 'story'
+        ? renderStory(lesson)
+        : pages
+            .map(
+              (page, i) =>
+                `<section class="paper-page" data-page="${i + 1}"><header class="paper-header"><div class="paper-brand">KiteDance / 风筝单词</div><h1>${esc(label)}</h1><div class="paper-meta">${esc(lesson.class_name)} · ${esc(lesson.title)} · ${esc(lesson.level)} · ${lesson.words.length} 词 · 版本 ${lesson.version_number}</div><div class="paper-identity"><label>姓名 <input data-field="name" aria-label="姓名" autocomplete="off"></label><label>年龄 <input data-field="age" aria-label="年龄" autocomplete="off">岁</label><label>时间 <input data-field="time" aria-label="时间" autocomplete="off" placeholder="年 / 月 / 日"></label></div></header>${page}<footer class="paper-footer"><span>${esc(lesson.course_code)}</span><span>kitedance.com</span><span>第 ${i + 1} / ${pages.length} 页 · A4</span></footer></section>`,
+            )
+            .join('');
+  const fragment = `<style>${worksheetCSS}${kind === 'cards' ? flashcardCSS : kind === 'story' ? storyPrintCSS : ''}</style><div class="wg-worksheet" data-worksheet="${kind}">${rendered}</div>`;
   if (embedded) return fragment;
   const printHelp =
     kind === 'cards'
       ? 'A4 纵向 · 实际大小 100% · 双面打印「长边翻转」· 关闭页眉页脚 · 沿虚线裁切'
       : 'A4 纵向 · 关闭浏览器页眉和页脚';
-  return `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(lesson.title + ' · ' + label)}</title><style>body{margin:0;background:#edf0f2}.paper-toolbar{position:sticky;top:0;z-index:1;padding:14px;display:flex;gap:20px;justify-content:center;align-items:center;background:white;font:14px sans-serif}.paper-toolbar button{padding:10px 20px;cursor:pointer}@media print{body{background:white}.paper-toolbar{display:none}}</style></head><body><div class="paper-toolbar"><button onclick="window.print()">打印 / 保存为 PDF</button><span>${printHelp}</span></div>${fragment}<script>document.addEventListener('input',e=>{const f=e.target.dataset.field;if(f)document.querySelectorAll('input[data-field="'+f+'"]').forEach(input=>{input.value=e.target.value;});});</script></body></html>`;
+  const title =
+    kind === 'story'
+      ? lesson.materials?.story?.title_en || 'Picture Story'
+      : lesson.title;
+  return `<!doctype html><html lang="${kind === 'story' ? 'en' : 'zh-CN'}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title + ' · ' + label)}</title><style>body{margin:0;background:#edf0f2}.paper-toolbar{position:sticky;top:0;z-index:1;padding:14px;display:flex;gap:20px;justify-content:center;align-items:center;flex-wrap:wrap;background:white;font:14px sans-serif}.paper-toolbar button{padding:10px 20px;cursor:pointer}.paper-toolbar output{color:#92400e}@media print{body{background:white}.paper-toolbar{display:none}}</style></head><body><div class="paper-toolbar"><button id="paper-print">打印 / 保存为 PDF</button><span>${printHelp}</span><output id="paper-print-status" aria-live="polite"></output></div>${fragment}<script>
+document.addEventListener('input',e=>{const f=e.target.dataset.field;if(f)document.querySelectorAll('input[data-field="'+f+'"]').forEach(input=>{input.value=e.target.value;});});
+document.getElementById('paper-print').addEventListener('click',async()=>{
+  const button=document.getElementById('paper-print'),status=document.getElementById('paper-print-status');
+  button.disabled=true;status.textContent='正在准备打印…';let timer;
+  try{
+    await Promise.race([
+      Promise.all([document.fonts.ready,...Array.from(document.querySelectorAll('.wg-worksheet img'),img=>{
+        if(img.complete&&!img.naturalWidth)img.src=img.getAttribute('src');
+        return img.decode();
+      })]),
+      new Promise((_,reject)=>{timer=setTimeout(()=>reject(new Error('timeout')),30000);})
+    ]);
+    status.textContent='';window.print();
+  }catch{status.textContent='图片尚未加载完成，请检查网络后重试打印。';}
+  finally{clearTimeout(timer);button.disabled=false;}
+});
+</script></body></html>`;
 }

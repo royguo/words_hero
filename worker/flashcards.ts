@@ -81,7 +81,7 @@ export function renderFlashcards(lesson: Course) {
           `<section class="paper-page flashcard-page" data-page="${i * 2 + j + 1}" data-side="${side}" data-sheet="${i + 1}">
       <header class="flashcard-header"><strong>风筝单词 / 单词卡片</strong><span>第 ${i + 1} / ${sheets.length} 张纸 · ${side === 'front' ? '正面 · 英文' : '反面 · 中文'}</span></header>
       <div class="flashcard-grid">${sheet[side].map((card) => cardMarkup(card, side)).join('')}</div>
-      <footer class="flashcard-footer"><span>${esc(lesson.class_name)} · ${esc(lesson.title)} · 版本 ${lesson.version_number}</span><span>${esc(lesson.course_code)} · ${i * 2 + j + 1}/${sheets.length * 2}</span></footer>
+      <footer class="flashcard-footer"><span>${esc(lesson.class_name)} · ${esc(lesson.title)} · 版本 ${lesson.version_number}</span><span>kitedance.com<br>${esc(lesson.course_code)} · ${i * 2 + j + 1}/${sheets.length * 2}</span></footer>
     </section>`,
       ),
     )
@@ -93,7 +93,8 @@ export const flashcardCSS = `
 .wg-worksheet .flashcard-header{display:flex;justify-content:space-between;align-items:center;gap:4mm;height:10mm;flex:none;margin-bottom:4mm;font-size:11px;color:#222}
 .wg-worksheet .flashcard-header strong{font-weight:600}
 .wg-worksheet .flashcard-grid{display:grid;grid-template-columns:repeat(2,90mm);grid-template-rows:repeat(3,78mm);column-gap:6mm;row-gap:6mm;width:186mm;height:246mm;flex:none}
-.wg-worksheet .flashcard{box-sizing:border-box;min-width:0;min-height:0;padding:4mm 5mm;border:.25mm dashed #999;border-radius:3mm;color:#111;background:#fff;break-inside:avoid;overflow-wrap:anywhere}
+/* Reset the interactive .flashcard rules too: its 370px height swallowed the row gaps. */
+.wg-worksheet .flashcard{box-sizing:border-box;display:block;position:static;width:90mm;height:78mm;min-width:0;min-height:0;margin:0;padding:4mm 5mm;border:.25mm dashed #999;border-radius:3mm;color:#111;background:#fff;box-shadow:none;transform:none;transform-style:flat;transition:none;break-inside:avoid;overflow-wrap:anywhere}
 .wg-worksheet .flashcard-blank{border:0}
 .wg-worksheet .flashcard-label{display:flex;justify-content:space-between;align-items:center;font-size:10px;line-height:4mm;color:#666;letter-spacing:.2px;margin-bottom:3mm}
 .wg-worksheet .flashcard-label span:first-child{font-variant-numeric:tabular-nums}
@@ -110,11 +111,11 @@ export const flashcardCSS = `
 .wg-worksheet .flashcard-back h2{font-size:21px;line-height:1.4;margin:0 0 3mm;font-weight:700}
 .wg-worksheet .flashcard-translation{font-size:14px;line-height:1.6;margin:0 0 4mm;color:#333}
 .wg-worksheet .flashcard-explanation{border-top:.2mm solid #ddd;padding-top:3mm}
-.wg-worksheet .flashcard-explanation>span{font-size:10px;color:#666}
-.wg-worksheet .flashcard-explanation p{font-size:13px;line-height:1.6;margin:1mm 0 0}
+.wg-worksheet .flashcard-explanation>span{font-size:13px;font-weight:600;color:#555}
+.wg-worksheet .flashcard-explanation p{font-size:15px;line-height:1.6;margin:1mm 0 0}
 .wg-worksheet .flashcard-footer{display:flex;justify-content:space-between;gap:4mm;align-items:end;margin-top:auto;height:8mm;flex:none;font-size:9px;line-height:1.4;color:#666}
 .wg-worksheet .flashcard-footer>span:first-child{max-width:118mm;overflow-wrap:anywhere}
-.wg-worksheet .flashcard-footer>span:last-child{white-space:nowrap}
+.wg-worksheet .flashcard-footer>span:last-child{white-space:nowrap;text-align:right}
 @media print{
   .wg-worksheet .flashcard-page{display:flex;flex-direction:column;width:186mm;height:273mm;min-height:273mm;padding:0;margin:0;box-shadow:none;break-inside:avoid;break-after:page}
   .wg-worksheet .flashcard-page:last-child{break-after:auto}

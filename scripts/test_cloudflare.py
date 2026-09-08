@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Exercise the actual Worker + D1 + R2 in an isolated local Wrangler directory."""
-import json,os,signal,subprocess,tempfile,time,urllib.request,urllib.error,hashlib,sys
+import json,os,signal,subprocess,tempfile,time,urllib.request,urllib.error,hashlib,sys,html,re
 from test_students_http import check_students
 from test_student_rewards_http import check_student_rewards
 from test_classroom_updates_http import check_classroom_updates
@@ -53,10 +53,13 @@ with tempfile.TemporaryDirectory(prefix='kite-cf-test-') as temp:
         updated,_=request('/api/versions/'+vid,{'notes':'keep me','word_id':l['words'][0]['id'],'result':'remembered','presentation_slide':'word:1'},method='PATCH');assert updated['config']['worksheets']==plan
         for kind in ('classroom','homework','answers'):
             paper,_=request('/api/versions/'+vid+'/worksheet?kind='+kind+'&view=embedded');s=paper.decode();assert 'data-worksheet="'+kind+'"' in s and s.count('class="paper-page"')>=2;assert 'Test &lt;class&gt; &amp; safe' in s and 'data-field="age"' in s
+            assert all('kitedance.com' in page for page in s.split('<section')[1:])
+        request('/api/versions/'+vid+'/worksheet?kind=story',status=400)
         cards,_=request('/api/versions/'+vid+'/worksheet?kind=cards&view=embedded');s=cards.decode()
         assert 'data-worksheet="cards"' in s and s.count('class="paper-page flashcard-page"')==4
         assert s.count('data-side="front"')==s.count('data-side="back"')==2
         assert s.count('data-card="blank"')==(12-len(l['words']))*2
+        assert all('kitedance.com' in page for page in s.split('<section')[1:])
         standalone,_=request('/api/versions/'+vid+'/worksheet?kind=cards');assert '长边翻转' in standalone.decode()
         regen,_=request('/api/preview',{'class_id':cid,'lesson_id':l['id'],'title':'My lesson','count':10},status=201)
         newer,_=request('/api/drafts/'+regen['id']+'/confirm',{'revision':regen['revision']},status=201);assert newer['version_number']==2
@@ -78,6 +81,19 @@ with tempfile.TemporaryDirectory(prefix='kite-cf-test-') as temp:
         same,_=request('/api/courses/'+l['course_code']+'/materials',{'bundle_id':'farm-friend-v2'},status=201);assert same['version_id']==l['version_id']
         assert all(w['word_study'] and len(w['word_study']['family'])==2 for w in l['words'])
         assert len(l['materials']['story']['scenes'])==4
+        story_before=json.dumps(l['materials'],sort_keys=True)
+        story_paper,_=request('/api/versions/'+l['version_id']+'/worksheet?kind=story&view=embedded')
+        story_html=story_paper.decode();story_pages=story_html.split('<section')[1:]
+        assert len(story_pages)==4 and 'data-worksheet="story"' in story_html
+        for page,scene in zip(story_pages,l['materials']['story']['scenes']):
+            text=html.unescape(re.sub('<[^>]+>','',page))
+            assert scene['en'] in text and scene['image']['src'] in page
+            assert 'kitedance.com' in page and l['materials']['story']['title_en'] in text
+            assert not re.search(r'[\u3400-\u9fff]',text)
+        story_standalone,_=request('/api/versions/'+l['version_id']+'/worksheet?kind=story')
+        assert story_html in story_standalone.decode()
+        unchanged,_=request('/api/lessons/'+l['id'])
+        assert json.dumps(unchanged['materials'],sort_keys=True)==story_before
         inv,_=request('/api/versions/'+l['version_id']+'/audio');assert inv['cached']==inv['total']==82
         clip,_=request('/api/audio',{'text':'farm'});assert clip['cached']
         audio,h=request(clip['url'],headers={'Range':'bytes=0-127'},status=206,auth=False);assert len(audio)==128 and h['Content-Range'].startswith('bytes 0-127/')
