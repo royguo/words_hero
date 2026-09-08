@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "cf69430b33b56b38a5c2ac3e90d2b5d658ee06eeb23709ee278a49439df58256",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "This bike looks nice."
+  },
+  "file": "audio/v1/2167f42439fe82ceb1da5c6381544a4dcbd36654645aaf75a8a5fc0e547f9943.mp3",
+  "sha256": "2167f42439fe82ceb1da5c6381544a4dcbd36654645aaf75a8a5fc0e547f9943",
+  "bytes": 12384,
+  "created_at": "2026-09-08T10:38:10+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

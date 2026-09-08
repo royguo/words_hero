@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "002e604b7cc5be14ba774817f3459354fc2865d7e51d288e414ff89268275504",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "On the bus, Mia puts her bag on a seat. \"Is your backpack talking?\" asks the driver. \"Meow!\" A little head appears. \"Our kitten wants a holiday too!\" says Mia."
+  },
+  "file": "audio/v1/200ff5ac94ca8e98531b123fde3eb0c4622e0bad542ef528cb1a9310cdc8c94f.mp3",
+  "sha256": "200ff5ac94ca8e98531b123fde3eb0c4622e0bad542ef528cb1a9310cdc8c94f",
+  "bytes": 79056,
+  "created_at": "2026-09-08T10:38:23+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

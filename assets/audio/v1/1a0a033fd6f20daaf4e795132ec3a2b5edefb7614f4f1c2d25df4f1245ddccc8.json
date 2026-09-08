@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "1a0a033fd6f20daaf4e795132ec3a2b5edefb7614f4f1c2d25df4f1245ddccc8",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "This room has a single bed."
+  },
+  "file": "audio/v1/e5fc10f33c760955890a98eb70443e796309dc7a5324f933be17873f6bbc7ea6.mp3",
+  "sha256": "e5fc10f33c760955890a98eb70443e796309dc7a5324f933be17873f6bbc7ea6",
+  "bytes": 15408,
+  "created_at": "2026-09-08T10:37:21+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

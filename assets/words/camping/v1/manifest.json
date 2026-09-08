@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "id": "camping-v1",
+  "word": "camping",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "露营",
+  "created_at": "2026-09-08",
+  "provenance": {
+    "text": "Original child-friendly KET teaching material; dictionary pronunciation and useful formation references checked 2026-09-08. Story imagery is a fictional memory scene, not an etymological claim.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image."
+  },
+  "teaching": {
+    "meaning_zh": "露营",
+    "pos": "n.",
+    "example": "We go camping in the summer.",
+    "example_zh": "我们夏天去露营。",
+    "extra_examples": [
+      {
+        "en": "Camping with my family is fun.",
+        "zh": "和家人一起露营很有趣。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "想象带着帐篷出发，一起说 go camping。",
+    "cloze": "We go __________ in the summer.",
+    "cloze_answer": "camping",
+    "cloze_zh": "我们夏天去露营。",
+    "cloze_type": "context",
+    "parts": [
+      {
+        "text": "camp",
+        "kind": "root",
+        "meaning": "露营"
+      },
+      {
+        "text": "-ing",
+        "kind": "suffix",
+        "meaning": "表示活动"
+      }
+    ],
+    "note": "原创 KET 课堂例句；先读单词与例句，再学习构词或常用搭配。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "derived",
+      "construction": "camp + -ing → camping",
+      "components": [
+        {
+          "text": "camp",
+          "kind": "base",
+          "meaning_zh": "露营"
+        },
+        {
+          "text": "-ing",
+          "kind": "suffix",
+          "meaning_zh": "表示活动"
+        }
+      ],
+      "explanation_zh": "camp 表示“露营”，加 -ing 可表示这项活动。go camping 是“去露营”；和 go swimming 一样好用。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "camp",
+          "meaning_zh": "露营；营地",
+          "relation": "word_family",
+          "connection_zh": "camp 是 camping 的词基。",
+          "example": {
+            "en": "We camp near the lake.",
+            "zh": "我们在湖边露营。"
+          }
+        },
+        {
+          "word": "swimming",
+          "meaning_zh": "游泳",
+          "relation": "shared_affix",
+          "connection_zh": "swim 双写 m 再加 -ing，也能表示一项活动。",
+          "example": {
+            "en": "We go swimming on Sunday.",
+            "zh": "我们星期天去游泳。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "像 camping 一样，以 -ing 表示活动的词还有哪个？",
+        "answer_zh": "swimming；也可举 reading、fishing 等。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · camping",
+          "url": "https://dictionary.cambridge.org/dictionary/english/camping"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "camping-v1",
+      "file": "words/camping/v1/c9be8d080de42efe61b05cc48adb5e06ab7ac92efd4717824200869c55cc8326.png",
+      "sha256": "c9be8d080de42efe61b05cc48adb5e06ab7ac92efd4717824200869c55cc8326",
+      "width": 1536,
+      "height": 1024,
+      "alt": "帐篷旁的家人发现，小橘猫睡在打开的背包里，把黄色袜子当枕头。",
+      "caption": "We go camping in the summer.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: one classroom vocabulary photograph for Chinese primary-school KET learners; landscape 3:2, ideally 1536x1024.\nStyle: beautiful playful realistic editorial photography, bright natural daylight, rich plausible colours, real materials and textures, correct anatomy, uncluttered composition, clear main subject for a large projector.\nConstraints: no embedded text, letters, numbers, captions, logos, watermarks, decorative frames, cartoons or clipart. All people fictional, children fully clothed in ordinary appropriate clothes. Generous margins, no clipped main subject, safe friendly scenes.\n\nInput images: image 1 is a reference for Mia's identity, clothes, teal backpack, yellow sock and ginger kitten; image 2 is a reference for Dad, the tent and campsite look. Generate a NEW scene, preserving character and prop appearance.\nPrimary request: Story scene 4, also teaching camping. Wide natural view of the grassy campsite and the same pitched green-teal tent, folding chairs and low picnic table, showing an unmistakable overnight outdoor camping setup. In the foreground the teal backpack lies open on its side; the small ginger kitten with white paws and white chin sleeps comfortably inside with a yellow pale-striped sock under its head as a pillow. Mia kneels beside the bag smiling, Dad in teal shirt smiles nearby. The tent must remain clearly visible and occupy enough of the picture to teach camping. Realistic bag large enough for kitten, no people crowding it. Gentle funny ending, no fire or danger.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-08",
+      "reference_asset_ids": [
+        "backpack-v1",
+        "serve-v1"
+      ]
+    }
+  ]
+}

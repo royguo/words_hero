@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "id": "unhappy-v1",
+  "word": "unhappy",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "不开心的",
+  "created_at": "2026-09-08",
+  "provenance": {
+    "text": "Original child-friendly KET teaching material; dictionary pronunciation and useful formation references checked 2026-09-08. Story imagery is a fictional memory scene, not an etymological claim.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image."
+  },
+  "teaching": {
+    "meaning_zh": "不开心的",
+    "pos": "adj.",
+    "example": "Mia is unhappy about her lost sock.",
+    "example_zh": "米娅因为丢了袜子而不开心。",
+    "extra_examples": [
+      {
+        "en": "The kitten looks unhappy in the rain.",
+        "zh": "小猫在雨中看起来不开心。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "做一个 unhappy 的表情，再换成 happy 的表情。",
+    "cloze": "Mia is __________ about her lost sock.",
+    "cloze_answer": "unhappy",
+    "cloze_zh": "米娅因为丢了袜子而不开心。",
+    "cloze_type": "context",
+    "parts": [
+      {
+        "text": "un-",
+        "kind": "prefix",
+        "meaning": "不"
+      },
+      {
+        "text": "happy",
+        "kind": "root",
+        "meaning": "开心的"
+      }
+    ],
+    "note": "原创 KET 课堂例句；先读单词与例句，再学习构词或常用搭配。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "derived",
+      "construction": "un- + happy → unhappy",
+      "components": [
+        {
+          "text": "un-",
+          "kind": "prefix",
+          "meaning_zh": "不"
+        },
+        {
+          "text": "happy",
+          "kind": "base",
+          "meaning_zh": "开心的"
+        }
+      ],
+      "explanation_zh": "happy 是“开心的”，前面加 un- 就变成“不开心的”。un- 在这里表示“不”，还可以用在 kind 前面。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "happy",
+          "meaning_zh": "开心的",
+          "relation": "word_family",
+          "connection_zh": "去掉 un-，恢复原来的词义。",
+          "example": {
+            "en": "The kitten is happy now.",
+            "zh": "小猫现在很开心。"
+          }
+        },
+        {
+          "word": "unkind",
+          "meaning_zh": "不友善的",
+          "relation": "shared_affix",
+          "connection_zh": "un- + kind：同样用 un- 表示“不”。",
+          "example": {
+            "en": "It is unkind to laugh at him.",
+            "zh": "嘲笑他是不友善的。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "像 unhappy 一样，用 un- 表示“不”的词还有哪个？",
+        "answer_zh": "unkind；也可举 unfair、unknown 等。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · unhappy",
+          "url": "https://dictionary.cambridge.org/dictionary/english/unhappy"
+        },
+        {
+          "title": "Cambridge Dictionary · un-",
+          "url": "https://dictionary.cambridge.org/us/dictionary/english/un"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "unhappy-v1",
+      "file": "words/unhappy/v1/72c8eb5cf59120533274e68714717e33445b31c59de2eb653c093653ccb2129c.png",
+      "sha256": "72c8eb5cf59120533274e68714717e33445b31c59de2eb653c093653ccb2129c",
+      "width": 1536,
+      "height": 1024,
+      "alt": "露营地里，米娅拿着一只黄色袜子，有些不开心地查看背包。",
+      "caption": "Mia is unhappy about her lost sock.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: one classroom vocabulary photograph for Chinese primary-school KET learners; landscape 3:2, ideally 1536x1024.\nStyle: beautiful playful realistic editorial photography, bright natural daylight, rich plausible colours, real materials and textures, correct anatomy, uncluttered composition, clear main subject for a large projector.\nConstraints: no embedded text, letters, numbers, captions, logos, watermarks, decorative frames, cartoons or clipart. All people fictional, children fully clothed in ordinary appropriate clothes. Generous margins, no clipped main subject, safe friendly scenes.\n\nInput images: image 1 is a reference for Mia's identity, clothes, teal backpack, yellow sock and ginger kitten; image 2 is a reference for Dad, the tent and campsite look. Generate a NEW scene, preserving character and prop appearance.\nPrimary request: Story scene 3, also teaching unhappy. At the grassy campsite next to the same green-teal tent, Mia frowns mildly with disappointed eyebrows, looking into her open teal backpack while holding a SINGLE yellow sock with pale stripes. The ginger kitten with white paws and white chin sits seriously inside the open backpack, its head and front paws visible. Dad in the same teal shirt stands in background beside a picnic table, about to serve plates of bread and fruit. Main focus on Mia's visibly unhappy but not distressed face, the lone sock and bag. Warm bright daylight, no tears, no fear.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-08",
+      "reference_asset_ids": [
+        "backpack-v1",
+        "serve-v1"
+      ]
+    }
+  ]
+}

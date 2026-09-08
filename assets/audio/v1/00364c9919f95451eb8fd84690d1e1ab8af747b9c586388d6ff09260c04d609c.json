@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "00364c9919f95451eb8fd84690d1e1ab8af747b9c586388d6ff09260c04d609c",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "seat belt"
+  },
+  "file": "audio/v1/8bcc802a833811ad6c04f8fab23bfa34090539e63b93fd773623362942044fb7.mp3",
+  "sha256": "8bcc802a833811ad6c04f8fab23bfa34090539e63b93fd773623362942044fb7",
+  "bytes": 9648,
+  "created_at": "2026-09-08T10:37:13+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

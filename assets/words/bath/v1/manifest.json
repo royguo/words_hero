@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "id": "bath-v1",
+  "word": "bath",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "洗澡；浴缸",
+  "created_at": "2026-09-08",
+  "provenance": {
+    "text": "Original child-friendly KET teaching material; dictionary pronunciation and useful formation references checked 2026-09-08. Story imagery is a fictional memory scene, not an etymological claim.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image."
+  },
+  "teaching": {
+    "meaning_zh": "洗澡；浴缸",
+    "pos": "n.",
+    "example": "My bath is warm and full of bubbles.",
+    "example_zh": "我的洗澡水暖暖的，满是泡泡。",
+    "extra_examples": [
+      {
+        "en": "I have a bath before bed.",
+        "zh": "我睡前洗个澡。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看泡泡和小鸭子，读一读 have a bath。",
+    "cloze": "My __________ is warm and full of bubbles.",
+    "cloze_answer": "bath",
+    "cloze_zh": "我的洗澡水暖暖的，满是泡泡。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "原创 KET 课堂例句；先读单词与例句，再学习构词或常用搭配。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "bath",
+      "components": [],
+      "explanation_zh": "bath 整体记。have a bath 是“洗澡”；bath 和 room 组成 bathroom，和 tub 组成 bathtub。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "bathroom",
+          "meaning_zh": "浴室；卫生间",
+          "relation": "compound",
+          "connection_zh": "bath + room：洗澡、洗漱的房间。",
+          "example": {
+            "en": "The bathroom is upstairs.",
+            "zh": "浴室在楼上。"
+          }
+        },
+        {
+          "word": "bathtub",
+          "meaning_zh": "浴缸",
+          "relation": "compound",
+          "connection_zh": "bath + tub：洗澡用的大盆；美式英语常这样说。",
+          "example": {
+            "en": "There is a duck in the bathtub.",
+            "zh": "浴缸里有一只鸭子玩具。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "bath + room 和 bath + tub 各能组成什么词？",
+        "answer_zh": "bathroom；bathtub。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · bath",
+          "url": "https://dictionary.cambridge.org/dictionary/english/bath"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "bath-v1",
+      "file": "words/bath/v1/3c7a607f6c9be238c2966032975ca1b7bbe7339c6555f92a190721e433a9b187.png",
+      "sha256": "3c7a607f6c9be238c2966032975ca1b7bbe7339c6555f92a190721e433a9b187",
+      "width": 1536,
+      "height": 1024,
+      "alt": "明亮浴室里，装有泡泡水的浴缸中漂着一只黄色玩具鸭；画面无人。",
+      "caption": "My bath is warm and full of bubbles.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: one classroom vocabulary photograph for Chinese primary-school KET learners; landscape 3:2, ideally 1536x1024.\nStyle: beautiful playful realistic editorial photography, bright natural daylight, rich plausible colours, real materials and textures, correct anatomy, uncluttered composition, clear main subject for a large projector.\nConstraints: no embedded text, letters, numbers, captions, logos, watermarks, decorative frames, cartoons or clipart. All people fictional, children fully clothed in ordinary appropriate clothes. Generous margins, no clipped main subject, safe friendly scenes.\nPrimary request: A beautiful bright clean family bathroom with a white bathtub filled with warm-looking bubble water. A single yellow rubber duck floats prominently among the bubbles; folded towels on a small stool, simple tap, soft daylight. No people anywhere. Make the entire bathtub and bathing water clear, real ceramic and bubbles, playful but predominantly photographic. No product labels.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-08",
+      "reference_asset_ids": []
+    }
+  ]
+}

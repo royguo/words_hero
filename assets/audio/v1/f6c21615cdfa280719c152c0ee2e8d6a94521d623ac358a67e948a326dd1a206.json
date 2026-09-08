@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "f6c21615cdfa280719c152c0ee2e8d6a94521d623ac358a67e948a326dd1a206",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "I can see a single star."
+  },
+  "file": "audio/v1/9bab5f5ba7cf3fd9690ac6cf601e1018bfdd950331cbbeb05f50d4351abd169c.mp3",
+  "sha256": "9bab5f5ba7cf3fd9690ac6cf601e1018bfdd950331cbbeb05f50d4351abd169c",
+  "bytes": 13824,
+  "created_at": "2026-09-08T10:37:19+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

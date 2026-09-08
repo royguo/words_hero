@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "6c9c611900649879944ce67de2af3e3be9da2623c116106cd1a39e31c4a4b140",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The helicopter pilot waves at us."
+  },
+  "file": "audio/v1/e4a3ea1e502ebfa79f56618531e1a39eebe2f18897cf14f4da30535288135d31.mp3",
+  "sha256": "e4a3ea1e502ebfa79f56618531e1a39eebe2f18897cf14f4da30535288135d31",
+  "bytes": 19008,
+  "created_at": "2026-09-08T10:37:37+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

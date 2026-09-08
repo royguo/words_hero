@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "7eb1262a8f690c78cdd1f5314dc72a11ea41ca5935ff3fb6bbaf8d506b6e4324",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "curtain rail"
+  },
+  "file": "audio/v1/1ee0c1ec7fe3a97e721a79de73ec4c1600aa9dc8d8bb610079086d53e22d7104.mp3",
+  "sha256": "1ee0c1ec7fe3a97e721a79de73ec4c1600aa9dc8d8bb610079086d53e22d7104",
+  "bytes": 9792,
+  "created_at": "2026-09-08T10:35:48+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "d699fe7e8b78cdc771c6e0b260f657d48f7adf8051f12011387d0771ac465c50",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Where is the kitten?"
+  },
+  "file": "audio/v1/8184577dc5c06249f2166634934d452482a8d84f8fb8720b11a59e66dec05d0b.mp3",
+  "sha256": "8184577dc5c06249f2166634934d452482a8d84f8fb8720b11a59e66dec05d0b",
+  "bytes": 10512,
+  "created_at": "2026-09-08T10:38:14+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

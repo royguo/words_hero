@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "id": "single-v1",
+  "word": "single",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "单个的；仅一个的",
+  "created_at": "2026-09-08",
+  "provenance": {
+    "text": "Original child-friendly KET teaching material; dictionary pronunciation and useful formation references checked 2026-09-08. Story imagery is a fictional memory scene, not an etymological claim.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image."
+  },
+  "teaching": {
+    "meaning_zh": "单个的；仅一个的",
+    "pos": "adj.",
+    "example": "There is a single sock on the floor.",
+    "example_zh": "地上只有一只袜子。",
+    "extra_examples": [
+      {
+        "en": "I can see a single star.",
+        "zh": "我能看见一颗星星。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "举起一根手指，再找找画面里有几只袜子。",
+    "cloze": "There is a __________ sock on the floor.",
+    "cloze_answer": "single",
+    "cloze_zh": "地上只有一只袜子。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "原创 KET 课堂例句；先读单词与例句，再学习构词或常用搭配。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "single",
+      "components": [],
+      "explanation_zh": "single 表示“只有一个”，不把 sing 当成它的词根。single bed 是单人床；single ticket 是单程票。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "single bed",
+          "meaning_zh": "单人床",
+          "relation": "phrase",
+          "connection_zh": "single 修饰 bed，表示供一个人睡的床。",
+          "example": {
+            "en": "This room has a single bed.",
+            "zh": "这个房间有一张单人床。"
+          }
+        },
+        {
+          "word": "single ticket",
+          "meaning_zh": "单程票",
+          "relation": "phrase",
+          "connection_zh": "single 修饰 ticket，表示只去一个方向的票。",
+          "example": {
+            "en": "I need a single ticket to York.",
+            "zh": "我需要一张去约克的单程票。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "用 single 组成一个常用搭配。",
+        "answer_zh": "single bed；single ticket。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · single",
+          "url": "https://dictionary.cambridge.org/dictionary/english/single"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "single-v1",
+      "file": "words/single/v1/26f6958a77de0dc00a9408fc630df1fa7d26bee2de9b1fae25926a2304b49dc2.png",
+      "sha256": "26f6958a77de0dc00a9408fc630df1fa7d26bee2de9b1fae25926a2304b49dc2",
+      "width": 1536,
+      "height": 1024,
+      "alt": "干净的浅色木地板上，只有一只带浅色条纹的黄色袜子。",
+      "caption": "There is a single sock on the floor.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: one classroom vocabulary photograph for Chinese primary-school KET learners; landscape 3:2, ideally 1536x1024.\nStyle: beautiful playful realistic editorial photography, bright natural daylight, rich plausible colours, real materials and textures, correct anatomy, uncluttered composition, clear main subject for a large projector.\nConstraints: no embedded text, letters, numbers, captions, logos, watermarks, decorative frames, cartoons or clipart. All people fictional, children fully clothed in ordinary appropriate clothes. Generous margins, no clipped main subject, safe friendly scenes.\nPrimary request: A single small yellow sock with pale horizontal stripes, alone on a clean pale wooden bedroom floor. Exactly ONE sock, no matching sock, other garments or human feet anywhere in frame. Soft natural sunlight, beautiful textile texture, calm uncluttered composition, the solitary sock is large and centred with generous empty surrounding floor, obvious 'only one' meaning.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-08",
+      "reference_asset_ids": []
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "e008aa01a6c72d11d8059175a183e17b3335e26f4d23a37f360ae10267349dfd",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Please open the curtain."
+  },
+  "file": "audio/v1/9b4f974fb8276185ffbba620d3c01ce339aab729f7b83bad9d35a86b8888ee3f.mp3",
+  "sha256": "9b4f974fb8276185ffbba620d3c01ce339aab729f7b83bad9d35a86b8888ee3f",
+  "bytes": 12672,
+  "created_at": "2026-09-08T10:35:43+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

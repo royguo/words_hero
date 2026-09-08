@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "e7c118953d18915aa375d12e3a4d03547162eaa747ec4efd39aa2aa8dffc5741",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "This is a good book."
+  },
+  "file": "audio/v1/f2aa64f58b423809f42d653479778c170633f2c7e7d316f4a3bb51abe207732d.mp3",
+  "sha256": "f2aa64f58b423809f42d653479778c170633f2c7e7d316f4a3bb51abe207732d",
+  "bytes": 11232,
+  "created_at": "2026-09-08T10:38:12+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

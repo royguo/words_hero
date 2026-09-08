@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "c6046b6166201fdd749825ed0115be7a0b6b1f8a5a6657bd8d9a044b44b0d503",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Bees make honey."
+  },
+  "file": "audio/v1/a55ce6ec158c26a4e48f9b6dd8eede65c8b7187882c9d7cd7c5623aabc51efd8.mp3",
+  "sha256": "a55ce6ec158c26a4e48f9b6dd8eede65c8b7187882c9d7cd7c5623aabc51efd8",
+  "bytes": 9648,
+  "created_at": "2026-09-08T10:36:28+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

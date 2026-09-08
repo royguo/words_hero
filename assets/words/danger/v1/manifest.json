@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "id": "danger-v1",
+  "word": "danger",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "危险",
+  "created_at": "2026-09-08",
+  "provenance": {
+    "text": "Original child-friendly KET teaching material; dictionary pronunciation and useful formation references checked 2026-09-08. Story imagery is a fictional memory scene, not an etymological claim.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image."
+  },
+  "teaching": {
+    "meaning_zh": "危险",
+    "pos": "n.",
+    "example": "There is danger on the road.",
+    "example_zh": "马路上有危险。",
+    "extra_examples": [
+      {
+        "en": "Keep the kitten away from danger.",
+        "zh": "让小猫远离危险。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "球滚到马路上时，先停下。用 danger 说说你看到的风险。",
+    "cloze": "There is __________ on the road.",
+    "cloze_answer": "danger",
+    "cloze_zh": "马路上有危险。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "原创 KET 课堂例句；先读单词与例句，再学习构词或常用搭配。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "danger",
+      "components": [],
+      "explanation_zh": "danger 是名词“危险”。加 -ous 得到 dangerous，表示“危险的”；这里的 -er 不是表示人的词尾。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "dangerous",
+          "meaning_zh": "危险的",
+          "relation": "derivation",
+          "connection_zh": "danger + -ous：由名词变成形容词。",
+          "example": {
+            "en": "That road is dangerous.",
+            "zh": "那条路很危险。"
+          }
+        },
+        {
+          "word": "in danger",
+          "meaning_zh": "处于危险中",
+          "relation": "phrase",
+          "connection_zh": "in + danger，说明人或动物所处的情况。",
+          "example": {
+            "en": "The little bird is in danger.",
+            "zh": "那只小鸟有危险。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "danger 加 -ous 后是什么词？",
+        "answer_zh": "dangerous，危险的。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · danger",
+          "url": "https://dictionary.cambridge.org/dictionary/english/danger"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "danger-v1",
+      "file": "words/danger/v1/02f28055563e719c6b92b9de415f8eab2959b91a4d5e329613334d727a61d818.png",
+      "sha256": "02f28055563e719c6b92b9de415f8eab2959b91a4d5e329613334d727a61d818",
+      "width": 1536,
+      "height": 1024,
+      "alt": "一只足球滚到马路上，远处有汽车驶来，画面中没有行人。",
+      "caption": "There is danger on the road.",
+      "prompt": "Use case: precise-object-edit. Input image is the edit target. Preserve this exact landscape 3:2 road-safety photograph, ball, road, car position, light and perspective. Remove the circular vehicle brand badge from the front grille; replace it with plain dark grille texture. Make the number plate entirely plain dark, no marks. No logos, letters, numbers or symbols anywhere. Do not change anything else.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-08",
+      "reference_asset_ids": [],
+      "generation_history": [
+        {
+          "prompt": "Use case: photorealistic-natural.\nAsset type: one classroom vocabulary photograph for Chinese primary-school KET learners; landscape 3:2, ideally 1536x1024.\nStyle: beautiful playful realistic editorial photography, bright natural daylight, rich plausible colours, real materials and textures, correct anatomy, uncluttered composition, clear main subject for a large projector.\nConstraints: no embedded text, letters, numbers, captions, logos, watermarks, decorative frames, cartoons or clipart. All people fictional, children fully clothed in ordinary appropriate clothes. Generous margins, no clipped main subject, safe friendly scenes.\nPrimary request: a simple road-safety vocabulary photograph, with NO PEOPLE in the image. A red football has rolled onto a quiet suburban road, and a car is farther down the road moving toward that area, still a long way from the ball. The toy ball on the road is the clear foreground focus; pavement and an empty garden gate are visible. The photograph illustrates why a roadway is not a safe place for toys. Normal calm daytime scene, no collision, no broken objects, no injury, no emergency or threatening mood. The car is seen from an angle with no readable plates or text.",
+          "sha256": "bf8c1c6901a4e46b4ddcc6d4fa0adfe650cfe59e3184ffafbd7ebc29ebc887a3",
+          "generator": "OpenAI built-in imagegen",
+          "created_at": "2026-09-08",
+          "disposition": "Unpublished draft used as edit reference; final selected image stored above."
+        }
+      ]
+    }
+  ]
+}

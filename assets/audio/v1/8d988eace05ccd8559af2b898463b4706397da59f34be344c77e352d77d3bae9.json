@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "8d988eace05ccd8559af2b898463b4706397da59f34be344c77e352d77d3bae9",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "A honeybee is on the flower."
+  },
+  "file": "audio/v1/21a0ed84864e29939a649ea3733c0a92993a2a9a74c42cabe21c4cbc4263b113.mp3",
+  "sha256": "21a0ed84864e29939a649ea3733c0a92993a2a9a74c42cabe21c4cbc4263b113",
+  "bytes": 14544,
+  "created_at": "2026-09-08T10:36:30+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

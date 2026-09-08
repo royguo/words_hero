@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "b7cac77600d2b03c9d365a53ea8381ea619fbf73a1b208137f8caf98f61b5c83",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The curtain rail is above the window."
+  },
+  "file": "audio/v1/ff2707d2216782854e1d39db99fe286fdc7b6b2aae9475f63ae87c5d4d4feb97.mp3",
+  "sha256": "ff2707d2216782854e1d39db99fe286fdc7b6b2aae9475f63ae87c5d4d4feb97",
+  "bytes": 17568,
+  "created_at": "2026-09-08T10:35:48+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

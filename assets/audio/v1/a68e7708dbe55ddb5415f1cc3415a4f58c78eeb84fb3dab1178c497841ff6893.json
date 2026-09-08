@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "a68e7708dbe55ddb5415f1cc3415a4f58c78eeb84fb3dab1178c497841ff6893",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Why is Mia unhappy?"
+  },
+  "file": "audio/v1/f6a26aff2eba1e111d643b55e43f3b5471861a9fde2ab5fff9a0285e082449a0.mp3",
+  "sha256": "f6a26aff2eba1e111d643b55e43f3b5471861a9fde2ab5fff9a0285e082449a0",
+  "bytes": 12816,
+  "created_at": "2026-09-08T10:38:25+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

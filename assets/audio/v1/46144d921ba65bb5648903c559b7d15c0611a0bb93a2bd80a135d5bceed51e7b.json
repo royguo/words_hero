@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "46144d921ba65bb5648903c559b7d15c0611a0bb93a2bd80a135d5bceed51e7b",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Dad will serve up lunch."
+  },
+  "file": "audio/v1/7c2e94db6bf46c704486c6b16b971574c8123693b075fcedbda25caaca09bcfa.mp3",
+  "sha256": "7c2e94db6bf46c704486c6b16b971574c8123693b075fcedbda25caaca09bcfa",
+  "bytes": 13536,
+  "created_at": "2026-09-08T10:36:20+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

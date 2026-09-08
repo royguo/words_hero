@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "id": "tooth-v1",
+  "word": "tooth",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "牙齿（单数）",
+  "created_at": "2026-09-08",
+  "provenance": {
+    "text": "Original child-friendly KET teaching material; dictionary pronunciation and useful formation references checked 2026-09-08. Story imagery is a fictional memory scene, not an etymological claim.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image."
+  },
+  "teaching": {
+    "meaning_zh": "牙齿（单数）",
+    "pos": "n.",
+    "example": "This tooth is very small.",
+    "example_zh": "这颗牙很小。",
+    "extra_examples": [
+      {
+        "en": "The baby has one tooth.",
+        "zh": "宝宝长了一颗牙。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "指一指自己的牙，说 one tooth，再说 teeth。",
+    "cloze": "This __________ is very small.",
+    "cloze_answer": "tooth",
+    "cloze_zh": "这颗牙很小。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "原创 KET 课堂例句；先读单词与例句，再学习构词或常用搭配。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "tooth",
+      "components": [],
+      "explanation_zh": "tooth 是一颗牙，复数是 teeth，不能直接加 -s。tooth 还能和 brush、paste 等词组合。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "teeth",
+          "meaning_zh": "牙齿（复数）",
+          "relation": "inflection",
+          "connection_zh": "tooth 的不规则复数：oo 变为 ee。",
+          "example": {
+            "en": "I brush my teeth every morning.",
+            "zh": "我每天早上刷牙。"
+          }
+        },
+        {
+          "word": "toothbrush",
+          "meaning_zh": "牙刷",
+          "relation": "compound",
+          "connection_zh": "tooth + brush：刷牙用的刷子。",
+          "example": {
+            "en": "My toothbrush is blue.",
+            "zh": "我的牙刷是蓝色的。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "一颗牙是 tooth，多颗牙怎么写？牙刷怎么写？",
+        "answer_zh": "teeth；toothbrush。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · tooth",
+          "url": "https://dictionary.cambridge.org/dictionary/english/tooth"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "tooth-v1",
+      "file": "words/tooth/v1/66bdf73985411bf09cca4c13de405af4c2e915db8941b8d813fab1d370ea7122.png",
+      "sha256": "66bdf73985411bf09cca4c13de405af4c2e915db8941b8d813fab1d370ea7122",
+      "width": 1536,
+      "height": 1024,
+      "alt": "穿蓝色上衣的孩子微笑着，用手指指向一颗洁白的门牙。",
+      "caption": "This tooth is very small.",
+      "prompt": "Use case: precise-object-edit.\nInput image: edit target and identity reference.\nKeep the same fictional child, blue top, smile, pointing gesture, teeth and realistic bathroom lighting. Remove ALL writing from the soap bottle and the wall: make the bottle plain white, and replace the wall poster with an entirely blank clean wall. No letters, text, symbols, labels or branding anywhere. Widen the canvas to a LANDSCAPE 3:2 composition, with more blank bathroom environment at both sides, preserving child and tooth gesture at natural size. Do not crop the head or hand. Real photographic textures. Final required aspect ratio 3:2.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-08",
+      "reference_asset_ids": [],
+      "generation_history": [
+        {
+          "prompt": "undefinedPrimary request: A cheerful fictional child about eight, fully dressed in an ordinary blue top, smiling naturally while pointing with one clean index finger to one healthy upper front tooth. Medium close portrait in a bright clean bathroom, tiny gap from a recently lost baby tooth is okay but no blood, injury or dental procedure. The finger is below the lip without obscuring the tooth. Focus on the single white tooth and understandable gesture, realistic relaxed face and hand.",
+          "sha256": "b306871b1fa9abea3781566031f2136aa4bc85c9465d80dc26314833f4ca09f5",
+          "generator": "OpenAI built-in imagegen",
+          "created_at": "2026-09-08",
+          "disposition": "Unpublished draft used as edit reference; final selected image stored above."
+        }
+      ]
+    }
+  ]
+}

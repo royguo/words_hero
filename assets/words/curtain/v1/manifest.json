@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "id": "curtain-v1",
+  "word": "curtain",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "窗帘",
+  "created_at": "2026-09-08",
+  "provenance": {
+    "text": "Original child-friendly KET teaching material; dictionary pronunciation and useful formation references checked 2026-09-08. Story imagery is a fictional memory scene, not an etymological claim.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image."
+  },
+  "teaching": {
+    "meaning_zh": "窗帘",
+    "pos": "n.",
+    "example": "The kitten is behind the curtain.",
+    "example_zh": "小猫在窗帘后面。",
+    "extra_examples": [
+      {
+        "en": "Please open the curtain.",
+        "zh": "请拉开窗帘。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "小猫藏在哪儿？一起说 behind the curtain。",
+    "cloze": "The kitten is behind the __________.",
+    "cloze_answer": "curtain",
+    "cloze_zh": "小猫在窗帘后面。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "原创 KET 课堂例句；先读单词与例句，再学习构词或常用搭配。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "curtain",
+      "components": [],
+      "explanation_zh": "curtain 整体记。窗帘常成对出现，所以也常见复数 curtains；再和 rail 组成“窗帘杆”。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "curtains",
+          "meaning_zh": "窗帘（复数）",
+          "relation": "inflection",
+          "connection_zh": "curtain + -s，表示不止一幅窗帘。",
+          "example": {
+            "en": "The curtains are blue.",
+            "zh": "窗帘是蓝色的。"
+          }
+        },
+        {
+          "word": "curtain rail",
+          "meaning_zh": "窗帘杆；窗帘轨道",
+          "relation": "compound",
+          "connection_zh": "curtain + rail：挂窗帘的杆或轨道。",
+          "example": {
+            "en": "The curtain rail is above the window.",
+            "zh": "窗帘杆在窗户上方。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "把 curtain 变成复数怎么写？",
+        "answer_zh": "curtains"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · curtain",
+          "url": "https://dictionary.cambridge.org/dictionary/english/curtain"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "curtain-v1",
+      "file": "words/curtain/v1/ef9ce1510857c20a3179a2e4eb3b26a22858732173d77993469a110d4e8bd90b.png",
+      "sha256": "ef9ce1510857c20a3179a2e4eb3b26a22858732173d77993469a110d4e8bd90b",
+      "width": 1536,
+      "height": 1024,
+      "alt": "阳光下的橙色窗帘，一只小橘猫从帘子后探出头。",
+      "caption": "The kitten is behind the curtain.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: one classroom vocabulary photograph for Chinese primary-school KET learners, landscape 3:2, ideally 1536x1024.\nStyle: beautiful playful realistic editorial photography, bright natural daylight, rich plausible colours, tactile fabric and real everyday materials, clean uncluttered composition, sharp main subject, suitable for large projector.\nPrimary request: teach the meaning of curtain. A large soft coral-orange fabric curtain hanging from a simple rod beside a sunlit window in a cheerful child's reading room. One panel is gently pulled aside, clearly showing the window and soft folds. A small ginger kitten peeks from behind the lower edge for gentle humour. The curtain occupies most of the frame and its upper hanging mechanism and lower hem are visible; the kitten is secondary.\nConstraints: no embedded text, letters, captions, numbers, logos, watermarks, decorative frames, cartoons or clipart. Plausible anatomy and scale, generous margins, no cropped main subject.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-08",
+      "reference_asset_ids": []
+    }
+  ]
+}

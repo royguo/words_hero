@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "c74242d22b425dfd43a26ed0b32da9b77ec8d7613926e086bebb99a2bdb58538",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "There is a duck in the bathtub."
+  },
+  "file": "audio/v1/f118a3f728f32735b4368b770581042eeb2eaeeefd5d93e10f6dc66df1201857.mp3",
+  "sha256": "f118a3f728f32735b4368b770581042eeb2eaeeefd5d93e10f6dc66df1201857",
+  "bytes": 14256,
+  "created_at": "2026-09-08T10:37:09+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "daa2b726759175594a429b3063c2d14520230de31f7371bf1a34149bcd46ec51",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Two kittens play together."
+  },
+  "file": "audio/v1/95d734ab6cb35b14db0309f0df6c2d12e3ec00c77704c0b85c9a2d28b42eba35.mp3",
+  "sha256": "95d734ab6cb35b14db0309f0df6c2d12e3ec00c77704c0b85c9a2d28b42eba35",
+  "bytes": 14256,
+  "created_at": "2026-09-08T10:37:54+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

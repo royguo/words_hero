@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "6c84c1c3cb6b6c27131da6c2d5b43129871d0c530e5991360338636d9a8a05ff",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "My keys are in the backpack pocket."
+  },
+  "file": "audio/v1/b2e5a3164a5e401322364c65d2291ace4a47eb23fc8a11731f54fd00be2ec938.mp3",
+  "sha256": "b2e5a3164a5e401322364c65d2291ace4a47eb23fc8a11731f54fd00be2ec938",
+  "bytes": 17424,
+  "created_at": "2026-09-08T10:38:05+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

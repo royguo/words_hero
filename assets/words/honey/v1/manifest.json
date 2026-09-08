@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "id": "honey-v1",
+  "word": "honey",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "蜂蜜",
+  "created_at": "2026-09-08",
+  "provenance": {
+    "text": "Original child-friendly KET teaching material; dictionary pronunciation and useful formation references checked 2026-09-08. Story imagery is a fictional memory scene, not an etymological claim.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image."
+  },
+  "teaching": {
+    "meaning_zh": "蜂蜜",
+    "pos": "n.",
+    "example": "I put honey on my bread.",
+    "example_zh": "我在面包上抹蜂蜜。",
+    "extra_examples": [
+      {
+        "en": "Bees make honey.",
+        "zh": "蜜蜂酿蜂蜜。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "说说蜜蜂带来的食物：Bees make honey。",
+    "cloze": "I put __________ on my bread.",
+    "cloze_answer": "honey",
+    "cloze_zh": "我在面包上抹蜂蜜。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "原创 KET 课堂例句；先读单词与例句，再学习构词或常用搭配。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "honey",
+      "components": [],
+      "explanation_zh": "honey 整体记，不把 -ey 当词缀。它能和 bee 组成 honeybee，也能和 comb 组成 honeycomb。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "honeybee",
+          "meaning_zh": "蜜蜂",
+          "relation": "compound",
+          "connection_zh": "honey + bee：酿蜂蜜的蜂。",
+          "example": {
+            "en": "A honeybee is on the flower.",
+            "zh": "一只蜜蜂停在花上。"
+          }
+        },
+        {
+          "word": "honeycomb",
+          "meaning_zh": "蜂巢；蜂窝",
+          "relation": "compound",
+          "connection_zh": "honey + comb；这里 comb 指蜂巢的格子结构。",
+          "example": {
+            "en": "The bees make a honeycomb.",
+            "zh": "蜜蜂筑了一个蜂巢。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "honey 和 bee 可以组成哪个词？",
+        "answer_zh": "honeybee，蜜蜂。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · honey",
+          "url": "https://dictionary.cambridge.org/dictionary/english/honey"
+        },
+        {
+          "title": "Merriam-Webster · honeycomb",
+          "url": "https://www.merriam-webster.com/dictionary/honeycomb"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "honey-v1",
+      "file": "words/honey/v1/78ef7abb65bc36dde950b050bf7ac5689694c7f453c7bd5a38ec2f4adc80b1b2.png",
+      "sha256": "78ef7abb65bc36dde950b050bf7ac5689694c7f453c7bd5a38ec2f4adc80b1b2",
+      "width": 1536,
+      "height": 1024,
+      "alt": "一缕金色蜂蜜从木勺流回透明玻璃罐，旁边放着面包。",
+      "caption": "I put honey on my bread.",
+      "prompt": "Use case: lighting-weather / composition edit.\nInput image: edit target. Preserve the same golden honey jar, bread, wooden dipper, realistic textures and beautiful warm natural daylight. Extend the photograph horizontally to a LANDSCAPE 3:2 composition suitable for a classroom slide, adding clean tabletop and softly blurred breakfast background on the two sides. Keep the full honey jar visible with margin; no new subjects, text, logos or labels. Final output must be wider than tall, ideally 1536x1024.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-08",
+      "reference_asset_ids": [],
+      "generation_history": [
+        {
+          "prompt": "undefinedPrimary request: A beautiful close-up of a clear unlabelled glass jar of golden honey on a light wooden breakfast table. A wooden honey dipper held just above the open jar makes one glossy thread of honey flow back into it; a slice of bread with a little honey rests nearby. Sunlight glows through the amber honey. Real food photography with convincing viscous texture. No bees, no people, no labels.",
+          "sha256": "4d8d4d18f0d0f1c518aca5bc70d173b5bc04e8d87bb3e56cd9987c4e4a9e5d8f",
+          "generator": "OpenAI built-in imagegen",
+          "created_at": "2026-09-08",
+          "disposition": "Unpublished draft used as edit reference; final selected image stored above."
+        }
+      ]
+    }
+  ]
+}

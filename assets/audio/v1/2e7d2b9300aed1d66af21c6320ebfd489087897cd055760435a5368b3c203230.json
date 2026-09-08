@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "2e7d2b9300aed1d66af21c6320ebfd489087897cd055760435a5368b3c203230",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "We can hear a helicopter in the sky."
+  },
+  "file": "audio/v1/0c7d8f8dee56d9ac3106bf31e2a6b5ca464d68b258819467eead0b815f958e7b.mp3",
+  "sha256": "0c7d8f8dee56d9ac3106bf31e2a6b5ca464d68b258819467eead0b815f958e7b",
+  "bytes": 18000,
+  "created_at": "2026-09-08T10:37:35+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

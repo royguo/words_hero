@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "09f558e261e7cb5c271fccf3b28c50c0b602af17b085db3243040a298e28aee5",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Football practice starts at four."
+  },
+  "file": "audio/v1/529bf215c83fd5092f661c633160ccb62ac3c049027199c3daf8a1575244979f.mp3",
+  "sha256": "529bf215c83fd5092f661c633160ccb62ac3c049027199c3daf8a1575244979f",
+  "bytes": 16848,
+  "created_at": "2026-09-08T10:35:57+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

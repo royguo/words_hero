@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "14adc77699dfdf4ff261ea76698e44e0dd0bc59f4fec5f3e300b31976e2244a2",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "My bath is warm and full of bubbles."
+  },
+  "file": "audio/v1/25145189c7c27a790ea46e8dee98b48e810e654eb682d6a20521ede60f3a2d0b.mp3",
+  "sha256": "25145189c7c27a790ea46e8dee98b48e810e654eb682d6a20521ede60f3a2d0b",
+  "bytes": 18288,
+  "created_at": "2026-09-08T10:37:03+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

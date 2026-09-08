@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "5725bf4872635088963a30163f420ef991a8de191c772aaefcdbfacc855a54e6",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "My dad can drive a bus."
+  },
+  "file": "audio/v1/5ee78136ce2ede6abb83c7832acab91c5598ea52842fe027cef301b7bcbe2498.mp3",
+  "sha256": "5ee78136ce2ede6abb83c7832acab91c5598ea52842fe027cef301b7bcbe2498",
+  "bytes": 14544,
+  "created_at": "2026-09-08T10:36:03+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

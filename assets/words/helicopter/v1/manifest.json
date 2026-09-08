@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "id": "helicopter-v1",
+  "word": "helicopter",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "直升机",
+  "created_at": "2026-09-08",
+  "provenance": {
+    "text": "Original child-friendly KET teaching material; dictionary pronunciation and useful formation references checked 2026-09-08. Story imagery is a fictional memory scene, not an etymological claim.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image."
+  },
+  "teaching": {
+    "meaning_zh": "直升机",
+    "pos": "n.",
+    "example": "A helicopter flies over the hill.",
+    "example_zh": "一架直升机飞过小山。",
+    "extra_examples": [
+      {
+        "en": "We can hear a helicopter in the sky.",
+        "zh": "我们能听到空中的直升机声。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "手臂轻轻画圈，模拟旋翼，再读 helicopter。",
+    "cloze": "A __________ flies over the hill.",
+    "cloze_answer": "helicopter",
+    "cloze_zh": "一架直升机飞过小山。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "原创 KET 课堂例句；先读单词与例句，再学习构词或常用搭配。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "helicopter",
+      "components": [],
+      "explanation_zh": "helicopter 先整体记，想象头顶的大旋翼。常见搭配 helicopter pilot 是“直升机飞行员”；copter 是它的简称。",
+      "origin_zh": "这个名字的来历和“螺旋、翅膀”有关，正好让人想到头顶旋转的大桨叶。",
+      "family": [
+        {
+          "word": "helicopter pilot",
+          "meaning_zh": "直升机飞行员",
+          "relation": "phrase",
+          "connection_zh": "helicopter 说明 pilot 驾驶什么。",
+          "example": {
+            "en": "The helicopter pilot waves at us.",
+            "zh": "直升机飞行员朝我们挥手。"
+          }
+        },
+        {
+          "word": "copter",
+          "meaning_zh": "直升机（简称）",
+          "relation": "word_family",
+          "connection_zh": "把 helicopter 缩短，可说 copter。",
+          "example": {
+            "en": "The copter is on the ground.",
+            "zh": "直升机停在地面上。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "用 helicopter 组成“直升机飞行员”。",
+        "answer_zh": "helicopter pilot。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · helicopter",
+          "url": "https://dictionary.cambridge.org/dictionary/english/helicopter"
+        },
+        {
+          "title": "Merriam-Webster · helicopter",
+          "url": "https://www.merriam-webster.com/dictionary/helicopter"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "helicopter-v1",
+      "file": "words/helicopter/v1/a67b6e7a0e55c3d5fdf378cc080f50107b3ddd521f0e4f3e74ea420be65026b8.png",
+      "sha256": "a67b6e7a0e55c3d5fdf378cc080f50107b3ddd521f0e4f3e74ea420be65026b8",
+      "width": 1536,
+      "height": 1024,
+      "alt": "一架红白色直升机飞在青山上方，主旋翼和尾部完整可见。",
+      "caption": "A helicopter flies over the hill.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: one classroom vocabulary photograph for Chinese primary-school KET learners; landscape 3:2, ideally 1536x1024.\nStyle: beautiful playful realistic editorial photography, bright natural daylight, rich plausible colours, real materials and textures, correct anatomy, uncluttered composition, clear main subject for a large projector.\nConstraints: no embedded text, letters, numbers, captions, logos, watermarks, decorative frames, cartoons or clipart. All people fictional, children fully clothed in ordinary appropriate clothes. Generous margins, no clipped main subject, safe friendly scenes.\nPrimary request: One red-and-white civilian helicopter flying above a green hill against a bright blue sky. Entire aircraft including rotor blades and tail visible with generous space on all sides; realistic single-main-rotor and tail-rotor configuration, subtle rotational motion blur on blades, sharp cabin. No passengers visible, no military equipment, no logos, writing, registration marks or rescue emergency. Beautiful clear daylight photograph showing what a helicopter looks like.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-08",
+      "reference_asset_ids": []
+    }
+  ]
+}

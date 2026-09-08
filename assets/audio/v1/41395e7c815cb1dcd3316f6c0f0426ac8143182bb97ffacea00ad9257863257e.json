@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "41395e7c815cb1dcd3316f6c0f0426ac8143182bb97ffacea00ad9257863257e",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The kitten is making the sound."
+  },
+  "file": "audio/v1/c4d62918d087e97abb5877f6e1b10a269a9b7609ab49d5e1e8b092dd133f08fb.mp3",
+  "sha256": "c4d62918d087e97abb5877f6e1b10a269a9b7609ab49d5e1e8b092dd133f08fb",
+  "bytes": 15408,
+  "created_at": "2026-09-08T10:38:21+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

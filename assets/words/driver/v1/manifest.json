@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "id": "driver-v1",
+  "word": "driver",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "司机；驾驶员",
+  "created_at": "2026-09-08",
+  "provenance": {
+    "text": "Original child-friendly KET teaching material; dictionary pronunciation and useful formation references checked 2026-09-08. Story imagery is a fictional memory scene, not an etymological claim.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image."
+  },
+  "teaching": {
+    "meaning_zh": "司机；驾驶员",
+    "pos": "n.",
+    "example": "The bus driver smiles at us.",
+    "example_zh": "公交车司机朝我们微笑。",
+    "extra_examples": [
+      {
+        "en": "My uncle is a taxi driver.",
+        "zh": "我叔叔是一名出租车司机。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "做出开车的动作，接着说 drive，再说 driver。",
+    "cloze": "The bus __________ smiles at us.",
+    "cloze_answer": "driver",
+    "cloze_zh": "公交车司机朝我们微笑。",
+    "cloze_type": "context",
+    "parts": [
+      {
+        "text": "drive",
+        "kind": "root",
+        "meaning": "驾驶"
+      },
+      {
+        "text": "-er",
+        "kind": "suffix",
+        "meaning": "做这件事的人"
+      }
+    ],
+    "note": "原创 KET 课堂例句；先读单词与例句，再学习构词或常用搭配。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "derived",
+      "construction": "drive + -er → driver",
+      "components": [
+        {
+          "text": "drive",
+          "kind": "base",
+          "meaning_zh": "驾驶"
+        },
+        {
+          "text": "-er",
+          "kind": "suffix",
+          "meaning_zh": "做这件事的人"
+        }
+      ],
+      "explanation_zh": "drive 表示“驾驶”，加 -er 表示做这件事的人。拼写时先去掉 drive 末尾的 e，再加 -er，得到 driver。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "drive",
+          "meaning_zh": "驾驶",
+          "relation": "word_family",
+          "connection_zh": "drive 是 driver 的词基，表示动作。",
+          "example": {
+            "en": "My dad can drive a bus.",
+            "zh": "我爸爸会开公交车。"
+          }
+        },
+        {
+          "word": "teacher",
+          "meaning_zh": "老师",
+          "relation": "shared_affix",
+          "connection_zh": "teach + -er：教书的人，也用 -er 表示人。",
+          "example": {
+            "en": "Our teacher reads with us.",
+            "zh": "我们的老师和我们一起读书。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "像 driver 一样，用 -er 表示人的词还有哪个？",
+        "answer_zh": "teacher（teach + -er）；也可举 farmer 等。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · driver",
+          "url": "https://dictionary.cambridge.org/dictionary/english/driver"
+        },
+        {
+          "title": "Cambridge Grammar · suffixes",
+          "url": "https://dictionary.cambridge.org/us/grammar/british-grammar/suffixes"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "driver-v1",
+      "file": "words/driver/v1/c6d7953db50213180db4e98faedfbbeedb105dad40800fefed4449432822ccbc.png",
+      "sha256": "c6d7953db50213180db4e98faedfbbeedb105dad40800fefed4449432822ccbc",
+      "width": 1536,
+      "height": 1024,
+      "alt": "停靠的巴士里，司机转头看着女孩和从背包中探出头的小猫。",
+      "caption": "The bus driver smiles at us.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: one classroom vocabulary photograph for Chinese primary-school KET learners; landscape 3:2, ideally 1536x1024.\nStyle: beautiful playful realistic editorial photography, bright natural daylight, rich plausible colours, real materials and textures, correct anatomy, uncluttered composition, clear main subject for a large projector.\nConstraints: no embedded text, letters, numbers, captions, logos, watermarks, decorative frames, cartoons or clipart. All people fictional, children fully clothed in ordinary appropriate clothes. Generous margins, no clipped main subject, safe friendly scenes.\n\nInput images: image 1 is a reference for Mia's identity, clothes, teal backpack, yellow sock and ginger kitten; image 2 is a reference for Dad, the tent and campsite look. Generate a NEW scene, preserving character and prop appearance.\nPrimary request: Story scene 2, also teaching driver. Inside a safely PARKED small bus in daylight, show the friendly adult male driver at the steering wheel in a plain navy uniform, engine off. He turns with an amused expression toward Mia in the first passenger row. Mia sits beside her open teal backpack on the passenger seat; the small ginger kitten with white paws and chin pokes its head out of that bag. Mia looks pleasantly surprised. The driver and steering wheel are prominent and unmistakable; Mia and the bag are also clear. Parked rural setting through windscreen, no road motion, no distracted driving, no signs or instrument text.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-08",
+      "reference_asset_ids": [
+        "backpack-v1",
+        "serve-v1"
+      ]
+    }
+  ]
+}

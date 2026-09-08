@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "d428d05458ab43c5018c007d6c98d0ec452a8b5fe843b7fd16d76975ff1efaf6",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Copy the word into your book."
+  },
+  "file": "audio/v1/e6af87f5856871fb13298b6ae468ba2ed21807f4b053aeb83b2be11139efe633.mp3",
+  "sha256": "e6af87f5856871fb13298b6ae468ba2ed21807f4b053aeb83b2be11139efe633",
+  "bytes": 15264,
+  "created_at": "2026-09-08T10:36:08+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

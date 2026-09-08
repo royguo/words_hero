@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "id": "backpack-v1",
+  "word": "backpack",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "双肩背包",
+  "created_at": "2026-09-08",
+  "provenance": {
+    "text": "Original child-friendly KET teaching material; dictionary pronunciation and useful formation references checked 2026-09-08. Story imagery is a fictional memory scene, not an etymological claim.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image."
+  },
+  "teaching": {
+    "meaning_zh": "双肩背包",
+    "pos": "n.",
+    "example": "I put my lunch in my backpack.",
+    "example_zh": "我把午饭放进双肩背包里。",
+    "extra_examples": [
+      {
+        "en": "My backpack is blue.",
+        "zh": "我的双肩背包是蓝色的。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "假装背上包，指出 back 和 pack 各表示什么。",
+    "cloze": "I put my lunch in my __________.",
+    "cloze_answer": "backpack",
+    "cloze_zh": "我把午饭放进双肩背包里。",
+    "cloze_type": "context",
+    "parts": [
+      {
+        "text": "back",
+        "kind": "compound",
+        "meaning": "背部"
+      },
+      {
+        "text": "pack",
+        "kind": "compound",
+        "meaning": "包；包裹"
+      }
+    ],
+    "note": "原创 KET 课堂例句；先读单词与例句，再学习构词或常用搭配。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "compound",
+      "construction": "back + pack → backpack",
+      "components": [
+        {
+          "text": "back",
+          "kind": "word",
+          "meaning_zh": "背部"
+        },
+        {
+          "text": "pack",
+          "kind": "word",
+          "meaning_zh": "包；包裹"
+        }
+      ],
+      "explanation_zh": "back 是“背部”，pack 是“包、包裹”。back + pack，就是背在背上的包；两个词合起来，中间没有空格。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "backpacker",
+          "meaning_zh": "背包旅行者",
+          "relation": "derivation",
+          "connection_zh": "backpack + -er：背着包旅行的人。",
+          "example": {
+            "en": "The backpacker walks up the hill.",
+            "zh": "背包旅行者走上小山。"
+          }
+        },
+        {
+          "word": "backpack pocket",
+          "meaning_zh": "背包口袋",
+          "relation": "phrase",
+          "connection_zh": "pocket 说明背包里或外面的小口袋。",
+          "example": {
+            "en": "My keys are in the backpack pocket.",
+            "zh": "我的钥匙在背包口袋里。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "back 和 pack 合起来怎么拼？",
+        "answer_zh": "backpack。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · backpack",
+          "url": "https://dictionary.cambridge.org/dictionary/english/backpack"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "backpack-v1",
+      "file": "words/backpack/v1/b5d1495d6b2297c0c7d9de20f65920b16a91c2e681a1c6209d5b353ea88188d5.png",
+      "sha256": "b5d1495d6b2297c0c7d9de20f65920b16a91c2e681a1c6209d5b353ea88188d5",
+      "width": 1536,
+      "height": 1024,
+      "alt": "米娅在家里把午饭装进蓝绿色双肩背包，小猫从窗帘后偷看。",
+      "caption": "I put my lunch in my backpack.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: one classroom vocabulary photograph for Chinese primary-school KET learners; landscape 3:2, ideally 1536x1024.\nStyle: beautiful playful realistic editorial photography, bright natural daylight, rich plausible colours, real materials and textures, correct anatomy, uncluttered composition, clear main subject for a large projector.\nConstraints: no embedded text, letters, numbers, captions, logos, watermarks, decorative frames, cartoons or clipart. All people fictional, children fully clothed in ordinary appropriate clothes. Generous margins, no clipped main subject, safe friendly scenes.\nPrimary request: Opening picture for a child's story, also teaching backpack. In a bright living room with coral-orange curtains, fictional Mia (East Asian girl about nine, black ponytail, coral-red light jacket, pale-blue jeans, white trainers) packs a teal-blue fabric backpack on a low bench. The whole backpack is prominent and unmistakable, with two shoulder straps visibly resting beside it, zipper open; a small bread container and a closed unlabelled glass jar of golden honey lie beside it. One yellow sock on the floor. A small ginger kitten with white paws, white chin and amber eyes peeks from behind the curtain in the background. Mia looks at the open bag and is unaware of the kitten. Clear warm natural scene, establish repeatable character and prop appearance.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-08",
+      "reference_asset_ids": []
+    }
+  ]
+}

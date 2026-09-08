@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "6d36c1186f586c57ac2467004d4e4a4ca5c3cfca2ed9852138c574a26474c3c8",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The geographer studies this river."
+  },
+  "file": "audio/v1/dec952d0206ba659dd317d192de6b0349a363aab2140ac2fc68e7417e6fc3442.mp3",
+  "sha256": "dec952d0206ba659dd317d192de6b0349a363aab2140ac2fc68e7417e6fc3442",
+  "bytes": 17280,
+  "created_at": "2026-09-08T10:36:54+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "id": "jellyfish-v1",
+  "word": "jellyfish",
+  "levels": [
+    "KET"
+  ],
+  "sense_zh": "水母",
+  "created_at": "2026-09-08",
+  "provenance": {
+    "text": "Original child-friendly KET teaching material; dictionary pronunciation and useful formation references checked 2026-09-08. Story imagery is a fictional memory scene, not an etymological claim.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image."
+  },
+  "teaching": {
+    "meaning_zh": "水母",
+    "pos": "n.",
+    "example": "A jellyfish moves slowly in the sea.",
+    "example_zh": "一只水母在海里慢慢移动。",
+    "extra_examples": [
+      {
+        "en": "We can see a jellyfish in the water.",
+        "zh": "我们能看到水里有一只水母。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "用手画出水母软软的身体，读 jelly，再读 jellyfish。",
+    "cloze": "A __________ moves slowly in the sea.",
+    "cloze_answer": "jellyfish",
+    "cloze_zh": "一只水母在海里慢慢移动。",
+    "cloze_type": "context",
+    "parts": [
+      {
+        "text": "jelly",
+        "kind": "compound",
+        "meaning": "果冻；胶状物"
+      },
+      {
+        "text": "fish",
+        "kind": "compound",
+        "meaning": "鱼"
+      }
+    ],
+    "note": "原创 KET 课堂例句；先读单词与例句，再学习构词或常用搭配。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "compound",
+      "construction": "jelly + fish → jellyfish",
+      "components": [
+        {
+          "text": "jelly",
+          "kind": "word",
+          "meaning_zh": "果冻；胶状物"
+        },
+        {
+          "text": "fish",
+          "kind": "word",
+          "meaning_zh": "鱼"
+        }
+      ],
+      "explanation_zh": "jelly 是“果冻、胶状物”，fish 是“鱼”。jellyfish 的身体像果冻；名字里有 fish，但水母并不是真正的鱼。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "jelly",
+          "meaning_zh": "果冻；胶状物",
+          "relation": "word_family",
+          "connection_zh": "jelly 描述那种软软、颤动的样子。",
+          "example": {
+            "en": "The jelly moves on my plate.",
+            "zh": "盘子里的果冻晃了起来。"
+          }
+        },
+        {
+          "word": "starfish",
+          "meaning_zh": "海星",
+          "relation": "compound",
+          "connection_zh": "star + fish：形状像星星的海洋动物，也不是真正的鱼。",
+          "example": {
+            "en": "A starfish is on the rock.",
+            "zh": "一只海星在岩石上。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "像 jellyfish 一样，名字以 fish 结尾的海洋动物还有哪个？",
+        "answer_zh": "starfish，海星。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · jellyfish",
+          "url": "https://dictionary.cambridge.org/dictionary/english/jellyfish"
+        },
+        {
+          "title": "NOAA · Ocean dwellers",
+          "url": "https://cdn.oceanservice.noaa.gov/oceanserviceprod/education/ocean-odyssey/ocean-odyssey-lesson01-ocean-dwellers.pdf"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "jellyfish-v1",
+      "file": "words/jellyfish/v1/5981c2b61fac80c4d2d577ec8f7e0dd0b77dff3220cba39b738de7d58de3a2b8.png",
+      "sha256": "5981c2b61fac80c4d2d577ec8f7e0dd0b77dff3220cba39b738de7d58de3a2b8",
+      "width": 1536,
+      "height": 1024,
+      "alt": "清澈蓝色海水中的半透明水母，圆伞和柔软触手清楚可见。",
+      "caption": "A jellyfish moves slowly in the sea.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: one classroom vocabulary photograph for Chinese primary-school KET learners; landscape 3:2, ideally 1536x1024.\nStyle: beautiful playful realistic editorial photography, bright natural daylight, rich plausible colours, real materials and textures, correct anatomy, uncluttered composition, clear main subject for a large projector.\nConstraints: no embedded text, letters, numbers, captions, logos, watermarks, decorative frames, cartoons or clipart. All people fictional, children fully clothed in ordinary appropriate clothes. Generous margins, no clipped main subject, safe friendly scenes.\nPrimary request: One real translucent moon jellyfish floating in clear deep-blue seawater, fully visible dome and delicate natural tentacles, graceful rounded body lit by sunlight filtering from above. Beautiful educational underwater macro photography, realistic anatomy and gentle blue colour, not a glowing fantasy creature, no other animals, no people, no stings or injury, ample space around the full jellyfish.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-08",
+      "reference_asset_ids": []
+    }
+  ]
+}

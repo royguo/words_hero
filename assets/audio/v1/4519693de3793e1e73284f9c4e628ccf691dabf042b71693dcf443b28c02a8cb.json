@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "4519693de3793e1e73284f9c4e628ccf691dabf042b71693dcf443b28c02a8cb",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "single ticket"
+  },
+  "file": "audio/v1/102645e2b5319f3224ef5390b3ef367baef2a408b5f62505921dd14d6b417239.mp3",
+  "sha256": "102645e2b5319f3224ef5390b3ef367baef2a408b5f62505921dd14d6b417239",
+  "bytes": 10800,
+  "created_at": "2026-09-08T10:37:23+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "ae51fa4dee9176a3fc0a831a0a5875bbe4d9430bd9b4ecb0da71f09617b24f97",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Who is making the sound?"
+  },
+  "file": "audio/v1/c8a835abc007993c90a11a3eecac58f3343ff0272e314c1af66f945cd55ca65a.mp3",
+  "sha256": "c8a835abc007993c90a11a3eecac58f3343ff0272e314c1af66f945cd55ca65a",
+  "bytes": 13104,
+  "created_at": "2026-09-08T10:38:19+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

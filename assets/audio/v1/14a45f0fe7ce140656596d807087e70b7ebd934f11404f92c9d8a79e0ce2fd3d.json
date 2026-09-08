@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "14a45f0fe7ce140656596d807087e70b7ebd934f11404f92c9d8a79e0ce2fd3d",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The kitten has a serious face."
+  },
+  "file": "audio/v1/47777664e7c69d19bd1a10838286dce6af27334fbeb71370f0faabd2a3142c57.mp3",
+  "sha256": "47777664e7c69d19bd1a10838286dce6af27334fbeb71370f0faabd2a3142c57",
+  "bytes": 16128,
+  "created_at": "2026-09-08T10:37:26+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

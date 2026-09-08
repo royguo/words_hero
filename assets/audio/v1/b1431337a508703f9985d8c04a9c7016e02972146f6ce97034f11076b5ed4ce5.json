@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "b1431337a508703f9985d8c04a9c7016e02972146f6ce97034f11076b5ed4ce5",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "I put my lunch in my backpack."
+  },
+  "file": "audio/v1/6b03ee4030565e016aba62afc0535d8d0ccaf25fb4be96a999bca28868f9b46d.mp3",
+  "sha256": "6b03ee4030565e016aba62afc0535d8d0ccaf25fb4be96a999bca28868f9b46d",
+  "bytes": 16128,
+  "created_at": "2026-09-08T10:37:59+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

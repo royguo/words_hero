@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "e5d904f71db98eb4ab19bea4fafe7b5986ede4ec1d69c2f6174c2b622144b061",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "We can see a jellyfish in the water."
+  },
+  "file": "audio/v1/a2d96507c04b596996678d1c7ab7acb4ca8528e52713e6a36414cd9fcd029e0c.mp3",
+  "sha256": "a2d96507c04b596996678d1c7ab7acb4ca8528e52713e6a36414cd9fcd029e0c",
+  "bytes": 17568,
+  "created_at": "2026-09-08T10:37:44+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

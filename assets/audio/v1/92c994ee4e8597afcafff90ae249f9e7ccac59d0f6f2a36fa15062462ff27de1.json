@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "92c994ee4e8597afcafff90ae249f9e7ccac59d0f6f2a36fa15062462ff27de1",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The kitten looks unhappy in the rain."
+  },
+  "file": "audio/v1/9224cf3f47b65a07c31858cbf94935d9c43b99f63e08ebb67be91b1227346284.mp3",
+  "sha256": "9224cf3f47b65a07c31858cbf94935d9c43b99f63e08ebb67be91b1227346284",
+  "bytes": 17712,
+  "created_at": "2026-09-08T10:36:57+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

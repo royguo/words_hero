@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "40e6af6520651558b8a183c86d1f26ba36784b6cf689b6a226c4638a5fdccf6b",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "That road is dangerous."
+  },
+  "file": "audio/v1/04093a61247b6fb0468902755c515ff776105e45fc25d5d82418d87d1c1fbbcc.mp3",
+  "sha256": "04093a61247b6fb0468902755c515ff776105e45fc25d5d82418d87d1c1fbbcc",
+  "bytes": 13968,
+  "created_at": "2026-09-08T10:36:38+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

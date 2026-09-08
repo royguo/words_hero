@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "299efd3604ce50ee6d0e7ef1c40fa7ec9941c30ad81764089be391422ee81c4b",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "A starfish is on the rock."
+  },
+  "file": "audio/v1/0251c0b7c0639dee1d346b67e9833e6d6f38253f914ac4d93b95d2409894c7f6.mp3",
+  "sha256": "0251c0b7c0639dee1d346b67e9833e6d6f38253f914ac4d93b95d2409894c7f6",
+  "bytes": 14400,
+  "created_at": "2026-09-08T10:37:48+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

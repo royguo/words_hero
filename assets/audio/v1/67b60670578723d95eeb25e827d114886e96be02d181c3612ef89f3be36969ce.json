@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "67b60670578723d95eeb25e827d114886e96be02d181c3612ef89f3be36969ce",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The copier is next to the desk."
+  },
+  "file": "audio/v1/59e666bd286d09ddf69d16788842fb5f0e9e28c7b81b65c75af7f56e64cb36e2.mp3",
+  "sha256": "59e666bd286d09ddf69d16788842fb5f0e9e28c7b81b65c75af7f56e64cb36e2",
+  "bytes": 16992,
+  "created_at": "2026-09-08T10:36:10+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

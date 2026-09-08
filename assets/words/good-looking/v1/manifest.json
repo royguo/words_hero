@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "id": "good-looking-v1",
+  "word": "good-looking",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "好看的；外表漂亮的",
+  "created_at": "2026-09-08",
+  "provenance": {
+    "text": "Original child-friendly KET teaching material; dictionary pronunciation and useful formation references checked 2026-09-08. Story imagery is a fictional memory scene, not an etymological claim.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image."
+  },
+  "teaching": {
+    "meaning_zh": "好看的；外表漂亮的",
+    "pos": "adj.",
+    "example": "That is a good-looking bike.",
+    "example_zh": "那是一辆好看的自行车。",
+    "extra_examples": [
+      {
+        "en": "He has a good-looking red car.",
+        "zh": "他有一辆好看的红色汽车。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "选一件你喜欢的物品，说 It is good-looking。",
+    "cloze": "That is a __________ bike.",
+    "cloze_answer": "good-looking",
+    "cloze_zh": "那是一辆好看的自行车。",
+    "cloze_type": "context",
+    "parts": [
+      {
+        "text": "good",
+        "kind": "compound",
+        "meaning": "好的"
+      },
+      {
+        "text": "looking",
+        "kind": "compound",
+        "meaning": "看起来的样子"
+      }
+    ],
+    "note": "原创 KET 课堂例句；先读单词与例句，再学习构词或常用搭配。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "compound",
+      "construction": "good + looking → good-looking",
+      "components": [
+        {
+          "text": "good",
+          "kind": "word",
+          "meaning_zh": "好的"
+        },
+        {
+          "text": "looking",
+          "kind": "word",
+          "meaning_zh": "看起来的样子"
+        }
+      ],
+      "explanation_zh": "good 是“好的”，looking 在这里说的是“看起来的样子”。good-looking 表示外表好看，中间用连字符连接。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "look",
+          "meaning_zh": "看；看起来",
+          "relation": "word_family",
+          "connection_zh": "looking 来自 look；look nice 也能说“看起来好看”。",
+          "example": {
+            "en": "This bike looks nice.",
+            "zh": "这辆自行车看起来很好看。"
+          }
+        },
+        {
+          "word": "good",
+          "meaning_zh": "好的",
+          "relation": "word_family",
+          "connection_zh": "good 是 good-looking 的一个组成词。",
+          "example": {
+            "en": "This is a good book.",
+            "zh": "这是一本好书。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "把 good 和 looking 连接起来，写出“好看的”。",
+        "answer_zh": "good-looking，记住中间的连字符。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · good-looking",
+          "url": "https://dictionary.cambridge.org/dictionary/english/good-looking"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "good-looking-v1",
+      "file": "words/good-looking/v1/90a6db0cdd9756aadd2a1322dccf2d84c8035d4515a939103f29eed2afdcbfeb.png",
+      "sha256": "90a6db0cdd9756aadd2a1322dccf2d84c8035d4515a939103f29eed2afdcbfeb",
+      "width": 1536,
+      "height": 1024,
+      "alt": "一辆漂亮的珊瑚红自行车靠在花园矮墙旁，车篮中放着几朵小花。",
+      "caption": "That is a good-looking bike.",
+      "prompt": "Use case: precise-object-edit. Input image is the edit target. Preserve this exact landscape 3:2 photograph of the coral bicycle, flowers, garden wall, wheels, basket, lighting and composition. Remove all tiny labels, brand plaques, logos and lettering from the bicycle frame, head tube, seat and rims, replacing them with matching plain paint or leather. No text or symbols anywhere. Do not change anything else.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-08",
+      "reference_asset_ids": [],
+      "generation_history": [
+        {
+          "prompt": "Use case: photorealistic-natural.\nAsset type: one classroom vocabulary photograph for Chinese primary-school KET learners; landscape 3:2, ideally 1536x1024.\nStyle: beautiful playful realistic editorial photography, bright natural daylight, rich plausible colours, real materials and textures, correct anatomy, uncluttered composition, clear main subject for a large projector.\nConstraints: no embedded text, letters, numbers, captions, logos, watermarks, decorative frames, cartoons or clipart. All people fictional, children fully clothed in ordinary appropriate clothes. Generous margins, no clipped main subject, safe friendly scenes.\nPrimary request: A visually beautiful, well-kept coral-red city bicycle with a small wicker basket holding a few cheerful yellow flowers, leaning against a low pale garden wall in warm natural daylight. The complete bicycle is visible with correct real wheels, spokes, chain, pedals, basket and handlebars, no brand or writing. An attractive everyday object, teaching good-looking through the bike's appealing appearance; no people or appearance comparisons.",
+          "sha256": "1514d48cf0b1eb5778c5cf5b61a72c7388ca3a09d24906527e2885fe8f1f738f",
+          "generator": "OpenAI built-in imagegen",
+          "created_at": "2026-09-08",
+          "disposition": "Unpublished draft used as edit reference; final selected image stored above."
+        }
+      ]
+    }
+  ]
+}

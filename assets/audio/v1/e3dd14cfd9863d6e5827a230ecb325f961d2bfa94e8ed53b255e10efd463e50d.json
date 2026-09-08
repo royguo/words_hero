@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "e3dd14cfd9863d6e5827a230ecb325f961d2bfa94e8ed53b255e10efd463e50d",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The backpacker walks up the hill."
+  },
+  "file": "audio/v1/aa5000c4a9fe5b40d9cd693623ab4a2631864a2d9a7066cfe4e69fd8b5a0376c.mp3",
+  "sha256": "aa5000c4a9fe5b40d9cd693623ab4a2631864a2d9a7066cfe4e69fd8b5a0376c",
+  "bytes": 15984,
+  "created_at": "2026-09-08T10:38:03+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

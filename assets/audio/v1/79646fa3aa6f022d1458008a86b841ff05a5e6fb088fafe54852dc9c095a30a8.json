@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "79646fa3aa6f022d1458008a86b841ff05a5e6fb088fafe54852dc9c095a30a8",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "At the campsite, Mia looks unhappy. \"Where is my other sock?\" The kitten has a serious face. Dad is ready to serve lunch, but the kitten stays inside the backpack."
+  },
+  "file": "audio/v1/eb4d9f43f7bd9eb53d995df1e71327e4deb59a25e37923e0ddf618f2497f0848.mp3",
+  "sha256": "eb4d9f43f7bd9eb53d995df1e71327e4deb59a25e37923e0ddf618f2497f0848",
+  "bytes": 77184,
+  "created_at": "2026-09-08T10:38:26+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

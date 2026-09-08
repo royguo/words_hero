@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "b702e44d6a995877f9eeee59137e1293019d69baa3d8bda2bb6281710e146094",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "There is a single sock on the floor."
+  },
+  "file": "audio/v1/a388d9c3c7f4a642d6df2f32ebf32e0dc5f59f3403b58893c20356220b8afde8.mp3",
+  "sha256": "a388d9c3c7f4a642d6df2f32ebf32e0dc5f59f3403b58893c20356220b8afde8",
+  "bytes": 15552,
+  "created_at": "2026-09-08T10:37:19+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

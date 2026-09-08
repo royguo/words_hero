@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "1b5d738927c60df992c4ddbbe7f4c2ea54a369b5a758a5d3e2b667b2b5bad4ef",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "What is under the kitten's head?"
+  },
+  "file": "audio/v1/36d4db97e52368108b20aed98555ff7427ff53a82ca837b53dd3f1ab850a1d0c.mp3",
+  "sha256": "36d4db97e52368108b20aed98555ff7427ff53a82ca837b53dd3f1ab850a1d0c",
+  "bytes": 14688,
+  "created_at": "2026-09-08T10:38:29+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

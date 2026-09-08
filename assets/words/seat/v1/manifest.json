@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "id": "seat-v1",
+  "word": "seat",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "座位",
+  "created_at": "2026-09-08",
+  "provenance": {
+    "text": "Original child-friendly KET teaching material; dictionary pronunciation and useful formation references checked 2026-09-08. Story imagery is a fictional memory scene, not an etymological claim.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image."
+  },
+  "teaching": {
+    "meaning_zh": "座位",
+    "pos": "n.",
+    "example": "There is a seat next to the window.",
+    "example_zh": "窗户旁边有一个座位。",
+    "extra_examples": [
+      {
+        "en": "Please put your bag under the seat.",
+        "zh": "请把你的包放在座位下面。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "指一指窗边的空座位，说 a seat。",
+    "cloze": "There is a __________ next to the window.",
+    "cloze_answer": "seat",
+    "cloze_zh": "窗户旁边有一个座位。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "原创 KET 课堂例句；先读单词与例句，再学习构词或常用搭配。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "seat",
+      "components": [],
+      "explanation_zh": "seat 是“座位”，整体记。seat belt 是坐车时用的安全带；take a seat 是“坐下”的常用表达。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "seat belt",
+          "meaning_zh": "安全带",
+          "relation": "compound",
+          "connection_zh": "seat + belt：座位上保护乘客的带子。",
+          "example": {
+            "en": "Please wear your seat belt.",
+            "zh": "请系好安全带。"
+          }
+        },
+        {
+          "word": "take a seat",
+          "meaning_zh": "坐下",
+          "relation": "phrase",
+          "connection_zh": "把几个词一起记，表示请人坐下。",
+          "example": {
+            "en": "Come in and take a seat.",
+            "zh": "进来坐吧。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "seat 后面接哪个词，可以表示“安全带”？",
+        "answer_zh": "belt；seat belt。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · seat",
+          "url": "https://dictionary.cambridge.org/dictionary/english/seat"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "seat-v1",
+      "file": "words/seat/v1/a8edc6760ca6541caee9187147d39bd2f45b57a653449b24d103c8992a8d6c76.png",
+      "sha256": "a8edc6760ca6541caee9187147d39bd2f45b57a653449b24d103c8992a8d6c76",
+      "width": 1536,
+      "height": 1024,
+      "alt": "巴士里清楚可见的蓝色窗边空座位，背包安稳放在座位下面。",
+      "caption": "There is a seat next to the window.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: one classroom vocabulary photograph for Chinese primary-school KET learners; landscape 3:2, ideally 1536x1024.\nStyle: beautiful playful realistic editorial photography, bright natural daylight, rich plausible colours, real materials and textures, correct anatomy, uncluttered composition, clear main subject for a large projector.\nConstraints: no embedded text, letters, numbers, captions, logos, watermarks, decorative frames, cartoons or clipart. All people fictional, children fully clothed in ordinary appropriate clothes. Generous margins, no clipped main subject, safe friendly scenes.\nPrimary request: Interior of a clean safely parked small bus in daylight. A single empty blue upholstered window seat is the obvious main subject, fully visible with seat back and cushion, simple seatbelt. A teal backpack neatly UNDER the seat. Cropped peripheral rows softly recede, no passengers, no text or route numbers. Natural bright window light, fabric detail, comfortable welcoming composition.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-08",
+      "reference_asset_ids": []
+    }
+  ]
+}

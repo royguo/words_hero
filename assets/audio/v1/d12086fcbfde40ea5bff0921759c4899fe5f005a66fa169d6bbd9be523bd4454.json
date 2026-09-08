@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "d12086fcbfde40ea5bff0921759c4899fe5f005a66fa169d6bbd9be523bd4454",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "helicopter pilot"
+  },
+  "file": "audio/v1/9e2aaee1d42e280d4c621f030e161704e5cbbd23859212d796d4ee382a064176.mp3",
+  "sha256": "9e2aaee1d42e280d4c621f030e161704e5cbbd23859212d796d4ee382a064176",
+  "bytes": 12528,
+  "created_at": "2026-09-08T10:37:36+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

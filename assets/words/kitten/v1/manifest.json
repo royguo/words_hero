@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "id": "kitten-v1",
+  "word": "kitten",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "小猫；幼猫",
+  "created_at": "2026-09-08",
+  "provenance": {
+    "text": "Original child-friendly KET teaching material; dictionary pronunciation and useful formation references checked 2026-09-08. Story imagery is a fictional memory scene, not an etymological claim.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image."
+  },
+  "teaching": {
+    "meaning_zh": "小猫；幼猫",
+    "pos": "n.",
+    "example": "The kitten sleeps in my bag.",
+    "example_zh": "小猫睡在我的包里。",
+    "extra_examples": [
+      {
+        "en": "Our kitten plays with a ball.",
+        "zh": "我们的小猫在玩球。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "轻轻学一声猫叫，再说 a little kitten。",
+    "cloze": "The __________ sleeps in my bag.",
+    "cloze_answer": "kitten",
+    "cloze_zh": "小猫睡在我的包里。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "原创 KET 课堂例句；先读单词与例句，再学习构词或常用搭配。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "kitten",
+      "components": [],
+      "explanation_zh": "kitten 是“幼猫”，整体记，不硬拆。复数 kittens 只加 -s；pet kitten 是“宠物小猫”。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "kittens",
+          "meaning_zh": "小猫（复数）",
+          "relation": "inflection",
+          "connection_zh": "kitten + -s，表示多只小猫。",
+          "example": {
+            "en": "Two kittens play together.",
+            "zh": "两只小猫一起玩。"
+          }
+        },
+        {
+          "word": "pet kitten",
+          "meaning_zh": "宠物小猫",
+          "relation": "phrase",
+          "connection_zh": "pet 说明小猫是家里养的宠物。",
+          "example": {
+            "en": "My pet kitten is very small.",
+            "zh": "我的宠物小猫很小。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "两只小猫里的“小猫”怎么拼？",
+        "answer_zh": "kittens。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · kitten",
+          "url": "https://dictionary.cambridge.org/dictionary/english/kitten"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "kitten-v1",
+      "file": "words/kitten/v1/b00b48f24e6d39456cbb7641522df94f4d606b6261bfdab52bd99b6fbe83af87.png",
+      "sha256": "b00b48f24e6d39456cbb7641522df94f4d606b6261bfdab52bd99b6fbe83af87",
+      "width": 1536,
+      "height": 1024,
+      "alt": "一只毛茸茸的小橘猫蜷在打开的布包里安静睡觉。",
+      "caption": "The kitten sleeps in my bag.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: one classroom vocabulary photograph for Chinese primary-school KET learners; landscape 3:2, ideally 1536x1024.\nStyle: beautiful playful realistic editorial photography, bright natural daylight, rich plausible colours, real materials and textures, correct anatomy, uncluttered composition, clear main subject for a large projector.\nConstraints: no embedded text, letters, numbers, captions, logos, watermarks, decorative frames, cartoons or clipart. All people fictional, children fully clothed in ordinary appropriate clothes. Generous margins, no clipped main subject, safe friendly scenes.\nPrimary request: A tiny realistic ginger kitten with white chin, white paws and amber eyes asleep comfortably in a fully open teal cloth backpack on a low indoor bench. The kitten is the dominant main subject, curled up peacefully with clear soft fur, little paws and natural ears, natural warm daylight, bag opening wide and safe, no closed zipper. Charming intimate pet photograph, no costumes or humanisation.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-08",
+      "reference_asset_ids": []
+    }
+  ]
+}

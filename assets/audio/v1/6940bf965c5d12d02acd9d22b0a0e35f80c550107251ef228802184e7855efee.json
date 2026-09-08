@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "6940bf965c5d12d02acd9d22b0a0e35f80c550107251ef228802184e7855efee",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "I have a bath before bed."
+  },
+  "file": "audio/v1/786441c7a098505fd8225dfc5186da6067a8455bc2c48abcb300cf15b37e6e74.mp3",
+  "sha256": "786441c7a098505fd8225dfc5186da6067a8455bc2c48abcb300cf15b37e6e74",
+  "bytes": 14400,
+  "created_at": "2026-09-08T10:37:05+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

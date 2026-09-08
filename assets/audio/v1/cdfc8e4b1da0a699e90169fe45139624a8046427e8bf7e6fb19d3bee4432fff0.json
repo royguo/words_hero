@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "cdfc8e4b1da0a699e90169fe45139624a8046427e8bf7e6fb19d3bee4432fff0",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "It is behind the curtain."
+  },
+  "file": "audio/v1/ccb970b987daddbf584124e012bac9298ab4b3f736cddbf6db8ffd2833e498df.mp3",
+  "sha256": "ccb970b987daddbf584124e012bac9298ab4b3f736cddbf6db8ffd2833e498df",
+  "bytes": 13680,
+  "created_at": "2026-09-08T10:38:16+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

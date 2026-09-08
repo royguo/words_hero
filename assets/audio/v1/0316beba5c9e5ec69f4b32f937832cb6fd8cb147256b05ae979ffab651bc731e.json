@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "0316beba5c9e5ec69f4b32f937832cb6fd8cb147256b05ae979ffab651bc731e",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "I like geography because I like maps."
+  },
+  "file": "audio/v1/d7d2b29c9e429d2546a001942b16e28348e88af33fa59941d290f7af7edeae14.mp3",
+  "sha256": "d7d2b29c9e429d2546a001942b16e28348e88af33fa59941d290f7af7edeae14",
+  "bytes": 19296,
+  "created_at": "2026-09-08T10:36:52+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

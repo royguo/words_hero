@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "17f8646fff96b07e231b9a48f746ab3376ed20643ad20590d3f8f5b2a5388f6f",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "I brush my teeth every morning."
+  },
+  "file": "audio/v1/9bf39cc0256e8be5874dcbd89416841a44d8b0175564eeb703746655a451f272.mp3",
+  "sha256": "9bf39cc0256e8be5874dcbd89416841a44d8b0175564eeb703746655a451f272",
+  "bytes": 15984,
+  "created_at": "2026-09-08T10:36:25+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

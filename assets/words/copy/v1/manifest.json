@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "id": "copy-v1",
+  "word": "copy",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "复制；临摹；抄写",
+  "created_at": "2026-09-08",
+  "provenance": {
+    "text": "Original child-friendly KET teaching material; dictionary pronunciation and useful formation references checked 2026-09-08. Story imagery is a fictional memory scene, not an etymological claim.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image."
+  },
+  "teaching": {
+    "meaning_zh": "复制；临摹；抄写",
+    "pos": "v.",
+    "example": "Please copy this picture.",
+    "example_zh": "请照着临摹这幅画。",
+    "extra_examples": [
+      {
+        "en": "Copy the word into your book.",
+        "zh": "把这个单词抄到你的本子上。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "找找原画和临摹画哪里一样，再说 copy。",
+    "cloze": "Please __________ this picture.",
+    "cloze_answer": "copy",
+    "cloze_zh": "请照着临摹这幅画。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "原创 KET 课堂例句；先读单词与例句，再学习构词或常用搭配。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "copy",
+      "components": [],
+      "explanation_zh": "copy 整体记，表示“照着做一份”。加 -er 成为 copier 时，y 要变成 i；还可和 photo 组成 photocopy。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "copier",
+          "meaning_zh": "复印机",
+          "relation": "derivation",
+          "connection_zh": "copy 去 y，换成 i，再加 -er；这里 -er 表示机器。",
+          "example": {
+            "en": "The copier is next to the desk.",
+            "zh": "复印机在桌子旁边。"
+          }
+        },
+        {
+          "word": "photocopy",
+          "meaning_zh": "复印；复印件",
+          "relation": "compound",
+          "connection_zh": "photo + copy，把图文复制下来。",
+          "example": {
+            "en": "Please photocopy this page.",
+            "zh": "请复印这一页。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "copy 变成 copier 时，哪个字母变了？",
+        "answer_zh": "y 变成 i，再加 -er。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · copy",
+          "url": "https://dictionary.cambridge.org/dictionary/english/copy"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "copy-v1",
+      "file": "words/copy/v1/993a45da7f2fd729776b7bc0d23663eb81037e7fd4f850118a752821fdb52d7d.png",
+      "sha256": "993a45da7f2fd729776b7bc0d23663eb81037e7fd4f850118a752821fdb52d7d",
+      "width": 1536,
+      "height": 1024,
+      "alt": "孩子用彩铅照着原图，在另一张纸上临摹同样的橙色风筝。",
+      "caption": "Please copy this picture.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: one classroom vocabulary photograph for Chinese primary-school KET learners; landscape 3:2, ideally 1536x1024.\nStyle: beautiful playful realistic editorial photography, bright natural daylight, rich plausible colours, real materials and textures, correct anatomy, uncluttered composition, clear main subject for a large projector.\nConstraints: no embedded text, letters, numbers, captions, logos, watermarks, decorative frames, cartoons or clipart. All people fictional, children fully clothed in ordinary appropriate clothes. Generous margins, no clipped main subject, safe friendly scenes.\nPrimary request: Over-the-shoulder close view of a fully clothed child carefully copying a simple hand-drawn orange kite picture onto a second sheet of white paper with a coloured pencil. The original kite drawing and a near-complete matching copy are visible side by side, two separate sheets, no writing on either. Natural hand anatomy, focus on the act of making the same drawing again in a bright classroom.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-08",
+      "reference_asset_ids": []
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "e7462021ba1a7b9da53436be2b0cf1c02ac32c94feaa07f6f0e8c37c3bdde31f",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Please listen seriously."
+  },
+  "file": "audio/v1/192a81efb7e34a4bf12b10a196c7812a7d3ee799c7c550051288ea60fa0a7e8a.mp3",
+  "sha256": "192a81efb7e34a4bf12b10a196c7812a7d3ee799c7c550051288ea60fa0a7e8a",
+  "bytes": 13392,
+  "created_at": "2026-09-08T10:37:30+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

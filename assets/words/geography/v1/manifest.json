@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "id": "geography-v1",
+  "word": "geography",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "地理（学科）",
+  "created_at": "2026-09-08",
+  "provenance": {
+    "text": "Original child-friendly KET teaching material; dictionary pronunciation and useful formation references checked 2026-09-08. Story imagery is a fictional memory scene, not an etymological claim.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image."
+  },
+  "teaching": {
+    "meaning_zh": "地理（学科）",
+    "pos": "n.",
+    "example": "We look at maps in geography class.",
+    "example_zh": "我们在地理课上看地图。",
+    "extra_examples": [
+      {
+        "en": "I like geography because I like maps.",
+        "zh": "我喜欢地理，因为我喜欢地图。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "在地球仪上找一片海洋，说说 geography 会研究什么。",
+    "cloze": "We look at maps in __________ class.",
+    "cloze_answer": "geography",
+    "cloze_zh": "我们在地理课上看地图。",
+    "cloze_type": "context",
+    "parts": [
+      {
+        "text": "geo-",
+        "kind": "root",
+        "meaning": "地球；大地"
+      },
+      {
+        "text": "-graphy",
+        "kind": "root",
+        "meaning": "书写；描述"
+      }
+    ],
+    "note": "原创 KET 课堂例句；先读单词与例句，再学习构词或常用搭配。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "derived",
+      "construction": "geo- + -graphy → geography",
+      "components": [
+        {
+          "text": "geo-",
+          "kind": "root",
+          "meaning_zh": "地球；大地"
+        },
+        {
+          "text": "-graphy",
+          "kind": "root",
+          "meaning_zh": "书写；描述"
+        }
+      ],
+      "explanation_zh": "geo- 和“地球、大地”有关，-graphy 和“书写、描述”有关。合起来，geography 带我们认识地球上的地方。",
+      "origin_zh": "这个名字来自“描述大地”的意思。想象给地球画一张地图，就容易记住了。",
+      "family": [
+        {
+          "word": "geographer",
+          "meaning_zh": "地理学家",
+          "relation": "word_family",
+          "connection_zh": "与 geography 同一家族，表示研究地理的人。",
+          "example": {
+            "en": "The geographer studies this river.",
+            "zh": "这位地理学家研究这条河流。"
+          }
+        },
+        {
+          "word": "photography",
+          "meaning_zh": "摄影",
+          "relation": "shared_root",
+          "connection_zh": "也有 -graphy；photo- 与光有关，摄影用光记录画面。",
+          "example": {
+            "en": "I like photography.",
+            "zh": "我喜欢摄影。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "和 geography 一样，带有 -graphy 的词还能想到哪个？",
+        "answer_zh": "photography，摄影。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · geography",
+          "url": "https://dictionary.cambridge.org/dictionary/english/geography"
+        },
+        {
+          "title": "Merriam-Webster · geography",
+          "url": "https://www.merriam-webster.com/dictionary/geography"
+        },
+        {
+          "title": "Merriam-Webster · photo-",
+          "url": "https://www.merriam-webster.com/dictionary/photo-"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "geography-v1",
+      "file": "words/geography/v1/445216423d9e3823449a20f936573a97e07c525dcebebdee5444af13239fdc6e.png",
+      "sha256": "445216423d9e3823449a20f936573a97e07c525dcebebdee5444af13239fdc6e",
+      "width": 1536,
+      "height": 1024,
+      "alt": "两个孩子一起观察地球仪和没有文字标注的世界地形图。",
+      "caption": "We look at maps in geography class.",
+      "prompt": "undefinedPrimary request: Two fully clothed fictional primary-school children around nine in a sunlit classroom studying a large realistic globe and a spread-out physical world map with correctly recognisable continent silhouettes. One points to the globe and the other traces a river on the map. Maps have natural blue seas and green/brown land, NO printed place names, labels, writing, flags or invented symbols. Geography as learning about places on Earth, clear globe as central subject, beautiful real educational photography.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-08",
+      "reference_asset_ids": []
+    }
+  ]
+}

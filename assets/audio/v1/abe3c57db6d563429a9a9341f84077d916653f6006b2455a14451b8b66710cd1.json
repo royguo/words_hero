@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "abe3c57db6d563429a9a9341f84077d916653f6006b2455a14451b8b66710cd1",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Mia's sock is under its head."
+  },
+  "file": "audio/v1/c2d48a3f28825c7dfc86854768c1052b709e13cba66dfad725e3fd2e4cf4108f.mp3",
+  "sha256": "c2d48a3f28825c7dfc86854768c1052b709e13cba66dfad725e3fd2e4cf4108f",
+  "bytes": 15408,
+  "created_at": "2026-09-08T10:38:32+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

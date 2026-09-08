@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "4c9563fe0d6df223ed6f552f13fff24029e5cb780a84e8f2bdf0a636d59e2743",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "I practise English every day."
+  },
+  "file": "audio/v1/deb2b9e9f92d273cf57cab1bce9f19baebf5c2f9fcc182c49a33e4db5db4d04a.mp3",
+  "sha256": "deb2b9e9f92d273cf57cab1bce9f19baebf5c2f9fcc182c49a33e4db5db4d04a",
+  "bytes": 15840,
+  "created_at": "2026-09-08T10:35:55+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

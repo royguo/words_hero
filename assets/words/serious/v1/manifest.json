@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "id": "serious-v1",
+  "word": "serious",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "严肃的；认真的",
+  "created_at": "2026-09-08",
+  "provenance": {
+    "text": "Original child-friendly KET teaching material; dictionary pronunciation and useful formation references checked 2026-09-08. Story imagery is a fictional memory scene, not an etymological claim.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image."
+  },
+  "teaching": {
+    "meaning_zh": "严肃的；认真的",
+    "pos": "adj.",
+    "example": "The kitten has a serious face.",
+    "example_zh": "小猫的表情很严肃。",
+    "extra_examples": [
+      {
+        "en": "I am serious about learning English.",
+        "zh": "我很认真地学习英语。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "模仿小猫的 serious face，再轻轻笑一下。",
+    "cloze": "The kitten has a __________ face.",
+    "cloze_answer": "serious",
+    "cloze_zh": "小猫的表情很严肃。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "原创 KET 课堂例句；先读单词与例句，再学习构词或常用搭配。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "serious",
+      "components": [],
+      "explanation_zh": "serious 先整体记。seriously 表示“认真地、严肃地”；seriousness 表示“认真、严肃”这种状态。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "seriously",
+          "meaning_zh": "认真地；严肃地",
+          "relation": "derivation",
+          "connection_zh": "serious + -ly，把“认真的”变成“认真地”。",
+          "example": {
+            "en": "Please listen seriously.",
+            "zh": "请认真听。"
+          }
+        },
+        {
+          "word": "seriousness",
+          "meaning_zh": "认真；严肃",
+          "relation": "derivation",
+          "connection_zh": "serious + -ness，变成表示状态的名词。",
+          "example": {
+            "en": "She reads with great seriousness.",
+            "zh": "她读得十分认真。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "serious 加 -ly 会变成哪个词？",
+        "answer_zh": "seriously。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · serious",
+          "url": "https://dictionary.cambridge.org/dictionary/english/serious"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "serious-v1",
+      "file": "words/serious/v1/b8003453a6c7a56d8fae9da42047137e4bff5a4850ef9d5c27e397ce1e90d4f6.png",
+      "sha256": "b8003453a6c7a56d8fae9da42047137e4bff5a4850ef9d5c27e397ce1e90d4f6",
+      "width": 1536,
+      "height": 1024,
+      "alt": "一只坐得笔直的小橘猫，带着仿佛很严肃的表情看向镜头。",
+      "caption": "The kitten has a serious face.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: one classroom vocabulary photograph for Chinese primary-school KET learners; landscape 3:2, ideally 1536x1024.\nStyle: beautiful playful realistic editorial photography, bright natural daylight, rich plausible colours, real materials and textures, correct anatomy, uncluttered composition, clear main subject for a large projector.\nConstraints: no embedded text, letters, numbers, captions, logos, watermarks, decorative frames, cartoons or clipart. All people fictional, children fully clothed in ordinary appropriate clothes. Generous margins, no clipped main subject, safe friendly scenes.\nPrimary request: A small realistic ginger kitten with white paws and white chin sits perfectly upright on a low wooden stool, looking straight into the camera with a comically solemn, serious expression: mouth closed, steady focused eyes, ears relaxed, not angry or frightened. Natural warm indoor daylight, a few softly blurred toys in the background for contrast, no human props or costumes, kitten's whole body visible and sharp. Charming real-animal portrait, not cartoon.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-08",
+      "reference_asset_ids": []
+    }
+  ]
+}

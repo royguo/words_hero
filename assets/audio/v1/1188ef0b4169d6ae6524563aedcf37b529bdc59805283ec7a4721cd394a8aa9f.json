@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "1188ef0b4169d6ae6524563aedcf37b529bdc59805283ec7a4721cd394a8aa9f",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "kitten"
+  },
+  "file": "audio/v1/36e67c574f0da7d6762869089a03ead9fbbddbcfce8a53744a795bb2f7921812.mp3",
+  "sha256": "36e67c574f0da7d6762869089a03ead9fbbddbcfce8a53744a795bb2f7921812",
+  "bytes": 7056,
+  "created_at": "2026-09-08T10:37:49+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "a1a308c5111e0e602b65b98641cf6f1eb904e34f9fa83f1b72cb15512fa87f70",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Mia is unhappy about her lost sock."
+  },
+  "file": "audio/v1/c2a17f88f7bc1fda4695ee5352b9dfe64df5c2f0ce5af2c530b55de4b37d0dd8.mp3",
+  "sha256": "c2a17f88f7bc1fda4695ee5352b9dfe64df5c2f0ce5af2c530b55de4b37d0dd8",
+  "bytes": 19296,
+  "created_at": "2026-09-08T10:36:57+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

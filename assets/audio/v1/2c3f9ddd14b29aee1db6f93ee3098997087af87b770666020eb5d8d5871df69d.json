@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "2c3f9ddd14b29aee1db6f93ee3098997087af87b770666020eb5d8d5871df69d",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "He has a good-looking red car."
+  },
+  "file": "audio/v1/5e422f791225cc8ca34edef609b6810eb40a3c8951ca75882fc6f5ec9da16b20.mp3",
+  "sha256": "5e422f791225cc8ca34edef609b6810eb40a3c8951ca75882fc6f5ec9da16b20",
+  "bytes": 14832,
+  "created_at": "2026-09-08T10:38:08+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

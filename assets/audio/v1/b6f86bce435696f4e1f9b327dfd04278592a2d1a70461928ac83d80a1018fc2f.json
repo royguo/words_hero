@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "b6f86bce435696f4e1f9b327dfd04278592a2d1a70461928ac83d80a1018fc2f",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "She cannot find her other sock."
+  },
+  "file": "audio/v1/eb834e901a76aa0a1e0c9b9d88dbe3cb148b38d03b3c09cb8d9eefe4f5357a9d.mp3",
+  "sha256": "eb834e901a76aa0a1e0c9b9d88dbe3cb148b38d03b3c09cb8d9eefe4f5357a9d",
+  "bytes": 16128,
+  "created_at": "2026-09-08T10:38:28+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

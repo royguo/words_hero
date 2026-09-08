@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "9bc35d70fe9a4c848cb69919c51f9d37c09eb4b7216300809f8a0bf5eef8d1b8",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "She reads with great seriousness."
+  },
+  "file": "audio/v1/6076c2b9ee2457bc51d4344289e49e88638afde6127dd13ff560ddf2fb8dee5e.mp3",
+  "sha256": "6076c2b9ee2457bc51d4344289e49e88638afde6127dd13ff560ddf2fb8dee5e",
+  "bytes": 17280,
+  "created_at": "2026-09-08T10:37:32+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

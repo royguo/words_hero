@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "id": "little-camper-v1",
+  "title": "背包里的小乘客",
+  "level": "KET",
+  "created_at": "2026-09-08",
+  "selection": "One production classroom random draw of 20 KET words, difficulty 1–3, excluding basic words and previously learned words. The confirmed order was frozen before creating any materials; no words were replaced for image convenience.",
+  "word_order": [
+    "curtain",
+    "practice",
+    "driver",
+    "copy",
+    "serve",
+    "tooth",
+    "honey",
+    "danger",
+    "camping",
+    "geography",
+    "unhappy",
+    "bath",
+    "seat",
+    "single",
+    "serious",
+    "helicopter",
+    "jellyfish",
+    "kitten",
+    "backpack",
+    "good-looking"
+  ],
+  "word_assets": {
+    "KET:curtain": "words/curtain/v1/manifest.json",
+    "KET:practice": "words/practice/v1/manifest.json",
+    "KET:driver": "words/driver/v1/manifest.json",
+    "KET:copy": "words/copy/v1/manifest.json",
+    "KET:serve": "words/serve/v1/manifest.json",
+    "KET:tooth": "words/tooth/v1/manifest.json",
+    "KET:honey": "words/honey/v1/manifest.json",
+    "KET:danger": "words/danger/v1/manifest.json",
+    "KET:camping": "words/camping/v1/manifest.json",
+    "KET:geography": "words/geography/v1/manifest.json",
+    "KET:unhappy": "words/unhappy/v1/manifest.json",
+    "KET:bath": "words/bath/v1/manifest.json",
+    "KET:seat": "words/seat/v1/manifest.json",
+    "KET:single": "words/single/v1/manifest.json",
+    "KET:serious": "words/serious/v1/manifest.json",
+    "KET:helicopter": "words/helicopter/v1/manifest.json",
+    "KET:jellyfish": "words/jellyfish/v1/manifest.json",
+    "KET:kitten": "words/kitten/v1/manifest.json",
+    "KET:backpack": "words/backpack/v1/manifest.json",
+    "KET:good-looking": "words/good-looking/v1/manifest.json"
+  },
+  "story": {
+    "title_en": "The Little Camper",
+    "title_zh": "背包里的小乘客",
+    "level": "KET",
+    "covered_words": [
+      "curtain",
+      "driver",
+      "serve",
+      "honey",
+      "camping",
+      "unhappy",
+      "seat",
+      "single",
+      "serious",
+      "kitten",
+      "backpack"
+    ],
+    "supporting_language": "目标词以外以 A1/A2 短句为主。campsite：营地；pack：收拾行李；appears：出现；asleep：睡着的；quietly：轻轻地。故事是虚构的记忆情景，配图与单词公用。",
+    "scenes": [
+      {
+        "id": "packing",
+        "title": "谁在偷看？",
+        "en": "Mia is going camping. She puts bread and honey in her backpack. There is a single sock on the floor. Behind the curtain, her kitten watches her pack.",
+        "zh": "米娅要去露营。她把面包和蜂蜜装进背包。地上只有一只袜子。窗帘后面，她的小猫正看着她收拾东西。",
+        "question": {
+          "en": "Where is the kitten?",
+          "zh": "小猫在哪里？",
+          "answer_en": "It is behind the curtain.",
+          "answer_zh": "它在窗帘后面。"
+        },
+        "image": {
+          "id": "backpack-v1",
+          "file": "words/backpack/v1/b5d1495d6b2297c0c7d9de20f65920b16a91c2e681a1c6209d5b353ea88188d5.png",
+          "sha256": "b5d1495d6b2297c0c7d9de20f65920b16a91c2e681a1c6209d5b353ea88188d5",
+          "width": 1536,
+          "height": 1024,
+          "alt": "米娅在家里把午饭装进蓝绿色双肩背包，小猫从窗帘后偷看。",
+          "caption": "I put my lunch in my backpack.",
+          "prompt": "Use case: photorealistic-natural.\nAsset type: one classroom vocabulary photograph for Chinese primary-school KET learners; landscape 3:2, ideally 1536x1024.\nStyle: beautiful playful realistic editorial photography, bright natural daylight, rich plausible colours, real materials and textures, correct anatomy, uncluttered composition, clear main subject for a large projector.\nConstraints: no embedded text, letters, numbers, captions, logos, watermarks, decorative frames, cartoons or clipart. All people fictional, children fully clothed in ordinary appropriate clothes. Generous margins, no clipped main subject, safe friendly scenes.\nPrimary request: Opening picture for a child's story, also teaching backpack. In a bright living room with coral-orange curtains, fictional Mia (East Asian girl about nine, black ponytail, coral-red light jacket, pale-blue jeans, white trainers) packs a teal-blue fabric backpack on a low bench. The whole backpack is prominent and unmistakable, with two shoulder straps visibly resting beside it, zipper open; a small bread container and a closed unlabelled glass jar of golden honey lie beside it. One yellow sock on the floor. A small ginger kitten with white paws, white chin and amber eyes peeks from behind the curtain in the background. Mia looks at the open bag and is unaware of the kitten. Clear warm natural scene, establish repeatable character and prop appearance.",
+          "generator": "OpenAI built-in imagegen",
+          "created_at": "2026-09-08",
+          "reference_asset_ids": []
+        }
+      },
+      {
+        "id": "talking-bag",
+        "title": "背包会说话？",
+        "en": "On the bus, Mia puts her bag on a seat. \"Is your backpack talking?\" asks the driver. \"Meow!\" A little head appears. \"Our kitten wants a holiday too!\" says Mia.",
+        "zh": "在巴士上，米娅把包放到座位上。“你的背包在说话吗？”司机问。“喵！”一颗小脑袋探了出来。“我们的小猫也想去度假！”米娅说。",
+        "question": {
+          "en": "Who is making the sound?",
+          "zh": "是谁在发出声音？",
+          "answer_en": "The kitten is making the sound.",
+          "answer_zh": "是小猫在叫。"
+        },
+        "image": {
+          "id": "driver-v1",
+          "file": "words/driver/v1/c6d7953db50213180db4e98faedfbbeedb105dad40800fefed4449432822ccbc.png",
+          "sha256": "c6d7953db50213180db4e98faedfbbeedb105dad40800fefed4449432822ccbc",
+          "width": 1536,
+          "height": 1024,
+          "alt": "停靠的巴士里，司机转头看着女孩和从背包中探出头的小猫。",
+          "caption": "The bus driver smiles at us.",
+          "prompt": "Use case: photorealistic-natural.\nAsset type: one classroom vocabulary photograph for Chinese primary-school KET learners; landscape 3:2, ideally 1536x1024.\nStyle: beautiful playful realistic editorial photography, bright natural daylight, rich plausible colours, real materials and textures, correct anatomy, uncluttered composition, clear main subject for a large projector.\nConstraints: no embedded text, letters, numbers, captions, logos, watermarks, decorative frames, cartoons or clipart. All people fictional, children fully clothed in ordinary appropriate clothes. Generous margins, no clipped main subject, safe friendly scenes.\n\nInput images: image 1 is a reference for Mia's identity, clothes, teal backpack, yellow sock and ginger kitten; image 2 is a reference for Dad, the tent and campsite look. Generate a NEW scene, preserving character and prop appearance.\nPrimary request: Story scene 2, also teaching driver. Inside a safely PARKED small bus in daylight, show the friendly adult male driver at the steering wheel in a plain navy uniform, engine off. He turns with an amused expression toward Mia in the first passenger row. Mia sits beside her open teal backpack on the passenger seat; the small ginger kitten with white paws and chin pokes its head out of that bag. Mia looks pleasantly surprised. The driver and steering wheel are prominent and unmistakable; Mia and the bag are also clear. Parked rural setting through windscreen, no road motion, no distracted driving, no signs or instrument text.",
+          "generator": "OpenAI built-in imagegen",
+          "created_at": "2026-09-08",
+          "reference_asset_ids": [
+            "backpack-v1",
+            "serve-v1"
+          ]
+        }
+      },
+      {
+        "id": "missing-sock",
+        "title": "另一只袜子呢？",
+        "en": "At the campsite, Mia looks unhappy. \"Where is my other sock?\" The kitten has a serious face. Dad is ready to serve lunch, but the kitten stays inside the backpack.",
+        "zh": "到了营地，米娅有点不开心。“我的另一只袜子呢？”小猫一脸严肃。爸爸准备端上午饭了，小猫却留在背包里。",
+        "question": {
+          "en": "Why is Mia unhappy?",
+          "zh": "米娅为什么不开心？",
+          "answer_en": "She cannot find her other sock.",
+          "answer_zh": "她找不到另一只袜子了。"
+        },
+        "image": {
+          "id": "unhappy-v1",
+          "file": "words/unhappy/v1/72c8eb5cf59120533274e68714717e33445b31c59de2eb653c093653ccb2129c.png",
+          "sha256": "72c8eb5cf59120533274e68714717e33445b31c59de2eb653c093653ccb2129c",
+          "width": 1536,
+          "height": 1024,
+          "alt": "露营地里，米娅拿着一只黄色袜子，有些不开心地查看背包。",
+          "caption": "Mia is unhappy about her lost sock.",
+          "prompt": "Use case: photorealistic-natural.\nAsset type: one classroom vocabulary photograph for Chinese primary-school KET learners; landscape 3:2, ideally 1536x1024.\nStyle: beautiful playful realistic editorial photography, bright natural daylight, rich plausible colours, real materials and textures, correct anatomy, uncluttered composition, clear main subject for a large projector.\nConstraints: no embedded text, letters, numbers, captions, logos, watermarks, decorative frames, cartoons or clipart. All people fictional, children fully clothed in ordinary appropriate clothes. Generous margins, no clipped main subject, safe friendly scenes.\n\nInput images: image 1 is a reference for Mia's identity, clothes, teal backpack, yellow sock and ginger kitten; image 2 is a reference for Dad, the tent and campsite look. Generate a NEW scene, preserving character and prop appearance.\nPrimary request: Story scene 3, also teaching unhappy. At the grassy campsite next to the same green-teal tent, Mia frowns mildly with disappointed eyebrows, looking into her open teal backpack while holding a SINGLE yellow sock with pale stripes. The ginger kitten with white paws and white chin sits seriously inside the open backpack, its head and front paws visible. Dad in the same teal shirt stands in background beside a picnic table, about to serve plates of bread and fruit. Main focus on Mia's visibly unhappy but not distressed face, the lone sock and bag. Warm bright daylight, no tears, no fear.",
+          "generator": "OpenAI built-in imagegen",
+          "created_at": "2026-09-08",
+          "reference_asset_ids": [
+            "backpack-v1",
+            "serve-v1"
+          ]
+        }
+      },
+      {
+        "id": "smallest-camper",
+        "title": "最小的露营伙伴",
+        "en": "Mia looks inside. The kitten is asleep, with her sock under its head! \"A sock makes a soft bed,\" she says. They laugh quietly. Their smallest camping friend is very happy.",
+        "zh": "米娅往里面看。小猫睡着了，头下枕着她的袜子！“袜子变成了一张软床。”她说。大家轻轻笑了。这位最小的露营伙伴可开心啦。",
+        "question": {
+          "en": "What is under the kitten's head?",
+          "zh": "小猫头下面是什么？",
+          "answer_en": "Mia's sock is under its head.",
+          "answer_zh": "是米娅的袜子。"
+        },
+        "image": {
+          "id": "camping-v1",
+          "file": "words/camping/v1/c9be8d080de42efe61b05cc48adb5e06ab7ac92efd4717824200869c55cc8326.png",
+          "sha256": "c9be8d080de42efe61b05cc48adb5e06ab7ac92efd4717824200869c55cc8326",
+          "width": 1536,
+          "height": 1024,
+          "alt": "帐篷旁的家人发现，小橘猫睡在打开的背包里，把黄色袜子当枕头。",
+          "caption": "We go camping in the summer.",
+          "prompt": "Use case: photorealistic-natural.\nAsset type: one classroom vocabulary photograph for Chinese primary-school KET learners; landscape 3:2, ideally 1536x1024.\nStyle: beautiful playful realistic editorial photography, bright natural daylight, rich plausible colours, real materials and textures, correct anatomy, uncluttered composition, clear main subject for a large projector.\nConstraints: no embedded text, letters, numbers, captions, logos, watermarks, decorative frames, cartoons or clipart. All people fictional, children fully clothed in ordinary appropriate clothes. Generous margins, no clipped main subject, safe friendly scenes.\n\nInput images: image 1 is a reference for Mia's identity, clothes, teal backpack, yellow sock and ginger kitten; image 2 is a reference for Dad, the tent and campsite look. Generate a NEW scene, preserving character and prop appearance.\nPrimary request: Story scene 4, also teaching camping. Wide natural view of the grassy campsite and the same pitched green-teal tent, folding chairs and low picnic table, showing an unmistakable overnight outdoor camping setup. In the foreground the teal backpack lies open on its side; the small ginger kitten with white paws and white chin sleeps comfortably inside with a yellow pale-striped sock under its head as a pillow. Mia kneels beside the bag smiling, Dad in teal shirt smiles nearby. The tent must remain clearly visible and occupy enough of the picture to teach camping. Realistic bag large enough for kitten, no people crowding it. Gentle funny ending, no fire or danger.",
+          "generator": "OpenAI built-in imagegen",
+          "created_at": "2026-09-08",
+          "reference_asset_ids": [
+            "backpack-v1",
+            "serve-v1"
+          ]
+        }
+      }
+    ]
+  }
+}

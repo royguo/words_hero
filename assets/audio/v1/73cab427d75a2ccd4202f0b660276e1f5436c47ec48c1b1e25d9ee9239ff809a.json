@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "73cab427d75a2ccd4202f0b660276e1f5436c47ec48c1b1e25d9ee9239ff809a",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The server brings our food."
+  },
+  "file": "audio/v1/b96b7dd4033adcc291b4de418616b1ad5cb711776a43c06a65b4fcb6572f1b14.mp3",
+  "sha256": "b96b7dd4033adcc291b4de418616b1ad5cb711776a43c06a65b4fcb6572f1b14",
+  "bytes": 14544,
+  "created_at": "2026-09-08T10:36:18+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "a065ab5891696982facbbbb33002d8a1564c6eda75820c900aeef3cb7f634013",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "geography"
+  },
+  "file": "audio/v1/40f201689c18c47a277acd5e1cd2718b585d2d91a18b4964181fcb040b723b32.mp3",
+  "sha256": "40f201689c18c47a277acd5e1cd2718b585d2d91a18b4964181fcb040b723b32",
+  "bytes": 8928,
+  "created_at": "2026-09-08T10:36:48+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

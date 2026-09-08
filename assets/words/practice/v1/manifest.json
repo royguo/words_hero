@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "id": "practice-v1",
+  "word": "practice",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "练习；训练",
+  "created_at": "2026-09-08",
+  "provenance": {
+    "text": "Original child-friendly KET teaching material; dictionary pronunciation and useful formation references checked 2026-09-08. Story imagery is a fictional memory scene, not an etymological claim.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image."
+  },
+  "teaching": {
+    "meaning_zh": "练习；训练",
+    "pos": "n.",
+    "example": "I need more practice with this game.",
+    "example_zh": "这个游戏我还需要多练习。",
+    "extra_examples": [
+      {
+        "en": "We have football practice after school.",
+        "zh": "我们放学后有足球训练。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "做一个你常练习的动作，再说 I need more practice。",
+    "cloze": "I need more __________ with this game.",
+    "cloze_answer": "practice",
+    "cloze_zh": "这个游戏我还需要多练习。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "原创 KET 课堂例句；先读单词与例句，再学习构词或常用搭配。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "practice",
+      "components": [],
+      "explanation_zh": "本课 practice 是名词“练习”。英式英语里，表示“练习”这个动作时写 practise；它们读音相同。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "practise",
+          "meaning_zh": "练习（英式动词）",
+          "relation": "word_family",
+          "connection_zh": "practice 是名词，practise 是英式动词；留意 c 和 s。",
+          "example": {
+            "en": "I practise English every day.",
+            "zh": "我每天练习英语。"
+          }
+        },
+        {
+          "word": "football practice",
+          "meaning_zh": "足球训练",
+          "relation": "phrase",
+          "connection_zh": "football 说明练习的内容。",
+          "example": {
+            "en": "Football practice starts at four.",
+            "zh": "足球训练四点开始。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "英式英语中，名词“练习”和动词“练习”各怎么拼？",
+        "answer_zh": "名词 practice；动词 practise。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · practice",
+          "url": "https://dictionary.cambridge.org/dictionary/english/practice"
+        },
+        {
+          "title": "Cambridge Dictionary · practise",
+          "url": "https://dictionary.cambridge.org/dictionary/english/practise"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "practice-v1",
+      "file": "words/practice/v1/d62c858b2223ab31b990ea063f8948c7f1d01154129bdc30db9b8ac232cb42fc.png",
+      "sha256": "d62c858b2223ab31b990ea063f8948c7f1d01154129bdc30db9b8ac232cb42fc",
+      "width": 1536,
+      "height": 1024,
+      "alt": "女孩在花园里反复练习把沙包投进圆圈，旁边有大人鼓励。",
+      "caption": "I need more practice with this game.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: one classroom vocabulary photograph for Chinese primary-school KET learners; landscape 3:2, ideally 1536x1024.\nStyle: beautiful playful realistic editorial photography, bright natural daylight, rich plausible colours, real materials and textures, correct anatomy, uncluttered composition, clear main subject for a large projector.\nConstraints: no embedded text, letters, numbers, captions, logos, watermarks, decorative frames, cartoons or clipart. All people fictional, children fully clothed in ordinary appropriate clothes. Generous margins, no clipped main subject, safe friendly scenes.\nPrimary request: A fictional East Asian girl about nine with black ponytail, coral-red light jacket, pale-blue jeans and white trainers is practising throwing a small beanbag into a hoop on the ground in a bright garden. Several beanbags lie near the hoop as evidence of repeated attempts; she is carefully aiming the next one, with a quietly encouraging adult behind. Make the repeated-practice action instantly understandable, one natural photographic scene.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-08",
+      "reference_asset_ids": []
+    }
+  ]
+}

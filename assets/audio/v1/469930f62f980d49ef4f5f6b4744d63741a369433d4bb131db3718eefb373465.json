@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "469930f62f980d49ef4f5f6b4744d63741a369433d4bb131db3718eefb373465",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The bus driver smiles at us."
+  },
+  "file": "audio/v1/c78cba7462b0b07703662544e4183fd589801d62d01e0d0b265747bfb2a60428.mp3",
+  "sha256": "c78cba7462b0b07703662544e4183fd589801d62d01e0d0b265747bfb2a60428",
+  "bytes": 16272,
+  "created_at": "2026-09-08T10:36:00+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

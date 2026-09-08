@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "id": "serve-v1",
+  "word": "serve",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "端上；提供（食物或饮料）",
+  "created_at": "2026-09-08",
+  "provenance": {
+    "text": "Original child-friendly KET teaching material; dictionary pronunciation and useful formation references checked 2026-09-08. Story imagery is a fictional memory scene, not an etymological claim.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image."
+  },
+  "teaching": {
+    "meaning_zh": "端上；提供（食物或饮料）",
+    "pos": "v.",
+    "example": "We serve bread and fruit for lunch.",
+    "example_zh": "我们午餐提供面包和水果。",
+    "extra_examples": [
+      {
+        "en": "They serve hot food here.",
+        "zh": "这里供应热食。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "假装端上一盘午饭，一起说 We serve lunch。",
+    "cloze": "We __________ bread and fruit for lunch.",
+    "cloze_answer": "serve",
+    "cloze_zh": "我们午餐提供面包和水果。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "原创 KET 课堂例句；先读单词与例句，再学习构词或常用搭配。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "serve",
+      "components": [],
+      "explanation_zh": "serve 整体记。本课用“端上、提供食物”这个意思；serve up 是“端上饭菜”的常用说法。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "server",
+          "meaning_zh": "服务员",
+          "relation": "derivation",
+          "connection_zh": "serve 加 -er，去掉末尾 e：提供服务的人。",
+          "example": {
+            "en": "The server brings our food.",
+            "zh": "服务员端来了我们的食物。"
+          }
+        },
+        {
+          "word": "serve up",
+          "meaning_zh": "端上（饭菜）",
+          "relation": "phrase",
+          "connection_zh": "在 serve 后加 up，组成动词短语。",
+          "example": {
+            "en": "Dad will serve up lunch.",
+            "zh": "爸爸要把午饭端上来。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "serve 加表示人的 -er 后，可以组成什么词？",
+        "answer_zh": "server，服务员；注意只保留一个 e。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · serve",
+          "url": "https://dictionary.cambridge.org/dictionary/english/serve"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "serve-v1",
+      "file": "words/serve/v1/70bfe35168bedf4e670211a2b117c95fd607d0676865949e89b5e62815383c9d.png",
+      "sha256": "70bfe35168bedf4e670211a2b117c95fd607d0676865949e89b5e62815383c9d",
+      "width": 1536,
+      "height": 1024,
+      "alt": "爸爸把面包和水果端到露营餐桌上，女孩笑着等午饭。",
+      "caption": "We serve bread and fruit for lunch.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: one classroom vocabulary photograph for Chinese primary-school KET learners; landscape 3:2, ideally 1536x1024.\nStyle: beautiful playful realistic editorial photography, bright natural daylight, rich plausible colours, real materials and textures, correct anatomy, uncluttered composition, clear main subject for a large projector.\nConstraints: no embedded text, letters, numbers, captions, logos, watermarks, decorative frames, cartoons or clipart. All people fictional, children fully clothed in ordinary appropriate clothes. Generous margins, no clipped main subject, safe friendly scenes.\nPrimary request: A friendly adult father in a teal casual shirt and charcoal trousers serving a plate of bread slices and fruit to a smiling nine-year-old girl at an outdoor wooden picnic table. Show the plate passing from his hands onto the table as the main action. Warm green campsite setting, food looks real and appetising, no branding. The girl has an East Asian appearance, black ponytail, coral-red jacket, pale-blue jeans.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-08",
+      "reference_asset_ids": []
+    }
+  ]
+}

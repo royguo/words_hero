@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "3b7b3ac937e92332111c23d86f89dd0d9575c8a82906307f55aec182055a9661",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Please put your bag under the seat."
+  },
+  "file": "audio/v1/bade8cd64287c24494fbe04d7b7e8b470628c3d9e73ffe83971599a9277a11bd.mp3",
+  "sha256": "bade8cd64287c24494fbe04d7b7e8b470628c3d9e73ffe83971599a9277a11bd",
+  "bytes": 15984,
+  "created_at": "2026-09-08T10:37:12+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

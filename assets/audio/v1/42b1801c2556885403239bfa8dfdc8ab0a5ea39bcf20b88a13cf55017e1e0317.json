@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "42b1801c2556885403239bfa8dfdc8ab0a5ea39bcf20b88a13cf55017e1e0317",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "camping"
+  },
+  "file": "audio/v1/8297b7d0592fb3fc32bf760a2d109777df07696e8374bc803875fdf56f7c3e7b.mp3",
+  "sha256": "8297b7d0592fb3fc32bf760a2d109777df07696e8374bc803875fdf56f7c3e7b",
+  "bytes": 7776,
+  "created_at": "2026-09-08T10:36:40+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

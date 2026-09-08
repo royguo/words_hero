@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "dbc865533c171993cc64a6d28dd42baa373797030489645084b1bd973685d88f",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "They serve hot food here."
+  },
+  "file": "audio/v1/be2d663fffb97592814b28271f4d2ce6f4fbfc1b3f35a5dde5ea8335e426d765.mp3",
+  "sha256": "be2d663fffb97592814b28271f4d2ce6f4fbfc1b3f35a5dde5ea8335e426d765",
+  "bytes": 13536,
+  "created_at": "2026-09-08T10:36:16+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

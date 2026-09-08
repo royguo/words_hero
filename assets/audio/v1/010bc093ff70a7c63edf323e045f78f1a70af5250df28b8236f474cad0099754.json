@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "010bc093ff70a7c63edf323e045f78f1a70af5250df28b8236f474cad0099754",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "We serve bread and fruit for lunch."
+  },
+  "file": "audio/v1/197f792e009dfdbd92b11731bea3afda700ef59dff517a899aac62735f2a3ff3.mp3",
+  "sha256": "197f792e009dfdbd92b11731bea3afda700ef59dff517a899aac62735f2a3ff3",
+  "bytes": 17280,
+  "created_at": "2026-09-08T10:36:13+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}
