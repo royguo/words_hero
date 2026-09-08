@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Check, RotateCcw, Volume2 } from 'lucide-react';
 import type { Word } from '@/lib/classroom';
 import { stopSpeech } from '@/lib/audio';
+import { WordHints } from './word-hints';
 
 export function WordCards({
   words,
@@ -87,11 +88,13 @@ export function WordCards({
                       {reverse ? '说出英文' : '说出中文'}
                     </small>
                     <strong lang={reverse ? 'zh-CN' : 'en'}>{cue}</strong>
+                    {!reverse && <WordHints word={word} />}
                     <span>点击翻面</span>
                   </span>
                   <span className="flip-face flip-back" aria-hidden={!flipped}>
                     <small>{cue}</small>
                     <strong lang={reverse ? 'en' : 'zh-CN'}>{answer}</strong>
+                    {reverse && <WordHints word={word} />}
                     <span>你答对了吗？</span>
                   </span>
                 </span>

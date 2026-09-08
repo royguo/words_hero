@@ -2,6 +2,7 @@
 """Exercise the actual Worker + D1 + R2 in an isolated local Wrangler directory."""
 import json,os,signal,subprocess,tempfile,time,urllib.request,urllib.error,hashlib,sys
 from test_students_http import check_students
+from test_classroom_updates_http import check_classroom_updates
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];os.chdir(ROOT)
 config='cloudflare/wrangler.jsonc'
@@ -81,6 +82,7 @@ with tempfile.TemporaryDirectory(prefix='kite-cf-test-') as temp:
         audio,h=request(clip['url'],headers={'Range':'bytes=0-127'},status=206,auth=False);assert len(audio)==128 and h['Content-Range'].startswith('bytes 0-127/')
         request(clip['url'],headers={'Range':'bytes=999999999-'},status=416)
         image=l['words'][0]['images'][0];pixels,_=request(image['src'],auth=False);assert hashlib.sha256(pixels).hexdigest()==image['sha256']
+        check_classroom_updates(request,l)
         check_students(request,cid,l,config,temp)
         request('/api/classes/'+cid,method='DELETE');request('/api/lessons/'+l['id'],status=404)
         after,_=request(image['src'],auth=False);assert after==pixels;request('/api/audio',{'text':'farm'})

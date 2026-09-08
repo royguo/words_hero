@@ -22,6 +22,30 @@ const lesson = {
   version_number: 3,
 };
 
+void test('English cards include IPA, colored components and a highlighted target sentence', () => {
+  const html = renderFlashcards({
+    ...lesson,
+    words: [
+      {
+        ...words[0],
+        word: 'classmate',
+        example: 'My classmate is here.',
+        word_study: { components: [{ text: 'class' }, { text: 'mate' }] },
+      },
+    ],
+  });
+  const [front, back] = html.split('<section').slice(1);
+  assert.ok(front.includes('/ˈklɑːs.meɪt/'));
+  assert.ok(front.includes('class="part-tone-0">class</span>'));
+  assert.ok(front.includes('class="part-tone-1">mate</span>'));
+  assert.ok(
+    front.includes(
+      'My <strong class="flashcard-target">classmate</strong> is here.',
+    ),
+  );
+  assert.ok(!back.includes('flashcard-ipa'));
+});
+
 for (const count of [1, 2, 5, 6, 7, 10, 20, 30, 50]) {
   void test(`${count} words: every long-edge duplex cutout has the matching back, including blanks`, () => {
     const input = words.slice(0, count);

@@ -189,6 +189,13 @@ export default {
         return json(await store.state(q.get('class_id') || undefined));
       if (path === '/api/classes' && method === 'POST')
         return json(await store.createClass(data), 201);
+      if (
+        p[1] === 'classes' &&
+        p.length === 4 &&
+        p[3] === 'copy' &&
+        method === 'POST'
+      )
+        return json(await store.copyClass(p[2], data), 201);
       if (p[1] === 'classes' && p.length === 3 && method === 'DELETE')
         return json(await store.deleteClass(p[2]));
       if (p[1] === 'lessons' && p.length === 3) {
@@ -223,6 +230,8 @@ export default {
           ),
         );
       if (p[1] === 'versions' && p.length >= 3) {
+        if (p.length === 4 && p[3] === 'root-check' && method === 'POST')
+          return json(await store.rootCheck(p[2], data));
         if (p.length === 3 && ['PATCH', 'POST'].includes(method))
           return json(await store.patch(p[2], data));
         if (p[3] === 'complete' && method === 'POST')

@@ -50,14 +50,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import {
-  bands,
-  kinds,
-  date,
-  speak,
-  type Lesson,
-  type Word,
-} from '@/lib/classroom';
+import { bands, date, speak, type Lesson, type Word } from '@/lib/classroom';
 import { LessonPlayer } from './lesson-player';
 import { buildSlides, cardPages } from '@/lib/slides';
 import { TeachingPicture, TargetText } from './teaching-picture';
@@ -66,6 +59,8 @@ import { stopSpeech } from '@/lib/audio';
 import { WordStudyPage } from './word-study';
 import { WordCards } from './word-cards';
 import { Workbook } from './workbook';
+import { RootChallenge } from './root-challenge';
+import { phoneticFor } from '@/lib/word-presentation';
 type SaveFn = (data: unknown, action?: string) => Promise<Lesson | undefined>;
 const steps = [
   { id: 'preview', label: '认识单词', icon: BookOpen },
@@ -440,7 +435,7 @@ export function LessonRoom({
             <DialogTitle>课堂笔记</DialogTitle>
             <DialogDescription>
               {lesson.title} · 版本 {lesson.version_number}
-              {lesson.read_only ? ' · 只读' : ''}
+              {!lesson.is_current ? ' · 历史版本只读' : ''}
             </DialogDescription>
           </DialogHeader>
           <Textarea
@@ -448,12 +443,12 @@ export function LessonRoom({
             placeholder="记录易错词、例子或下次复习重点…"
             value={notes}
             maxLength={5000}
-            readOnly={lesson.read_only}
+            readOnly={!lesson.is_current}
             onChange={(e) => setNotes(e.target.value)}
           />
           <div className="notes-dialog-actions">
             <span>{notes === lesson.notes ? '已保存' : '有未保存的修改'}</span>
-            {!lesson.read_only && (
+            {lesson.is_current && (
               <button
                 className="btn primary"
                 disabled={busy || pending || notes === lesson.notes}
@@ -570,7 +565,7 @@ function WordPreview({
               <h3 lang="en">{w.display_word || w.word}</h3>
               <p className="word-phonetic">
                 <span>{w.pos}</span>
-                {w.phonetic && <span>/{w.phonetic}/</span>}
+                {phoneticFor(w) && <span>{phoneticFor(w)}</span>}
               </p>
               <button
                 className={'meaning-reveal ' + (!visible ? 'concealed' : '')}
@@ -932,71 +927,5 @@ function Spelling({ lesson, onSave }: { lesson: Lesson; onSave: SaveFn }) {
         </section>
       )}
     </form>
-  );
-}
-function RootChallenge({ lesson }: { lesson: Lesson }) {
-  const [index, setIndex] = useState(0),
-    [show, setShow] = useState(false),
-    [answer, setAnswer] = useState(''),
-    [example, setExample] = useState('');
-  const group = lesson.groups[index];
-  if (!group)
-    return (
-      <div className="empty-state">
-        本课没有构词拆分，可先练习翻卡和单词填空。
-      </div>
-    );
-  return (
-    <div className="root-challenge">
-      <span className="eyebrow">YOUR TURN / TALK TOGETHER</span>
-      <span className="root-question-index">
-        {index + 1} / {lesson.groups.length}
-      </span>
-      <h3 lang="en">{group.text}</h3>
-      <p>这个{kinds[group.kind]}是什么意思？能举出一个本课单词吗？</p>
-      <div className="root-inputs">
-        <Input
-          aria-label="构词成分中文意思"
-          placeholder="用中文写出你的理解"
-          value={answer}
-          onChange={(e) => setAnswer(e.target.value)}
-        />
-        <Input
-          aria-label="本课单词举例"
-          placeholder="写出一个本课单词"
-          value={example}
-          onChange={(e) => setExample(e.target.value)}
-          spellCheck={false}
-        />
-      </div>
-      {show ? (
-        <div className="challenge-answer">
-          <strong>{group.meaning}</strong>
-          <p>{group.words.map((w) => w.word).join(' · ')}</p>
-          <small>
-            意思相近的中文表达也可以。说说你的理由，和大家一起核对。
-          </small>
-        </div>
-      ) : (
-        <button className="btn primary" onClick={() => setShow(true)}>
-          <Eye size={17} />
-          说完了，一起看答案
-        </button>
-      )}
-      <div className="challenge-footer">
-        <button
-          className="btn ghost"
-          onClick={() => {
-            setIndex((index + 1) % lesson.groups.length);
-            setShow(false);
-            setAnswer('');
-            setExample('');
-          }}
-        >
-          换一个构词成分
-          <ArrowRight size={16} />
-        </button>
-      </div>
-    </div>
   );
 }

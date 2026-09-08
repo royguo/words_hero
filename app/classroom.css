@@ -73,22 +73,29 @@
   font-size: 12px;
   min-height: 24px;
 }
-.sidebar-class {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0 0 14px;
-  margin: 0;
-  border: 0;
-  background: none;
+.copy-class {
+  position: absolute;
+  top: 16px;
+  right: 54px;
+  color: #6b7d9c;
 }
-.sidebar-class > svg {
-  flex-shrink: 0;
-  color: #aabbd9;
+.copy-class:hover {
+  color: #3155bd;
+  background: #edf2ff;
 }
-.sidebar-class strong {
-  font-size: 15px;
-  line-height: 1.5;
+.copy-class-dialog {
+  width: calc(100% - 32px);
+  max-width: 480px !important;
+  padding: 26px;
+}
+.copy-class-dialog form > label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.copy-class-dialog form > input {
+  margin-bottom: 22px;
 }
 .sidebar-new {
   min-height: 38px;
@@ -339,13 +346,23 @@
   font-size: 12px;
 }
 .lesson-tab-list {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+  height: auto !important;
   min-height: 52px;
+  /* Fixed equal columns avoid overflow-x:auto implicitly creating a y scroller. */
+  overflow: visible !important;
+  padding: 0 5px !important;
   margin-bottom: 20px;
   border-radius: 10px;
 }
 .lesson-tab-list [data-slot='tabs-trigger'] {
+  height: auto !important;
   min-height: 50px;
-  padding: 12px 10px;
+  min-width: 0;
+  padding: 12px 8px !important;
+  white-space: normal;
 }
 .lesson-tab-list .step-index {
   display: inline;
@@ -501,7 +518,7 @@
     width: 100%;
   }
   .lesson-tab-list [data-slot='tabs-trigger'] {
-    padding: 12px 4px;
+    padding: 12px 4px !important;
     font-size: 12px;
     gap: 4px;
   }

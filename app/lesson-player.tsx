@@ -38,6 +38,7 @@ import { stopSpeech } from '@/lib/audio';
 import { StopAudioButton } from './audio-tools';
 import { WordStudyPage } from './word-study';
 import { WordCards } from './word-cards';
+import { phoneticFor } from '@/lib/word-presentation';
 
 type SaveFn = (data: unknown, action?: string) => Promise<Lesson | undefined>;
 
@@ -554,7 +555,7 @@ function SlideBody({
           <div className="slide-phonetic">
             <span>
               {w.pos}
-              {w.phonetic ? ' /' + w.phonetic + '/' : ''}
+              {phoneticFor(w) ? ' ' + phoneticFor(w) : ''}
             </span>
             <button
               className="slide-sound"

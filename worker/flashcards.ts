@@ -1,4 +1,9 @@
 import type { Course, Word } from './model';
+import {
+  constructionFor,
+  phoneticFor,
+  targetSegments,
+} from '../lib/word-presentation.ts';
 
 export const CARDS_PER_SHEET = 6;
 type Card = { number: number; word: Word };
@@ -37,6 +42,21 @@ function cardMarkup(card: Card | null, side: 'front' | 'back') {
   if (!card)
     return '<article class="flashcard flashcard-blank" data-card="blank" aria-hidden="true"></article>';
   const { word, number } = card;
+  const construction = constructionFor(word);
+  const parts = construction.parts
+    .map(
+      (p, i) =>
+        `${i ? '<span class="flashcard-plus"> + </span>' : ''}<span class="part-tone-${i % 3}">${esc(p)}</span>`,
+    )
+    .join('');
+  const hints = `<div class="flashcard-hints">${phoneticFor(word) ? `<div class="flashcard-ipa">${esc(phoneticFor(word))}</div>` : ''}<div class="flashcard-construction">${parts}${construction.whole ? '<span class="flashcard-whole">整体记忆</span>' : ''}</div></div>`;
+  const example = targetSegments(word.example, word)
+    .map((part) =>
+      part.target
+        ? `<strong class="flashcard-target">${esc(part.text)}</strong>`
+        : esc(part.text),
+    )
+    .join('');
   const explanation =
     word.word_study?.explanation_zh ||
     (word.parts?.length
@@ -46,7 +66,7 @@ function cardMarkup(card: Card | null, side: 'front' | 'back') {
     <div class="flashcard-label"><span>${String(number).padStart(2, '0')}</span><span>${side === 'front' ? 'ENGLISH' : '中文 · 释义'}</span></div>
     ${
       side === 'front'
-        ? `<div class="flashcard-front"><h2 lang="en">${esc(word.display_word || word.word)}</h2><p lang="en">${esc(word.example)}</p></div>`
+        ? `<div class="flashcard-front"><div><h2 lang="en">${esc(word.display_word || word.word)}</h2>${hints}</div><p lang="en">${example}</p></div>`
         : `<div class="flashcard-back"><h2>${esc(word.meaning_zh)}</h2><p class="flashcard-translation">${esc(word.example_zh)}</p><div class="flashcard-explanation"><span>理解与记忆</span><p>${esc(explanation)}</p></div></div>`
     }
   </article>`;
@@ -72,13 +92,21 @@ export const flashcardCSS = `
 .wg-worksheet .flashcard-page{height:297mm;min-height:297mm;overflow:visible}
 .wg-worksheet .flashcard-header{display:flex;justify-content:space-between;align-items:center;gap:4mm;height:10mm;flex:none;margin-bottom:4mm;font-size:11px;color:#222}
 .wg-worksheet .flashcard-header strong{font-weight:600}
-.wg-worksheet .flashcard-grid{display:grid;grid-template-columns:repeat(2,93mm);grid-template-rows:repeat(3,82mm);width:186mm;height:246mm;flex:none;border-top:.2mm dashed #999;border-left:.2mm dashed #999}
-.wg-worksheet .flashcard{box-sizing:border-box;min-width:0;min-height:0;padding:5mm 6mm;border-right:.2mm dashed #999;border-bottom:.2mm dashed #999;color:#111;background:#fff;break-inside:avoid;overflow-wrap:anywhere}
-.wg-worksheet .flashcard-label{display:flex;justify-content:space-between;align-items:center;font-size:10px;line-height:4mm;color:#666;letter-spacing:.2px;margin-bottom:5mm}
+.wg-worksheet .flashcard-grid{display:grid;grid-template-columns:repeat(2,90mm);grid-template-rows:repeat(3,78mm);column-gap:6mm;row-gap:6mm;width:186mm;height:246mm;flex:none}
+.wg-worksheet .flashcard{box-sizing:border-box;min-width:0;min-height:0;padding:4mm 5mm;border:.25mm dashed #999;border-radius:3mm;color:#111;background:#fff;break-inside:avoid;overflow-wrap:anywhere}
+.wg-worksheet .flashcard-blank{border:0}
+.wg-worksheet .flashcard-label{display:flex;justify-content:space-between;align-items:center;font-size:10px;line-height:4mm;color:#666;letter-spacing:.2px;margin-bottom:3mm}
 .wg-worksheet .flashcard-label span:first-child{font-variant-numeric:tabular-nums}
-.wg-worksheet .flashcard-front{height:58mm;display:flex;flex-direction:column;justify-content:center;gap:6mm;text-align:center}
+.wg-worksheet .flashcard-front{height:59mm;display:flex;flex-direction:column;justify-content:center;gap:4mm;text-align:center}
 .wg-worksheet .flashcard-front h2{font:700 28px/1.15 Arial,sans-serif;margin:0;letter-spacing:-.3px}
 .wg-worksheet .flashcard-front p{font:18px/1.5 Arial,sans-serif;margin:0}
+.wg-worksheet .flashcard-hints{margin-top:2mm}
+.wg-worksheet .flashcard-ipa{font:14px/1.5 Arial,sans-serif;color:#555}
+.wg-worksheet .flashcard-construction{font-size:14px;line-height:1.6;margin-top:1mm;font-weight:600}
+.wg-worksheet .part-tone-0{color:#254bb3}.wg-worksheet .part-tone-1{color:#9c3f16}.wg-worksheet .part-tone-2{color:#176b56}
+.wg-worksheet .flashcard-plus{color:#666;font-weight:400}
+.wg-worksheet .flashcard-whole{font-size:10px;color:#666;font-weight:400;margin-left:2mm}
+.wg-worksheet .flashcard-target{font-weight:800;text-decoration:underline;text-decoration-thickness:.3mm;text-underline-offset:1mm}
 .wg-worksheet .flashcard-back h2{font-size:21px;line-height:1.4;margin:0 0 3mm;font-weight:700}
 .wg-worksheet .flashcard-translation{font-size:14px;line-height:1.6;margin:0 0 4mm;color:#333}
 .wg-worksheet .flashcard-explanation{border-top:.2mm solid #ddd;padding-top:3mm}

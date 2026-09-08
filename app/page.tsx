@@ -16,6 +16,7 @@ import {
   ChartNoAxesCombined,
   Trash2,
   LogOut,
+  Copy,
 } from 'lucide-react';
 import {
   Sidebar,
@@ -138,6 +139,13 @@ function Classrooms() {
     name: string;
   } | null>(null);
   const navigation = useRef(0);
+  const [copying, setCopying] = useState<{
+    id: string;
+    name: string;
+    lesson_count: number;
+    request_id: string;
+  } | null>(null);
+  const [copyName, setCopyName] = useState('');
   const writes = useRef<Promise<unknown>>(Promise.resolve());
   const current = state.classes.find((c) => c.id === classId);
   function setNotice(message: string) {
@@ -260,6 +268,26 @@ function Classrooms() {
       setClassId(c.id);
       setLesson(null);
       setSetup('new');
+    });
+  }
+  async function copyClass() {
+    if (!copying) return;
+    await run(async () => {
+      await writes.current.catch(() => {});
+      const c = await api<{ id: string }>('/classes/' + copying.id + '/copy', {
+        name: copyName,
+        request_id: copying.request_id,
+      });
+      const s = await api<State>('/state?class_id=' + c.id);
+      const first = [...s.lessons].sort((a, b) => a.number - b.number)[0];
+      const l = first ? await api<Lesson>('/lessons/' + first.id) : null;
+      navigation.current++;
+      setState(s);
+      setClassId(c.id);
+      setLesson(l);
+      setSetup(l ? null : 'new');
+      setCopying(null);
+      setNotice('已复制 ' + s.lessons.length + ' 节课程，教学进度已重置。');
     });
   }
   async function generate(draftId: string, revision: number) {
@@ -401,6 +429,18 @@ function Classrooms() {
                     </span>
                   </button>
                   <button
+                    className="copy-class icon-btn"
+                    aria-label={'复制班级 ' + c.name}
+                    title="复制班级与课程"
+                    disabled={busy}
+                    onClick={() => {
+                      setCopying({ ...c, request_id: crypto.randomUUID() });
+                      setCopyName(c.name.slice(0, 46) + ' 副本');
+                    }}
+                  >
+                    <Copy size={16} />
+                  </button>
+                  <button
                     className="delete-class icon-btn"
                     aria-label={'删除班级 ' + c.name}
                     disabled={busy}
@@ -417,6 +457,54 @@ function Classrooms() {
           )}
         </main>
         {deletionDialog}
+        <Dialog
+          open={!!copying}
+          onOpenChange={(open) => {
+            if (!open && !busy) setCopying(null);
+          }}
+        >
+          <DialogContent className="copy-class-dialog">
+            <DialogHeader>
+              <DialogTitle>复制班级</DialogTitle>
+              <DialogDescription>
+                复制「{copying?.name}」的 {copying?.lesson_count}{' '}
+                节课，保留每课最新内容和公共素材引用。教学进度、课堂笔记及学生名单从空白开始。
+              </DialogDescription>
+            </DialogHeader>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                void copyClass();
+              }}
+            >
+              <label htmlFor="copy-class-name">新班级名称</label>
+              <Input
+                id="copy-class-name"
+                value={copyName}
+                onChange={(e) => setCopyName(e.target.value)}
+                maxLength={50}
+                required
+                disabled={busy}
+              />
+              <div className="delete-actions">
+                <button
+                  className="btn secondary"
+                  type="button"
+                  disabled={busy}
+                  onClick={() => setCopying(null)}
+                >
+                  取消
+                </button>
+                <button
+                  className="btn primary"
+                  disabled={busy || !copyName.trim()}
+                >
+                  {busy ? '正在复制…' : '复制班级'}
+                </button>
+              </div>
+            </form>
+          </DialogContent>
+        </Dialog>
         <VocabManager
           open={manager}
           onOpenChange={setManager}
@@ -431,7 +519,6 @@ function Classrooms() {
     >
       <CourseSidebar
         state={state}
-        className={current?.name || ''}
         classId={classId}
         lessonId={!setup ? lesson?.id : undefined}
         busy={busy}
@@ -571,7 +658,6 @@ function NewClass({
 }
 function CourseSidebar({
   state,
-  className,
   lessonId,
   busy,
   onHome,
@@ -581,7 +667,6 @@ function CourseSidebar({
   classId,
 }: {
   state: State;
-  className: string;
   lessonId?: string;
   busy: boolean;
   onHome: () => void;
@@ -599,10 +684,6 @@ function CourseSidebar({
           <ArrowLeft size={15} />
           所有班级
         </button>
-        <div className="sidebar-class">
-          <Users size={16} />
-          <strong>{className}</strong>
-        </div>
         <button
           className="btn sidebar-new"
           onClick={() => {

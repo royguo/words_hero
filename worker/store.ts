@@ -15,6 +15,8 @@ import {
   type Draft,
 } from './model';
 import { worksheetPlan } from './worksheets';
+import { resetCourseForCopy } from './class-copy';
+import { checkRootExamples, type RootCheck } from '../lib/root-examples';
 import { defaults, type Config } from '../lib/classroom';
 type Vocab = {
   id: number;
@@ -129,6 +131,82 @@ export class Store {
       }),
       attempts: attempts.map((a) => JSON.parse(a.data)),
     };
+  }
+  async copyClass(cid: string, data: Record<string, unknown>) {
+    const requestId = string(data.request_id, 64, '复制请求编号');
+    if (!/^[a-zA-Z0-9_-]{8,64}$/.test(requestId))
+      throw new AppError('复制请求编号不正确');
+    const name = string(data.name, 50, '班级名称');
+    const existingCopy = async () => {
+      const row = await this.one<{ source_id: string; class_id: string }>(
+        'SELECT source_id,class_id FROM class_copies WHERE request_id=?',
+        requestId,
+      );
+      if (!row) return null;
+      if (row.source_id !== cid) throw new AppError('复制请求编号已使用', 409);
+      return this.classroom(row.class_id);
+    };
+    const existing = await existingCopy();
+    if (existing) return existing;
+    const source = await this.classroom(cid);
+    const courses = await this.classCourses(cid);
+    const target = { id: uid(), name, created_at: now() };
+    const queries = [
+      this.stmt(
+        'INSERT INTO classrooms(id,name,created_at) VALUES(?,?,?)',
+        target.id,
+        target.name,
+        target.created_at,
+      ),
+    ];
+    for (const course of courses) {
+      const copy = resetCourseForCopy(course, {
+        classId: target.id,
+        className: name,
+        lessonId: uid(),
+        versionId: uid(),
+        code: 'WG-' + uid().slice(0, 10).toUpperCase(),
+        createdAt: target.created_at,
+      });
+      queries.push(
+        this.stmt(
+          'INSERT INTO lessons(id,class_id,number,title,created_at,active_version) VALUES(?,?,?,?,?,?)',
+          copy.id,
+          target.id,
+          copy.number,
+          copy.title,
+          copy.created_at,
+          copy.version_id,
+        ),
+      );
+      queries.push(
+        this.stmt(
+          'INSERT INTO versions VALUES(?,?,?,?,?)',
+          copy.version_id,
+          copy.id,
+          1,
+          copy.course_code,
+          JSON.stringify(copy),
+        ),
+      );
+    }
+    queries.push(
+      this.stmt(
+        'INSERT INTO class_copies VALUES(?,?,?,?)',
+        requestId,
+        cid,
+        target.id,
+        target.created_at,
+      ),
+    );
+    try {
+      await this.transaction(source, queries);
+    } catch (error) {
+      const saved = await existingCopy();
+      if (saved) return saved;
+      throw error;
+    }
+    return target;
   }
   async byVersion(vid: string) {
     const r = await this.one<{ lesson_id: string }>(
@@ -634,7 +712,11 @@ export class Store {
       const initial = await this.byVersion(vid),
         c = await this.classroom(initial.class_id),
         l = await this.byVersion(vid);
-      if (l.read_only) throw new AppError('此版本已归档');
+      const notesOnly = Object.keys(data).length === 1 && 'notes' in data;
+      if (!l.is_current || (l.read_only && !notesOnly))
+        throw new AppError(
+          '此版本的教学内容已归档，仅可更新当前版本的课堂笔记',
+        );
       if ('stage' in data) {
         if (
           !['preview', 'roots', 'scenes', 'practice', 'workbook'].includes(
@@ -684,6 +766,34 @@ export class Store {
     l.words = l.words.map((w) => ({ ...w, result: w.result || 'again' }));
     await this.transaction(c, [this.saveQuery(l)]);
     return this.byVersion(vid);
+  }
+  async rootCheck(
+    vid: string,
+    data: Record<string, unknown>,
+  ): Promise<RootCheck> {
+    const course = await this.byVersion(vid);
+    const group = course.groups.find((g) => g.id === data.group_id);
+    if (!group) throw new AppError('构词成分不属于本课');
+    if (
+      !Array.isArray(data.answers) ||
+      !data.answers.length ||
+      data.answers.length > 20
+    )
+      throw new AppError('请填写 1–20 个英文单词或词组');
+    const answers = [
+      ...new Set(data.answers.map((x) => normalize(string(x, 80, '英文举例')))),
+    ];
+    const marks = answers.map(() => '?').join(',');
+    const rows = await this.all<{ id: number; data: string }>(
+      `SELECT id,data FROM vocabulary WHERE lower(word) IN (${marks}) OR lower(json_extract(data,'$.display_word')) IN (${marks}) ORDER BY level,id`,
+      ...answers,
+      ...answers,
+    );
+    return checkRootExamples(
+      group,
+      answers,
+      rows.map((r) => ({ ...JSON.parse(r.data), id: r.id }) as Word),
+    );
   }
   async attempt(vid: string, data: Record<string, unknown>) {
     const initial = await this.byVersion(vid),
@@ -822,6 +932,7 @@ export class Store {
   async backup() {
     const tables = [
       'classrooms',
+      'class_copies',
       'lessons',
       'versions',
       'drafts',

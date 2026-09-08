@@ -31,11 +31,19 @@ def check_students(request,cid,lesson,config,persist):
     for path in ('/api/state','/api/backup','/api/classes/'+cid+'/students','/api/vocabulary'):
         a(path,status=403)
     a('/api/classes',{'name':'forbidden'},status=403)
+    a('/api/classes/'+cid+'/copy',{'name':'forbidden','request_id':uuid.uuid4().hex},status=403)
+    a('/api/versions/'+lesson['version_id']+'/root-check',{'group_id':'any','answers':['farm']},status=403)
+    a('/api/versions/'+lesson['version_id'],{'notes':'forbidden'},method='PATCH',status=403)
     a('/api/audio',{'text':'farm'},status=403)
     state,_=a('/api/student/state');assert state['total']==0
     empty,_=a('/api/student/sessions',{});assert empty['session'] is None
     request('/api/versions/'+lesson['version_id']+'/complete',{})
     state,_=a('/api/student/state');assert state['total']==state['fresh']==10
+    copied,_=request('/api/classes/'+cid+'/copy',{'name':'Fresh students class','request_id':uuid.uuid4().hex},status=201)
+    students,_=request('/api/classes/'+copied['id']+'/students');assert students['students']==[]
+    request('/api/classes/'+copied['id'],method='DELETE')
+    request('/api/versions/'+lesson['version_id'],{'notes':'After-class notes'},method='PATCH')
+    after_notes,_=a('/api/student/state');assert after_notes==state
     a('/api/audio',{'text':'farm'})
     a('/api/audio',{'text':'This sentence is not in this class.'},status=403)
     start,_=a('/api/student/sessions',{});s=start['session'];sid=s['id'];assert len(s['game']['words'])==10

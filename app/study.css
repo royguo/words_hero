@@ -581,3 +581,160 @@
   gap: 8px;
   justify-content: center;
 }
+
+/* Shared hints remain on the English face only, including in presentation mode. */
+.flip-face {
+  gap: 5px;
+  padding: 12px 18px;
+}
+.flip-face > strong {
+  font-size: clamp(32px, 3.2vw, 46px);
+  line-height: 1.2;
+}
+.flip-face > .card-word-hints {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  max-width: 100%;
+}
+.card-ipa {
+  font-family: 'Arial', 'DejaVu Sans', sans-serif;
+  color: #65738c;
+  font-size: 20px;
+  line-height: 1.5;
+}
+.card-construction {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 5px;
+  font-size: 22px;
+  line-height: 1.5;
+}
+.card-part-group {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+}
+.card-plus {
+  color: #8992a3;
+  font-weight: 400;
+}
+.card-part {
+  font-weight: 700;
+}
+.part-tone-0 {
+  color: #254bb3;
+}
+.part-tone-1 {
+  color: #9c3f16;
+}
+.part-tone-2 {
+  color: #176b56;
+}
+.card-whole-label {
+  font-size: 12px;
+  color: #7c879b;
+  margin-left: 3px;
+}
+.recall-cards .flip-face > strong {
+  font-size: 34px;
+}
+.recall-cards .card-ipa {
+  font-size: 16px;
+}
+.recall-cards .card-construction {
+  font-size: 18px;
+}
+.root-challenge textarea {
+  margin: 22px 0 8px;
+  min-height: 108px;
+  resize: vertical;
+  font-size: 22px !important;
+  line-height: 1.6;
+  padding: 14px 16px;
+  text-align: left;
+}
+.root-challenge > .root-input-help {
+  font-size: 13px;
+  margin-bottom: 22px;
+}
+.root-challenge > .root-check-error {
+  color: #b24229;
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+.root-check-results {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+  text-align: left;
+}
+.root-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid #dce4f1;
+  border-radius: 10px;
+  background: #f7f9fd;
+}
+.root-check-item > svg {
+  flex: none;
+  margin-top: 5px;
+}
+.root-check-item.matched {
+  color: #176b56;
+  border-color: #b8dfcb;
+  background: #f0faf4;
+}
+.root-check-item.missing {
+  color: #b24229;
+  border-color: #efd1c9;
+  background: #fff7f3;
+}
+.root-check-item.unverified {
+  color: #845d20;
+  border-color: #eadab8;
+  background: #fffbf1;
+}
+.root-check-item strong {
+  display: inline-block;
+  font-size: 24px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  margin-right: 12px;
+}
+.root-check-item span {
+  font-size: 13px;
+}
+.root-check-item p {
+  color: #44516a;
+  margin: 5px 0;
+  font-size: 17px;
+}
+.root-check-item small {
+  display: block;
+  color: #737f92;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.root-check-results .challenge-answer {
+  margin-top: 4px;
+}
+@media (max-width: 767px) {
+  .recall-cards .flip-face > strong {
+    font-size: 28px;
+  }
+  .recall-cards .card-construction {
+    font-size: 16px;
+  }
+  .recall-cards .card-ipa {
+    font-size: 15px;
+  }
+  .root-challenge textarea {
+    font-size: 19px !important;
+  }
+}
