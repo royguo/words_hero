@@ -73,6 +73,14 @@ npx wrangler d1 execute kite-words-db --config cloudflare/wrangler.jsonc --remot
 
 Cloudflare Worker 不运行 Python 子进程；`worker/audio.ts` 将原 edge-tts 协议适配到了 Workers。协议参考 edge-tts 7.2.8，保留上游 LGPL 许可于 `LICENSES/`。没有 GPT API 通道，没有系统合成声音回退。首次生成依赖外部语音服务可用性，已有录音独立保存；云端页面仍需网络访问，不把“素材已缓存”表述为整个网站可以离线运行。
 
+### 浏览器课程资源预下载
+
+`app/course-resources.tsx` 提供手动下载入口，`lib/course-resources.ts` 按当前版本收集图片及音频清单，3 路并发下载完整文件、校验 SHA-256 后写入 `kite-course-media-v1` Cache Storage。暂停/断网/失败保留已完成文件；重试时检查实际缓存，跨课共享同一 URL。未生成的语音单独列出，不在此入口触发语音合成。
+
+`public/course-media-sw.js` 通过静态发布部署，根页面初始化注册，激活后接管同源 `/assets/words|lessons|audio/…/<hash>.<ext>` 的 GET/HEAD，优先读取有效期 7 天内的本机资源，支持 MP3 的 206/416、HEAD 与 If-Range。缓存无法访问或未命中时继续走原 R2 路径；普通浏览不自动写 Cache Storage。`public/course-media-cache.js` 为页面与 Service Worker 共用逻辑。更新检查使用 `updateViaCache: none`，不缓存页面和 API，不需要数据库迁移或 R2 结构变动。
+
+验证命令：`npm run test:resources`、`npm run test:audio`、`npm run test:cloudflare`。浏览器另验预下载完成、刷新后重复下载没有素材请求，以及切断网络后已缓存图片和原生音频可解码/播放。Cache Storage 可能被浏览器回收；不能据此承诺整个课堂系统离线运行。参考：[Cache API](https://developer.mozilla.org/en-US/docs/Web/API/Cache)、[Service Worker 注册](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register)、[HTTP Range](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Range_requests)。
+
 参考：[Workers 静态资源](https://developers.cloudflare.com/workers/static-assets/)、[D1 本地开发](https://developers.cloudflare.com/d1/best-practices/local-development/)、[Workers WebSockets](https://developers.cloudflare.com/workers/runtime-apis/websockets/)。
 
 ## 学生积分与逐词复习历史

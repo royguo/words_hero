@@ -4,6 +4,7 @@ import './study.css';
 import './students.css';
 import './classroom.css';
 import { Toaster } from '@/components/ui/toast';
+import { ResourceCacheInit } from './resource-cache-init';
 export const metadata: Metadata = {
   title: '风筝单词 · KiteDance',
   icons: {
@@ -19,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="zh-CN">
       <body>
+        <ResourceCacheInit />
         <Toaster timeout={4000} limit={3}>
           {children}
         </Toaster>

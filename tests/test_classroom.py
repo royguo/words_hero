@@ -65,7 +65,9 @@ class StoreCase(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
-        self.store = Store(Path(self.tmp.name) / "classroom.sqlite3", seed=None)
+        # Fixture roots must not change when the public teaching catalog grows.
+        self.store = Store(Path(self.tmp.name) / "classroom.sqlite3", seed=None,
+                           asset_root=Path(self.tmp.name) / "assets")
         with self.store.connect() as db:
             self.store.import_words(db, parse_csv(csv_text(rows_for())))
             self.store.import_words(db, parse_csv(csv_text(rows_for("PET"))))

@@ -55,6 +55,7 @@ import { LessonPlayer } from './lesson-player';
 import { buildSlides, cardPages } from '@/lib/slides';
 import { TeachingPicture, TargetText } from './teaching-picture';
 import { AudioPreparation, SpeakButton } from './audio-tools';
+import { CourseResources } from './course-resources';
 import { stopSpeech } from '@/lib/audio';
 import { WordStudyPage } from './word-study';
 import { WordCards } from './word-cards';
@@ -285,7 +286,14 @@ export function LessonRoom({
               </button>
             )}
           </div>
-          <AudioPreparation versionId={lesson.version_id} compact />
+          <div className="course-resource-actions">
+            <AudioPreparation versionId={lesson.version_id} compact />
+            <CourseResources
+              key={lesson.version_id}
+              lesson={lesson}
+              notify={notify}
+            />
+          </div>
         </div>
         <div className="course-overview-bottom">
           <div className="course-mastery">

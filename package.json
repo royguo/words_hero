@@ -20,6 +20,7 @@
     "test:classroom": "node --test tests/classroom-updates.test.mjs",
     "test:students": "node --test tests/student-game.test.mjs tests/student-audio.test.mjs tests/student-progress.test.mjs tests/student-account.test.mjs",
     "test:audio": "node --test tests/audio.test.mjs tests/worker-audio.test.mjs",
+    "test:resources": "node --test tests/course-resources.test.mjs",
     "start:legacy": "python3 server.py",
     "cf:prepare": "python3 scripts/cf_prepare.py",
     "cf:types": "wrangler types --config cloudflare/wrangler.jsonc worker-configuration.d.ts --include-runtime false",
