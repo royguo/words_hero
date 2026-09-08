@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import { api, ApiError } from '@/lib/classroom';
 import { StudentAudio } from '@/lib/student-audio';
+import { StudentProgress } from '@/lib/student-progress';
 import type {
   GameAction,
   GameFeedback,
@@ -28,11 +29,6 @@ import type {
   StudyGame,
 } from '@/lib/student-game';
 
-type PendingAction = {
-  revision: number;
-  request_id: string;
-  action: GameAction;
-};
 const when = (value: string | null) =>
   value
     ? new Date(value).toLocaleString('zh-CN', {
@@ -74,15 +70,27 @@ export function StudentLearning() {
       key: string;
     } | null>(null),
     [flash, setFlash] = useState<GameFeedback | null>(null);
-  const [failedAction, setFailedAction] = useState<PendingAction | null>(null);
+  const [failedSave, setFailedSave] = useState(false),
+    [saving, setSaving] = useState(false),
+    [storageNotice, setStorageNotice] = useState('');
+  const progress = useRef<StudentProgress | null>(null);
   const audio = useRef<StudentAudio | null>(null),
     lock = useRef(false),
     alive = useRef(true);
   const load = useCallback(async () => {
     const value = await api<StudentDashboard>('/student/state');
     if (alive.current) {
-      setDashboard(value);
-      setSession(value.session);
+      progress.current = value.session
+        ? new StudentProgress(value.student.id, value.session)
+        : null;
+      const restored = progress.current?.session || null;
+      setDashboard({ ...value, session: restored });
+      setSession(restored);
+      setStorageNotice(
+        progress.current && !progress.current.storageAvailable
+          ? '浏览器无法暂存进度，刷新将回到上次保存的位置。'
+          : '',
+      );
     }
     return value;
   }, []);
@@ -128,11 +136,16 @@ export function StudentLearning() {
       );
       if (!alive.current) return;
       if (value.session) {
-        setSession(value.session);
+        progress.current = new StudentProgress(
+          dashboard!.student.id,
+          value.session,
+        );
+        setSession(progress.current.session);
         setSelected(null);
         setFlash(null);
-        setFailedAction(null);
+        setFailedSave(false);
         setMode('play');
+        if (progress.current.needsCheckpoint) await saveProgress();
       } else {
         await load();
         setMode('home');
@@ -144,43 +157,27 @@ export function StudentLearning() {
       setBusy(false);
     }
   }
-  async function submit(action: GameAction, retry?: PendingAction) {
-    if (!session || lock.current || (failedAction && !retry)) return;
-    lock.current = true;
-    setBusy(true);
-    setError('');
-    const payload = retry || {
-      revision: session.revision,
-      request_id: crypto.randomUUID(),
-      action,
-    };
+  async function saveProgress(): Promise<boolean> {
+    const current = progress.current,
+      payload = current?.payload();
+    if (!current || !payload) return true;
+    setSaving(true);
     try {
-      const result = await api<
-        StudentSession & { feedback: GameFeedback | null }
-      >('/student/sessions/' + session.id + '/actions', payload);
-      if (!alive.current) return;
-      setFailedAction(null);
-      if (action.kind !== 'retry' && result.feedback) {
-        setFlash(result.feedback);
-        if (effects) audio.current?.effect(result.feedback.correct);
-        if (!result.feedback.correct && voice)
-          void audio.current?.play(
-            result.feedback.keys.map(
-              (key) => session.game.words.find((w) => w.key === key)!.word,
-            ),
-          );
-        await new Promise((resolve) =>
-          setTimeout(resolve, result.feedback!.correct ? 350 : 1450),
-        );
-      }
-      if (alive.current) {
-        setSession(result);
-        setSelected(null);
-        setFlash(null);
-      }
+      const result = await api<StudentSession>(
+        '/student/sessions/' + current.session.id + '/actions',
+        payload,
+      );
+      if (!alive.current || progress.current !== current) return false;
+      current.accept(result);
+      setSession(result);
+      setFailedSave(false);
+      setError('');
+      return true;
     } catch (e) {
+      if (!alive.current) return false;
       if (e instanceof ApiError && e.status === 409) {
-        setFailedAction(null);
+        current.discard();
+        setFailedSave(false);
         setSelected(null);
         setFlash(null);
         audio.current?.stop();
@@ -190,8 +187,59 @@ export function StudentLearning() {
         } catch {
           setMode('home');
         }
-      } else setFailedAction(payload);
-      setError(e instanceof Error ? e.message : '进度尚未保存，请重试');
+      } else setFailedSave(true);
+      setError(e instanceof Error ? e.message : '进度尚未同步，请重试');
+      return false;
+    } finally {
+      if (alive.current) setSaving(false);
+    }
+  }
+  async function retrySave() {
+    if (lock.current) return;
+    lock.current = true;
+    setBusy(true);
+    try {
+      await saveProgress();
+    } finally {
+      lock.current = false;
+      if (alive.current) setBusy(false);
+    }
+  }
+  async function submit(action: GameAction) {
+    if (!progress.current || lock.current || failedSave) return;
+    lock.current = true;
+    setBusy(true);
+    setError('');
+    try {
+      const current = progress.current;
+      const result = current.choose(action),
+        feedback = result.game.feedback;
+      setStorageNotice(
+        current.storageAvailable
+          ? ''
+          : '浏览器无法暂存进度，刷新将回到上次保存的位置。',
+      );
+      if (action.kind !== 'retry' && feedback) {
+        setFlash(feedback);
+        if (effects) audio.current?.effect(feedback.correct);
+        if (!feedback.correct && voice)
+          void audio.current?.play(
+            feedback.keys.map(
+              (key) => result.game.words.find((w) => w.key === key)!.word,
+            ),
+          );
+        await new Promise((resolve) =>
+          setTimeout(resolve, feedback.correct ? 220 : 1100),
+        );
+      }
+      if (alive.current) {
+        setSession(result);
+        setSelected(null);
+        setFlash(null);
+        if (current.needsCheckpoint) await saveProgress();
+      }
+    } catch (e) {
+      setError(e instanceof Error ? e.message : '请重新选择');
     } finally {
       lock.current = false;
       if (alive.current) setBusy(false);
@@ -204,12 +252,12 @@ export function StudentLearning() {
     ? `${session?.id}:${game.stage}:${game.round}`
     : '';
   useEffect(() => {
-    if (!retryPage || busy || failedAction || mode !== 'play') return;
+    if (!retryPage || busy || failedSave || mode !== 'play') return;
     const timer = setTimeout(() => onRetryTimer(), 1600);
     return () => clearTimeout(timer);
-  }, [retryPage, busy, failedAction, mode]);
+  }, [retryPage, busy, failedSave, mode]);
   function pick(side: 'en' | 'zh', key: string) {
-    if (!game || busy || failedAction || game.removed.includes(key)) return;
+    if (!game || busy || failedSave || game.removed.includes(key)) return;
     audio.current?.stop();
     if (side === 'en' && voice)
       void audio.current?.play([game.words.find((w) => w.key === key)!.word]);
@@ -223,18 +271,27 @@ export function StudentLearning() {
       zh = side === 'zh' ? key : selected.key;
     void submit({ kind: 'match', en, zh });
   }
-  async function home() {
-    if (busy) return;
+  async function home(logout = false) {
+    if (lock.current) return;
+    lock.current = true;
+    setBusy(true);
     audio.current?.stop();
-    setMode('home');
-    setSelected(null);
-    setFlash(null);
-    setFailedAction(null);
-    setError('');
     try {
-      await load();
+      if (!(await saveProgress())) return;
+      if (logout) window.dispatchEvent(new Event('kite-logout'));
+      else {
+        setMode('home');
+        setSelected(null);
+        setFlash(null);
+        setFailedSave(false);
+        setError('');
+        await load();
+      }
     } catch (e) {
       setError(e instanceof Error ? e.message : '读取失败');
+    } finally {
+      lock.current = false;
+      if (alive.current) setBusy(false);
     }
   }
   const wordsByKey = new Map(game?.words.map((w) => [w.key, w]) || []);
@@ -294,10 +351,7 @@ export function StudentLearning() {
             className="icon-btn"
             aria-label="退出学生登录"
             disabled={busy}
-            onClick={() => {
-              audio.current?.stop();
-              window.dispatchEvent(new Event('kite-logout'));
-            }}
+            onClick={() => void home(true)}
           >
             <LogOut size={18} />
           </button>
@@ -306,11 +360,8 @@ export function StudentLearning() {
       {error && (
         <div className="learner-error" role="alert">
           {error}
-          {failedAction ? (
-            <button
-              disabled={busy}
-              onClick={() => void submit(failedAction.action, failedAction)}
-            >
+          {failedSave ? (
+            <button disabled={busy} onClick={() => void retrySave()}>
               重试保存
             </button>
           ) : (
@@ -440,7 +491,7 @@ export function StudentLearning() {
                 </button>
                 <button
                   className="btn primary"
-                  disabled={busy}
+                  disabled={busy || failedSave}
                   onClick={() => void start()}
                 >
                   <ArrowRight size={18} />
@@ -499,7 +550,7 @@ export function StudentLearning() {
                   <p>重新练习本阶段，整轮全对后继续。</p>
                   <button
                     className="btn primary"
-                    disabled={busy || !!failedAction}
+                    disabled={busy || failedSave}
                     onClick={() => void submit({ kind: 'retry' })}
                   >
                     重试本阶段
@@ -543,7 +594,7 @@ export function StudentLearning() {
                                 }
                                 aria-hidden={gone}
                                 tabIndex={gone ? -1 : 0}
-                                disabled={gone || busy || !!failedAction}
+                                disabled={gone || busy || failedSave}
                                 onClick={() => pick(side, key)}
                               >
                                 <span>
@@ -593,7 +644,7 @@ export function StudentLearning() {
                   <div className="duel-answers">
                     <button
                       className="answer-no"
-                      disabled={busy || !!failedAction}
+                      disabled={busy || failedSave}
                       aria-label="不对应"
                       onClick={() =>
                         void submit({ kind: 'judge', correct: false })
@@ -604,7 +655,7 @@ export function StudentLearning() {
                     </button>
                     <button
                       className="answer-yes"
-                      disabled={busy || !!failedAction}
+                      disabled={busy || failedSave}
                       aria-label="对应"
                       onClick={() =>
                         void submit({ kind: 'judge', correct: true })
@@ -632,8 +683,8 @@ export function StudentLearning() {
                           return `${w.word} · ${w.meaning}`;
                         })
                         .join('　/　')
-                  : busy
-                    ? '正在保存…'
+                  : saving
+                    ? '正在同步本阶段…'
                     : game.round_errors
                       ? `本轮已记错 ${game.round_errors} 次，做完后重来本阶段`
                       : game.stage === 1
@@ -642,7 +693,15 @@ export function StudentLearning() {
               </output>
             </>
           )}
-          <footer className="learner-foot">进度自动保存 · AI 合成语音</footer>
+          <footer className="learner-foot" aria-live="polite">
+            {storageNotice ||
+              (saving
+                ? '正在同步进度…'
+                : failedSave
+                  ? '进度已暂存，等待同步'
+                  : '本机暂存进度 · 阶段结束自动同步')}
+            {' · AI 合成语音'}
+          </footer>
         </section>
       ) : null}
     </main>

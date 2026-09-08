@@ -10,11 +10,14 @@ import {
 } from './model';
 import { passwordHash } from './auth';
 import {
-  advanceGame,
+  studentAccountDay,
+  numberedStudentAccount,
+} from '../lib/student-account';
+import {
+  replayActions,
   newGame,
   scheduleReview,
   shuffled,
-  type GameAction,
   type StudentDashboard,
   type StudentIdentity,
   type StudentSession,
@@ -81,44 +84,63 @@ export class Students extends Store {
       class_id: c.id,
       class_name: c.name,
       students: rows.map(publicStudent),
+      next_username: await this.nextUsername(),
     };
   }
+  async nextUsername() {
+    const day = studentAccountDay();
+    const row = await this.one<{ last: number }>(
+      "SELECT coalesce(MAX(CAST(substr(username,9) AS INTEGER)),0) AS last FROM students WHERE username GLOB ? AND substr(username,9) NOT GLOB '*[^0-9]*'",
+      day + '[0-9][0-9][0-9]*',
+    );
+    return numberedStudentAccount(day, (row?.last || 0) + 1);
+  }
   async create(cid: string, data: Record<string, unknown>) {
-    const c = await this.classroom(cid);
-    const digits = [...crypto.getRandomValues(new Uint32Array(2))]
-      .map((n) => String(n % 100000).padStart(5, '0'))
-      .join('');
-    const username = account(data.username || 'kd' + digits);
-    const rawPassword = password(data.password || username.slice(-6));
-    const row = {
-      id: uid(),
-      class_id: c.id,
-      name: string(data.name, 60, '姓名'),
-      username,
-      phone: string(data.phone || '', 32, '手机号', true),
-      revision: 1,
-    };
-    const stamp = now();
-    try {
-      await this.transaction(c, [
-        this.stmt(
-          'INSERT INTO students(id,class_id,name,username,password_hash,phone,created_at,updated_at) VALUES(?,?,?,?,?,?,?,?)',
-          row.id,
-          c.id,
-          row.name,
-          username,
-          await passwordHash(rawPassword),
-          row.phone,
-          stamp,
-          stamp,
-        ),
-      ]);
-    } catch (e) {
-      if (String(e).includes('students.username'))
-        throw new AppError('账号已使用，请换一个账号', 409);
-      throw e;
+    const automatic = data.auto_username === true || !data.username;
+    for (let attempt = 0; attempt < 8; attempt++) {
+      const c = await this.classroom(cid);
+      const username = account(
+        automatic ? await this.nextUsername() : data.username,
+      );
+      const rawPassword = password(data.password || username.slice(-6));
+      const row = {
+        id: uid(),
+        class_id: c.id,
+        name: string(data.name, 60, '姓名'),
+        username,
+        phone: string(data.phone || '', 32, '手机号', true),
+        revision: 1,
+      };
+      const stamp = now();
+      try {
+        await this.transaction(c, [
+          this.stmt(
+            'INSERT INTO students(id,class_id,name,username,password_hash,phone,created_at,updated_at) VALUES(?,?,?,?,?,?,?,?)',
+            row.id,
+            c.id,
+            row.name,
+            username,
+            await passwordHash(rawPassword),
+            row.phone,
+            stamp,
+            stamp,
+          ),
+        ]);
+        return { ...row, generated_password: rawPassword };
+      } catch (e) {
+        // Unique account + class revision guards serialize concurrent teachers.
+        if (
+          automatic &&
+          (String(e).includes('students.username') ||
+            (e instanceof AppError && e.status === 409))
+        )
+          continue;
+        if (String(e).includes('students.username'))
+          throw new AppError('账号已使用，请换一个账号', 409);
+        throw e;
+      }
     }
-    return { ...row, generated_password: rawPassword };
+    throw new AppError('同时创建的学生较多，请重试保存', 409);
   }
   async edit(id: string, data: Record<string, unknown>) {
     const s = await this.student(id),
@@ -352,30 +374,35 @@ export class Students extends Store {
     const requestId = string(data.request_id, 80, '请求编号');
     if (!/^[a-zA-Z0-9_-]{12,80}$/.test(requestId))
       throw new AppError('请求编号不正确');
+    if (data.actions !== undefined && data.action !== undefined)
+      throw new AppError('请只提交一组练习操作');
+    // Keep the single-action shape for already-open pages during deployment.
+    const actions = data.actions ?? [data.action];
     const previous = await this.one<{ data: string }>(
       'SELECT data FROM student_events WHERE session_id=? AND request_id=?',
       sid,
       requestId,
     );
-    if (previous)
+    if (previous) {
+      const saved = JSON.parse(previous.data);
+      if (
+        JSON.stringify(saved.actions ?? [saved.action]) !==
+        JSON.stringify(actions)
+      )
+        throw new AppError('请求编号已使用，请继续最新进度', 409);
       return {
         ...sessionView(row),
-        feedback: JSON.parse(previous.data).feedback,
+        feedback: saved.feedback,
       };
+    }
     const active = await this.active(id, await this.eligible(s.class_id));
     if (!active || active.id !== sid)
       throw new AppError('班级词表已更新或本组已结束，请返回重新开始', 409);
     if (integer(data.revision, 1, 1000000000, '练习版本') !== row.revision)
       throw new AppError('练习进度已更新，请继续最新进度', 409);
-    if (
-      !data.action ||
-      typeof data.action !== 'object' ||
-      Array.isArray(data.action)
-    )
-      throw new AppError('练习操作不正确');
     let game: StudyGame;
     try {
-      game = advanceGame(JSON.parse(row.data), data.action as GameAction);
+      game = replayActions(JSON.parse(row.data), actions);
     } catch (error) {
       throw new AppError(
         error instanceof Error ? error.message : '练习操作不正确',
@@ -401,7 +428,7 @@ export class Students extends Store {
         requestId,
         stamp,
         JSON.stringify({
-          action: data.action,
+          actions,
           feedback: game.feedback,
           revision: row.revision + 1,
         }),

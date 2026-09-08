@@ -1,5 +1,6 @@
 """Student acceptance scenarios; called only by the isolated Wrangler test runner."""
-import datetime,json,subprocess,uuid
+import concurrent.futures,datetime,json,subprocess,uuid
+from zoneinfo import ZoneInfo
 
 def check_students(request,cid,lesson,config,persist):
     def login(name,password):
@@ -9,12 +10,16 @@ def check_students(request,cid,lesson,config,persist):
         def send(path,*args,**kwargs):
             headers=kwargs.pop('headers',{});headers['Cookie']=cookie
             return request(path,*args,headers=headers,**kwargs)
+        send.cookie=cookie
         return send
     alice,_=request('/api/classes/'+cid+'/students',{'name':'Alice'},status=201)
     assert alice['generated_password']==alice['username'][-6:]
+    day=datetime.datetime.now(ZoneInfo('Asia/Shanghai')).strftime('%Y%m%d')
+    assert alice['username']==day+'001'
     bob,_=request('/api/classes/'+cid+'/students',{'name':'Bob','username':'student-bob','password':'123456','phone':''},status=201)
     request('/api/classes/'+cid+'/students',{'name':'Duplicate','username':'STUDENT-BOB'},status=409)
     listing,_=request('/api/classes/'+cid+'/students');assert len(listing['students'])==2
+    assert listing['next_username']==day+'002'
     assert all('password_hash' not in s and 'password' not in s and 'generated_password' not in s for s in listing['students'])
     alice_updated,_=request('/api/students/'+alice['id'],{'revision':alice['revision'],'name':'Alice A','username':alice['username'],'password':'','phone':'13800000000'},method='PATCH')
     assert alice_updated['phone']=='13800000000'
@@ -80,6 +85,11 @@ def check_students(request,cid,lesson,config,persist):
     assert state['recent'][0]['errors']==4
     due=datetime.datetime.fromisoformat(state['next_due'].replace('Z','+00:00'))
     assert 240<(due-datetime.datetime.now(datetime.timezone.utc)).total_seconds()<=301
+    batch=subprocess.run(['node','tests/student-batch-http.mjs'],input=json.dumps({'base':'http://127.0.0.1:8790','cookie':b.cookie,'studentId':bob['id']}),capture_output=True,text=True)
+    assert batch.returncode==0,batch.stderr[-4000:]
+    batch_sid=json.loads(batch.stdout)['session_id']
+    result=subprocess.run(['npx','wrangler','d1','execute','kite-words-db','--config',config,'--local','--persist-to',persist,'--command',"SELECT COUNT(*) AS n FROM student_events WHERE session_id='"+batch_sid+"'",'--json'],capture_output=True,text=True,check=True)
+    assert json.loads(result.stdout)[0]['results'][0]['n']==2
     empty,_=a('/api/student/sessions',{});assert empty['session'] is None
     extra,_=a('/api/student/sessions',{'extra':True});assert len(extra['session']['game']['words'])==10
     # The latest version is the only source: new uncompleted version withdraws the old vocabulary.
@@ -105,8 +115,19 @@ def check_students(request,cid,lesson,config,persist):
     b('/api/student/state',status=401);b=login(bob['username'],'newpass9')
     request('/api/students/'+bob['id'],method='DELETE');b('/api/student/state',status=401)
     other,_=request('/api/classes',{'name':'Other student class'},status=201)
+    # Date sequences are global, include removed accounts, and handle concurrent teachers.
+    request('/api/classes/'+other['id']+'/students',{'name':'Manual high sequence','username':day+'050'},status=201)
+    def auto_create(target):
+        return request('/api/classes/'+target+'/students',{'name':'Concurrent','auto_username':True,'username':day+'002'},status=201)[0]
+    with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
+        created=list(pool.map(auto_create,[cid,other['id']]))
+    assert {r['username'] for r in created}=={day+'051',day+'052'}
+    assert all(r['generated_password']==r['username'][-6:] for r in created)
+    highest=next(r for r in created if r['username']==day+'052')
+    request('/api/students/'+highest['id'],method='DELETE')
     charlie,_=request('/api/classes/'+other['id']+'/students',{'name':'Charlie'},status=201)
+    assert charlie['username']==day+'053'
     ch=login(charlie['username'],charlie['generated_password']);state,_=ch('/api/student/state');assert state['total']==0
     ch('/api/student/sessions/'+sid+'/actions',last_payload,status=404)
     request('/api/classes/'+other['id'],method='DELETE');ch('/api/student/state',status=401)
-    print('PASS: student creation/editing/login isolation, completed-current-version eligibility, both game stages/retries, dual-word errors, resume/idempotency, per-student spacing, replacement/deletion and password revocation')
+    print('PASS: date/sequence accounts and concurrent allocation; two phase-sized saves with local retries, authoritative replay, invalid-batch rollback and lost acknowledgements; student roles, memory, version eligibility and legacy single-action compatibility')

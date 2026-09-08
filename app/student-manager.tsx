@@ -9,6 +9,7 @@ import {
   Trash2,
 } from 'lucide-react';
 import { api } from '@/lib/classroom';
+import { suggestStudentAccount } from '@/lib/student-account';
 import {
   Dialog,
   DialogContent,
@@ -29,6 +30,8 @@ type Row = Partial<Student> & {
   password: string;
   phone: string;
   dirty: boolean;
+  autoUsername?: boolean;
+  autoPassword?: boolean;
   error?: string;
 };
 const asRow = (s: Student): Row => ({
@@ -37,11 +40,7 @@ const asRow = (s: Student): Row => ({
   password: '',
   dirty: false,
 });
-function fresh(): Row {
-  const digits = [...crypto.getRandomValues(new Uint32Array(2))]
-    .map((n) => String(n % 100000).padStart(5, '0'))
-    .join('');
-  const username = 'kd' + digits;
+function fresh(username: string): Row {
   return {
     localId: crypto.randomUUID(),
     name: '',
@@ -49,6 +48,8 @@ function fresh(): Row {
     password: username.slice(-6),
     phone: '',
     dirty: true,
+    autoUsername: true,
+    autoPassword: true,
   };
 }
 const readClassId = () =>
@@ -60,7 +61,8 @@ const subscribeURL = (listener: () => void) => {
 export function StudentManager() {
   const cid = useSyncExternalStore(subscribeURL, readClassId, () => '');
   const [className, setClassName] = useState(''),
-    [rows, setRows] = useState<Row[]>([]);
+    [rows, setRows] = useState<Row[]>([]),
+    [nextUsername, setNextUsername] = useState('');
   const [loading, setLoading] = useState(true),
     [busy, setBusy] = useState(false),
     [message, setMessage] = useState(''),
@@ -71,13 +73,14 @@ export function StudentManager() {
     let live = true;
     const id = cid;
     if (!id) return;
-    api<{ class_name: string; students: Student[] }>(
+    api<{ class_name: string; students: Student[]; next_username: string }>(
       '/classes/' + encodeURIComponent(id) + '/students',
     )
       .then((data) => {
         if (live) {
           setClassName(data.class_name);
           setRows(data.students.map(asRow));
+          setNextUsername(data.next_username);
         }
       })
       .catch((e) => {
@@ -110,10 +113,21 @@ export function StudentManager() {
       old.map((r) => {
         if (r.localId !== localId) return r;
         const password =
-          key === 'username' && !r.id && r.password === r.username.slice(-6)
+          key === 'username' && !r.id && r.autoPassword
             ? value.slice(-6)
             : r.password;
-        return { ...r, password, [key]: value, dirty: true, error: undefined };
+        return {
+          ...r,
+          password,
+          [key]: value,
+          dirty: true,
+          error: undefined,
+          autoUsername: key === 'username' ? false : r.autoUsername,
+          autoPassword:
+            key === 'password'
+              ? value === r.username.slice(-6) || value === ''
+              : r.autoPassword,
+        };
       }),
     );
   }
@@ -130,7 +144,11 @@ export function StudentManager() {
           name: row.name,
           username: row.username,
           phone: row.phone,
-          password: row.password,
+          password:
+            !row.id && row.autoUsername && row.autoPassword
+              ? undefined
+              : row.password,
+          auto_username: !row.id && row.autoUsername,
           revision: row.revision,
         };
         const result = await api<Student>(
@@ -187,7 +205,15 @@ export function StudentManager() {
             className="btn secondary"
             disabled={busy || !cid || loading}
             onClick={() => {
-              setRows((old) => [...old, fresh()]);
+              setRows((old) => [
+                ...old,
+                fresh(
+                  suggestStudentAccount(
+                    nextUsername,
+                    old.map((r) => r.username),
+                  ),
+                ),
+              ]);
               setTimeout(() => lastInput.current?.focus(), 0);
             }}
           >
@@ -206,7 +232,7 @@ export function StudentManager() {
       </div>
       <div className="manager-hint">
         <span>
-          账号自动生成，初始密码为账号后六位。已保存的密码留空则不修改。
+          账号为当天日期＋递增序号，保存时确认；初始密码为账号后六位。已保存的密码留空则不修改。
         </span>
         <label>
           <input

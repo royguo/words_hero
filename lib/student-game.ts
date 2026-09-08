@@ -1,4 +1,4 @@
-/** Shared, deterministic rules; the Worker owns and persists every transition. */
+/** Shared rules: instant local feedback, with authoritative replay at checkpoints. */
 export type StudyWord = {
   key: string;
   word: string;
@@ -102,7 +102,7 @@ export function newGame(words: StudyWord[], random = Math.random): StudyGame {
 export function advanceGame(
   current: StudyGame,
   action: GameAction,
-  random = Math.random,
+  random = transitionRandom(current),
 ): StudyGame {
   const game = structuredClone(current);
   if (game.stage === 'done') throw new Error('本组已完成');
@@ -166,6 +166,42 @@ export function advanceGame(
     } else game.stage = 'done';
   }
   return game;
+}
+
+// Repeatable shuffles let the Worker replay a whole stage, including failed rounds,
+// without accepting a client-supplied score or question list. Initial boards remain random.
+function transitionRandom(game: StudyGame) {
+  const input = JSON.stringify([
+    game.en_order,
+    game.zh_order,
+    game.stage,
+    game.round,
+    game.answers,
+  ]);
+  let seed = 2166136261;
+  for (let i = 0; i < input.length; i++)
+    seed = Math.imul(seed ^ input.charCodeAt(i), 16777619);
+  return () => {
+    seed += 0x6d2b79f5;
+    let value = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    value ^= value + Math.imul(value ^ (value >>> 7), 61 | value);
+    return ((value ^ (value >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+export const MAX_BATCH_ACTIONS = 1000;
+export function replayActions(current: StudyGame, actions: unknown): StudyGame {
+  if (
+    !Array.isArray(actions) ||
+    !actions.length ||
+    actions.length > MAX_BATCH_ACTIONS
+  )
+    throw new Error('练习操作数量不正确');
+  return actions.reduce((game: StudyGame, action: unknown) => {
+    if (!action || typeof action !== 'object' || Array.isArray(action))
+      throw new Error('练习操作不正确');
+    return advanceGame(game, action as GameAction);
+  }, current);
 }
 
 // Configurable spacing inspired by spaced practice, not a universal scientific timetable.
