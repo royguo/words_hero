@@ -86,3 +86,5 @@ Cloudflare Worker 不运行 Python 子进程；`worker/audio.ts` 将原 edge-tts
 ## 学生积分与逐词复习历史
 
 迁移 `0005_student_rewards.sql` 只添加个人逐词历史、班级积分规则、积分流水和余额表，以及流水插入时同步余额的触发器，不改写旧会话、记忆或课程。积分与完成整组后的记忆更新共享 D1 原子事务。新表均属于私人课堂数据，进入教师备份，禁止提交 Git。删除学生、班级、课程不清除这些历史，也不影响独立素材。生产更新前后核对旧记录与课程内容；并发兑换、防重复积分和角色隔离只在 `npm run test:cloudflare` 的临时数据库执行。
+
+迁移 `0006_student_retrieval.sql` 为 `student_review_history` 追加 `evidence`，已有行默认空 JSON，不回算学生记忆或积分。新版技能证据与重新巩固标记保存在 `student_memory.data`；旧 v1/v2 会话继续可提交，后台按新调度安排下一次复习。浏览器只在阶段边界后台批量发送，最终记忆、历史和积分仍在同一 D1 事务内提交，不能用 Worker 的未确认后台任务提前宣布保存成功。

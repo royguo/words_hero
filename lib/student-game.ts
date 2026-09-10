@@ -17,10 +17,35 @@ export type DuelQuestion = {
 export type GameFeedback = {
   correct: boolean;
   keys: string[];
-  kind: 'match' | 'judge';
+  kind: 'match' | 'judge' | 'answer' | 'defer';
+};
+export type StudySkill = 'meaning' | 'listening' | 'spelling';
+export type RecallGrade = 'independent' | 'hinted' | 'wrong' | 'skipped';
+export type SkillEvidence = {
+  grade: RecallGrade;
+  attempts: number;
+  errors: number;
+  hints: number;
+};
+export type WordEvidence = Partial<Record<StudySkill, SkillEvidence>>;
+export type RecallTask = {
+  word: string;
+  skill: 'spelling' | 'listening';
+  options: string[];
+  retry: boolean;
+};
+export type AdaptivePractice = {
+  warmup: string[];
+  board: number;
+  tasks: RecallTask[];
+  cursor: number;
+  hint: number;
+  correction: boolean;
+  deferred: string[];
+  evidence: Record<string, WordEvidence>;
 };
 export type StudyGame = {
-  schema_version: 1 | 2;
+  schema_version: 1 | 2 | 3;
   words: StudyWord[];
   stage: 1 | 2 | 'done';
   round: number;
@@ -35,12 +60,16 @@ export type StudyGame = {
   answers: number;
   feedback: GameFeedback | null;
   practice?: { passed: string[]; directions: string[]; correction: boolean };
+  adaptive?: AdaptivePractice;
 };
 export type GameAction =
   | { kind: 'match'; en: string; zh: string }
   | { kind: 'judge'; correct: boolean }
   | { kind: 'retry' }
-  | { kind: 'acknowledge' };
+  | { kind: 'acknowledge' }
+  | { kind: 'hint' }
+  | { kind: 'answer'; answer: string }
+  | { kind: 'defer' };
 export function shuffled<T>(items: T[], random = Math.random): T[] {
   const result = [...items];
   for (let i = result.length - 1; i > 0; i--) {
@@ -115,6 +144,8 @@ export function advanceGame(
   action: GameAction,
   random = transitionRandom(current),
 ): StudyGame {
+  if (current.schema_version === 3)
+    return advanceAdaptive(current, action, random);
   if (current.schema_version === 2)
     return advancePractice(current, action, random);
   const game = structuredClone(current);
@@ -324,32 +355,83 @@ export type WordMemory = {
   reviews: number;
   lapses: number;
   last_reviewed: string;
+  policy_version?: 2;
+  relearning?: boolean;
+  retained_recall?: boolean;
+  skills?: Partial<
+    Record<
+      StudySkill,
+      {
+        reviews: number;
+        independent: number;
+        lapses: number;
+        last_grade: RecallGrade;
+        last_at: string;
+      }
+    >
+  >;
 };
 export function scheduleReview(
   previous: WordMemory | undefined,
   errors: number,
   at: string,
+  evidence?: WordEvidence,
+  assessedAt = at,
 ): WordMemory {
-  const early = previous && Date.parse(previous.due_at) > Date.parse(at);
+  const early =
+    previous && Date.parse(previous.due_at) > Date.parse(assessedAt);
+  const supported = Object.values(evidence || {}).some(
+    (e) => e.grade !== 'independent',
+  );
   const step = errors
-    ? Math.max(0, (previous?.step || 0) - 1)
-    : !previous
+    ? 0
+    : supported
       ? 0
-      : early
-        ? previous.step
-        : Math.min(REVIEW_MINUTES.length - 1, previous.step + 1);
+      : !previous
+        ? 0
+        : early
+          ? previous.step
+          : previous.relearning
+            ? 1
+            : Math.min(REVIEW_MINUTES.length - 1, previous.step + 1);
   const due_at =
-    !errors && early
+    !errors && !supported && early
       ? previous.due_at
       : new Date(
-          Date.parse(at) + (errors ? 5 : REVIEW_MINUTES[step]) * 60000,
+          Date.parse(at) +
+            (errors ? 5 : supported ? 10 : REVIEW_MINUTES[step]) * 60000,
         ).toISOString();
+  const skills = structuredClone(previous?.skills || {});
+  for (const skill of ['meaning', 'listening', 'spelling'] as const) {
+    const result = evidence?.[skill];
+    if (!result) continue;
+    const old = skills[skill];
+    skills[skill] = {
+      reviews: (old?.reviews || 0) + 1,
+      independent:
+        (old?.independent || 0) + Number(result.grade === 'independent'),
+      lapses: (old?.lapses || 0) + result.errors,
+      last_grade: result.grade,
+      last_at: at,
+    };
+  }
+  const delayedRecall =
+    !early &&
+    previous &&
+    Date.parse(assessedAt) - Date.parse(previous.last_reviewed) >=
+      7 * 86400000 &&
+    evidence?.spelling?.grade === 'independent';
   return {
     step,
     due_at,
     reviews: (previous?.reviews || 0) + 1,
     lapses: (previous?.lapses || 0) + errors,
     last_reviewed: at,
+    policy_version: 2,
+    relearning: !!errors || supported || (!!early && !!previous?.relearning),
+    retained_recall:
+      !errors && !supported && (!!previous?.retained_recall || !!delayedRecall),
+    skills,
   };
 }
 export type StudentSession = {
@@ -385,7 +467,11 @@ export const MASTERY_STEP = 3;
 export function memoryLevel(memory?: WordMemory) {
   return !memory
     ? 'fresh'
-    : memory.step >= MASTERY_STEP
+    : (
+          memory.policy_version === 2
+            ? memory.step >= 4 && memory.retained_recall && !memory.relearning
+            : memory.step >= MASTERY_STEP
+        )
       ? 'mastered'
       : memory.step >= 1
         ? 'consolidating'
@@ -434,4 +520,255 @@ export type WordReview = {
   step_before: number | null;
   step_after: number;
   due_at: string;
+  evidence?: WordEvidence;
 };
+
+export const skillLabels: Record<StudySkill, string> = {
+  meaning: '词义',
+  listening: '听音',
+  spelling: '拼写回忆',
+};
+export const gradeLabels: Record<RecallGrade, string> = {
+  independent: '独立答对',
+  hinted: '提示后答对',
+  wrong: '需要巩固',
+  skipped: '稍后再练',
+};
+export function normalizeSpelling(value: string) {
+  return value
+    .normalize('NFKC')
+    .replace(/[’‘]/g, "'")
+    .trim()
+    .replace(/\s+/g, ' ')
+    .toLowerCase();
+}
+/** A server-authored plan: at most five pairs on screen, then retrieval of weak skills. */
+export function newAdaptiveGame(
+  words: StudyWord[],
+  memories: Map<string, WordMemory>,
+  at: string,
+  random = Math.random,
+): StudyGame {
+  const game = newGame(words, random, 'practice');
+  const weak = (key: string, skill: StudySkill) => {
+    const m = memories.get(key),
+      result = m?.skills?.[skill];
+    return !m || m.relearning || !result || result.last_grade !== 'independent';
+  };
+  const warmup = shuffled(
+    words.filter((w) => weak(w.key, 'meaning')).map((w) => w.key),
+    random,
+  );
+  const tasks: RecallTask[] = [];
+  for (const w of shuffled(words, random)) {
+    const m = memories.get(w.key);
+    const checkRecall =
+      weak(w.key, 'spelling') ||
+      !m?.retained_recall ||
+      Date.parse(at) - Date.parse(m.last_reviewed) >= 7 * 86400000 ||
+      m.reviews % 3 === 0;
+    const checkListening = words.length > 1 && weak(w.key, 'listening');
+    if (checkRecall || !checkListening)
+      tasks.push({ word: w.key, skill: 'spelling', options: [], retry: false });
+    if (checkListening)
+      tasks.push({
+        word: w.key,
+        skill: 'listening',
+        retry: false,
+        options: shuffled(
+          [
+            w.key,
+            ...shuffled(
+              words.filter((v) => v.key !== w.key).map((v) => v.key),
+              random,
+            ).slice(0, 3),
+          ],
+          random,
+        ),
+      });
+  }
+  game.schema_version = 3;
+  delete game.practice;
+  game.adaptive = {
+    warmup,
+    board: 0,
+    tasks: shuffled(tasks, random),
+    cursor: 0,
+    hint: 0,
+    correction: false,
+    deferred: [],
+    evidence: {},
+  };
+  game.stage = warmup.length ? 1 : 2;
+  game.en_order = shuffled(warmup.slice(0, 5), random);
+  game.zh_order = shuffled(warmup.slice(0, 5), random);
+  return game;
+}
+
+export function currentRecall(game: StudyGame) {
+  return game.stage === 2
+    ? game.adaptive?.tasks[game.adaptive.cursor]
+    : undefined;
+}
+export function hasCorrection(game: StudyGame) {
+  return !!(game.practice?.correction || game.adaptive?.correction);
+}
+/** Recall prompts never speak the hidden answer. Listening prompts deliberately use audio only. */
+export function studentVoiceTexts(game: StudyGame) {
+  if (hasCorrection(game))
+    return (game.feedback?.keys || []).map(
+      (key) => game.words.find((w) => w.key === key)!.word,
+    );
+  if (game.needs_retry) return [];
+  if (game.stage === 'done') return game.words.map((w) => w.word);
+  if (game.stage === 1)
+    return game.en_order
+      .filter((key) => !game.removed.includes(key))
+      .map((key) => game.words.find((w) => w.key === key)!.word);
+  const recall = currentRecall(game);
+  if (recall)
+    return recall.skill === 'listening'
+      ? [game.words.find((w) => w.key === recall.word)!.word]
+      : [];
+  const q = game.questions[game.cursor];
+  return q
+    ? [
+        game.words.find(
+          (w) => w.key === (q.direction === 'en' ? q.word : q.candidate),
+        )!.word,
+      ]
+    : [];
+}
+
+function advanceAdaptive(
+  current: StudyGame,
+  action: GameAction,
+  random: () => number,
+): StudyGame {
+  const game = structuredClone(current),
+    a = game.adaptive!;
+  if (game.stage === 'done') throw new Error('本组已完成');
+  const settle = () => {
+    if (
+      game.stage === 1 &&
+      game.en_order.every((key) => game.removed.includes(key))
+    ) {
+      a.board++;
+      const board = a.warmup.slice(a.board * 5, a.board * 5 + 5);
+      game.en_order = shuffled(board, random);
+      game.zh_order = shuffled(board, random);
+      game.removed = [];
+      if (!board.length) game.stage = 2;
+    } else if (game.stage === 2 && a.cursor >= a.tasks.length)
+      game.stage = 'done';
+  };
+  const record = (
+    key: string,
+    skill: StudySkill,
+    grade: RecallGrade,
+    hints = 0,
+  ) => {
+    const previous = (a.evidence[key] ||= {})[skill];
+    const severity = { independent: 0, hinted: 1, wrong: 2, skipped: 3 };
+    a.evidence[key][skill] = {
+      grade:
+        previous && severity[previous.grade] > severity[grade]
+          ? previous.grade
+          : grade,
+      attempts: (previous?.attempts || 0) + 1,
+      errors:
+        (previous?.errors || 0) +
+        Number(grade === 'wrong' || grade === 'skipped'),
+      hints: (previous?.hints || 0) + hints,
+    };
+    if (grade === 'wrong' || grade === 'skipped')
+      game.errors[key] = (game.errors[key] || 0) + 1;
+  };
+  if (action.kind === 'acknowledge') {
+    if (!a.correction) throw new Error('没有待查看的纠错');
+    a.correction = false;
+    game.feedback = null;
+    settle();
+    return game;
+  }
+  if (a.correction) throw new Error('请先看清正确答案，再继续');
+  if (game.stage === 1 && action.kind === 'match') {
+    if (
+      ![action.en, action.zh].every(
+        (key) => game.en_order.includes(key) && !game.removed.includes(key),
+      )
+    )
+      throw new Error('这张卡片已经移除或不存在');
+    const keys = [...new Set([action.en, action.zh])],
+      correct = action.en === action.zh;
+    for (const key of keys)
+      record(key, 'meaning', correct ? 'independent' : 'wrong');
+    game.removed.push(...keys);
+    game.feedback = { correct, keys, kind: 'match' };
+    game.answers++;
+    if (correct) settle();
+    else {
+      a.correction = true;
+      game.round_errors++;
+    }
+    return game;
+  }
+  const task = currentRecall(game);
+  if (!task) throw new Error('当前阶段不支持这个操作');
+  if (action.kind === 'hint') {
+    if (task.skill !== 'spelling' || a.hint >= 2)
+      throw new Error('没有更多提示');
+    a.hint++;
+    game.feedback = null;
+    return game;
+  }
+  if (action.kind !== 'answer' && action.kind !== 'defer')
+    throw new Error('请选择或填写答案');
+  if (
+    action.kind === 'answer' &&
+    (typeof action.answer !== 'string' ||
+      action.answer.length > 160 ||
+      !action.answer.trim())
+  )
+    throw new Error('请先填写答案');
+  if (
+    action.kind === 'answer' &&
+    task.skill === 'listening' &&
+    !task.options.includes(action.answer)
+  )
+    throw new Error('请选择本题中的答案');
+  const word = game.words.find((w) => w.key === task.word)!;
+  const correct =
+    action.kind === 'answer' &&
+    (task.skill === 'spelling'
+      ? normalizeSpelling(action.answer) === normalizeSpelling(word.word)
+      : action.answer === task.word);
+  record(
+    task.word,
+    task.skill,
+    action.kind === 'defer'
+      ? 'skipped'
+      : !correct
+        ? 'wrong'
+        : a.hint
+          ? 'hinted'
+          : 'independent',
+    a.hint,
+  );
+  game.answers++;
+  game.feedback = { correct, keys: [task.word], kind: action.kind };
+  a.cursor++;
+  a.hint = 0;
+  if (!correct) {
+    a.correction = true;
+    game.round_errors++;
+    // Interleave with other prompts. At most one retry; never trap a child in an endless loop.
+    if (!task.retry && action.kind !== 'defer') {
+      a.tasks.splice(Math.min(a.cursor + 3, a.tasks.length), 0, {
+        ...task,
+        retry: true,
+      });
+    } else if (!a.deferred.includes(task.word)) a.deferred.push(task.word);
+  } else settle();
+  return game;
+}

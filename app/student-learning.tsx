@@ -23,14 +23,19 @@ import {
 } from 'lucide-react';
 import { api, ApiError } from '@/lib/classroom';
 import { StudentAudio } from '@/lib/student-audio';
-import { StudentProgress } from '@/lib/student-progress';
+import { StudentProgress, ProgressConflict } from '@/lib/student-progress';
 import { StudentRecords } from './student-records';
+import { StudentRecall } from './student-recall';
+import {
+  currentRecall,
+  hasCorrection,
+  studentVoiceTexts,
+} from '@/lib/student-game';
 import type {
   GameAction,
   GameFeedback,
   StudentDashboard,
   StudentSession,
-  StudyGame,
 } from '@/lib/student-game';
 
 const when = (value: string | null) =>
@@ -43,35 +48,17 @@ const when = (value: string | null) =>
         hour12: false,
       })
     : '';
-function englishOnScreen(game: StudyGame) {
-  if (game.practice?.correction)
-    return game.feedback!.keys.map(
-      (key) => game.words.find((w) => w.key === key)!.word,
-    );
-  if (game.needs_retry) return [];
-  if (game.stage === 'done') return game.words.map((word) => word.word);
-  if (game.stage === 1)
-    return game.en_order
-      .filter((key) => !game.removed.includes(key))
-      .map((key) => game.words.find((w) => w.key === key)!.word);
-  const q = game.questions[game.cursor];
-  return q
-    ? [
-        game.words.find(
-          (w) => w.key === (q.direction === 'en' ? q.word : q.candidate),
-        )!.word,
-      ]
-    : [];
-}
+const englishOnScreen = studentVoiceTexts;
 export function StudentLearning() {
   const [dashboard, setDashboard] = useState<StudentDashboard | null>(null),
     [session, setSession] = useState<StudentSession | null>(null);
   const [records, setRecords] = useState<'words' | 'history' | 'points' | null>(
       null,
     ),
-    [practiceMode, setPracticeMode] = useState<'practice' | 'challenge'>(
-      'practice',
+    [practiceMode, setPracticeMode] = useState<'adaptive' | 'challenge'>(
+      'adaptive',
     );
+  const [groupSize, setGroupSize] = useState(10);
   const [mode, setMode] = useState<'home' | 'play'>('home'),
     [busy, setBusy] = useState(false),
     [loading, setLoading] = useState(true),
@@ -88,6 +75,7 @@ export function StudentLearning() {
     [saving, setSaving] = useState(false),
     [storageNotice, setStorageNotice] = useState('');
   const progress = useRef<StudentProgress | null>(null);
+  const syncFlight = useRef<Promise<boolean> | null>(null);
   const correctionTitle = useRef<HTMLHeadingElement | null>(null);
   const audio = useRef<StudentAudio | null>(null),
     lock = useRef(false),
@@ -126,7 +114,7 @@ export function StudentLearning() {
   }, [load]);
   const game = session?.game;
   const correctionPage =
-    mode === 'play' && !records && game?.practice?.correction
+    mode === 'play' && !records && game && hasCorrection(game)
       ? `${session?.id}:${game.answers}`
       : '';
   useEffect(() => {
@@ -134,7 +122,7 @@ export function StudentLearning() {
   }, [correctionPage]);
   const voicePage =
     mode === 'play' && game && !records
-      ? `${session.id}:${game.stage}:${game.round}:${game.stage === 2 ? game.cursor : 'board'}:${game.needs_retry}:${game.practice?.correction}`
+      ? `${session.id}:${game.stage}:${game.round}:${game.adaptive ? (game.stage === 1 ? game.adaptive.board : game.adaptive.cursor) : game.stage === 2 ? game.cursor : 'board'}:${game.needs_retry}:${hasCorrection(game)}`
       : '';
   const onVoicePage = useEffectEvent(() => {
     if (voice && mode === 'play' && game && !records)
@@ -152,9 +140,18 @@ export function StudentLearning() {
     setError('');
     audio.current?.unlock();
     try {
+      if (progress.current?.pending) {
+        if (progress.current.session.game.stage !== 'done') {
+          setSession(progress.current.session);
+          setMode('play');
+          if (progress.current.needsCheckpoint) void saveProgress();
+          return;
+        }
+        if (!(await saveProgress(true))) return;
+      }
       const value = await api<{ session: StudentSession | null }>(
         '/student/sessions',
-        { count: 10, extra, mode: practiceMode },
+        { count: groupSize, extra, mode: practiceMode },
       );
       if (!alive.current) return;
       if (value.session) {
@@ -167,7 +164,7 @@ export function StudentLearning() {
         setFlash(null);
         setFailedSave(false);
         setMode('play');
-        if (progress.current.needsCheckpoint) await saveProgress();
+        if (progress.current.needsCheckpoint) void saveProgress();
       } else {
         await load();
         setMode('home');
@@ -179,70 +176,131 @@ export function StudentLearning() {
       setBusy(false);
     }
   }
-  async function saveProgress(): Promise<boolean> {
-    const current = progress.current,
-      payload = current?.payload();
-    if (!current || !payload) return true;
-    setSaving(true);
-    try {
-      const result = await api<StudentSession>(
-        '/student/sessions/' + current.session.id + '/actions',
-        payload,
-      );
-      if (!alive.current || progress.current !== current) return false;
-      current.accept(result);
-      setSession(result);
-      setFailedSave(false);
-      setError('');
-      if (result.game.stage === 'done') {
-        try {
-          const latest = await api<StudentDashboard>('/student/state');
-          if (alive.current) setDashboard(latest);
-        } catch {
-          if (alive.current)
-            setError('进度已保存，统计暂时无法读取。返回后可刷新。');
+  async function saveProgress(force = false): Promise<boolean> {
+    if (syncFlight.current) {
+      const ok = await syncFlight.current;
+      return ok && force && progress.current?.pending ? saveProgress(true) : ok;
+    }
+    const current = progress.current;
+    if (!current?.pending) return true;
+    const job = async () => {
+      setSaving(true);
+      try {
+        do {
+          const payload = current.beginCheckpoint();
+          if (!payload) break;
+          const controller = new AbortController();
+          const timeout = window.setTimeout(() => controller.abort(), 15000);
+          let result: StudentSession;
+          try {
+            result = await api<StudentSession>(
+              '/student/sessions/' + current.session.id + '/actions',
+              payload,
+              'POST',
+              controller.signal,
+            );
+          } finally {
+            window.clearTimeout(timeout);
+          }
+          if (!alive.current || progress.current !== current) return false;
+          current.accept(result);
+          // Answers entered while this request was in flight remain on screen and in the next batch.
+          setSession(current.session);
+          setFailedSave(false);
+          setError('');
+        } while (current.pending && (force || current.needsCheckpoint));
+        if (current.session.completed_at && !current.pending) {
+          void api<StudentDashboard>('/student/state')
+            .then((latest) => {
+              if (alive.current && progress.current === current)
+                setDashboard(latest);
+            })
+            .catch(() => {
+              /* Statistics can refresh later; never hold the saved result. */
+            });
         }
-      }
-      return true;
-    } catch (e) {
-      if (!alive.current) return false;
-      if (e instanceof ApiError && e.status === 409) {
-        current.discard();
-        setFailedSave(false);
-        setSelected(null);
-        setFlash(null);
-        audio.current?.stop();
-        try {
-          const value = await load();
-          if (!value.session) setMode('home');
-        } catch {
+        return true;
+      } catch (e) {
+        if (!alive.current || progress.current !== current) return false;
+        if (
+          e instanceof ProgressConflict ||
+          (e instanceof ApiError && e.status === 409)
+        ) {
+          current.discard();
+          setFailedSave(false);
+          setSelected(null);
+          setFlash(null);
+          audio.current?.stop();
+          try {
+            await load();
+          } catch {
+            /* Keep a visible recovery message. */
+          }
           setMode('home');
+          setError('练习或课堂词表已更新，请继续最新进度。');
+        } else {
+          setFailedSave(true);
+          setError('进度已暂存在本机，可以继续答题；联网后会重试同步。');
         }
-      } else setFailedSave(true);
-      setError(e instanceof Error ? e.message : '进度尚未同步，请重试');
-      return false;
-    } finally {
-      if (alive.current) setSaving(false);
-    }
-  }
-  async function retrySave() {
-    if (lock.current) return;
-    lock.current = true;
-    setBusy(true);
+        return false;
+      } finally {
+        if (alive.current) setSaving(false);
+      }
+    };
+    const promise = job();
+    syncFlight.current = promise;
     try {
-      await saveProgress();
+      return await promise;
     } finally {
-      lock.current = false;
-      if (alive.current) setBusy(false);
+      if (syncFlight.current === promise) syncFlight.current = null;
     }
   }
+  function retrySave() {
+    return saveProgress(true);
+  }
+  const syncOnReconnect = useEffectEvent(() => {
+    if (progress.current?.pending) void saveProgress(true);
+  });
+  useEffect(() => {
+    const online = () => syncOnReconnect();
+    window.addEventListener('online', online);
+    const timer = failedSave
+      ? window.setInterval(() => {
+          if (navigator.onLine) online();
+        }, 15000)
+      : undefined;
+    return () => {
+      window.removeEventListener('online', online);
+      window.clearInterval(timer);
+    };
+  }, [failedSave]);
+  useEffect(() => {
+    const flush = () => {
+      const current = progress.current,
+        payload = current?.beginCheckpoint();
+      if (!current || !payload) return;
+      const body = JSON.stringify(payload);
+      if (new TextEncoder().encode(body).length > 55000) return;
+      void fetch('/api/student/sessions/' + current.session.id + '/actions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'same-origin',
+        keepalive: true,
+        body,
+      }).catch(() => {});
+    };
+    window.addEventListener('pagehide', flush);
+    return () => window.removeEventListener('pagehide', flush);
+  }, []);
   async function submit(action: GameAction) {
-    if (!progress.current || lock.current || failedSave) return;
+    if (!progress.current || lock.current) return;
     lock.current = true;
     setBusy(true);
     setError('');
     try {
       const current = progress.current;
+      const previousStage = current.session.game.stage,
+        alreadyDue = current.needsCheckpoint;
       const result = current.choose(action),
         feedback = result.game.feedback;
       setStorageNotice(
@@ -253,6 +311,7 @@ export function StudentLearning() {
       if (
         action.kind !== 'retry' &&
         action.kind !== 'acknowledge' &&
+        action.kind !== 'hint' &&
         feedback
       ) {
         setFlash(feedback);
@@ -266,15 +325,23 @@ export function StudentLearning() {
         await new Promise((resolve) =>
           setTimeout(
             resolve,
-            feedback.correct ? 220 : result.game.practice ? 180 : 1100,
+            feedback.correct
+              ? 220
+              : result.game.practice || result.game.adaptive
+                ? 180
+                : 1100,
           ),
         );
       }
       if (alive.current) {
-        setSession(result);
+        setSession(current.session);
         setSelected(null);
         setFlash(null);
-        if (current.needsCheckpoint) await saveProgress();
+        if (
+          current.session.game.stage !== previousStage ||
+          (!alreadyDue && current.needsCheckpoint)
+        )
+          void saveProgress();
       }
     } catch (e) {
       setError(e instanceof Error ? e.message : '请重新选择');
@@ -284,13 +351,7 @@ export function StudentLearning() {
     }
   }
   function pick(side: 'en' | 'zh', key: string) {
-    if (
-      !game ||
-      busy ||
-      failedSave ||
-      game.practice?.correction ||
-      game.removed.includes(key)
-    )
+    if (!game || busy || hasCorrection(game) || game.removed.includes(key))
       return;
     audio.current?.stop();
     if (side === 'en' && voice)
@@ -311,15 +372,22 @@ export function StudentLearning() {
     setBusy(true);
     audio.current?.stop();
     try {
-      if (!(await saveProgress())) return;
+      if (logout && !(await saveProgress(true))) return;
       if (logout) window.dispatchEvent(new Event('kite-logout'));
       else {
         setMode('home');
         setSelected(null);
         setFlash(null);
-        setFailedSave(false);
-        setError('');
-        await load();
+        if (progress.current?.pending) {
+          setDashboard((value) =>
+            value ? { ...value, session: progress.current!.session } : value,
+          );
+          void saveProgress(true);
+        } else {
+          setFailedSave(false);
+          setError('');
+          await load();
+        }
       }
     } catch (e) {
       setError(e instanceof Error ? e.message : '读取失败');
@@ -483,35 +551,52 @@ export function StudentLearning() {
                   {dashboard.session
                     ? '继续上次练习'
                     : canStudy
-                      ? '每组 10 词'
+                      ? `每组 ${groupSize} 词`
                       : '本次复习已完成'}
                 </h2>
                 <p>
                   {dashboard.session
-                    ? `第 ${dashboard.session.game.stage} 阶段 · 第 ${dashboard.session.game.round} 轮，进度已保存`
+                    ? dashboard.session.game.stage === 'done'
+                      ? '本组已完成，等待同步'
+                      : `第 ${dashboard.session.game.stage} 阶段 · ${progress.current?.pending ? '本机已暂存' : '进度已保存'}`
                     : canStudy
-                      ? '中英消消乐 → 中英对决'
+                      ? practiceMode === 'adaptive'
+                        ? '词义热身 → 回忆与听音'
+                        : '中英消消乐 → 中英对决'
                       : dashboard.next_due
                         ? `下次复习：${when(dashboard.next_due)}`
                         : '暂无到期单词'}
                 </p>
               </div>
               {!dashboard.session && (
-                <label className="practice-mode">
-                  模式
-                  <select
-                    value={practiceMode}
-                    onChange={(e) =>
-                      setPracticeMode(
-                        e.target.value as 'practice' | 'challenge',
-                      )
-                    }
-                    disabled={busy}
-                  >
-                    <option value="practice">日常练习 · 只补错词</option>
-                    <option value="challenge">挑战模式 · 整轮全对</option>
-                  </select>
-                </label>
+                <div className="practice-options">
+                  <label className="practice-mode">
+                    模式
+                    <select
+                      value={practiceMode}
+                      onChange={(e) =>
+                        setPracticeMode(
+                          e.target.value as 'adaptive' | 'challenge',
+                        )
+                      }
+                      disabled={busy}
+                    >
+                      <option value="adaptive">日常练习 · 按薄弱项出题</option>
+                      <option value="challenge">挑战模式 · 整轮全对</option>
+                    </select>
+                  </label>
+                  <label className="practice-mode">
+                    数量
+                    <select
+                      value={groupSize}
+                      disabled={busy}
+                      onChange={(e) => setGroupSize(Number(e.target.value))}
+                    >
+                      <option value={5}>5 个词</option>
+                      <option value={10}>10 个词</option>
+                    </select>
+                  </label>
+                </div>
               )}
               <button
                 className="btn primary large"
@@ -558,13 +643,21 @@ export function StudentLearning() {
           )}
         </section>
       ) : mode === 'play' && game ? (
-        <section className="learning-game">
+        <section className="learning-game" data-answers={game.answers}>
           {game.stage === 'done' ? (
             <div className="session-done">
               <Confetti />
               <CheckCheck className="done-icon" />
               <h1>本组完成</h1>
-              <p>{game.words.length} 个单词 · 两阶段通过</p>
+              <p>
+                {game.words.length} 个单词 ·{' '}
+                {session?.completed_at ? '进度已保存' : '已完成，进度待同步'}
+              </p>
+              {!!game.adaptive?.deferred.length && (
+                <p>
+                  还有 {game.adaptive.deferred.length} 个词需要巩固，下次继续。
+                </p>
+              )}
               {!!session?.earned?.points && (
                 <p className="earned-reward">
                   <Coins size={24} />
@@ -580,7 +673,15 @@ export function StudentLearning() {
                     {game.errors[w.key] ? (
                       <small>记错 {game.errors[w.key]} 次 · 5 分钟后再练</small>
                     ) : (
-                      <small>已安排下次复习</small>
+                      <small>
+                        {Object.values(
+                          game.adaptive?.evidence[w.key] || {},
+                        ).some((e) => e.grade === 'hinted')
+                          ? '提示后答对 · 稍后再巩固'
+                          : session?.completed_at
+                            ? '已安排下次复习'
+                            : '等待同步复习安排'}
+                      </small>
                     )}
                   </div>
                 ))}
@@ -591,7 +692,7 @@ export function StudentLearning() {
                 </button>
                 <button
                   className="btn primary"
-                  disabled={busy || failedSave}
+                  disabled={busy || saving || !!progress.current?.pending}
                   onClick={() => void start()}
                 >
                   <ArrowRight size={18} />
@@ -605,27 +706,39 @@ export function StudentLearning() {
                 <div>
                   <div className="game-steps">
                     <span className={game.stage === 1 ? 'current' : 'passed'}>
-                      1 消消乐
+                      1 {game.adaptive ? '词义热身' : '消消乐'}
                     </span>
                     <i />
                     <span className={game.stage === 2 ? 'current' : ''}>
-                      2 中英对决
+                      2 {game.adaptive ? '回忆与听音' : '中英对决'}
                     </span>
                   </div>
-                  <h1>{game.stage === 1 ? '中英消消乐' : '中英对决'}</h1>
+                  <h1>
+                    {game.stage === 1
+                      ? '中英消消乐'
+                      : game.adaptive
+                        ? '想一想，记起来'
+                        : '中英对决'}
+                  </h1>
                 </div>
                 <div className="round-counter">
                   <strong>
-                    {game.practice
-                      ? game.round > 1
-                        ? '错词补练'
-                        : '日常练习'
-                      : `挑战 · 第 ${game.round} 轮`}
+                    {game.adaptive
+                      ? '按你的薄弱项练习'
+                      : game.practice
+                        ? game.round > 1
+                          ? '错词补练'
+                          : '日常练习'
+                        : `挑战 · 第 ${game.round} 轮`}
                   </strong>
                   <span>
-                    {game.stage === 1
-                      ? `${game.practice ? game.practice.passed.length : game.removed.length} / ${game.words.length} 词已通过`
-                      : `${game.practice ? game.practice.directions.length : game.cursor} / ${game.practice ? game.words.length * 2 : game.questions.length} 题已通过`}
+                    {game.adaptive
+                      ? game.stage === 1
+                        ? `${Math.min(game.adaptive.board * 5 + game.removed.length, game.adaptive.warmup.length)} / ${game.adaptive.warmup.length} 词`
+                        : `${game.adaptive.cursor} / ${game.adaptive.tasks.length} 题`
+                      : game.stage === 1
+                        ? `${game.practice ? game.practice.passed.length : game.removed.length} / ${game.words.length} 词已通过`
+                        : `${game.practice ? game.practice.directions.length : game.cursor} / ${game.practice ? game.words.length * 2 : game.questions.length} 题已通过`}
                   </span>
                 </div>
               </div>
@@ -633,23 +746,32 @@ export function StudentLearning() {
                 <span>
                   {game.stage === 1
                     ? '选一个英文，再选对应中文，也可以反过来。'
-                    : '英文和中文是否对应？'}
+                    : game.adaptive
+                      ? currentRecall(game)?.skill === 'spelling'
+                        ? '先试着想起英文，需要时可以用提示。'
+                        : '听单词，选出对应的中文。'
+                      : '英文和中文是否对应？'}
                 </span>
-                <button
-                  className="btn ghost"
-                  onClick={() => {
-                    audio.current?.unlock();
-                    void audio.current?.play(englishOnScreen(game));
-                  }}
-                >
-                  <Volume2 size={16} />
-                  朗读
-                </button>
+                {(!game.adaptive ||
+                  game.stage === 1 ||
+                  currentRecall(game)?.skill === 'listening' ||
+                  hasCorrection(game)) && (
+                  <button
+                    className="btn ghost"
+                    onClick={() => {
+                      audio.current?.unlock();
+                      void audio.current?.play(englishOnScreen(game));
+                    }}
+                  >
+                    <Volume2 size={16} />
+                    朗读
+                  </button>
+                )}
               </div>
               {audioNotice && (
                 <output className="audio-notice">{audioNotice}</output>
               )}
-              {game.practice?.correction ? (
+              {hasCorrection(game) ? (
                 <section className="correction-panel" aria-label="看清正确答案">
                   <h2 ref={correctionTitle} tabIndex={-1}>
                     {game.feedback?.keys.length === 1
@@ -718,7 +840,7 @@ export function StudentLearning() {
                   </div>
                   <button
                     className="btn primary large"
-                    disabled={busy || failedSave}
+                    disabled={busy}
                     onClick={() => void submit({ kind: 'acknowledge' })}
                   >
                     看清了，继续 <ArrowRight size={20} />
@@ -739,7 +861,7 @@ export function StudentLearning() {
                   </p>
                   <button
                     className="btn primary"
-                    disabled={busy || failedSave}
+                    disabled={busy}
                     onClick={() => void submit({ kind: 'retry' })}
                   >
                     {game.practice ? '开始补练' : '重试本阶段'}
@@ -783,7 +905,7 @@ export function StudentLearning() {
                                 }
                                 aria-hidden={gone}
                                 tabIndex={gone ? -1 : 0}
-                                disabled={gone || busy || failedSave}
+                                disabled={gone || busy}
                                 onClick={() => pick(side, key)}
                               >
                                 <span>
@@ -802,6 +924,17 @@ export function StudentLearning() {
                     </div>
                   ))}
                 </div>
+              ) : game.adaptive && currentRecall(game) ? (
+                <StudentRecall
+                  key={`${session.id}:${game.adaptive.cursor}`}
+                  game={game}
+                  disabled={busy}
+                  onAction={(action) => void submit(action)}
+                  onPlay={(text) => {
+                    audio.current?.unlock();
+                    void audio.current?.play([text]);
+                  }}
+                />
               ) : q && prompt && candidate ? (
                 <div
                   className={
@@ -833,7 +966,7 @@ export function StudentLearning() {
                   <div className="duel-answers">
                     <button
                       className="answer-no"
-                      disabled={busy || failedSave}
+                      disabled={busy}
                       aria-label="不对应"
                       onClick={() =>
                         void submit({ kind: 'judge', correct: false })
@@ -844,7 +977,7 @@ export function StudentLearning() {
                     </button>
                     <button
                       className="answer-yes"
-                      disabled={busy || failedSave}
+                      disabled={busy}
                       aria-label="对应"
                       onClick={() =>
                         void submit({ kind: 'judge', correct: true })
@@ -874,15 +1007,19 @@ export function StudentLearning() {
                         .join('　/　')
                   : saving
                     ? '正在同步本阶段…'
-                    : game.practice
-                      ? game.practice.correction
+                    : game.adaptive
+                      ? hasCorrection(game)
                         ? '看清后再继续，不用着急。'
-                        : '答对的进度会保留，错词稍后再练。'
-                      : game.round_errors
-                        ? `本轮已记错 ${game.round_errors} 次，做完后重来本阶段`
-                        : game.stage === 1
-                          ? '整轮全对后进入下一阶段'
-                          : '整轮全对后完成本组'}
+                        : ''
+                      : game.practice
+                        ? game.practice.correction
+                          ? '看清后再继续，不用着急。'
+                          : '答对的进度会保留，错词稍后再练。'
+                        : game.round_errors
+                          ? `本轮已记错 ${game.round_errors} 次，做完后重来本阶段`
+                          : game.stage === 1
+                            ? '整轮全对后进入下一阶段'
+                            : '整轮全对后完成本组'}
               </output>
             </>
           )}

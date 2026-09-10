@@ -201,9 +201,13 @@ void test('mastery requires spaced successes; weakest due memories are prioritiz
   assert.equal(a.step, 0);
   assert.equal(memoryLevel(a), 'learning');
   for (let i = 0; i < 3; i++) a = scheduleReview(a, 0, a.due_at);
+  assert.equal(memoryLevel(a), 'consolidating');
+  a = scheduleReview(a, 0, a.due_at, {
+    spelling: { grade: 'independent', attempts: 1, errors: 0, hints: 0 },
+  });
   assert.equal(memoryLevel(a), 'mastered');
   const b = scheduleReview(a, 1, a.last_reviewed);
-  assert.equal(memoryLevel(b), 'consolidating');
+  assert.equal(memoryLevel(b), 'learning');
   const now = '2026-10-01T00:00:00.000Z';
   const strong = { ...a, step: 5, due_at: '2026-09-30T00:00:00.000Z' },
     weak = { ...b, step: 0, due_at: '2026-09-30T00:00:00.000Z' };

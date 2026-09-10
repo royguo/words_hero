@@ -1,5 +1,5 @@
 """Private D1/R2 acceptance only; no production student records are modified."""
-import concurrent.futures,json,subprocess,uuid
+import concurrent.futures,json,subprocess,uuid,os
 
 def check_student_rewards(request,source,config,persist):
     assert persist != '.wrangler/state'
@@ -17,7 +17,7 @@ def check_student_rewards(request,source,config,persist):
     (alice,ac),(bob,bc)=students
     def read(path,cookie=ac,**kwargs):return request(path,headers={'Cookie':cookie},**kwargs)[0]
     def study(student=alice,cookie=ac,miss=False):
-        result=subprocess.run(['node','tests/student-practice-http.mjs'],input=json.dumps({'base':'http://127.0.0.1:8790','studentId':student['id'],'cookie':cookie,'miss':miss}),capture_output=True,text=True)
+        result=subprocess.run(['node','tests/student-adaptive-http.mjs'],input=json.dumps({'base':'http://127.0.0.1:8790','studentId':student['id'],'cookie':cookie,'miss':miss}),capture_output=True,text=True)
         assert result.returncode==0,result.stderr[-5000:]
         return json.loads(result.stdout)
     initial=read('/api/student/state');assert initial['points']['balance']==initial['mastered']==0
@@ -32,7 +32,7 @@ def check_student_rewards(request,source,config,persist):
     assert read('/api/student/memory?word='+key,cookie=bc)['reviews']==[]
     assert read('/api/student/state',cookie=bc)['practiced']==0
     # Simulate elapsed intervals only in the disposable database. Both students share words, never memory.
-    sql("UPDATE student_memory SET data=json_set(data,'$.step',2,'$.due_at','2000-01-01T00:00:00.000Z') WHERE student_id='"+alice['id']+"'")
+    sql("UPDATE student_memory SET data=json_set(data,'$.step',3,'$.relearning',json('false'),'$.last_reviewed','2000-01-01T00:00:00.000Z','$.due_at','2000-01-08T00:00:00.000Z') WHERE student_id='"+alice['id']+"'")
     second=study();assert second['state']['mastered']==10
     assert second['state']['points']['balance']==150 and second['state']['points']['earned_words']==10
     points=read('/api/student/points');assert len(points['entries'])==10
@@ -73,6 +73,13 @@ def check_student_rewards(request,source,config,persist):
     assert len(read('/api/student/memory?word='+key)['reviews'])==3
     backup,_=request('/api/backup')
     assert all(table in backup for table in ('student_points','student_wallets','student_review_history','reward_settings'))
+    if os.environ.get('KITE_STUDENT_BROWSER') == '1':
+        browser_student,_=request('/api/classes/'+cid+'/students',{'name':'Browser acceptance'},status=201)
+        _,headers=request('/api/auth/login',{'role':'student','username':browser_student['username'],'password':browser_student['generated_password']})
+        browser_cookie=headers['Set-Cookie'].split(';')[0]
+        result=subprocess.run(['node','tests/student-browser.mjs'],input=json.dumps({'base':'http://127.0.0.1:8790','cookie':browser_cookie,'studentId':browser_student['id']}),capture_output=True,text=True)
+        assert result.returncode==0,result.stderr[-6000:]+result.stdout[-2000:]
+        print(result.stdout)
     # Removing class/student does not delete independent histories or their earned points.
     request('/api/classes/'+cid,method='DELETE');read('/api/student/state',status=401)
     assert sql("SELECT balance FROM student_wallets WHERE student_id='"+alice['id']+"'")[0]['balance']==30

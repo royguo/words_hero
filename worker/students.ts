@@ -18,11 +18,11 @@ import {
 import {
   replayActions,
   newGame,
+  newAdaptiveGame,
   scheduleReview,
   shuffled,
   memoryLevel,
   compareMemory,
-  MASTERY_STEP,
   type WordReview,
   type StudentDashboard,
   type StudentIdentity,
@@ -45,6 +45,7 @@ type SessionRow = {
   data: string;
   status: string;
   completed_at: string | null;
+  created_at: string;
 };
 const sessionView = (s: SessionRow): StudentSession => ({
   id: s.id,
@@ -366,8 +367,10 @@ export class Students extends Store {
   }
   async wordHistory(id: string, key: string, before = '') {
     await this.student(id);
-    const rows = await this.all<WordReview & { review_id: number }>(
-      `SELECT rowid AS review_id,session_id,created_at,errors,step_before,step_after,due_at FROM student_review_history WHERE student_id=? AND word_key=? ${before ? 'AND rowid < ?' : ''} ORDER BY rowid DESC LIMIT 51`,
+    const rows = await this.all<
+      Omit<WordReview, 'evidence'> & { review_id: number; evidence: string }
+    >(
+      `SELECT rowid AS review_id,session_id,created_at,errors,step_before,step_after,due_at,evidence FROM student_review_history WHERE student_id=? AND word_key=? ${before ? 'AND rowid < ?' : ''} ORDER BY rowid DESC LIMIT 51`,
       id,
       normalize(key),
       ...(before
@@ -375,7 +378,9 @@ export class Students extends Store {
         : []),
     );
     return {
-      reviews: rows.slice(0, 50),
+      reviews: rows
+        .slice(0, 50)
+        .map((row) => ({ ...row, evidence: JSON.parse(row.evidence) })),
       next: rows.length > 50 ? String(rows[49].review_id) : null,
     };
   }
@@ -417,15 +422,18 @@ export class Students extends Store {
     if (
       data.mode !== undefined &&
       (typeof data.mode !== 'string' ||
-        !['practice', 'challenge'].includes(data.mode))
+        !['adaptive', 'practice', 'challenge'].includes(data.mode))
     )
       throw new AppError('练习模式不正确');
     const sid = uid(),
-      game = newGame(
-        selected,
-        Math.random,
-        data.mode === 'practice' ? 'practice' : 'challenge',
-      );
+      game =
+        data.mode === 'adaptive'
+          ? newAdaptiveGame(selected, memory, stamp)
+          : newGame(
+              selected,
+              Math.random,
+              data.mode === 'practice' ? 'practice' : 'challenge',
+            );
     try {
       await this.db.batch([
         this.guard(c, s),
@@ -544,7 +552,14 @@ export class Students extends Store {
       for (const word of game.words) {
         const before = memory.get(word.key),
           errors = game.errors[word.key] || 0,
-          after = scheduleReview(before, errors, stamp);
+          evidence = game.adaptive?.evidence[word.key],
+          after = scheduleReview(
+            before,
+            errors,
+            stamp,
+            evidence,
+            row.created_at,
+          );
         statements.push(
           this.stmt(
             'INSERT INTO student_memory(student_id,word_key,data) VALUES(?,?,?) ON CONFLICT(student_id,word_key) DO UPDATE SET data=excluded.data',
@@ -553,7 +568,7 @@ export class Students extends Store {
             JSON.stringify(after),
           ),
           this.stmt(
-            'INSERT INTO student_review_history(student_id,session_id,word_key,created_at,errors,step_before,step_after,due_at) VALUES(?,?,?,?,?,?,?,?)',
+            'INSERT INTO student_review_history(student_id,session_id,word_key,created_at,errors,step_before,step_after,due_at,evidence) VALUES(?,?,?,?,?,?,?,?,?)',
             id,
             sid,
             word.key,
@@ -562,9 +577,10 @@ export class Students extends Store {
             before?.step ?? null,
             after.step,
             after.due_at,
+            JSON.stringify(evidence || {}),
           ),
         );
-        if (!errors && after.step >= MASTERY_STEP)
+        if (!errors && memoryLevel(after) === 'mastered')
           statements.push(
             this.rewards.award(
               id,

@@ -4,6 +4,9 @@ import { Coins, History, BookOpen, ArrowLeft, Loader2 } from 'lucide-react';
 import { api } from '@/lib/classroom';
 import {
   memoryLevel,
+  skillLabels,
+  gradeLabels,
+  type StudySkill,
   type PointsEntry,
   type PointsSummary,
   type StudyWord,
@@ -252,6 +255,35 @@ export function StudentRecords({
                         <span>练过 {word.memory.reviews} 组</span>
                         <span>累计错 {word.memory.lapses} 次</span>
                       </div>
+                      {word.memory.relearning && (
+                        <p className="record-note">
+                          正在重新巩固，短时补练后会先安排次日复习。
+                        </p>
+                      )}
+                      {word.memory.skills && (
+                        <div className="memory-skills">
+                          {(
+                            ['meaning', 'listening', 'spelling'] as StudySkill[]
+                          ).map((skill) => {
+                            const result = word.memory!.skills?.[skill];
+                            return (
+                              <div key={skill}>
+                                <strong>{skillLabels[skill]}</strong>
+                                <span>
+                                  {result
+                                    ? gradeLabels[result.last_grade]
+                                    : '还未检验'}
+                                </span>
+                                <small>
+                                  {result
+                                    ? `${result.independent} / ${result.reviews} 次独立答对`
+                                    : '后续练习会逐步检验'}
+                                </small>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      )}
                       <p>
                         下次复习：{recordTime(word.memory.due_at)}
                         {Date.parse(word.memory.due_at) <= stamp
@@ -287,8 +319,8 @@ export function StudentRecords({
                         ))}
                       </ol>
                       <small className="record-note">
-                        显示本次复习后的间隔；到期答对会延长，答错后 5
-                        分钟再练。7 天及以上视为“记熟”。
+                        显示下次复习间隔。新版记熟需要隔至少 7
+                        天仍能无提示回忆；提示后答对和短时纠错会单独巩固。旧记录保留原有标记。
                       </small>
                     </>
                   ) : (
@@ -309,6 +341,16 @@ export function StudentRecords({
                                 : '全部答对'}
                             </b>
                             <small>下次：{recordTime(r.due_at)}</small>
+                            {r.evidence && (
+                              <small className="review-evidence">
+                                {Object.entries(r.evidence)
+                                  .map(
+                                    ([skill, value]) =>
+                                      `${skillLabels[skill as StudySkill]}：${gradeLabels[value.grade]}`,
+                                  )
+                                  .join(' · ')}
+                              </small>
+                            )}
                           </li>
                         ))}
                       </ul>

@@ -199,3 +199,85 @@ void test('normal correction and targeted retries survive refresh with no checkp
   );
   assert(p.needsCheckpoint);
 });
+
+void test('in-flight checkpoint stays immutable while answers continue, then only its prefix is acknowledged', () => {
+  const base = server(),
+    storage = storageMock(),
+    p = new StudentProgress('async', base, () => storage);
+  passRound(p);
+  const first = p.beginCheckpoint();
+  const stage2 = {
+    ...base,
+    revision: 2,
+    game: replayActions(base.game, first.actions),
+  };
+  const q = p.session.game.questions[0];
+  p.choose({ kind: 'judge', correct: q.word === q.candidate });
+  assert.deepEqual(p.beginCheckpoint(), first);
+  assert.deepEqual(p.payload(), first);
+  const local = structuredClone(p.session.game);
+  p.accept(stage2);
+  assert.deepEqual(p.session.game, local);
+  assert.equal(p.pending.actions.length, 1);
+  assert.equal(p.pending.revision, 2);
+  assert.notEqual(p.payload().request_id, first.request_id);
+  assert.equal(p.needsCheckpoint, false);
+  assert.deepEqual(
+    new StudentProgress('async', stage2, () => storage).session.game,
+    local,
+  );
+});
+void test('refresh after a lost checkpoint reply rebases later local answers on the committed server state', () => {
+  const base = server(),
+    storage = storageMock(),
+    p = new StudentProgress('lost', base, () => storage);
+  passRound(p);
+  const first = p.beginCheckpoint();
+  const committed = {
+    ...base,
+    revision: 2,
+    game: replayActions(base.game, first.actions),
+  };
+  passRound(p);
+  assert.equal(p.session.game.stage, 'done');
+  const beforeCommit = new StudentProgress('lost', base, () => storage);
+  assert.deepEqual(beforeCommit.beginCheckpoint(), first);
+  assert.equal(beforeCommit.session.game.stage, 'done');
+  const restored = new StudentProgress('lost', committed, () => storage);
+  assert.deepEqual(restored.session.game, p.session.game);
+  assert.equal(restored.pending.revision, 2);
+  assert(restored.needsCheckpoint);
+  const second = restored.beginCheckpoint();
+  assert.deepEqual(
+    replayActions(committed.game, second.actions),
+    p.session.game,
+  );
+  const done = {
+    ...committed,
+    revision: 3,
+    game: p.session.game,
+    completed_at: '2026-09-10T00:00:00.000Z',
+  };
+  restored.accept(done);
+  assert.equal(restored.pending, null);
+  assert.equal(restored.session.completed_at, done.completed_at);
+});
+void test('a different device state cannot acknowledge or overwrite a local answer tail', () => {
+  const base = server(),
+    storage = storageMock(),
+    p = new StudentProgress('conflict', base, () => storage);
+  p.choose({ kind: 'match', en: 'farm', zh: 'farm' });
+  p.beginCheckpoint();
+  const local = structuredClone(p.session);
+  assert.throws(() =>
+    p.accept({
+      ...base,
+      revision: 2,
+      game: replayActions(base.game, [
+        { kind: 'match', en: 'farm', zh: 'song' },
+      ]),
+    }),
+  );
+  assert.deepEqual(p.session, local);
+  assert(p.pending);
+});
