@@ -12,6 +12,7 @@ export function RootChallenge({ lesson }: { lesson: Lesson }) {
   const [pending, setPending] = useState(false);
   const [error, setError] = useState('');
   const request = useRef(0);
+  const input = useRef<HTMLTextAreaElement>(null);
   useEffect(
     () => () => {
       request.current++;
@@ -19,6 +20,11 @@ export function RootChallenge({ lesson }: { lesson: Lesson }) {
     [],
   );
   const group = lesson.groups[index];
+  useEffect(() => {
+    if (!group) return;
+    const frame = requestAnimationFrame(() => input.current?.focus());
+    return () => cancelAnimationFrame(frame);
+  }, [group]);
   if (!group)
     return (
       <div className="empty-state">
@@ -68,6 +74,7 @@ export function RootChallenge({ lesson }: { lesson: Lesson }) {
         的单词或词组，可以来自任意词库。
       </p>
       <Textarea
+        ref={input}
         aria-label="构词单词举例"
         placeholder="写下想到的英文单词或词组…"
         value={answer}

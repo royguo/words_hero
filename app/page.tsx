@@ -146,6 +146,7 @@ function Classrooms() {
     request_id: string;
   } | null>(null);
   const [copyName, setCopyName] = useState('');
+  const copyNameInput = useRef<HTMLInputElement>(null);
   const writes = useRef<Promise<unknown>>(Promise.resolve());
   const current = state.classes.find((c) => c.id === classId);
   function setNotice(message: string) {
@@ -452,7 +453,11 @@ function Classrooms() {
                   </button>
                 </div>
               ))}
-              <NewClass busy={busy} onCreate={createClass} />
+              <NewClass
+                busy={busy}
+                focusName={!state.classes.length}
+                onCreate={createClass}
+              />
             </div>
           )}
         </main>
@@ -463,7 +468,10 @@ function Classrooms() {
             if (!open && !busy) setCopying(null);
           }}
         >
-          <DialogContent className="copy-class-dialog">
+          <DialogContent
+            className="copy-class-dialog"
+            initialFocus={copyNameInput}
+          >
             <DialogHeader>
               <DialogTitle>复制班级</DialogTitle>
               <DialogDescription>
@@ -479,6 +487,7 @@ function Classrooms() {
             >
               <label htmlFor="copy-class-name">新班级名称</label>
               <Input
+                ref={copyNameInput}
                 id="copy-class-name"
                 value={copyName}
                 onChange={(e) => setCopyName(e.target.value)}
@@ -616,12 +625,20 @@ function Classrooms() {
 }
 function NewClass({
   busy,
+  focusName,
   onCreate,
 }: {
   busy: boolean;
+  focusName: boolean;
   onCreate: (name: string) => Promise<void>;
 }) {
   const [name, setName] = useState('');
+  const nameInput = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    if (!focusName) return;
+    const frame = requestAnimationFrame(() => nameInput.current?.focus());
+    return () => cancelAnimationFrame(frame);
+  }, [focusName]);
   return (
     <form
       className="class-card create-class"
@@ -638,6 +655,7 @@ function NewClass({
         班级名称
       </label>
       <Input
+        ref={nameInput}
         id="class-name"
         value={name}
         onChange={(e) => setName(e.target.value)}
@@ -811,6 +829,7 @@ function Setup({
   const [preparing, setPreparing] = useState(false);
   const [restoring, setRestoring] = useState(true);
   const previewLock = useRef(false);
+  const titleInput = useRef<HTMLInputElement>(null);
   const sourceLessonId = existing?.id;
   useEffect(() => {
     let active = true;
@@ -836,6 +855,11 @@ function Setup({
       active = false;
     };
   }, [classId, sourceLessonId]);
+  useEffect(() => {
+    if (restoring || draft || existing) return;
+    const frame = requestAnimationFrame(() => titleInput.current?.focus());
+    return () => cancelAnimationFrame(frame);
+  }, [draft, existing, restoring]);
   async function preview() {
     if (previewLock.current || busy) return;
     previewLock.current = true;
@@ -950,6 +974,7 @@ function Setup({
           <label className="field">
             课程名称
             <Input
+              ref={titleInput}
               value={title}
               readOnly={!!existing}
               maxLength={80}
@@ -1131,6 +1156,7 @@ function VocabManager({
     [busy, setBusy] = useState(false),
     [rev, setRev] = useState(0);
   const file = useRef<HTMLInputElement>(null);
+  const queryInput = useRef<HTMLInputElement>(null);
   function setMessage(message: string) {
     toast.add({ title: message, type: 'info' });
   }
@@ -1178,7 +1204,7 @@ function VocabManager({
   }
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="vocab-dialog">
+      <DialogContent className="vocab-dialog" initialFocus={queryInput}>
         <DialogHeader>
           <DialogTitle>本地词库</DialogTitle>
           <DialogDescription>
@@ -1204,6 +1230,7 @@ function VocabManager({
             }))}
           />
           <Input
+            ref={queryInput}
             value={query}
             placeholder="查找英文或中文"
             aria-label="查找词汇"

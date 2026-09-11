@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Volume2, Lightbulb, ArrowRight, Undo2 } from 'lucide-react';
 import {
@@ -27,6 +27,15 @@ export function StudentRecall({
     shuffled(Array.from(word.word.toLowerCase())),
   );
   const hint = game.adaptive!.hint;
+  const input = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    if (task.skill !== 'spelling' || disabled) return;
+    const frame = requestAnimationFrame(() => input.current?.focus());
+    return () => cancelAnimationFrame(frame);
+  }, [disabled, hint, task.retry, task.skill, task.word]);
+  function returnToInput() {
+    requestAnimationFrame(() => input.current?.focus());
+  }
   return (
     <section
       className="recall-card"
@@ -62,6 +71,7 @@ export function StudentRecall({
             }}
           >
             <input
+              ref={input}
               aria-label="填写英文单词"
               lang="en"
               value={answer}
@@ -93,9 +103,10 @@ export function StudentRecall({
                     aria-label={
                       letter === ' ' ? '添加空格' : '添加字母 ' + letter
                     }
-                    onClick={() =>
-                      setAnswer((value) => (value + letter).slice(0, 160))
-                    }
+                    onClick={() => {
+                      setAnswer((value) => (value + letter).slice(0, 160));
+                      returnToInput();
+                    }}
                   >
                     {letter === ' ' ? '␣' : letter}
                   </button>
@@ -104,9 +115,10 @@ export function StudentRecall({
                   type="button"
                   disabled={disabled || !answer}
                   aria-label="删除最后一个字母"
-                  onClick={() =>
-                    setAnswer(Array.from(answer).slice(0, -1).join(''))
-                  }
+                  onClick={() => {
+                    setAnswer(Array.from(answer).slice(0, -1).join(''));
+                    returnToInput();
+                  }}
                 >
                   <Undo2 size={19} />
                 </button>

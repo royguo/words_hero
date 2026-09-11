@@ -1,6 +1,12 @@
 /* oxlint-disable next/no-img-element -- Static PNG brand assets require no remote image service. */
 'use client';
-import { useCallback, useEffect, useState, type ReactNode } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from 'react';
 import { Loader2, ArrowRight } from 'lucide-react';
 export function AuthGate({
   children,
@@ -19,6 +25,8 @@ export function AuthGate({
     ),
     [busy, setBusy] = useState(false);
   const [role, setRole] = useState<'teacher' | 'student'>(requiredRole);
+  const usernameInput = useRef<HTMLInputElement>(null);
+  const passwordInput = useRef<HTMLInputElement>(null);
   const enter = useCallback(
     (userRole: 'teacher' | 'student') => {
       if (userRole !== requiredRole)
@@ -77,6 +85,13 @@ export function AuthGate({
       window.removeEventListener('kite-logout', logout);
     };
   }, [enter, requiredRole]);
+  useEffect(() => {
+    if (phase !== 'login' || busy) return;
+    const frame = requestAnimationFrame(() => {
+      (role === 'teacher' ? passwordInput : usernameInput).current?.focus();
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [busy, phase, role]);
   if (phase === 'ready') return children;
   return (
     <main className="login-screen">
@@ -146,6 +161,7 @@ export function AuthGate({
             </div>
             <label htmlFor="login-user">账号</label>
             <input
+              ref={usernameInput}
               id="login-user"
               name="username"
               autoComplete="username"
@@ -155,6 +171,7 @@ export function AuthGate({
             />
             <label htmlFor="login-password">密码</label>
             <input
+              ref={passwordInput}
               id="login-password"
               name="password"
               type="password"

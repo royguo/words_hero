@@ -29,7 +29,8 @@ export function StudentRewards({
     [notice, setNotice] = useState(''),
     [awaiting, setAwaiting] = useState(false);
   const pending = useRef<Record<string, unknown> | null>(null),
-    lock = useRef(false);
+    lock = useRef(false),
+    amountInput = useRef<HTMLInputElement>(null);
   useEffect(() => {
     let live = true;
     void api<PointsData>('/students/' + student.id + '/points')
@@ -43,6 +44,11 @@ export function StudentRewards({
       live = false;
     };
   }, [student.id]);
+  useEffect(() => {
+    if (!data || busy || awaiting) return;
+    const frame = requestAnimationFrame(() => amountInput.current?.focus());
+    return () => cancelAnimationFrame(frame);
+  }, [awaiting, busy, data, kind]);
   const target = data
     ? kind === 'adjustment'
       ? Number(amount)
@@ -143,6 +149,7 @@ export function StudentRewards({
                 <label>
                   {kind === 'adjustment' ? '新的余额' : '积分数量'}
                   <input
+                    ref={amountInput}
                     type="number"
                     inputMode="numeric"
                     min={kind === 'adjustment' ? 0 : 1}

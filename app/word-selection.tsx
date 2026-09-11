@@ -54,6 +54,10 @@ export function WordSelection({
   );
   const levels = [...new Set(draft.words.map((w) => w.level))];
   useEffect(() => {
+    const frame = requestAnimationFrame(() => input.current?.focus());
+    return () => cancelAnimationFrame(frame);
+  }, []);
+  useEffect(() => {
     let active = true;
     const timer = setTimeout(() => {
       setSearching(true);
@@ -110,7 +114,11 @@ export function WordSelection({
     const ids = replacing
       ? draft.words.map((w) => (w.id === replacing.id ? word.id : w.id))
       : [...draft.words.map((w) => w.id), word.id];
-    if (await saveWords(ids)) setReplacing(null);
+    if (await saveWords(ids)) {
+      setReplacing(null);
+      input.current?.focus();
+      input.current?.select();
+    }
   }
   async function remove(word: Word) {
     if (

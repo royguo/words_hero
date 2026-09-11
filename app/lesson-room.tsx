@@ -1,5 +1,5 @@
 'use client';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import {
   BookOpen,
   Play,
@@ -88,6 +88,7 @@ export function LessonRoom({
 }) {
   const [player, setPlayer] = useState(false);
   const [notesOpen, setNotesOpen] = useState(false);
+  const notesInput = useRef<HTMLTextAreaElement>(null);
   useEffect(() => {
     stopSpeech();
     return stopSpeech;
@@ -438,7 +439,10 @@ export function LessonRoom({
         </TabsContent>
       </Tabs>
       <Dialog open={notesOpen} onOpenChange={setNotesOpen}>
-        <DialogContent className="classroom-notes-dialog">
+        <DialogContent
+          className="classroom-notes-dialog"
+          initialFocus={lesson.is_current ? notesInput : undefined}
+        >
           <DialogHeader>
             <DialogTitle>课堂笔记</DialogTitle>
             <DialogDescription>
@@ -447,6 +451,7 @@ export function LessonRoom({
             </DialogDescription>
           </DialogHeader>
           <Textarea
+            ref={notesInput}
             aria-label="课堂笔记"
             placeholder="记录易错词、例子或下次复习重点…"
             value={notes}
@@ -800,6 +805,14 @@ function Spelling({ lesson, onSave }: { lesson: Lesson; onSave: SaveFn }) {
     [saved, setSaved] = useState(JSON.stringify(lesson.draft)),
     [message, setMessage] = useState('');
   const latest = lesson.attempts[0];
+  const firstBlank = lesson.words.findIndex(
+    (word) => !(answers[word.id] || '').trim(),
+  );
+  const firstBlankInput = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => firstBlankInput.current?.focus());
+    return () => cancelAnimationFrame(frame);
+  }, [lesson.version_id]);
   async function submit() {
     setPending(true);
     try {
@@ -847,6 +860,7 @@ function Spelling({ lesson, onSave }: { lesson: Lesson; onSave: SaveFn }) {
               </small>
             </span>
             <Input
+              ref={i === firstBlank ? firstBlankInput : undefined}
               aria-label={'第 ' + (i + 1) + ' 题 ' + w.meaning_zh}
               value={answers[w.id] || ''}
               onChange={(e) => {
