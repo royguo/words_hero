@@ -150,6 +150,7 @@ export function StudentRewards({
                   {kind === 'adjustment' ? '新的余额' : '积分数量'}
                   <input
                     ref={amountInput}
+                    data-primary-input
                     type="number"
                     inputMode="numeric"
                     min={kind === 'adjustment' ? 0 : 1}

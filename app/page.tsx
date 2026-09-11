@@ -488,6 +488,7 @@ function Classrooms() {
               <label htmlFor="copy-class-name">新班级名称</label>
               <Input
                 ref={copyNameInput}
+                data-primary-input
                 id="copy-class-name"
                 value={copyName}
                 onChange={(e) => setCopyName(e.target.value)}
@@ -656,6 +657,7 @@ function NewClass({
       </label>
       <Input
         ref={nameInput}
+        data-primary-input
         id="class-name"
         value={name}
         onChange={(e) => setName(e.target.value)}
@@ -975,6 +977,7 @@ function Setup({
             课程名称
             <Input
               ref={titleInput}
+              data-primary-input
               value={title}
               readOnly={!!existing}
               maxLength={80}
@@ -1231,6 +1234,7 @@ function VocabManager({
           />
           <Input
             ref={queryInput}
+            data-primary-input
             value={query}
             placeholder="查找英文或中文"
             aria-label="查找词汇"

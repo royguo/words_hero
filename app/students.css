@@ -2180,7 +2180,7 @@ body.student-practice-active {
   width: 100%;
   min-width: 0;
   padding: 16px 20px;
-  font-size: clamp(27px, 4vw, 38px);
+  font-size: clamp(30px, 4.2vw, 44px) !important;
   letter-spacing: 0.06em;
   text-align: center;
   border: 2px solid #9fbcad;

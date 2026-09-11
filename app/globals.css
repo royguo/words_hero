@@ -117,6 +117,17 @@ select,
 textarea {
   font-size: 16px !important;
 }
+input[data-primary-input],
+textarea[data-primary-input] {
+  font-size: clamp(20px, 1.5vw, 23px) !important;
+  line-height: 1.5;
+}
+input[data-primary-input] {
+  min-height: 50px;
+}
+textarea[data-primary-input] {
+  padding-block: 12px;
+}
 button svg,
 a svg {
   flex-shrink: 0;
@@ -1946,7 +1957,10 @@ small {
   line-height: 1.6;
 }
 .spelling-row input {
-  height: 43px;
+  height: 54px;
+  padding: 9px 14px;
+  font-size: clamp(24px, 2vw, 30px) !important;
+  line-height: 1.35;
   background: #fff;
 }
 .spelling-footer {

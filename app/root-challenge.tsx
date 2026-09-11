@@ -75,6 +75,7 @@ export function RootChallenge({ lesson }: { lesson: Lesson }) {
       </p>
       <Textarea
         ref={input}
+        data-primary-input
         aria-label="构词单词举例"
         placeholder="写下想到的英文单词或词组…"
         value={answer}

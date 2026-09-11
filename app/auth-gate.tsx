@@ -162,6 +162,7 @@ export function AuthGate({
             <label htmlFor="login-user">账号</label>
             <input
               ref={usernameInput}
+              data-primary-input
               id="login-user"
               name="username"
               autoComplete="username"
@@ -172,6 +173,7 @@ export function AuthGate({
             <label htmlFor="login-password">密码</label>
             <input
               ref={passwordInput}
+              data-primary-input
               id="login-password"
               name="password"
               type="password"

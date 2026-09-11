@@ -270,6 +270,7 @@ export function WordSelection({
           <div className="selection-search-input">
             <Input
               ref={input}
+              data-primary-input
               aria-label="搜索全部词库"
               placeholder="搜索英文或中文，例如 journey / 旅行"
               maxLength={80}

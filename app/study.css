@@ -654,7 +654,7 @@
   margin: 22px 0 8px;
   min-height: 108px;
   resize: vertical;
-  font-size: 22px !important;
+  font-size: clamp(24px, 2.2vw, 32px) !important;
   line-height: 1.6;
   padding: 14px 16px;
   text-align: left;
@@ -737,6 +737,6 @@
     font-size: 15px;
   }
   .root-challenge textarea {
-    font-size: 19px !important;
+    font-size: 22px !important;
   }
 }

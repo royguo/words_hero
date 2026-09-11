@@ -393,7 +393,7 @@
   min-height: 240px;
   max-height: 55svh;
   resize: vertical;
-  font-size: 17px !important;
+  font-size: clamp(20px, 1.5vw, 24px) !important;
   line-height: 1.8;
   padding: 14px;
 }

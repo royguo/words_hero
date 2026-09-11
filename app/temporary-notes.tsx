@@ -141,6 +141,7 @@ export function TemporaryNotes({
       </header>
       <Textarea
         ref={input}
+        data-primary-input
         aria-label="临时笔记内容"
         className="notes-text"
         value={text}

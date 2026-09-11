@@ -72,6 +72,7 @@ export function StudentRecall({
           >
             <input
               ref={input}
+              data-primary-input
               aria-label="填写英文单词"
               lang="en"
               value={answer}

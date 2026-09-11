@@ -452,6 +452,7 @@ export function LessonRoom({
           </DialogHeader>
           <Textarea
             ref={notesInput}
+            data-primary-input
             aria-label="课堂笔记"
             placeholder="记录易错词、例子或下次复习重点…"
             value={notes}
@@ -861,6 +862,7 @@ function Spelling({ lesson, onSave }: { lesson: Lesson; onSave: SaveFn }) {
             </span>
             <Input
               ref={i === firstBlank ? firstBlankInput : undefined}
+              data-primary-input
               aria-label={'第 ' + (i + 1) + ' 题 ' + w.meaning_zh}
               value={answers[w.id] || ''}
               onChange={(e) => {
