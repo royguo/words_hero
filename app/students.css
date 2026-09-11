@@ -122,9 +122,12 @@
   text-align: left;
 }
 .correction-grid article > img {
+  display: block;
   width: 100%;
   height: clamp(130px, 20vh, 210px);
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
+  background: #f5f0e6;
 }
 .correction-grid article > div {
   padding: 18px 22px;
@@ -519,6 +522,473 @@
     max-height: 48dvh;
     overflow: auto;
     flex-shrink: 0;
+  }
+}
+
+/* A practice session is one self-contained screen, like the classroom player. */
+html.student-practice-active,
+body.student-practice-active {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+.learner-page.in-session {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  width: 100%;
+  height: 100dvh;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 0 clamp(12px, 3vw, 40px) max(5px, env(safe-area-inset-bottom));
+}
+.learner-page.in-session .learner-header {
+  width: 100%;
+  height: clamp(52px, 7dvh, 66px);
+  min-height: 0;
+  flex: 0 0 clamp(52px, 7dvh, 66px);
+}
+.learner-page.in-session .learner-identity,
+.learner-page.in-session .learner-tools {
+  min-width: 0;
+}
+.learner-page.in-session .learner-identity > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.learner-page.in-session .learner-error {
+  position: absolute;
+  z-index: 3;
+  top: clamp(56px, 8dvh, 74px);
+  left: 50%;
+  width: min(720px, calc(100% - 24px));
+  margin: 0;
+  transform: translateX(-50%);
+  box-shadow: 0 10px 30px #6c352a22;
+}
+.learner-page.in-session .learner-progress-strip {
+  width: 100%;
+  flex: 0 0 auto;
+  margin: clamp(5px, 0.8dvh, 9px) auto;
+  padding: clamp(8px, 1.2dvh, 12px) 18px;
+  gap: clamp(10px, 2vw, 20px);
+}
+.learner-page.in-session .learning-game {
+  width: 100%;
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.learner-page.in-session .game-heading,
+.learner-page.in-session .game-instruction,
+.learner-page.in-session .audio-notice,
+.learner-page.in-session .game-feedback,
+.learner-page.in-session .learner-foot {
+  flex: 0 0 auto;
+}
+.learner-page.in-session .game-heading {
+  margin-bottom: clamp(4px, 0.8dvh, 9px);
+}
+.learner-page.in-session .game-heading h1 {
+  margin-top: 4px;
+  font-size: clamp(23px, 3dvh, 32px);
+}
+.learner-page.in-session .round-counter {
+  gap: 3px;
+}
+.learner-page.in-session .game-instruction {
+  min-height: 30px;
+  margin-bottom: clamp(4px, 0.7dvh, 8px);
+}
+.learner-page.in-session .audio-notice {
+  max-height: 24px;
+  margin: 0 0 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.learner-page.in-session .matching-board,
+.learner-page.in-session .correction-panel,
+.learner-page.in-session .round-retry,
+.learner-page.in-session .recall-card,
+.learner-page.in-session .duel-area,
+.learner-page.in-session .session-done {
+  flex: 1 1 0;
+  min-height: 0;
+}
+.learner-page.in-session .matching-board {
+  gap: clamp(14px, 3vw, 42px);
+  padding: 2px 0 5px;
+}
+.learner-page.in-session .match-column {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.learner-page.in-session .match-column > h2 {
+  flex: 0 0 auto;
+  margin-bottom: 7px;
+}
+.learner-page.in-session .match-grid {
+  flex: 1 1 0;
+  min-height: 0;
+  grid-auto-rows: minmax(0, 1fr);
+  gap: clamp(6px, 1dvh, 11px);
+}
+.learner-page.in-session .match-tile {
+  height: 100%;
+  min-height: 0;
+  padding: clamp(6px, 1.2dvh, 14px) 10px;
+}
+.learner-page.in-session .correction-panel {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: clamp(10px, 2dvh, 20px);
+}
+.learner-page.in-session .correction-panel h2 {
+  flex: 0 0 auto;
+  margin-bottom: clamp(7px, 1dvh, 12px);
+}
+.learner-page.in-session .correction-grid {
+  flex: 1 1 0;
+  min-height: 0;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  grid-auto-rows: minmax(0, 1fr);
+  gap: clamp(8px, 1.5vw, 16px);
+  margin-bottom: clamp(8px, 1.2dvh, 14px);
+}
+.learner-page.in-session .correction-grid article {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.learner-page.in-session .correction-grid article > img {
+  flex: 0 1 clamp(84px, 18dvh, 190px);
+  height: clamp(84px, 18dvh, 190px);
+  min-height: 0;
+  object-fit: contain;
+  object-position: center;
+}
+.learner-page.in-session .correction-grid article > div {
+  min-height: 0;
+  padding: clamp(10px, 1.6dvh, 17px) clamp(12px, 1.8vw, 20px);
+}
+.learner-page.in-session .correction-grid strong {
+  margin: clamp(4px, 0.8dvh, 9px) 0;
+}
+.learner-page.in-session .correction-grid p {
+  margin: 4px 0;
+  font-size: clamp(15px, 2dvh, 19px);
+  line-height: 1.42;
+}
+.learner-page.in-session .correction-panel > .btn {
+  flex: 0 0 auto;
+  align-self: center;
+  min-height: 44px;
+}
+.learner-page.in-session .round-retry {
+  min-height: 0;
+}
+.learner-page.in-session .recall-card {
+  max-height: none;
+  margin: 3px auto;
+  overflow: hidden;
+}
+.learner-page.in-session .recall-prompt {
+  margin: clamp(8px, 2dvh, 18px) 0;
+}
+.learner-page.in-session .recall-actions {
+  margin-top: clamp(10px, 1.8dvh, 18px);
+}
+.learner-page.in-session .letter-bank {
+  margin-top: clamp(8px, 1.5dvh, 14px);
+}
+.learner-page.in-session .recall-defer {
+  margin-top: clamp(10px, 1.8dvh, 18px);
+}
+.learner-page.in-session .listen-prompt {
+  min-height: clamp(72px, 13dvh, 106px);
+  margin: clamp(10px, 2dvh, 20px) auto;
+}
+.learner-page.in-session .duel-area {
+  width: min(790px, 100%);
+  display: flex;
+  flex-direction: column;
+  margin: 2px auto 0;
+}
+.learner-page.in-session .duel-card {
+  flex: 1 1 0;
+  min-height: 0;
+}
+.learner-page.in-session .duel-answers {
+  flex: 0 0 auto;
+  margin-top: clamp(12px, 2dvh, 24px);
+}
+.learner-page.in-session .session-done {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: clamp(8px, 1.5dvh, 18px) 0 0;
+}
+.learner-page.in-session .session-done h1 {
+  margin: 7px 0 3px;
+  font-size: clamp(25px, 3.6dvh, 32px);
+}
+.learner-page.in-session .session-done > p {
+  margin-bottom: clamp(7px, 1.2dvh, 14px);
+}
+.learner-page.in-session .done-icon {
+  width: clamp(34px, 5dvh, 48px);
+  height: clamp(34px, 5dvh, 48px);
+}
+.learner-page.in-session .done-word-grid {
+  width: 100%;
+  flex: 1 1 0;
+  min-height: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: minmax(0, 1fr);
+  overflow: hidden;
+}
+.learner-page.in-session .done-word-grid > div {
+  min-height: 0;
+  padding: clamp(6px, 1dvh, 11px) 14px;
+  overflow: hidden;
+}
+.learner-page.in-session .done-word-grid strong {
+  font-size: clamp(16px, 2.2dvh, 20px);
+}
+.learner-page.in-session .done-word-grid span {
+  font-size: clamp(11px, 1.7dvh, 14px);
+}
+.learner-page.in-session .done-actions {
+  flex: 0 0 auto;
+  margin-top: clamp(7px, 1.2dvh, 14px);
+}
+.learner-page.in-session .game-feedback {
+  min-height: 0;
+  height: clamp(24px, 3.5dvh, 34px);
+  margin-top: 3px;
+  padding-block: 2px;
+  overflow: hidden;
+}
+.learner-page.in-session .learner-foot {
+  min-height: 12px;
+  margin-top: 1px;
+  line-height: 1.2;
+}
+
+@media (max-width: 700px) {
+  .learner-page.in-session {
+    padding-inline: 10px;
+  }
+  .learner-page.in-session .learner-header {
+    height: 52px;
+    flex-basis: 52px;
+  }
+  .learner-page.in-session .learner-identity,
+  .learner-page.in-session .learner-tools {
+    gap: 6px;
+  }
+  .learner-page.in-session .learner-identity > span {
+    max-width: 72px;
+  }
+  .learner-page.in-session .learner-progress-strip {
+    margin: 5px auto;
+    padding: 7px 9px;
+    gap: 7px;
+  }
+  .learner-page.in-session .mastery-progress {
+    gap: 5px;
+  }
+  .learner-page.in-session .mastery-progress > span {
+    font-size: 12px;
+  }
+  .learner-page.in-session .mastery-progress b {
+    font-size: 18px;
+  }
+  .learner-page.in-session .points-badge span {
+    display: none;
+  }
+  .learner-page.in-session .game-steps {
+    gap: 5px;
+  }
+  .learner-page.in-session .game-steps span {
+    padding: 3px 5px;
+  }
+  .learner-page.in-session .game-steps i {
+    width: 12px;
+  }
+  .learner-page.in-session .game-heading h1 {
+    font-size: clamp(21px, 3.4dvh, 25px);
+  }
+  .learner-page.in-session .round-counter strong {
+    display: none;
+  }
+  .learner-page.in-session .game-instruction {
+    min-height: 27px;
+    margin-bottom: 3px;
+  }
+  .learner-page.in-session .game-instruction > span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .learner-page.in-session .matching-board {
+    gap: 8px;
+  }
+  .learner-page.in-session .match-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .learner-page.in-session .match-tile,
+  .learner-page.in-session .match-tile:lang(zh) {
+    min-height: 0;
+    padding: 4px;
+    border-radius: 8px;
+    font-size: clamp(13px, 4vw, 17px);
+    line-height: 1.12;
+  }
+  .learner-page.in-session .correction-panel {
+    padding: 8px;
+  }
+  .learner-page.in-session .correction-panel h2 {
+    font-size: clamp(18px, 5vw, 23px);
+  }
+  .learner-page.in-session .correction-grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: minmax(0, 1fr);
+    gap: 7px;
+    margin-bottom: 7px;
+  }
+  .learner-page.in-session .correction-grid article {
+    display: grid;
+    grid-template-columns: minmax(96px, 34%) minmax(0, 1fr);
+    overflow: hidden;
+  }
+  .learner-page.in-session .correction-grid article > img {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  .learner-page.in-session .correction-grid article > div {
+    padding: 7px 9px;
+  }
+  .learner-page.in-session .correction-grid article > div:only-child {
+    grid-column: 1 / -1;
+  }
+  .learner-page.in-session .correction-grid h3 {
+    gap: 4px;
+    font-size: clamp(21px, 6vw, 28px);
+  }
+  .learner-page.in-session .correction-grid h3 .icon-btn {
+    width: 32px;
+    height: 32px;
+  }
+  .learner-page.in-session .correction-grid strong {
+    margin: 2px 0;
+    font-size: clamp(15px, 4.2vw, 18px);
+  }
+  .learner-page.in-session .correction-grid small {
+    font-size: 12px;
+  }
+  .learner-page.in-session .correction-grid p {
+    display: -webkit-box;
+    margin: 2px 0;
+    overflow: hidden;
+    font-size: clamp(12px, 3.4vw, 14px);
+    line-height: 1.32;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  .learner-page.in-session .correction-grid .example-translation {
+    font-size: 12px;
+    -webkit-line-clamp: 1;
+  }
+  .learner-page.in-session .recall-card {
+    padding: clamp(12px, 2dvh, 18px) 14px;
+  }
+  .learner-page.in-session .recall-card form > input {
+    padding: 10px 12px;
+  }
+  .learner-page.in-session .recall-hint {
+    margin: 7px 0;
+    font-size: 21px;
+  }
+  .learner-page.in-session .letter-bank button {
+    min-height: 38px;
+  }
+  .learner-page.in-session .duel-card {
+    padding: 18px;
+  }
+  .learner-page.in-session .duel-answers {
+    gap: 8px;
+  }
+  .learner-page.in-session .duel-answers button {
+    min-height: 52px;
+  }
+  .learner-page.in-session .session-done {
+    padding-top: 4px;
+  }
+  .learner-page.in-session .done-word-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+  }
+  .learner-page.in-session .done-word-grid > div {
+    padding: 5px 7px;
+    gap: 2px 5px;
+    align-content: center;
+  }
+  .learner-page.in-session .done-word-grid small {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .learner-page.in-session .done-actions {
+    margin-top: 6px;
+  }
+}
+
+@media (max-height: 720px) {
+  .learner-page.in-session .learner-header {
+    height: 48px;
+    flex-basis: 48px;
+  }
+  .learner-page.in-session .learner-progress-strip {
+    margin: 4px auto;
+    padding-block: 6px;
+  }
+  .learner-page.in-session .game-heading {
+    margin-bottom: 2px;
+  }
+  .learner-page.in-session .game-heading h1 {
+    margin-top: 1px;
+  }
+  .learner-page.in-session .game-instruction {
+    min-height: 25px;
+    margin-bottom: 2px;
+  }
+  .learner-page.in-session .correction-grid article > img {
+    flex-basis: 82px;
+    height: 82px;
+  }
+  .learner-page.in-session .recall-card {
+    padding-block: 11px;
+  }
+  .learner-page.in-session .listen-prompt {
+    margin-block: 8px;
+  }
+  .learner-page.in-session .game-feedback {
+    height: 23px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

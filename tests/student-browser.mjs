@@ -100,6 +100,56 @@ async function ready(n) {
     n,
   );
 }
+async function practiceFitsViewport(label) {
+  const layout = await page.evaluate(() => {
+    const practice = document.querySelector('.learner-page.in-session'),
+      rect = practice?.getBoundingClientRect(),
+      correctionImage = document.querySelector(
+        '.correction-grid article > img',
+      );
+    return {
+      rootOverflow: getComputedStyle(document.documentElement).overflow,
+      bodyOverflow: getComputedStyle(document.body).overflow,
+      documentHeight: document.documentElement.scrollHeight,
+      bodyHeight: document.body.scrollHeight,
+      viewportHeight: window.innerHeight,
+      practiceTop: rect?.top,
+      practiceBottom: rect?.bottom,
+      correctionObjectFit: correctionImage
+        ? getComputedStyle(correctionImage).objectFit
+        : null,
+      correctionNaturalWidth: correctionImage?.naturalWidth || 0,
+      correctionNaturalHeight: correctionImage?.naturalHeight || 0,
+    };
+  });
+  assert.equal(
+    layout.rootOverflow,
+    'hidden',
+    label + ': root is scroll-locked',
+  );
+  assert.equal(
+    layout.bodyOverflow,
+    'hidden',
+    label + ': body is scroll-locked',
+  );
+  assert(
+    layout.documentHeight <= layout.viewportHeight + 1,
+    `${label}: document ${layout.documentHeight}px exceeds ${layout.viewportHeight}px viewport`,
+  );
+  assert(
+    layout.bodyHeight <= layout.viewportHeight + 1,
+    `${label}: body ${layout.bodyHeight}px exceeds ${layout.viewportHeight}px viewport`,
+  );
+  assert(
+    (layout.practiceTop || 0) >= -1,
+    label + ': practice begins in viewport',
+  );
+  assert(
+    (layout.practiceBottom || 0) <= layout.viewportHeight + 1,
+    label + ': practice ends in viewport',
+  );
+  return layout;
+}
 async function answer() {
   const g = await game(),
     began = Date.now();
@@ -140,7 +190,44 @@ try {
   bases.set(initial.revision, initial);
   assert.equal(initial.game.schema_version, 3);
   assert.equal(await page.locator('.match-tile').count(), 10);
+  await practiceFitsViewport('desktop warmup');
   await page.screenshot({ path: directory + '/warmup.png', fullPage: true });
+  const visibleKeys = initial.game.en_order.filter(
+      (key) => !initial.game.removed.includes(key),
+    ),
+    picturedKey =
+      visibleKeys.find(
+        (key) => initial.game.words.find((word) => word.key === key)?.image,
+      ) || visibleKeys[0],
+    otherKey = visibleKeys.find((key) => key !== picturedKey),
+    picturedWord = initial.game.words.find((word) => word.key === picturedKey),
+    otherWord = initial.game.words.find((word) => word.key === otherKey);
+  assert(picturedWord && otherWord, 'warmup has two distinct words');
+  assert(picturedWord.image, 'isolated browser fixture includes a word image');
+  await page
+    .getByRole('button', { name: '英文 ' + picturedWord.word, exact: true })
+    .click();
+  await page
+    .getByRole('button', { name: '中文 ' + otherWord.meaning, exact: true })
+    .click();
+  await page.locator('.correction-panel').waitFor();
+  await page.locator('.correction-grid article > img').first().waitFor();
+  const correctionLayout = await practiceFitsViewport('desktop correction');
+  assert.equal(correctionLayout.correctionObjectFit, 'contain');
+  assert(
+    correctionLayout.correctionNaturalWidth > 0,
+    'correction image loaded',
+  );
+  assert(
+    correctionLayout.correctionNaturalHeight > 0,
+    'correction image loaded',
+  );
+  await page.screenshot({
+    path: directory + '/correction-desktop.png',
+    fullPage: true,
+  });
+  await page.getByRole('button', { name: '看清了，继续' }).click();
+  await page.locator('.correction-panel').waitFor({ state: 'hidden' });
   while ((await game()).stage === 1) await answer();
   while (!firstHeld) await page.waitForTimeout(20);
   const countAtCheckpoint = (await game()).answers;
@@ -188,6 +275,7 @@ try {
     path: directory + '/recall-desktop.png',
     fullPage: true,
   });
+  await practiceFitsViewport('desktop recall');
   await page.setViewportSize({ width: 390, height: 844 });
   await page.screenshot({
     path: directory + '/recall-mobile.png',
@@ -198,6 +286,7 @@ try {
       () => document.documentElement.scrollWidth <= window.innerWidth,
     ),
   );
+  await practiceFitsViewport('mobile recall');
   await page.setViewportSize({ width: 1440, height: 1050 });
   let guard = 0;
   while ((await game()).stage !== 'done') {
@@ -219,6 +308,7 @@ try {
   assert.equal(final.points.balance, 0);
   assert.equal(new Set(requests).size, 2, 'only two unique checkpoint writes');
   assert.deepEqual(errors, []);
+  await practiceFitsViewport('desktop completion');
   await page.screenshot({ path: directory + '/completed.png', fullPage: true });
   const result = {
     uniqueCheckpoints: new Set(requests).size,
@@ -231,6 +321,8 @@ try {
     refreshedTailPreserved: true,
     completedGroups: final.completed_groups,
     desktopAndMobile: true,
+    singleScreenPractice: true,
+    correctionImageContained: true,
     pageErrors: errors,
   };
   writeFileSync(directory + '/result.json', JSON.stringify(result, null, 2));

@@ -20,6 +20,8 @@ import {
   CheckCheck,
   Coins,
   History,
+  Maximize,
+  Minimize,
 } from 'lucide-react';
 import { api, ApiError } from '@/lib/classroom';
 import { StudentAudio } from '@/lib/student-audio';
@@ -65,7 +67,8 @@ export function StudentLearning() {
     [error, setError] = useState('');
   const [voice, setVoice] = useState(true),
     [effects, setEffects] = useState(true),
-    [audioNotice, setAudioNotice] = useState('');
+    [audioNotice, setAudioNotice] = useState(''),
+    [full, setFull] = useState(false);
   const [selected, setSelected] = useState<{
       side: 'en' | 'zh';
       key: string;
@@ -112,6 +115,23 @@ export function StudentLearning() {
       audio.current?.dispose();
     };
   }, [load]);
+  useEffect(() => {
+    const changed = () => setFull(Boolean(document.fullscreenElement));
+    changed();
+    document.addEventListener('fullscreenchange', changed);
+    return () => document.removeEventListener('fullscreenchange', changed);
+  }, []);
+  useEffect(() => {
+    if (mode !== 'play') return;
+    const root = document.documentElement,
+      body = document.body;
+    root.classList.add('student-practice-active');
+    body.classList.add('student-practice-active');
+    return () => {
+      root.classList.remove('student-practice-active');
+      body.classList.remove('student-practice-active');
+    };
+  }, [mode]);
   const game = session?.game;
   const correctionPage =
     mode === 'play' && !records && game && hasCorrection(game)
@@ -133,8 +153,26 @@ export function StudentLearning() {
     onVoicePage();
     return () => audio.current?.stop();
   }, [voicePage, voice]);
+  function enterPracticeFullscreen() {
+    if (
+      !document.fullscreenElement &&
+      document.documentElement.requestFullscreen
+    )
+      void document.documentElement.requestFullscreen().catch(() => {});
+  }
+  function leavePracticeFullscreen() {
+    if (document.fullscreenElement)
+      void document.exitFullscreen().catch(() => {});
+  }
+  function togglePracticeFullscreen() {
+    if (document.fullscreenElement) leavePracticeFullscreen();
+    else enterPracticeFullscreen();
+  }
   async function start(extra = false) {
     if (lock.current) return;
+    // Keep this inside the student's click gesture so supporting browsers can
+    // enter presentation mode before the first network request completes.
+    enterPracticeFullscreen();
     lock.current = true;
     setBusy(true);
     setError('');
@@ -168,8 +206,10 @@ export function StudentLearning() {
       } else {
         await load();
         setMode('home');
+        leavePracticeFullscreen();
       }
     } catch (e) {
+      if (mode !== 'play') leavePracticeFullscreen();
       setError(e instanceof Error ? e.message : '开始失败，请重试');
     } finally {
       lock.current = false;
@@ -237,6 +277,7 @@ export function StudentLearning() {
             /* Keep a visible recovery message. */
           }
           setMode('home');
+          leavePracticeFullscreen();
           setError('练习或课堂词表已更新，请继续最新进度。');
         } else {
           setFailedSave(true);
@@ -376,6 +417,7 @@ export function StudentLearning() {
       if (logout) window.dispatchEvent(new Event('kite-logout'));
       else {
         setMode('home');
+        leavePracticeFullscreen();
         setSelected(null);
         setFlash(null);
         if (progress.current?.pending) {
@@ -389,6 +431,7 @@ export function StudentLearning() {
           await load();
         }
       }
+      if (logout) leavePracticeFullscreen();
     } catch (e) {
       setError(e instanceof Error ? e.message : '读取失败');
     } finally {
@@ -422,6 +465,16 @@ export function StudentLearning() {
           <small>{dashboard?.student.class_name}</small>
         </div>
         <div className="learner-tools">
+          {mode === 'play' && (
+            <button
+              className="icon-btn"
+              aria-label={full ? '退出浏览器全屏' : '进入浏览器全屏'}
+              aria-pressed={full}
+              onClick={togglePracticeFullscreen}
+            >
+              {full ? <Minimize size={19} /> : <Maximize size={19} />}
+            </button>
+          )}
           <button
             className="icon-btn"
             aria-label={voice ? '关闭自动朗读' : '开启自动朗读'}
