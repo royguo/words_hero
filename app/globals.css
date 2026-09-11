@@ -64,6 +64,7 @@ body {
 button,
 a,
 input,
+select,
 textarea {
   -webkit-tap-highlight-color: transparent;
 }
@@ -79,6 +80,7 @@ a {
 }
 button,
 input,
+select,
 textarea {
   font: inherit;
 }
@@ -93,7 +95,25 @@ a:focus-visible {
   outline: 3px solid #91abff;
   outline-offset: 3px;
 }
+input:focus,
+select:focus,
+textarea:focus,
+[data-slot='select-trigger']:focus,
+[data-slot='checkbox']:focus,
+[data-slot='radio-group-item']:focus,
+[data-slot='switch']:focus,
+[data-slot='combobox-trigger']:focus {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+}
+[data-slot='input-group']:has([data-slot='input-group-control']:focus-visible),
+[data-slot='input-otp-slot'][data-active='true'] {
+  outline: none !important;
+  box-shadow: none !important;
+}
 input,
+select,
 textarea {
   font-size: 16px !important;
 }

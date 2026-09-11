@@ -1265,7 +1265,6 @@ body.student-practice-active {
 }
 .student-table input:focus {
   border-color: #577ee0;
-  box-shadow: 0 0 0 2px #577ee014;
   background: #fff;
 }
 .student-table input::placeholder {
@@ -2190,8 +2189,7 @@ body.student-practice-active {
   background: #fbfdfc;
 }
 .recall-card form > input:focus {
-  outline: 3px solid #f0be64;
-  outline-offset: 3px;
+  border-color: #c68f33;
 }
 .recall-hint {
   color: #9b6b21;
