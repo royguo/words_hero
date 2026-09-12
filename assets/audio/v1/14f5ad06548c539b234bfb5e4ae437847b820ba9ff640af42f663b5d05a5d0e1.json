@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "14f5ad06548c539b234bfb5e4ae437847b820ba9ff640af42f663b5d05a5d0e1",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "You seem worried."
+  },
+  "file": "audio/v1/fc45003af23d4e4f542cc4eb6f6f5a89fe3d8c0c7089604da06e2a2c5ff01cdb.mp3",
+  "sha256": "fc45003af23d4e4f542cc4eb6f6f5a89fe3d8c0c7089604da06e2a2c5ff01cdb",
+  "bytes": 10656,
+  "created_at": "2026-09-12T09:34:27+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "8819daba9372a168334ebc993aa91562c47117a74d694c1fb7a3655d1ea2d9d7",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Light comes through the window."
+  },
+  "file": "audio/v1/95d2433247767119bccf09a76c6679d3bd552734c27198cdfe958bdae994dfef.mp3",
+  "sha256": "95d2433247767119bccf09a76c6679d3bd552734c27198cdfe958bdae994dfef",
+  "bytes": 13824,
+  "created_at": "2026-09-12T09:34:13+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

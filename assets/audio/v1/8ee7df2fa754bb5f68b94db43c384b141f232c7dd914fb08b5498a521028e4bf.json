@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "8ee7df2fa754bb5f68b94db43c384b141f232c7dd914fb08b5498a521028e4bf",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "My coat is drying outside."
+  },
+  "file": "audio/v1/5531abcbca328bdd6ddd9152eb25753246552ac7b4db5da5e88616a01eb6e4ca.mp3",
+  "sha256": "5531abcbca328bdd6ddd9152eb25753246552ac7b4db5da5e88616a01eb6e4ca",
+  "bytes": 15984,
+  "created_at": "2026-09-12T09:32:17+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

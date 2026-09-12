@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "c4c2734642a1b3ac252aa958252789c6f1ec3b963967b5e1ba6e8b5f771f6298",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The ring is made of gold."
+  },
+  "file": "audio/v1/052e83ad015d62daded33bb1da30d6830b124b3039dcd570774796566b226d81.mp3",
+  "sha256": "052e83ad015d62daded33bb1da30d6830b124b3039dcd570774796566b226d81",
+  "bytes": 13824,
+  "created_at": "2026-09-12T09:31:37+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "97a430be8a8ab6384870c5045da12f4ad0fdbeca4f7242f5faa6b419395ac5c4",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "a pair of tights"
+  },
+  "file": "audio/v1/df9154c36717bf6f9a0883e2b513fb82ce9094e41cad3a6bff50346f4a6a91e3.mp3",
+  "sha256": "df9154c36717bf6f9a0883e2b513fb82ce9094e41cad3a6bff50346f4a6a91e3",
+  "bytes": 10944,
+  "created_at": "2026-09-12T09:34:05+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

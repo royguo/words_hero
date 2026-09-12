@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "71ca9c18a5a76cac186657056fb24bc041f11acc8033172afe307d83d98ea325",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The blue pencil case is mine."
+  },
+  "file": "audio/v1/44e2d59cb151f87dbd587a529a2f121c1dd8825b3f51ff0677f7deec8077a7c8.mp3",
+  "sha256": "44e2d59cb151f87dbd587a529a2f121c1dd8825b3f51ff0677f7deec8077a7c8",
+  "bytes": 15408,
+  "created_at": "2026-09-12T09:33:07+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

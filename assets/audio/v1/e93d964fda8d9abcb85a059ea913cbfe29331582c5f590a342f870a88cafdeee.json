@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "e93d964fda8d9abcb85a059ea913cbfe29331582c5f590a342f870a88cafdeee",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "I bought the bag at a discount."
+  },
+  "file": "audio/v1/5c702b840b6eef49a6568510d5ea25b5ebdb081f78d449a312699f41e6f6d248.mp3",
+  "sha256": "5c702b840b6eef49a6568510d5ea25b5ebdb081f78d449a312699f41e6f6d248",
+  "bytes": 15696,
+  "created_at": "2026-09-12T09:33:28+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

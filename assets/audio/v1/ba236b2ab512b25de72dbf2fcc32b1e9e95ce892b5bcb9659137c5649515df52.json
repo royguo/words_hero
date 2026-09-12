@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "ba236b2ab512b25de72dbf2fcc32b1e9e95ce892b5bcb9659137c5649515df52",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Wash your hands with soap."
+  },
+  "file": "audio/v1/e8bc790a9bd67b6ab8813e4f8a31e505d1cf2b3c2b7c082d86c260e8e708b13f.mp3",
+  "sha256": "e8bc790a9bd67b6ab8813e4f8a31e505d1cf2b3c2b7c082d86c260e8e708b13f",
+  "bytes": 13680,
+  "created_at": "2026-09-12T09:33:59+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

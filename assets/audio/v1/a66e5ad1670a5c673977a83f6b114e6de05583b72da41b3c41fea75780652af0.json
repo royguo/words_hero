@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "a66e5ad1670a5c673977a83f6b114e6de05583b72da41b3c41fea75780652af0",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "These tights are warm."
+  },
+  "file": "audio/v1/a33195fa44ac9636ff0ae87e1b53bdac78067187a4fca39acc1b8cb375a01bdc.mp3",
+  "sha256": "a33195fa44ac9636ff0ae87e1b53bdac78067187a4fca39acc1b8cb375a01bdc",
+  "bytes": 11664,
+  "created_at": "2026-09-12T09:34:04+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

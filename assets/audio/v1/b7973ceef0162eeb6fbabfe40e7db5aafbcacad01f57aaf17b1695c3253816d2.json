@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "b7973ceef0162eeb6fbabfe40e7db5aafbcacad01f57aaf17b1695c3253816d2",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Please dry your hands."
+  },
+  "file": "audio/v1/6816e4296a337276562cfc7b53f4e19687a1fda1b1701935ea33872965142b5a.mp3",
+  "sha256": "6816e4296a337276562cfc7b53f4e19687a1fda1b1701935ea33872965142b5a",
+  "bytes": 12816,
+  "created_at": "2026-09-12T09:32:14+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

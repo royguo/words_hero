@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "779be001ca81619024a9d32e2eb32b0e65ba242a8d831b65c0a86cde77110a22",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "This is my worst sandcastle."
+  },
+  "file": "audio/v1/5962ef7d3cef52d2ad5e2de66764c058ab01df6a1c6ef98b4f7c0d4408b2ce7b.mp3",
+  "sha256": "5962ef7d3cef52d2ad5e2de66764c058ab01df6a1c6ef98b4f7c0d4408b2ce7b",
+  "bytes": 15696,
+  "created_at": "2026-09-12T09:34:23+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

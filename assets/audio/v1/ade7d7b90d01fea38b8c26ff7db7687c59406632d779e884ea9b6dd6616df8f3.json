@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "ade7d7b90d01fea38b8c26ff7db7687c59406632d779e884ea9b6dd6616df8f3",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The artist paints a dog."
+  },
+  "file": "audio/v1/207312d501424d39e1ae99affa64a8d58e05502c195d734d17c6e39eac0f58cf.mp3",
+  "sha256": "207312d501424d39e1ae99affa64a8d58e05502c195d734d17c6e39eac0f58cf",
+  "bytes": 13968,
+  "created_at": "2026-09-12T09:33:06+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

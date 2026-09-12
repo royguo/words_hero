@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "8cda01001891c052351afbf1df75fa67bd56b76b048739e81ada3fbe9971affa",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The cash machine is outside."
+  },
+  "file": "audio/v1/53aef49229397ff963caa087d41a42ac52034015340f7e215e01d00a6ed5109d.mp3",
+  "sha256": "53aef49229397ff963caa087d41a42ac52034015340f7e215e01d00a6ed5109d",
+  "bytes": 15696,
+  "created_at": "2026-09-12T09:34:50+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "0a671ba3915096df3f4335d5c16c5a1e5c5d25f873b14c659728e42dcbb1992e",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "I made a birthday card."
+  },
+  "file": "audio/v1/9815bbe0de3142befb515922efaf78663f48c72d7c9c8020c7ea1451b841db42.mp3",
+  "sha256": "9815bbe0de3142befb515922efaf78663f48c72d7c9c8020c7ea1451b841db42",
+  "bytes": 12672,
+  "created_at": "2026-09-12T09:34:18+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

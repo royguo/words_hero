@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "5ffb592a320c4e82c05ed1fb6b1f5945408e49fdf8614e6ebaccf9875bdcdc39",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "We heard the news on the radio."
+  },
+  "file": "audio/v1/2ec14984c11df9aa228dddbd418620afb516f0d2f32a3b196ffaf6bd34bd0545.mp3",
+  "sha256": "2ec14984c11df9aa228dddbd418620afb516f0d2f32a3b196ffaf6bd34bd0545",
+  "bytes": 15696,
+  "created_at": "2026-09-12T09:32:37+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

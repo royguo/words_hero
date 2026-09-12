@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "9f38a961de72c36d9b18de464bd05ad304a25c3a33692373ba6ed8e55ac32277",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Our dog likes to play outside."
+  },
+  "file": "audio/v1/603b26a2259575c5973ee0b3c5f92be27cf4781007c8ec20e499a6ead952dd01.mp3",
+  "sha256": "603b26a2259575c5973ee0b3c5f92be27cf4781007c8ec20e499a6ead952dd01",
+  "bytes": 16272,
+  "created_at": "2026-09-12T09:34:57+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

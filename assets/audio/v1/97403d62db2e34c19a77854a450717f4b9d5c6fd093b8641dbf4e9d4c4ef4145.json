@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "97403d62db2e34c19a77854a450717f4b9d5c6fd093b8641dbf4e9d4c4ef4145",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "You can choose the blue ball."
+  },
+  "file": "audio/v1/ceb34bb379178ea01c6b75cb1f7e23b9b2e1ffb19c2605d6e5909cf7fe925765.mp3",
+  "sha256": "ceb34bb379178ea01c6b75cb1f7e23b9b2e1ffb19c2605d6e5909cf7fe925765",
+  "bytes": 13536,
+  "created_at": "2026-09-12T09:33:44+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

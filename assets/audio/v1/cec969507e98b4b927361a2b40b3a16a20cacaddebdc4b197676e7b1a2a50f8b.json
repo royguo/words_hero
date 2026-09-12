@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "cec969507e98b4b927361a2b40b3a16a20cacaddebdc4b197676e7b1a2a50f8b",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "They find a desert island."
+  },
+  "file": "audio/v1/5c4fa1a2528039cba8b010f0d0a7993b7a6014e5d5c01f94279cb9432c9746e8.mp3",
+  "sha256": "5c4fa1a2528039cba8b010f0d0a7993b7a6014e5d5c01f94279cb9432c9746e8",
+  "bytes": 14256,
+  "created_at": "2026-09-12T09:34:11+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

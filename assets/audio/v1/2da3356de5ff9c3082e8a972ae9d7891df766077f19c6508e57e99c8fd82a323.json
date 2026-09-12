@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "2da3356de5ff9c3082e8a972ae9d7891df766077f19c6508e57e99c8fd82a323",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "concert"
+  },
+  "file": "audio/v1/347363fe2c52205bf2670dd9b82f5fbf3084fa18069e5744a6992fceace71870.mp3",
+  "sha256": "347363fe2c52205bf2670dd9b82f5fbf3084fa18069e5744a6992fceace71870",
+  "bytes": 8496,
+  "created_at": "2026-09-12T09:31:59+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

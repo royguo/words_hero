@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "014275daffeb51bf38e7114fcdc564d2cf73f13f269f380dcd9307d2a26d83d5",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Her favourite colour is blue."
+  },
+  "file": "audio/v1/4f39bbb6dd6187c9b3c64b77b9059f8f8d6df74c128cd4956275439220a57c6b.mp3",
+  "sha256": "4f39bbb6dd6187c9b3c64b77b9059f8f8d6df74c128cd4956275439220a57c6b",
+  "bytes": 14976,
+  "created_at": "2026-09-12T09:33:54+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

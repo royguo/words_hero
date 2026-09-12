@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "b66b4e06420b96a1dfdc842cebf657d36021576888e7597712fbdc8bf4bc5117",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The box is made of wood."
+  },
+  "file": "audio/v1/d72a3ab22e486103aea5ecad24e1ccceeed21000d28438295f9c4003194949b3.mp3",
+  "sha256": "d72a3ab22e486103aea5ecad24e1ccceeed21000d28438295f9c4003194949b3",
+  "bytes": 13824,
+  "created_at": "2026-09-12T09:31:51+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "2712f4c0ee21cc2980eaa949ddde2907a641e4477b37afff7b7c01d286f81883",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The picture fills the page."
+  },
+  "file": "audio/v1/1b977e21aade86383289c9147b9f671da150b7b5bef9e40f8834e313fcedbb0e.mp3",
+  "sha256": "1b977e21aade86383289c9147b9f671da150b7b5bef9e40f8834e313fcedbb0e",
+  "bytes": 14832,
+  "created_at": "2026-09-12T09:33:19+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

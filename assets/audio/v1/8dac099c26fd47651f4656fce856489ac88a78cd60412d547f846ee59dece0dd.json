@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "8dac099c26fd47651f4656fce856489ac88a78cd60412d547f846ee59dece0dd",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Dad checks every tyre."
+  },
+  "file": "audio/v1/ca5b37085e532479cd5d43ec2b1bba7a4370998bb690e1ee72fa0a3099b91859.mp3",
+  "sha256": "ca5b37085e532479cd5d43ec2b1bba7a4370998bb690e1ee72fa0a3099b91859",
+  "bytes": 13824,
+  "created_at": "2026-09-12T09:34:35+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

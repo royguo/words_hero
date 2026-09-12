@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "1a81724949ba0ec7d046d2f5ca2012fd60bebe8c006469d88335a33bdb9acf1a",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The radio plays some music."
+  },
+  "file": "audio/v1/ea160229beea681c24e9a2d7ea332204e244aa2c7a42831a37e6df0bf471aa15.mp3",
+  "sha256": "ea160229beea681c24e9a2d7ea332204e244aa2c7a42831a37e6df0bf471aa15",
+  "bytes": 15552,
+  "created_at": "2026-09-12T09:32:46+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

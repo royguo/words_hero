@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "6924777e405d9e14c2858d8a1765e30ab261269c3cd678a6c546635f214351ed",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Dad can drive the blue car."
+  },
+  "file": "audio/v1/4c9aabde91b96de2bbc36feb123e58af44f94fced44665e96b0cf2688595af41.mp3",
+  "sha256": "4c9aabde91b96de2bbc36feb123e58af44f94fced44665e96b0cf2688595af41",
+  "bytes": 13824,
+  "created_at": "2026-09-12T09:34:38+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

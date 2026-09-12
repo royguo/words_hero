@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "c1b9ef9da0707ce73490d89cac4ba76e3608d29a2809394e5fabe3b43eb80537",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "We should help each other."
+  },
+  "file": "audio/v1/69b9c60937bf29e8bcaf2f46346847ec356315673abbadc797bf901caa95d71e.mp3",
+  "sha256": "69b9c60937bf29e8bcaf2f46346847ec356315673abbadc797bf901caa95d71e",
+  "bytes": 12096,
+  "created_at": "2026-09-12T09:34:31+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "88ccd709b333f5b1b710eba07f960f6a1da73744aa70972e3339af2c663f23ca",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "She sends me a postcard."
+  },
+  "file": "audio/v1/7891e24427e64b6c08e28f073ad6040dfb243264855c30956605ff93404d488f.mp3",
+  "sha256": "7891e24427e64b6c08e28f073ad6040dfb243264855c30956605ff93404d488f",
+  "bytes": 13680,
+  "created_at": "2026-09-12T09:34:20+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

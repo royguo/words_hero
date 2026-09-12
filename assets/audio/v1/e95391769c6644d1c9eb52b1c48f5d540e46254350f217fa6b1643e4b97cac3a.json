@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "e95391769c6644d1c9eb52b1c48f5d540e46254350f217fa6b1643e4b97cac3a",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The chilli sauce is red."
+  },
+  "file": "audio/v1/d3f30dea53b5e39499db85ac88346647b8dd45099118a89eace98311da8da570.mp3",
+  "sha256": "d3f30dea53b5e39499db85ac88346647b8dd45099118a89eace98311da8da570",
+  "bytes": 13392,
+  "created_at": "2026-09-12T09:31:35+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

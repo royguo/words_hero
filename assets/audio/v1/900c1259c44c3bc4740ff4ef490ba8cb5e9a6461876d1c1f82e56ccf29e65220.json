@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "900c1259c44c3bc4740ff4ef490ba8cb5e9a6461876d1c1f82e56ccf29e65220",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The toys are in a box."
+  },
+  "file": "audio/v1/7fc4c3df1ee72dd2a0f566844123bd30065bb193604a42e93621bbfdbac14015.mp3",
+  "sha256": "7fc4c3df1ee72dd2a0f566844123bd30065bb193604a42e93621bbfdbac14015",
+  "bytes": 13248,
+  "created_at": "2026-09-12T09:34:51+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

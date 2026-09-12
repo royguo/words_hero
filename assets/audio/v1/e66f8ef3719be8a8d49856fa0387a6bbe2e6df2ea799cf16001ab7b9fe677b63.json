@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "e66f8ef3719be8a8d49856fa0387a6bbe2e6df2ea799cf16001ab7b9fe677b63",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Look both ways before you cross the road."
+  },
+  "file": "audio/v1/28af60292ff274e1a7ee823c7895a6d1d3e173ac924e564b5e55d5db109525f6.mp3",
+  "sha256": "28af60292ff274e1a7ee823c7895a6d1d3e173ac924e564b5e55d5db109525f6",
+  "bytes": 19728,
+  "created_at": "2026-09-12T09:35:02+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

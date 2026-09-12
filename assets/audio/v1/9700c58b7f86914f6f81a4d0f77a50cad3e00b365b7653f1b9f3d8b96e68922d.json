@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "9700c58b7f86914f6f81a4d0f77a50cad3e00b365b7653f1b9f3d8b96e68922d",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Many animals live in the forest."
+  },
+  "file": "audio/v1/01efe727672f21af321b18b307458d1086112b76785a82b7cbd6da0e7adddbd9.mp3",
+  "sha256": "01efe727672f21af321b18b307458d1086112b76785a82b7cbd6da0e7adddbd9",
+  "bytes": 16992,
+  "created_at": "2026-09-12T09:31:47+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

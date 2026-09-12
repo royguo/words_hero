@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "0f0c986b1e45d7f301d68c604bb0a87d8e18051dae6e36d514da69b0cfecb039",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Art and music interest me."
+  },
+  "file": "audio/v1/1169fe196d08d34086324b698630e5b68d2a329f8d2e86700f4ddb37e9f06979.mp3",
+  "sha256": "1169fe196d08d34086324b698630e5b68d2a329f8d2e86700f4ddb37e9f06979",
+  "bytes": 14400,
+  "created_at": "2026-09-12T09:33:01+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

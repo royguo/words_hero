@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "0750820fe691f96ed0135c543ca1603b1115c921fd7c4ff855a9de5905519ca8",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Please erase the line."
+  },
+  "file": "audio/v1/c360c7ce7ae107c8979f012e8a56f56bf0b0cb4b8e1c9da387ed9ef4315c1cd7.mp3",
+  "sha256": "c360c7ce7ae107c8979f012e8a56f56bf0b0cb4b8e1c9da387ed9ef4315c1cd7",
+  "bytes": 12672,
+  "created_at": "2026-09-12T09:32:53+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

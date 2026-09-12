@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "de99b36e599fe3bbb3679286efb241f59c3e1c5c1f8a197ff1af66125120abcb",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "spare tyre"
+  },
+  "file": "audio/v1/f5f789f6e58dd5782576c291f6b5e9d0e0801713e7652d9e436d17b8e216b8ea.mp3",
+  "sha256": "f5f789f6e58dd5782576c291f6b5e9d0e0801713e7652d9e436d17b8e216b8ea",
+  "bytes": 9648,
+  "created_at": "2026-09-12T09:34:36+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

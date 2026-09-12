@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "972c5316742a2cd86a430661ab280e8d2f8b31b1c7e11e964da0413ac4693773",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "This is a wooden chair."
+  },
+  "file": "audio/v1/3d22d8564004bb0cc06a26dd7557b6b4cfff35298431ef3c7daa9c91702dd4d0.mp3",
+  "sha256": "3d22d8564004bb0cc06a26dd7557b6b4cfff35298431ef3c7daa9c91702dd4d0",
+  "bytes": 11808,
+  "created_at": "2026-09-12T09:31:54+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

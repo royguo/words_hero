@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "95a79d0d3a04db37e5f3a0f04af528cfb4d7c4724066fdc2c91273aa4b615b37",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Her favourite subject is art."
+  },
+  "file": "audio/v1/cac152fee5aea43c07c85d6927544442d02c84fa9a1ec118793fdd8e279e6f88.mp3",
+  "sha256": "cac152fee5aea43c07c85d6927544442d02c84fa9a1ec118793fdd8e279e6f88",
+  "bytes": 15408,
+  "created_at": "2026-09-12T09:33:04+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

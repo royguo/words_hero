@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "5090fe44e4ed3a01e28708bd69c1ade4eaf879e210d34c780afd2b3f5179c8bb",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Inside the living room set, a printer makes a page with a discount. Mia pays cash for soap, tights, an eraser and a small ball. “This seat is mine,” she says."
+  },
+  "file": "audio/v1/f64bef1ca59309fc98684c8e98267c0f72818048e15a8bd378ecc0449f4d5d69.mp3",
+  "sha256": "f64bef1ca59309fc98684c8e98267c0f72818048e15a8bd378ecc0449f4d5d69",
+  "bytes": 75888,
+  "created_at": "2026-09-12T09:35:28+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

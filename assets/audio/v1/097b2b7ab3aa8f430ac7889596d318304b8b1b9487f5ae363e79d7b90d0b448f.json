@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "097b2b7ab3aa8f430ac7889596d318304b8b1b9487f5ae363e79d7b90d0b448f",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "They camp near the desert."
+  },
+  "file": "audio/v1/487f4e550bdcda4dc103cb059a3199653ced464a67dceff7aeb2bc9492c6657a.mp3",
+  "sha256": "487f4e550bdcda4dc103cb059a3199653ced464a67dceff7aeb2bc9492c6657a",
+  "bytes": 13392,
+  "created_at": "2026-09-12T09:32:23+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

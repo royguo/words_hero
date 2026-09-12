@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "f7658dadb259e6abe16c0a181a02d513fb80b34078c4ae733743813da83ace59",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "This chilli is very hot."
+  },
+  "file": "audio/v1/fab49499359067e0cca754edbe7571300b65b58760b12897ccac078e77bfcf5a.mp3",
+  "sha256": "fab49499359067e0cca754edbe7571300b65b58760b12897ccac078e77bfcf5a",
+  "bytes": 14832,
+  "created_at": "2026-09-12T09:31:32+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "99a60e92ec514253718557305137573b6f5644a20659a49dd94d26f28a1b7bc3",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Do you have enough cash?"
+  },
+  "file": "audio/v1/550399b8cbb4056b6f97ce5a8d3e9ee88e2e0170b2be1e80378145e220258558.mp3",
+  "sha256": "550399b8cbb4056b6f97ce5a8d3e9ee88e2e0170b2be1e80378145e220258558",
+  "bytes": 12816,
+  "created_at": "2026-09-12T09:34:47+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

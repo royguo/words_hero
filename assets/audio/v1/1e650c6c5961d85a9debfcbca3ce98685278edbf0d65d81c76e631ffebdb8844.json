@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "1e650c6c5961d85a9debfcbca3ce98685278edbf0d65d81c76e631ffebdb8844",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The goldfish is orange."
+  },
+  "file": "audio/v1/5e1f1d1e3e6a0b2ef6069fea13a772fd0850b75b1a2ced93fdafb0d4b394c4ba.mp3",
+  "sha256": "5e1f1d1e3e6a0b2ef6069fea13a772fd0850b75b1a2ced93fdafb0d4b394c4ba",
+  "bytes": 13248,
+  "created_at": "2026-09-12T09:31:39+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

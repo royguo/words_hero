@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "07d4097f0424d415abe08ee645578aa8ea3445a235059a3f9fcc32670cf62033",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Welcome to our concert!"
+  },
+  "file": "audio/v1/ec47bbe990858d16d44ad2bef489bbf70b6a165bb838041e0eccc9e49d634905.mp3",
+  "sha256": "ec47bbe990858d16d44ad2bef489bbf70b6a165bb838041e0eccc9e49d634905",
+  "bytes": 13392,
+  "created_at": "2026-09-12T09:32:19+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

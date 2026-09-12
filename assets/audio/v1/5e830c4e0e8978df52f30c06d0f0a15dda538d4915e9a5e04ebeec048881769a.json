@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "5e830c4e0e8978df52f30c06d0f0a15dda538d4915e9a5e04ebeec048881769a",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The dog plays with a ball."
+  },
+  "file": "audio/v1/71e0e9c09291aa4cd6034fca32def2af5a3bb170bb4c14767689d4cf3e954a4a.mp3",
+  "sha256": "71e0e9c09291aa4cd6034fca32def2af5a3bb170bb4c14767689d4cf3e954a4a",
+  "bytes": 13392,
+  "created_at": "2026-09-12T09:33:47+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

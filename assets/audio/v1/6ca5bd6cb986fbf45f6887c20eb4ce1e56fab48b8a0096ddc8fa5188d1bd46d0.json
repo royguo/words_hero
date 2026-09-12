@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "6ca5bd6cb986fbf45f6887c20eb4ce1e56fab48b8a0096ddc8fa5188d1bd46d0",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "What does Mia find?"
+  },
+  "file": "audio/v1/07e3f68de07d2578ed31e9419840f5fa14a9d1c75ae935a3fc0c66769df400ba.mp3",
+  "sha256": "07e3f68de07d2578ed31e9419840f5fa14a9d1c75ae935a3fc0c66769df400ba",
+  "bytes": 11952,
+  "created_at": "2026-09-12T09:35:09+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

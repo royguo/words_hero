@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "e07f3f463fdac04158c2be22938363dcee0cf52eeb20921f4c15d46b995d6de4",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "dog"
+  },
+  "file": "audio/v1/aa3ec7789f27f8788f615f30ae6d7d75aff10bdff7deea4ca6ce93a329cdf863.mp3",
+  "sha256": "aa3ec7789f27f8788f615f30ae6d7d75aff10bdff7deea4ca6ce93a329cdf863",
+  "bytes": 6336,
+  "created_at": "2026-09-12T09:34:55+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

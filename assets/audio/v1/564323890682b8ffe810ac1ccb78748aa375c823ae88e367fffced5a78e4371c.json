@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "564323890682b8ffe810ac1ccb78748aa375c823ae88e367fffced5a78e4371c",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Please throw the ball to me."
+  },
+  "file": "audio/v1/94e1990eac47536a8c0c91de505e7116905b6bd008be032dfb4e59954f128685.mp3",
+  "sha256": "94e1990eac47536a8c0c91de505e7116905b6bd008be032dfb4e59954f128685",
+  "bytes": 12816,
+  "created_at": "2026-09-12T09:33:49+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

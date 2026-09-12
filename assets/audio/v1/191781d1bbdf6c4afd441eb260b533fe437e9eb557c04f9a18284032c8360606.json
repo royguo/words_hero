@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "191781d1bbdf6c4afd441eb260b533fe437e9eb557c04f9a18284032c8360606",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Its tyre goes flat."
+  },
+  "file": "audio/v1/f2b2783f9e8e2f1d89bd65ecd87e5ba878cc6c20a904ddfcfa74ffb1f1fe43ee.mp3",
+  "sha256": "f2b2783f9e8e2f1d89bd65ecd87e5ba878cc6c20a904ddfcfa74ffb1f1fe43ee",
+  "bytes": 12672,
+  "created_at": "2026-09-12T09:35:16+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

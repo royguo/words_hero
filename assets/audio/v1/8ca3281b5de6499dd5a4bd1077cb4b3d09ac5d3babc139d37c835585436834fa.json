@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "8ca3281b5de6499dd5a4bd1077cb4b3d09ac5d3babc139d37c835585436834fa",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "concert hall"
+  },
+  "file": "audio/v1/594f82cbc3253a0eb6e65490d6b12ce464d93f12bb0ae265b4d10908c20981ca.mp3",
+  "sha256": "594f82cbc3253a0eb6e65490d6b12ce464d93f12bb0ae265b4d10908c20981ca",
+  "bytes": 10080,
+  "created_at": "2026-09-12T09:32:03+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "8a1f1d5c7c6601746a70235df6dac551c24f1221ce65d0af2799ba5088705e81",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Mia eats a slice of bread."
+  },
+  "file": "audio/v1/a323f144dd131bd496d79daa6169d018f9e29ab09f2722d6b17150aa105b8f59.mp3",
+  "sha256": "a323f144dd131bd496d79daa6169d018f9e29ab09f2722d6b17150aa105b8f59",
+  "bytes": 14976,
+  "created_at": "2026-09-12T09:31:56+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

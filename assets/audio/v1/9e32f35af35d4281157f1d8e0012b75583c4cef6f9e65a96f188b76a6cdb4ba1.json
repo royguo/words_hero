@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "9e32f35af35d4281157f1d8e0012b75583c4cef6f9e65a96f188b76a6cdb4ba1",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The dinosaur is interesting."
+  },
+  "file": "audio/v1/40423622f654f7b08a3702d27eaef803621b113d04f8f4da67e9dd0e1551efd8.mp3",
+  "sha256": "40423622f654f7b08a3702d27eaef803621b113d04f8f4da67e9dd0e1551efd8",
+  "bytes": 14544,
+  "created_at": "2026-09-12T09:32:59+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

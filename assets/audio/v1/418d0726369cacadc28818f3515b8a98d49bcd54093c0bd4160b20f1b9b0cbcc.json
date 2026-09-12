@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "418d0726369cacadc28818f3515b8a98d49bcd54093c0bd4160b20f1b9b0cbcc",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "They cross the dry river."
+  },
+  "file": "audio/v1/39c4ee01f1a147c5c6f6bd96d975517695494396950dfc372437860aa4e2bcf5.mp3",
+  "sha256": "39c4ee01f1a147c5c6f6bd96d975517695494396950dfc372437860aa4e2bcf5",
+  "bytes": 13104,
+  "created_at": "2026-09-12T09:35:01+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

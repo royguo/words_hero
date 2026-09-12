@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "5e3c27a22e832f6ec1063376602a87f5559da6ec80e42c97b9af05d4fcf0419f",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "They camp near the desert. Dad says, “Let’s boil water,” and adds a red chilli. Mia cuts a slice of bread and drops one piece into the pot. “Worst soup ever!” she laughs."
+  },
+  "file": "audio/v1/cef74a1fafb388780733fcbce87c7e6ff15a9bddee9027a5f2f9f8fe0809022c.mp3",
+  "sha256": "cef74a1fafb388780733fcbce87c7e6ff15a9bddee9027a5f2f9f8fe0809022c",
+  "bytes": 79920,
+  "created_at": "2026-09-12T09:35:20+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

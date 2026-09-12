@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "8efd08e80800c9c8c6525e4dce1bc78dfddc65573a29845b83ca93e51ec5c735",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "She pays in cash."
+  },
+  "file": "audio/v1/74f437aba21a3e7674d89c42b00095ef99c760f4230ce6749f7e82ca5c8b46e8.mp3",
+  "sha256": "74f437aba21a3e7674d89c42b00095ef99c760f4230ce6749f7e82ca5c8b46e8",
+  "bytes": 11808,
+  "created_at": "2026-09-12T09:35:29+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

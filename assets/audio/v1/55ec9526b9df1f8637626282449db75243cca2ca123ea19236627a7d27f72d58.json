@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "55ec9526b9df1f8637626282449db75243cca2ca123ea19236627a7d27f72d58",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "This application helps me draw."
+  },
+  "file": "audio/v1/d7fedc1dce9b9c8d696aba95789b71fdfdc5e1f92dfb196fb20fbaa29073161d.mp3",
+  "sha256": "d7fedc1dce9b9c8d696aba95789b71fdfdc5e1f92dfb196fb20fbaa29073161d",
+  "bytes": 16848,
+  "created_at": "2026-09-12T09:35:08+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

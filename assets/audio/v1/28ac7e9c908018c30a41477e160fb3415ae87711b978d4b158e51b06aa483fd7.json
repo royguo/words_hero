@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "28ac7e9c908018c30a41477e160fb3415ae87711b978d4b158e51b06aa483fd7",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "This radio station plays music."
+  },
+  "file": "audio/v1/4eef1d86e7be84ab2a28c07287d79bd42ca3c99d9db661a3c32587b02acad749.mp3",
+  "sha256": "4eef1d86e7be84ab2a28c07287d79bd42ca3c99d9db661a3c32587b02acad749",
+  "bytes": 18576,
+  "created_at": "2026-09-12T09:32:41+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

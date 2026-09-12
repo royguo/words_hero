@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "e19fe77f35086c0e458f25d4d98b9296f08c791426dbb82d0a4867149a4ef374",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "chilli sauce"
+  },
+  "file": "audio/v1/f2a9a0eb67001bbf221416f250e6cd02cdadbd63fde3c64d2270ceb32109bf4f.mp3",
+  "sha256": "f2a9a0eb67001bbf221416f250e6cd02cdadbd63fde3c64d2270ceb32109bf4f",
+  "bytes": 9792,
+  "created_at": "2026-09-12T09:31:32+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

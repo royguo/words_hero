@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "1dcff64dda2e54969fb39bd6f0a6b98eeccbb492456016675825498d9ed18216",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The spare tyre is in the car."
+  },
+  "file": "audio/v1/b04921ee2cbd146f98d3388e9c95bda94a0acf2429d81f17b409e17d1eaccf73.mp3",
+  "sha256": "b04921ee2cbd146f98d3388e9c95bda94a0acf2429d81f17b409e17d1eaccf73",
+  "bytes": 14976,
+  "created_at": "2026-09-12T09:34:37+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

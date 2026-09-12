@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "272a8a3f7944a59e2a80b7a4470131b4c903704accfc79789a907c3b5dfa538e",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The sky seems dark."
+  },
+  "file": "audio/v1/472ee90ab4e4e2867fc3921450479bc60dfd778be702866ca0bff2b54c7679f3.mp3",
+  "sha256": "472ee90ab4e4e2867fc3921450479bc60dfd778be702866ca0bff2b54c7679f3",
+  "bytes": 12960,
+  "created_at": "2026-09-12T09:34:26+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

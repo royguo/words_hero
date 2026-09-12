@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "cc5c012215bc28c732209f9f07225a5074bf306e6f99f7c7337f93508e88a4c6",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "She gives me a piece of paper."
+  },
+  "file": "audio/v1/885da95594053f00f91454880c37d1cf2986e370b5d21d293d51ebe297db3fa4.mp3",
+  "sha256": "885da95594053f00f91454880c37d1cf2986e370b5d21d293d51ebe297db3fa4",
+  "bytes": 14688,
+  "created_at": "2026-09-12T09:32:35+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

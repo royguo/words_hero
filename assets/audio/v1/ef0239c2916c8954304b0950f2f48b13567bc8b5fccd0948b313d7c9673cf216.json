@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "ef0239c2916c8954304b0950f2f48b13567bc8b5fccd0948b313d7c9673cf216",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The app shows a map."
+  },
+  "file": "audio/v1/efa9ed78cf86fe8b704480eee22f9469c9574a73c64cf8a38bdc06976ae351af.mp3",
+  "sha256": "efa9ed78cf86fe8b704480eee22f9469c9574a73c64cf8a38bdc06976ae351af",
+  "bytes": 11808,
+  "created_at": "2026-09-12T09:35:05+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

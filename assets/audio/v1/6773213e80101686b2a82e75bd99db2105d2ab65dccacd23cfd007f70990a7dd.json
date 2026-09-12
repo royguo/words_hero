@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "6773213e80101686b2a82e75bd99db2105d2ab65dccacd23cfd007f70990a7dd",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The concert hall is full."
+  },
+  "file": "audio/v1/f478d46651a508a0bc3678ff40ac2ad3da3a1358348cdd786981fdb65a5b31b9.mp3",
+  "sha256": "f478d46651a508a0bc3678ff40ac2ad3da3a1358348cdd786981fdb65a5b31b9",
+  "bytes": 13680,
+  "created_at": "2026-09-12T09:32:07+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

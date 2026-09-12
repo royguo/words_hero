@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "c8ce165086704791d5f893628542e22d935d5693f5096b5798c80c8a2415c297",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Mia stands in front of Dad."
+  },
+  "file": "audio/v1/ba72a928da9b0b93792c57ebeff91f2e53221f6f3262c055873b7d2d1eb5f6a2.mp3",
+  "sha256": "ba72a928da9b0b93792c57ebeff91f2e53221f6f3262c055873b7d2d1eb5f6a2",
+  "bytes": 15408,
+  "created_at": "2026-09-12T09:32:55+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

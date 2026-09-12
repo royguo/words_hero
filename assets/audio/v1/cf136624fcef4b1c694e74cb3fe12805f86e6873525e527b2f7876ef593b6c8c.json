@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "cf136624fcef4b1c694e74cb3fe12805f86e6873525e527b2f7876ef593b6c8c",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The family sits in the living room."
+  },
+  "file": "audio/v1/1a8289cfa96616d3180d6f46d7a77756f37613bda697a925bd3eed807cb8d9bd.mp3",
+  "sha256": "1a8289cfa96616d3180d6f46d7a77756f37613bda697a925bd3eed807cb8d9bd",
+  "bytes": 16128,
+  "created_at": "2026-09-12T09:33:34+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

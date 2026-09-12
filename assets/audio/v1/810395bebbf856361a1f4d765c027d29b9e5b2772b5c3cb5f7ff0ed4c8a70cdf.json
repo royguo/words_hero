@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "810395bebbf856361a1f4d765c027d29b9e5b2772b5c3cb5f7ff0ed4c8a70cdf",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The car has a flat tyre."
+  },
+  "file": "audio/v1/b15de41fd9b9313c09cba3673c06ee0f853c15b29a7ade82c5caf784e307ebaf.mp3",
+  "sha256": "b15de41fd9b9313c09cba3673c06ee0f853c15b29a7ade82c5caf784e307ebaf",
+  "bytes": 13968,
+  "created_at": "2026-09-12T09:34:35+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

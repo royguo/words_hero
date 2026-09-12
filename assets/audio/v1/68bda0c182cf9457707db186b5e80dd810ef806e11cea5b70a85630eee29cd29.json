@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "68bda0c182cf9457707db186b5e80dd810ef806e11cea5b70a85630eee29cd29",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The soup begins to boil."
+  },
+  "file": "audio/v1/b3b8beed7e3ca52053612e536620f2e149ab6afb3016a4d9f4752a97390a05ae.mp3",
+  "sha256": "b3b8beed7e3ca52053612e536620f2e149ab6afb3016a4d9f4752a97390a05ae",
+  "bytes": 13536,
+  "created_at": "2026-09-12T09:31:42+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

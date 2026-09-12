@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "d188650d3bc7ef00bccb20fc799ce0ba2256d87aa25af8ae606a3314bde97f4d",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "We can see a blue sky."
+  },
+  "file": "audio/v1/855d2efb9a6be4b16297476597b66081caba44ef0b664e7272be419a55f87ccb.mp3",
+  "sha256": "855d2efb9a6be4b16297476597b66081caba44ef0b664e7272be419a55f87ccb",
+  "bytes": 13248,
+  "created_at": "2026-09-12T09:33:57+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

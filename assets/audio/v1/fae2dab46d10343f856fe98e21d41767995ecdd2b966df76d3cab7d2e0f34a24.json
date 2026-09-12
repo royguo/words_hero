@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "fae2dab46d10343f856fe98e21d41767995ecdd2b966df76d3cab7d2e0f34a24",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "We drive to the forest."
+  },
+  "file": "audio/v1/c6b3ac7b09b40dd5665e639fa181907b240e217d3ecfe5e7502d951c97c0d1b4.mp3",
+  "sha256": "c6b3ac7b09b40dd5665e639fa181907b240e217d3ecfe5e7502d951c97c0d1b4",
+  "bytes": 13392,
+  "created_at": "2026-09-12T09:34:39+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

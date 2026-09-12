@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "10dcd326b81d96a0f064b2e078aa4d7dcd55aff0f152e7df1dcbf29b256e1e08",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "She wears colourful tights."
+  },
+  "file": "audio/v1/e3a47ad8ed731759a972fac4bfebeec220469cf57349b6f6d70c6725d0cc48b9.mp3",
+  "sha256": "e3a47ad8ed731759a972fac4bfebeec220469cf57349b6f6d70c6725d0cc48b9",
+  "bytes": 14400,
+  "created_at": "2026-09-12T09:34:03+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

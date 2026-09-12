@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "b7d7e2e6150bedb31c9167dad63abfcf91eb1b831b7418e98f64d9808a88a153",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Accidents can happen."
+  },
+  "file": "audio/v1/ba33e8cd9e03e1032a0071a9c1eee2d6554a06908069c4ae81c6c531e9051dc1.mp3",
+  "sha256": "ba33e8cd9e03e1032a0071a9c1eee2d6554a06908069c4ae81c6c531e9051dc1",
+  "bytes": 12816,
+  "created_at": "2026-09-12T09:32:46+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

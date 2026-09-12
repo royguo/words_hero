@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "6fdd4ce42240f223030149f75607ff9f9c3d556f74285afce953709a0cb0ffef",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "This web page has a game."
+  },
+  "file": "audio/v1/6f123ac556792aaaa17021a0b78b32b06615f2f8630e10f6f66920d880a25689.mp3",
+  "sha256": "6f123ac556792aaaa17021a0b78b32b06615f2f8630e10f6f66920d880a25689",
+  "bytes": 14400,
+  "created_at": "2026-09-12T09:33:20+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

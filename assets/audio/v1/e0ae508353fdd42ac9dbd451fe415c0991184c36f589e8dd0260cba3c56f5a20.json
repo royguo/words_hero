@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "e0ae508353fdd42ac9dbd451fe415c0991184c36f589e8dd0260cba3c56f5a20",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "This is my usual seat."
+  },
+  "file": "audio/v1/41573ed823c535b19a8411dddee50cce9064940ca24b2539cb23c4133d2c0a3c.mp3",
+  "sha256": "41573ed823c535b19a8411dddee50cce9064940ca24b2539cb23c4133d2c0a3c",
+  "bytes": 13824,
+  "created_at": "2026-09-12T09:32:31+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

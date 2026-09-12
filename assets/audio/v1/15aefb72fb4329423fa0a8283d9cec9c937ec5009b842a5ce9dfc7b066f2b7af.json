@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "15aefb72fb4329423fa0a8283d9cec9c937ec5009b842a5ce9dfc7b066f2b7af",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "What will happen next?"
+  },
+  "file": "audio/v1/8fd1398adbd97a3bded219749e874289207bab57c517aed34ad97e423ae5874d.mp3",
+  "sha256": "8fd1398adbd97a3bded219749e874289207bab57c517aed34ad97e423ae5874d",
+  "bytes": 12960,
+  "created_at": "2026-09-12T09:32:44+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "657eefe3316beac028df8d9842f16d69dd866f1324ddbcf5e808f16dc6870886",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "tights"
+  },
+  "file": "audio/v1/e983e108ef3478411b610efdf8c074eac1718b56bdc7fda7bd4e26e6d576d693.mp3",
+  "sha256": "e983e108ef3478411b610efdf8c074eac1718b56bdc7fda7bd4e26e6d576d693",
+  "bytes": 7344,
+  "created_at": "2026-09-12T09:34:02+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "c71f1d9905a10a159c8b9a317c8026d31d289918f894cc815e76724d5ab6b05c",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The water is boiling."
+  },
+  "file": "audio/v1/656c25f5a506d8a8235dcdae182edf2aff179d2d944a28a87ed2988cebafaa9f.mp3",
+  "sha256": "656c25f5a506d8a8235dcdae182edf2aff179d2d944a28a87ed2988cebafaa9f",
+  "bytes": 12672,
+  "created_at": "2026-09-12T09:31:44+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

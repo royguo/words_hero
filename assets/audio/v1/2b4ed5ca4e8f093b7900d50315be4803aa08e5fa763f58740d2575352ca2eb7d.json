@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "2b4ed5ca4e8f093b7900d50315be4803aa08e5fa763f58740d2575352ca2eb7d",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Something funny happens."
+  },
+  "file": "audio/v1/0072f8969eac6bcf660e29ebfaa3df4a9ad75c67f4245ef0171fdea739a7e661.mp3",
+  "sha256": "0072f8969eac6bcf660e29ebfaa3df4a9ad75c67f4245ef0171fdea739a7e661",
+  "bytes": 13392,
+  "created_at": "2026-09-12T09:32:48+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

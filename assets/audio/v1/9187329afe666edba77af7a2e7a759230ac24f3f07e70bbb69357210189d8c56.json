@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "9187329afe666edba77af7a2e7a759230ac24f3f07e70bbb69357210189d8c56",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "There is an art stage."
+  },
+  "file": "audio/v1/56e8a14209872fcdb5127c1e3811977d269f7e4da1714730b965172859656b91.mp3",
+  "sha256": "56e8a14209872fcdb5127c1e3811977d269f7e4da1714730b965172859656b91",
+  "bytes": 12096,
+  "created_at": "2026-09-12T09:35:25+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

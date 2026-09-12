@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "ed47754721f4fd638436bd76301321fafd2807841f435800ac00fa50b08cb9b3",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The campsite is near a lake."
+  },
+  "file": "audio/v1/c5ea878e5d668924ddd48ced7e6ba251569664ebff8b936165f545ff4096ddfc.mp3",
+  "sha256": "c5ea878e5d668924ddd48ced7e6ba251569664ebff8b936165f545ff4096ddfc",
+  "bytes": 15264,
+  "created_at": "2026-09-12T09:32:26+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

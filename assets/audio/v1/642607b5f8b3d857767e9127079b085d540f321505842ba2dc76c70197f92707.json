@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "642607b5f8b3d857767e9127079b085d540f321505842ba2dc76c70197f92707",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "This is my card."
+  },
+  "file": "audio/v1/9195c00f871cbb519cf0e49f03068570e4ca5ba371c99c5f23ffca14ff0a63e3.mp3",
+  "sha256": "9195c00f871cbb519cf0e49f03068570e4ca5ba371c99c5f23ffca14ff0a63e3",
+  "bytes": 10800,
+  "created_at": "2026-09-12T09:33:10+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

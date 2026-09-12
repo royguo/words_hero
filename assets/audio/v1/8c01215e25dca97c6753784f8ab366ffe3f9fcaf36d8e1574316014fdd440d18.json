@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "8c01215e25dca97c6753784f8ab366ffe3f9fcaf36d8e1574316014fdd440d18",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Our radio is in the living room."
+  },
+  "file": "audio/v1/e6415a1226a352dfaebafed09148133202f8857d74efb3a769765354b28d2b5c.mp3",
+  "sha256": "e6415a1226a352dfaebafed09148133202f8857d74efb3a769765354b28d2b5c",
+  "bytes": 16128,
+  "created_at": "2026-09-12T09:33:33+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

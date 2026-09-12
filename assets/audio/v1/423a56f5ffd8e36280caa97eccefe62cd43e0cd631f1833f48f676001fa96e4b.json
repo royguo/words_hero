@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "423a56f5ffd8e36280caa97eccefe62cd43e0cd631f1833f48f676001fa96e4b",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "She finds an unusual gold card."
+  },
+  "file": "audio/v1/a799ec7620c38f885d62f380fc8bcba8fc3806969e57cdfbd84329f3ec4fd17c.mp3",
+  "sha256": "a799ec7620c38f885d62f380fc8bcba8fc3806969e57cdfbd84329f3ec4fd17c",
+  "bytes": 18576,
+  "created_at": "2026-09-12T09:35:13+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

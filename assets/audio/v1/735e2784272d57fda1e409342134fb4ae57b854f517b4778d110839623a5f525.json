@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "735e2784272d57fda1e409342134fb4ae57b854f517b4778d110839623a5f525",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "This bridge is an example of good design."
+  },
+  "file": "audio/v1/bbf1ff04824d46707b71b021b5713720ef33a04dbca246719dec68b33de6409d.mp3",
+  "sha256": "bbf1ff04824d46707b71b021b5713720ef33a04dbca246719dec68b33de6409d",
+  "bytes": 20160,
+  "created_at": "2026-09-12T09:33:12+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

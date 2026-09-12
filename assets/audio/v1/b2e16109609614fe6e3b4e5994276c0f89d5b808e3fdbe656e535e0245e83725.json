@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "b2e16109609614fe6e3b4e5994276c0f89d5b808e3fdbe656e535e0245e83725",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "We hear an unusual sound."
+  },
+  "file": "audio/v1/bfb34054929731df34103ee7e75511b57df805f43b3f411e6eeb4b91c7c36c3f.mp3",
+  "sha256": "bfb34054929731df34103ee7e75511b57df805f43b3f411e6eeb4b91c7c36c3f",
+  "bytes": 15552,
+  "created_at": "2026-09-12T09:32:29+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

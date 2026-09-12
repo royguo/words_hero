@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "a0cc9425b8bdd51496c7a12d4738d13919692bd411c9c557eabef63b60d8685d",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "living room"
+  },
+  "file": "audio/v1/ec56aeba579e10f5e64b5d5034805bbb90e7b3ad0f35e817ee1369821c4fc937.mp3",
+  "sha256": "ec56aeba579e10f5e64b5d5034805bbb90e7b3ad0f35e817ee1369821c4fc937",
+  "bytes": 8928,
+  "created_at": "2026-09-12T09:33:31+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

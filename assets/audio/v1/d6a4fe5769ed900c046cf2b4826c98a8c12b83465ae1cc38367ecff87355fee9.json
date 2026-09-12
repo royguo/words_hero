@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "d6a4fe5769ed900c046cf2b4826c98a8c12b83465ae1cc38367ecff87355fee9",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "One piece of the puzzle is missing."
+  },
+  "file": "audio/v1/1cc5ffd00b6d53354ca156df6b4dbb15751b519e1b3309a937cc0d11b6b213e6.mp3",
+  "sha256": "1cc5ffd00b6d53354ca156df6b4dbb15751b519e1b3309a937cc0d11b6b213e6",
+  "bytes": 16704,
+  "created_at": "2026-09-12T09:32:32+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

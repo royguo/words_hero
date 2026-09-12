@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "be63060173ca60da44d22a05c46bcf83ba227a9f561a8d2e27e7b8f58757f2c4",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "These towels are dry."
+  },
+  "file": "audio/v1/22160a1d4a29d342608fbbd16610360c6506f1ba2462d3ebd592b1207ddb65d3.mp3",
+  "sha256": "22160a1d4a29d342608fbbd16610360c6506f1ba2462d3ebd592b1207ddb65d3",
+  "bytes": 13104,
+  "created_at": "2026-09-12T09:32:13+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

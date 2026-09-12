@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "76c587b6524175bad10431f811c907f68c31f33da29dfdeb7e03a051481b6fc6",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Our printer is beside the computer."
+  },
+  "file": "audio/v1/0911ea9cfee388bb350b94a168aef636a17a94879bd17217fd97e045f9db49e9.mp3",
+  "sha256": "0911ea9cfee388bb350b94a168aef636a17a94879bd17217fd97e045f9db49e9",
+  "bytes": 18576,
+  "created_at": "2026-09-12T09:33:38+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

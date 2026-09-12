@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "ec8446a2d3a09c9b20332551e5b8e104bedddbcaa0b7421a875563c190521d13",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Today is worse than yesterday."
+  },
+  "file": "audio/v1/ac6d9e12b5071466732a0cf1f521f8c2a21b399cf15c49ef402522e19989a295.mp3",
+  "sha256": "ac6d9e12b5071466732a0cf1f521f8c2a21b399cf15c49ef402522e19989a295",
+  "bytes": 15984,
+  "created_at": "2026-09-12T09:34:25+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

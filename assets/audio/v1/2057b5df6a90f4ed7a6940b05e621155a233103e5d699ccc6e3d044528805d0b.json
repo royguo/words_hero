@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "2057b5df6a90f4ed7a6940b05e621155a233103e5d699ccc6e3d044528805d0b",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "football"
+  },
+  "file": "audio/v1/a7dc55b0212281e5e4d83ec53a28e846990ecd222a6f967e32377ba9c186478a.mp3",
+  "sha256": "a7dc55b0212281e5e4d83ec53a28e846990ecd222a6f967e32377ba9c186478a",
+  "bytes": 8064,
+  "created_at": "2026-09-12T09:33:48+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "127ad60a10a8b2bfb5b4d31f43e8eb9254c73e8cb8dd31ae3422a43c5ffb5711",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Few plants grow in this desert."
+  },
+  "file": "audio/v1/908e507532807a463337ae54329f9e1f1b7be7f26447142465872456ba621e41.mp3",
+  "sha256": "908e507532807a463337ae54329f9e1f1b7be7f26447142465872456ba621e41",
+  "bytes": 16704,
+  "created_at": "2026-09-12T09:34:08+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

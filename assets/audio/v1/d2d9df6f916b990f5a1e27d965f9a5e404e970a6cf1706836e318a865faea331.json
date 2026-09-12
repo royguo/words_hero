@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "d2d9df6f916b990f5a1e27d965f9a5e404e970a6cf1706836e318a865faea331",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Please boil some water."
+  },
+  "file": "audio/v1/51bff29ae3997d1a8d5aa77b720b7d34faed3b63a9bf11f636e4b07f18569805.mp3",
+  "sha256": "51bff29ae3997d1a8d5aa77b720b7d34faed3b63a9bf11f636e4b07f18569805",
+  "bytes": 13248,
+  "created_at": "2026-09-12T09:31:41+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

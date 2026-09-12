@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "70ce4e31958cd235c897ecb4009f7dd2caeb42254e8492c8f867e1a63ce2f7e5",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Some pets, for example dogs, need walks."
+  },
+  "file": "audio/v1/e7dede364f076ff7d7d4e905c7f78b43dfa9615417367d7ac512ceb17d9c65f2.mp3",
+  "sha256": "e7dede364f076ff7d7d4e905c7f78b43dfa9615417367d7ac512ceb17d9c65f2",
+  "bytes": 24624,
+  "created_at": "2026-09-12T09:33:14+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

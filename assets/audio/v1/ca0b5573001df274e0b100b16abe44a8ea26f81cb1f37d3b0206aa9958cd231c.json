@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "ca0b5573001df274e0b100b16abe44a8ea26f81cb1f37d3b0206aa9958cd231c",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Please close the curtain."
+  },
+  "file": "audio/v1/5854759ad2d4513d1840a314375753da1fed9c31ef15aa8c46b3e109a0d6d22a.mp3",
+  "sha256": "5854759ad2d4513d1840a314375753da1fed9c31ef15aa8c46b3e109a0d6d22a",
+  "bytes": 13248,
+  "created_at": "2026-09-12T09:33:52+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

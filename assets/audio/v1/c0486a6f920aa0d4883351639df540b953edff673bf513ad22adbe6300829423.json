@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "c0486a6f920aa0d4883351639df540b953edff673bf513ad22adbe6300829423",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Choose your transport for the trip."
+  },
+  "file": "audio/v1/3694cfd392e3ed5677a400e6a705d8b5544907cbd0cd779966bb7bf278257de6.mp3",
+  "sha256": "3694cfd392e3ed5677a400e6a705d8b5544907cbd0cd779966bb7bf278257de6",
+  "bytes": 16416,
+  "created_at": "2026-09-12T09:34:42+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

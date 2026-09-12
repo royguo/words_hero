@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "a2bb8ceec2fac018e62de80b1699593ed9096c1d269963b90e1a92a9a453c500",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The bookcase is beside the desk."
+  },
+  "file": "audio/v1/c082e4693797da402bb30220dc846e64214d327c4a959b43c42a54714d38bde8.mp3",
+  "sha256": "c082e4693797da402bb30220dc846e64214d327c4a959b43c42a54714d38bde8",
+  "bytes": 17424,
+  "created_at": "2026-09-12T09:33:32+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}
