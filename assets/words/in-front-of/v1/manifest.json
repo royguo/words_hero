@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "id": "in-front-of-v1",
+  "word": "in front of",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "在……前面",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "在……前面",
+    "pos": "prep. phr.",
+    "example": "The ball is in front of the box.",
+    "example_zh": "球在盒子前面。",
+    "extra_examples": [
+      {
+        "en": "Mia stands in front of Dad.",
+        "zh": "米娅站在爸爸前面。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 in front of，再用它说一个短句。",
+    "cloze": "The ball is __________ the box.",
+    "cloze_answer": "in front of",
+    "cloze_zh": "球在盒子前面。",
+    "cloze_type": "context",
+    "parts": [
+      {
+        "text": "in",
+        "kind": "compound",
+        "meaning": "在……中"
+      },
+      {
+        "text": "front",
+        "kind": "compound",
+        "meaning": "前面"
+      },
+      {
+        "text": "of",
+        "kind": "compound",
+        "meaning": "……的"
+      }
+    ],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "phrase",
+      "construction": "in + front + of → in front of",
+      "components": [
+        {
+          "text": "in",
+          "kind": "word",
+          "meaning_zh": "在……中"
+        },
+        {
+          "text": "front",
+          "kind": "word",
+          "meaning_zh": "前面"
+        },
+        {
+          "text": "of",
+          "kind": "word",
+          "meaning_zh": "……的"
+        }
+      ],
+      "explanation_zh": "三个词固定搭配成 in front of，后面接参照的人或物。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "front",
+          "meaning_zh": "前面",
+          "relation": "word_family",
+          "connection_zh": "front 是位置核心，in front of 后面接参照物。",
+          "example": {
+            "en": "The front of the car is blue.",
+            "zh": "汽车前部是蓝色的。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 in front of 有联系的词或短语。",
+        "answer_zh": "front（前面）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · in front of",
+          "url": "https://dictionary.cambridge.org/dictionary/english/in-front-of"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "in-front-of-desert-v1",
+      "file": "words/in-front-of/v1/b64f95a996c4b095ad8421eb81f5ae265f0d5dfd8843b77ed9075544a7ab87a8.png",
+      "sha256": "b64f95a996c4b095ad8421eb81f5ae265f0d5dfd8843b77ed9075544a7ab87a8",
+      "width": 1536,
+      "height": 1024,
+      "alt": "The ball is in front of the box. 对应的写实课堂图片。",
+      "caption": "The ball is in front of the box.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: A red ball placed clearly in front of a blue toy box, with strong depth and no other competing objects.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "slice-v1",
+  "word": "slice",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "薄片；切片",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "薄片；切片",
+    "pos": "n.",
+    "example": "Mia eats a slice of bread.",
+    "example_zh": "米娅吃了一片面包。",
+    "extra_examples": [
+      {
+        "en": "Would you like a slice of apple?",
+        "zh": "你想要一片苹果吗？"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 slice，再用它说一个短句。",
+    "cloze": "Mia eats a __________ of bread.",
+    "cloze_answer": "slice",
+    "cloze_zh": "米娅吃了一片面包。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "slice",
+      "components": [],
+      "explanation_zh": "把 slice 作为完整单词记住，再用 a slice of 建立实用联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "a slice of",
+          "meaning_zh": "一片……",
+          "relation": "phrase",
+          "connection_zh": "a slice of 后面接被切成薄片的食物。",
+          "example": {
+            "en": "I have a slice of cake.",
+            "zh": "我吃了一片蛋糕。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 slice 有联系的词或短语。",
+        "answer_zh": "a slice of（一片……）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · slice",
+          "url": "https://dictionary.cambridge.org/dictionary/english/slice"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "slice-desert-v1",
+      "file": "words/slice/v1/178cbced3a3a751fcf0c954f51c06a591c9a373c5e94d3f78195def3f75242e5.png",
+      "sha256": "178cbced3a3a751fcf0c954f51c06a591c9a373c5e94d3f78195def3f75242e5",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Mia eats a slice of bread. 对应的写实课堂图片。",
+      "caption": "Mia eats a slice of bread.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: One clear slice of bread being cut from a loaf on a kitchen board, safe child-friendly scene.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

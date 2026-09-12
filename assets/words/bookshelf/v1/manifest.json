@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "id": "bookshelf-v1",
+  "word": "bookshelf",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "书架",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "书架",
+    "pos": "n.",
+    "example": "The card is in front of the bookshelf.",
+    "example_zh": "卡片在书架前面。",
+    "extra_examples": [
+      {
+        "en": "Put the book on the bookshelf.",
+        "zh": "把书放到书架上。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 bookshelf，再用它说一个短句。",
+    "cloze": "The card is in front of the __________.",
+    "cloze_answer": "bookshelf",
+    "cloze_zh": "卡片在书架前面。",
+    "cloze_type": "context",
+    "parts": [
+      {
+        "text": "book",
+        "kind": "compound",
+        "meaning": "书"
+      },
+      {
+        "text": "shelf",
+        "kind": "compound",
+        "meaning": "架子"
+      }
+    ],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "compound",
+      "construction": "book + shelf → bookshelf",
+      "components": [
+        {
+          "text": "book",
+          "kind": "word",
+          "meaning_zh": "书"
+        },
+        {
+          "text": "shelf",
+          "kind": "word",
+          "meaning_zh": "架子"
+        }
+      ],
+      "explanation_zh": "book 和 shelf 合成 bookshelf，也就是放书的架子。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "bookcase",
+          "meaning_zh": "书柜",
+          "relation": "word_family",
+          "connection_zh": "bookshelf 和 bookcase 都是放书的家具。",
+          "example": {
+            "en": "The bookcase is beside the desk.",
+            "zh": "书柜在书桌旁边。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 bookshelf 有联系的词或短语。",
+        "answer_zh": "bookcase（书柜）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · bookshelf",
+          "url": "https://dictionary.cambridge.org/dictionary/english/bookshelf"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "bookshelf-desert-v1",
+      "file": "lessons/desert-radio-concert-v1/5ec0c9a0832acff98cc0f17be9372ea3bbf5f7466e80b5022f006e845ea624b6.png",
+      "sha256": "5ec0c9a0832acff98cc0f17be9372ea3bbf5f7466e80b5022f006e845ea624b6",
+      "width": 1536,
+      "height": 1024,
+      "alt": "米娅在书架前发现一张金色音乐会卡片，爸爸和小狗一起查看。",
+      "caption": "The card is in front of the bookshelf.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: At home in a cosy living room, Mia, an East Asian girl about 9 in a coral-orange jacket, finds an elegant blank gold-edged desert concert card on the floor in front of a large bookshelf. Her father in a teal overshirt and their golden retriever with a blue collar lean in with surprise. A phone beside them shows simple map and transport app icons without text.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

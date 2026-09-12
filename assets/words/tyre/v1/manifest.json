@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "tyre-v1",
+  "word": "tyre",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "轮胎",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "轮胎",
+    "pos": "n.",
+    "example": "The car has a flat tyre.",
+    "example_zh": "汽车有一个瘪了的轮胎。",
+    "extra_examples": [
+      {
+        "en": "Dad checks every tyre.",
+        "zh": "爸爸检查每个轮胎。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 tyre，再用它说一个短句。",
+    "cloze": "The car has a flat __________.",
+    "cloze_answer": "tyre",
+    "cloze_zh": "汽车有一个瘪了的轮胎。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "tyre",
+      "components": [],
+      "explanation_zh": "把 tyre 作为完整单词记住，再用 spare tyre 建立实用联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "spare tyre",
+          "meaning_zh": "备用轮胎",
+          "relation": "compound",
+          "connection_zh": "spare + tyre：需要更换轮胎时备用的轮胎。",
+          "example": {
+            "en": "The spare tyre is in the car.",
+            "zh": "备用轮胎在车里。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 tyre 有联系的词或短语。",
+        "answer_zh": "spare tyre（备用轮胎）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · tyre",
+          "url": "https://dictionary.cambridge.org/dictionary/english/tyre"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "tyre-desert-v1",
+      "file": "lessons/desert-radio-concert-v1/737494c24e6eaffbed31e66e4de4fc0afbd44792b59e59aa06a36da61f03e49c.png",
+      "sha256": "737494c24e6eaffbed31e66e4de4fc0afbd44792b59e59aa06a36da61f03e49c",
+      "width": 1536,
+      "height": 1024,
+      "alt": "森林路边的蓝色汽车爆胎了，米娅、爸爸和小狗停下来想办法。",
+      "caption": "The car has a flat tyre.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: Keep the same Mia, Dad and golden retriever. On a sunlit forest road beside their bright blue parked car, the front tyre is visibly flat. Dad kneels to inspect it while Mia holds the blank concert card and looks worried; a wooden box and a few pieces of wood sit safely beside the road.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": [
+        "scene-1-desert-v1"
+      ]
+    }
+  ]
+}

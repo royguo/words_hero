@@ -1,5 +1,6 @@
 /** Production migrations are explicit and repeatable; local records never seed production. */
 import { spawnSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 const mode = process.argv[2];
 if (!['local', 'deploy'].includes(mode)) throw new Error('Use local or deploy');
 const remote = mode === 'deploy',
@@ -24,17 +25,21 @@ run('npx', [
   ...location,
 ]);
 run('node', ['scripts/cf_objects.mjs', ...(remote ? ['--remote'] : [])]);
-run('npx', [
-  'wrangler',
-  'd1',
-  'execute',
-  'kite-words-db',
-  '--config',
-  config,
-  ...location,
-  '--file',
-  '.wrangler/content/seed.sql',
-]);
+const seedFiles = JSON.parse(
+  readFileSync('.wrangler/content/seed-files.json', 'utf8'),
+);
+for (const seed of seedFiles)
+  run('npx', [
+    'wrangler',
+    'd1',
+    'execute',
+    'kite-words-db',
+    '--config',
+    config,
+    ...location,
+    '--file',
+    seed,
+  ]);
 if (remote) run('npx', ['wrangler', 'deploy', '--config', config]);
 console.log(
   remote

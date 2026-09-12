@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "id": "through-v1",
+  "word": "through",
+  "levels": [
+    "KET"
+  ],
+  "sense_zh": "穿过；通过",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "穿过；通过",
+    "pos": "prep.; adv.",
+    "example": "The dog jumps through the hoop.",
+    "example_zh": "狗从圆环中间跳过去。",
+    "extra_examples": [
+      {
+        "en": "Light comes through the window.",
+        "zh": "光线穿过窗户照进来。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 through，再用它说一个短句。",
+    "cloze": "The dog jumps __________ the hoop.",
+    "cloze_answer": "through",
+    "cloze_zh": "狗从圆环中间跳过去。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "through",
+      "components": [],
+      "explanation_zh": "把 through 作为完整单词记住，再用 go through 建立实用联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "go through",
+          "meaning_zh": "穿过；经过",
+          "relation": "phrase",
+          "connection_zh": "go through 强调从内部或中间经过。",
+          "example": {
+            "en": "We go through the tunnel.",
+            "zh": "我们穿过隧道。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 through 有联系的词或短语。",
+        "answer_zh": "go through（穿过；经过）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · through",
+          "url": "https://dictionary.cambridge.org/dictionary/english/through"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "through-desert-v1",
+      "file": "words/through/v1/1e32bbe906b0eefdadac6041472c5e45678d10892bf6376e77e4d9ba81cb51d7.png",
+      "sha256": "1e32bbe906b0eefdadac6041472c5e45678d10892bf6376e77e4d9ba81cb51d7",
+      "width": 1536,
+      "height": 1024,
+      "alt": "The dog jumps through the hoop. 对应的写实课堂图片。",
+      "caption": "The dog jumps through the hoop.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: A friendly golden retriever jumping cleanly through a large blue hoop held by a smiling child.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

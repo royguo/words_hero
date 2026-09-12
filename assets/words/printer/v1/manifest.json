@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "id": "printer-v1",
+  "word": "printer",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "打印机",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "打印机",
+    "pos": "n.",
+    "example": "The printer makes one page.",
+    "example_zh": "打印机打印出一页。",
+    "extra_examples": [
+      {
+        "en": "Our printer is beside the computer.",
+        "zh": "我们的打印机在电脑旁边。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 printer，再用它说一个短句。",
+    "cloze": "The __________ makes one page.",
+    "cloze_answer": "printer",
+    "cloze_zh": "打印机打印出一页。",
+    "cloze_type": "context",
+    "parts": [
+      {
+        "text": "print",
+        "kind": "root",
+        "meaning": "打印"
+      },
+      {
+        "text": "-er",
+        "kind": "suffix",
+        "meaning": "做事的机器"
+      }
+    ],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "derived",
+      "construction": "print + -er → printer",
+      "components": [
+        {
+          "text": "print",
+          "kind": "base",
+          "meaning_zh": "打印"
+        },
+        {
+          "text": "-er",
+          "kind": "suffix",
+          "meaning_zh": "做事的机器"
+        }
+      ],
+      "explanation_zh": "print 是“打印”，加 -er 得到完成打印工作的机器 printer。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "print",
+          "meaning_zh": "打印",
+          "relation": "word_family",
+          "connection_zh": "print 是动作，printer 是完成这个动作的机器。",
+          "example": {
+            "en": "Please print this picture.",
+            "zh": "请打印这张图片。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 printer 有联系的词或短语。",
+        "answer_zh": "print（打印）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · printer",
+          "url": "https://dictionary.cambridge.org/dictionary/english/printer"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "printer-desert-v1",
+      "file": "words/printer/v1/c8791f885fd01c01d4b2e753cc8f0189839f6f4a1386e520ef802fe656dc0b84.png",
+      "sha256": "c8791f885fd01c01d4b2e753cc8f0189839f6f4a1386e520ef802fe656dc0b84",
+      "width": 1536,
+      "height": 1024,
+      "alt": "The printer makes one page. 对应的写实课堂图片。",
+      "caption": "The printer makes one page.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: A compact home printer clearly producing one colourful picture page beside a computer.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

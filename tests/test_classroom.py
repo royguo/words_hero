@@ -88,16 +88,14 @@ class StoreCase(unittest.TestCase):
             self.generate(level="CET-4")
         self.assertEqual(len(self.store.state(self.cid)["lessons"]), 1)
 
-    def test_class_isolation_and_active_reservations(self):
+    def test_class_isolation_and_courses_may_repeat_words(self):
+        before = self.store.pool(self.cid, BASE)["available"]
         first = self.generate()
         second = self.generate()
-        a = {w["word"] for w in first["words"]}
-        b = {w["word"] for w in second["words"]}
-        self.assertFalse(a & b)
+        self.assertEqual(before, self.store.pool(self.cid, BASE)["available"])
         self.assertEqual([first["number"], second["number"]], [1, 2])
         other = self.store.create_class({"name": "周日班"})["id"]
-        self.assertGreater(self.store.pool(other, BASE)["available"],
-                           self.store.pool(self.cid, BASE)["available"])
+        self.assertEqual(self.store.pool(other, BASE)["available"], before)
         self.store.complete(first["version_id"])
         self.assertEqual(self.store.state(other)["learned"], 0)
         self.assertEqual(self.store.state(self.cid)["learned"], 5)
@@ -106,7 +104,7 @@ class StoreCase(unittest.TestCase):
         ket = self.generate()
         learned = {w["word"] for w in ket["words"]}
         pet = self.generate(level="PET")
-        self.assertFalse(learned & {w["word"] for w in pet["words"]})
+        self.assertEqual(len(pet["words"]), 5)
         self.store.complete(ket["version_id"])
         with patch("storage.now", return_value="2100-01-01T00:00:00+00:00"):
             review = self.generate(level="PET", mode="review")
@@ -126,7 +124,7 @@ class StoreCase(unittest.TestCase):
         before = self.store.lesson(old["id"])
         fresh = self.store.generate(self.cid, BASE, old["id"])
         self.assertEqual(fresh["version_number"], 2)
-        self.assertFalse({w["id"] for w in fresh["words"]} & {w["id"] for w in old["words"]})
+        self.assertEqual(len(fresh["words"]), 5)
         archived = self.store.lesson(old["id"], old["version_id"])
         self.assertEqual(archived["words"], before["words"])
         self.assertEqual(archived["notes"], "原课堂笔记")
@@ -144,6 +142,15 @@ class StoreCase(unittest.TestCase):
         with self.store.connect() as db:
             available = {r["word"] for r in self.store.candidates(db, self.cid, BASE)}
         self.assertTrue({w["word"] for w in old["words"]} <= available)
+
+    def test_multi_scope_candidates_deduplicate_and_keep_scope_priority(self):
+        with self.store.connect() as db:
+            rows = self.store.candidates(db, self.cid, dict(BASE, levels=["PET", "KET"]))
+        self.assertEqual(len(rows), len({w["word"] for w in rows}))
+        self.assertTrue(rows)
+        self.assertEqual({w["level"] for w in rows}, {"PET"})
+        lesson = self.store.generate(self.cid, dict(BASE, levels=["PET", "KET"]))
+        self.assertEqual(lesson["config"]["levels"], ["PET", "KET"])
 
     def test_snapshot_immutable_after_import_and_restart(self):
         old = self.generate()
@@ -288,12 +295,13 @@ class StoreCase(unittest.TestCase):
         self.assertEqual(result["attempts"][0]["correct"], 0)
         self.assertTrue(all(w["result"] == "remembered" for w in result["words"]))
 
-    def test_concurrent_generation_has_unique_numbers_and_words(self):
+    def test_concurrent_generation_has_unique_numbers_and_no_within_lesson_duplicates(self):
         with ThreadPoolExecutor(max_workers=4) as executor:
             lessons = list(executor.map(lambda _: self.generate(), range(4)))
         self.assertEqual({l["number"] for l in lessons}, {1, 2, 3, 4})
-        words = [w["word"] for l in lessons for w in l["words"]]
-        self.assertEqual(len(words), len(set(words)))
+        for lesson in lessons:
+            words = [w["word"] for w in lesson["words"]]
+            self.assertEqual(len(words), len(set(words)))
 
     def test_worksheet_snapshot_content_and_separation(self):
         lesson = self.generate(count=100, exclude_basic=False)

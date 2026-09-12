@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "welcome-v1",
+  "word": "welcome",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "欢迎",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "欢迎",
+    "pos": "v.; adj.",
+    "example": "The children welcome Mia to class.",
+    "example_zh": "孩子们欢迎米娅来到班级。",
+    "extra_examples": [
+      {
+        "en": "Welcome to our concert!",
+        "zh": "欢迎来到我们的音乐会！"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 welcome，再用它说一个短句。",
+    "cloze": "The children __________ Mia to class.",
+    "cloze_answer": "welcome",
+    "cloze_zh": "孩子们欢迎米娅来到班级。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "welcome",
+      "components": [],
+      "explanation_zh": "把 welcome 作为完整单词记住，再用 welcome back 建立实用联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "welcome back",
+          "meaning_zh": "欢迎回来",
+          "relation": "phrase",
+          "connection_zh": "welcome back 用来欢迎某人回来。",
+          "example": {
+            "en": "Welcome back to school!",
+            "zh": "欢迎回到学校！"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 welcome 有联系的词或短语。",
+        "answer_zh": "welcome back（欢迎回来）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · welcome",
+          "url": "https://dictionary.cambridge.org/dictionary/english/welcome"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "welcome-desert-v1",
+      "file": "words/welcome/v1/8060a60941fdd3ab4d86cdd0216216f0f2cc4c97990d76b3f0f97605c2110e95.png",
+      "sha256": "8060a60941fdd3ab4d86cdd0216216f0f2cc4c97990d76b3f0f97605c2110e95",
+      "width": 1536,
+      "height": 1024,
+      "alt": "The children welcome Mia to class. 对应的写实课堂图片。",
+      "caption": "The children welcome Mia to class.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: Three smiling children at a classroom door opening their arms to welcome a new child with a backpack.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

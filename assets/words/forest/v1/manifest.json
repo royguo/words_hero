@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "forest-v1",
+  "word": "forest",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "森林",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "森林",
+    "pos": "n.",
+    "example": "They drive through the forest.",
+    "example_zh": "他们开车穿过森林。",
+    "extra_examples": [
+      {
+        "en": "Many animals live in the forest.",
+        "zh": "许多动物住在森林里。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 forest，再用它说一个短句。",
+    "cloze": "They drive through the __________.",
+    "cloze_answer": "forest",
+    "cloze_zh": "他们开车穿过森林。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "forest",
+      "components": [],
+      "explanation_zh": "把 forest 作为完整单词记住，再用 rainforest 建立实用联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "rainforest",
+          "meaning_zh": "热带雨林",
+          "relation": "compound",
+          "connection_zh": "rain + forest：雨水很多的森林。",
+          "example": {
+            "en": "Parrots live in the rainforest.",
+            "zh": "鹦鹉生活在热带雨林。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 forest 有联系的词或短语。",
+        "answer_zh": "rainforest（热带雨林）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · forest",
+          "url": "https://dictionary.cambridge.org/dictionary/english/forest"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "forest-desert-v1",
+      "file": "words/forest/v1/a2155c14ac753fbc3a9c578c96303b990b4c5d3d6efcb265152d91a242b8c1fb.png",
+      "sha256": "a2155c14ac753fbc3a9c578c96303b990b4c5d3d6efcb265152d91a242b8c1fb",
+      "width": 1536,
+      "height": 1024,
+      "alt": "They drive through the forest. 对应的写实课堂图片。",
+      "caption": "They drive through the forest.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: A child-friendly walking path through a green forest, with many tall trees and sunbeams between them.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

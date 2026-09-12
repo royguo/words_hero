@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "camp-v1",
+  "word": "camp",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "露营；营地",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "露营；营地",
+    "pos": "v.; n.",
+    "example": "They camp near the desert.",
+    "example_zh": "他们在沙漠附近露营。",
+    "extra_examples": [
+      {
+        "en": "Our camp is beside the car.",
+        "zh": "我们的营地在汽车旁边。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 camp，再用它说一个短句。",
+    "cloze": "They __________ near the desert.",
+    "cloze_answer": "camp",
+    "cloze_zh": "他们在沙漠附近露营。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "camp",
+      "components": [],
+      "explanation_zh": "把 camp 作为完整单词记住，再用 campsite 建立实用联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "campsite",
+          "meaning_zh": "露营地",
+          "relation": "compound",
+          "connection_zh": "camp + site：专门露营的地点。",
+          "example": {
+            "en": "The campsite is near a lake.",
+            "zh": "露营地在湖边。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 camp 有联系的词或短语。",
+        "answer_zh": "campsite（露营地）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · camp",
+          "url": "https://dictionary.cambridge.org/dictionary/english/camp"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "camp-desert-v1",
+      "file": "lessons/desert-radio-concert-v1/f5c81285fb7b0e90d8467e08515f3f51247b25e252f1699d36eab8e51267e66a.png",
+      "sha256": "f5c81285fb7b0e90d8467e08515f3f51247b25e252f1699d36eab8e51267e66a",
+      "width": 1536,
+      "height": 1024,
+      "alt": "沙漠边的营地里，爸爸烧水，米娅拿着辣椒和面包片做怪汤。",
+      "caption": "They camp near the desert.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: Keep the same Mia, Dad and golden retriever. At a small safe family camp by the desert, Dad boils water in a pot on a portable stove. Mia holds one red chilli and one slice of bread with a funny doubtful face; one piece of bread lies beside the pot. Their blue car and tent remain visible.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": [
+        "scene-2-desert-v1"
+      ]
+    }
+  ]
+}

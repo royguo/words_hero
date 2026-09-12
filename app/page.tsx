@@ -815,9 +815,10 @@ function Setup({
   onGenerate: (draftId: string, revision: number) => Promise<void>;
   onCancel?: () => void;
 }) {
-  const [config, setConfigState] = useState<Config>(
-      existing?.config || defaults,
-    ),
+  const [config, setConfigState] = useState<Config>(() => {
+      const value = existing?.config || defaults;
+      return { ...value, levels: value.levels || [value.level] };
+    }),
     [title, setTitle] = useState(
       existing?.title || '第 ' + String(nextNumber).padStart(2, '0') + ' 课',
     );
@@ -843,7 +844,10 @@ function Setup({
       .then((result) => {
         if (active && result.draft) {
           setDraft(result.draft);
-          setConfigState(result.draft.config);
+          setConfigState({
+            ...result.draft.config,
+            levels: result.draft.config.levels || [result.draft.config.level],
+          });
           setTitle(result.draft.title);
         }
       })
@@ -985,15 +989,39 @@ function Setup({
               required
             />
           </label>
-          <label className="field">
+          <div className="field">
             词表范围
-            <Choice
-              label="词表范围"
-              value={config.level}
-              items={opts}
-              onChange={(v) => change('level', v)}
-            />
-          </label>
+            <div className="level-options" aria-label="词表范围">
+              {opts.map((option) => {
+                const selected = (config.levels || [config.level]).includes(
+                  option.value,
+                );
+                return (
+                  <button
+                    key={option.value}
+                    type="button"
+                    className={selected ? 'selected' : ''}
+                    aria-pressed={selected}
+                    disabled={option.disabled}
+                    onClick={() =>
+                      setConfig((current) => {
+                        const values = current.levels || [current.level];
+                        const next = selected
+                          ? values.filter((value) => value !== option.value)
+                          : [...values, option.value];
+                        if (!next.length) return current;
+                        return { ...current, level: next[0], levels: next };
+                      })
+                    }
+                  >
+                    {selected && <Check size={16} />}
+                    {option.label}
+                  </button>
+                );
+              })}
+            </div>
+            <small>可以组合多个词表；相同拼写只会在候选词单中出现一次。</small>
+          </div>
           <div className="field">
             难度范围
             <div className="difficulty-range">

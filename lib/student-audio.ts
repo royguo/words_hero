@@ -1,4 +1,6 @@
 import { prepareAudio } from './audio';
+const normalize = (text: string) =>
+  text.trim().replace(/\s+/g, ' ').normalize('NFC');
 /** Reuse the media element unlocked by the student's Start/Listen gesture. */
 export class StudentAudio {
   private media: HTMLAudioElement;
@@ -58,6 +60,9 @@ export class StudentAudio {
       /* Sound effects must never prevent an exercise from starting. */
     }
   }
+  remember(text: string, url: string) {
+    this.urls.set(normalize(text), url);
+  }
   async play(texts: string[]) {
     this.stop();
     const generation = this.generation,
@@ -65,11 +70,12 @@ export class StudentAudio {
     this.controller = controller;
     for (const text of texts) {
       try {
-        let url = this.urls.get(text);
+        const key = normalize(text);
+        let url = this.urls.get(key);
         if (!url) {
           url = (await prepareAudio(text, controller.signal)).url;
           if (generation !== this.generation) return;
-          this.urls.set(text, url);
+          this.urls.set(key, url);
         }
         if (generation !== this.generation) return;
         this.media.src = url;
@@ -77,7 +83,7 @@ export class StudentAudio {
           this.release = resolve;
           this.media.onended = () => resolve();
           this.media.onerror = () => {
-            this.urls.delete(text);
+            this.urls.delete(key);
             reject(new Error('语音未能播放，请点朗读重试'));
           };
         });

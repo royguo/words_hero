@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "rich-v1",
+  "word": "rich",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "富有的",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "富有的",
+    "pos": "adj.",
+    "example": "The rich woman has a large house.",
+    "example_zh": "这位富有的女士有一座大房子。",
+    "extra_examples": [
+      {
+        "en": "He is rich, but he still shares.",
+        "zh": "他很富有，但仍乐于分享。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 rich，再用它说一个短句。",
+    "cloze": "The __________ woman has a large house.",
+    "cloze_answer": "rich",
+    "cloze_zh": "这位富有的女士有一座大房子。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "rich",
+      "components": [],
+      "explanation_zh": "把 rich 作为完整单词记住，再用 richer 建立实用联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "richer",
+          "meaning_zh": "更富有的",
+          "relation": "inflection",
+          "connection_zh": "短形容词 rich 加 -er 表示“更富有”。",
+          "example": {
+            "en": "That town is richer now.",
+            "zh": "那个城镇现在更富裕了。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 rich 有联系的词或短语。",
+        "answer_zh": "richer（更富有的）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · rich",
+          "url": "https://dictionary.cambridge.org/dictionary/english/rich"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "rich-desert-v1",
+      "file": "words/rich/v1/9133a0bf080370c222dd836622e61c19a9b1bc6f95950ddab5a6e5ed9bb59ce9.png",
+      "sha256": "9133a0bf080370c222dd836622e61c19a9b1bc6f95950ddab5a6e5ed9bb59ce9",
+      "width": 1536,
+      "height": 1024,
+      "alt": "The rich woman has a large house. 对应的写实课堂图片。",
+      "caption": "The rich woman has a large house.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: A clearly wealthy older woman at the entrance of a large elegant home, warmly receiving a box of toys from two children.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

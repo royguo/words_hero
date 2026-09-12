@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "id": "interesting-v1",
+  "word": "interesting",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "有趣的",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "有趣的",
+    "pos": "adj.",
+    "example": "The dinosaur is interesting.",
+    "example_zh": "这只恐龙很有趣。",
+    "extra_examples": [
+      {
+        "en": "This is an interesting story.",
+        "zh": "这是一个有趣的故事。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 interesting，再用它说一个短句。",
+    "cloze": "The dinosaur is __________.",
+    "cloze_answer": "interesting",
+    "cloze_zh": "这只恐龙很有趣。",
+    "cloze_type": "context",
+    "parts": [
+      {
+        "text": "interest",
+        "kind": "root",
+        "meaning": "使感兴趣"
+      },
+      {
+        "text": "-ing",
+        "kind": "suffix",
+        "meaning": "有这种作用的"
+      }
+    ],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "derived",
+      "construction": "interest + -ing → interesting",
+      "components": [
+        {
+          "text": "interest",
+          "kind": "base",
+          "meaning_zh": "使感兴趣"
+        },
+        {
+          "text": "-ing",
+          "kind": "suffix",
+          "meaning_zh": "有这种作用的"
+        }
+      ],
+      "explanation_zh": "interest 加 -ing，描述“让人产生兴趣的”事物。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "interest",
+          "meaning_zh": "使感兴趣；兴趣",
+          "relation": "word_family",
+          "connection_zh": "interest 是词基，interesting 描述让人感兴趣的事物。",
+          "example": {
+            "en": "Art and music interest me.",
+            "zh": "美术和音乐让我感兴趣。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 interesting 有联系的词或短语。",
+        "answer_zh": "interest（使感兴趣；兴趣）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · interesting",
+          "url": "https://dictionary.cambridge.org/dictionary/english/interesting"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "interesting-desert-v1",
+      "file": "words/interesting/v1/8ae4bd040c6ba392d4cbe3bb4916dacfeecdfe15de24e4a1683f62296c6bfe5d.png",
+      "sha256": "8ae4bd040c6ba392d4cbe3bb4916dacfeecdfe15de24e4a1683f62296c6bfe5d",
+      "width": 1536,
+      "height": 1024,
+      "alt": "The dinosaur is interesting. 对应的写实课堂图片。",
+      "caption": "The dinosaur is interesting.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: A curious child uses a magnifying glass to examine a small dinosaur skeleton in a bright museum.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

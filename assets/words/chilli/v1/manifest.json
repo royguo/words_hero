@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "chilli-v1",
+  "word": "chilli",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "红辣椒",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "红辣椒",
+    "pos": "n.",
+    "example": "Dad puts one chilli in the soup.",
+    "example_zh": "爸爸在汤里放了一根红辣椒。",
+    "extra_examples": [
+      {
+        "en": "This chilli is very hot.",
+        "zh": "这根辣椒很辣。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 chilli，再用它说一个短句。",
+    "cloze": "Dad puts one __________ in the soup.",
+    "cloze_answer": "chilli",
+    "cloze_zh": "爸爸在汤里放了一根红辣椒。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "chilli",
+      "components": [],
+      "explanation_zh": "把 chilli 作为完整单词记住，再用 chilli sauce 建立实用联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "chilli sauce",
+          "meaning_zh": "辣椒酱",
+          "relation": "compound",
+          "connection_zh": "chilli 和 sauce 组成常见食物名称。",
+          "example": {
+            "en": "The chilli sauce is red.",
+            "zh": "辣椒酱是红色的。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 chilli 有联系的词或短语。",
+        "answer_zh": "chilli sauce（辣椒酱）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · chilli",
+          "url": "https://dictionary.cambridge.org/dictionary/english/chilli"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "chilli-desert-v1",
+      "file": "words/chilli/v1/58a108f7c7e33ad7466b4138c89bef43c4f97cd876afb65b9bc1d0ecb3cc3167.png",
+      "sha256": "58a108f7c7e33ad7466b4138c89bef43c4f97cd876afb65b9bc1d0ecb3cc3167",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Dad puts one chilli in the soup. 对应的写实课堂图片。",
+      "caption": "Dad puts one chilli in the soup.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: Several fresh bright red chillies on a clean wooden board, with one whole chilli prominent and unmistakable.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

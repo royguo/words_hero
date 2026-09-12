@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "example-v1",
+  "word": "example",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "例子；实例",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "例子；实例",
+    "pos": "n.",
+    "example": "This bridge is an example of good design.",
+    "example_zh": "这座桥是优秀设计的一个例子。",
+    "extra_examples": [
+      {
+        "en": "Can you give me an example?",
+        "zh": "你能给我举个例子吗？"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 example，再用它说一个短句。",
+    "cloze": "This bridge is an __________ of good design.",
+    "cloze_answer": "example",
+    "cloze_zh": "这座桥是优秀设计的一个例子。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "example",
+      "components": [],
+      "explanation_zh": "把 example 作为完整单词记住，再用 for example 建立实用联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "for example",
+          "meaning_zh": "例如",
+          "relation": "phrase",
+          "connection_zh": "for example 用来引出一个具体例子。",
+          "example": {
+            "en": "Some pets, for example dogs, need walks.",
+            "zh": "有些宠物，例如狗，需要散步。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 example 有联系的词或短语。",
+        "answer_zh": "for example（例如）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · example",
+          "url": "https://dictionary.cambridge.org/dictionary/english/example"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "example-desert-v1",
+      "file": "words/example/v1/2cc605075fefbe6da52429954eb69ba45d507d8a37e0eaa6d501006a50782f6f.png",
+      "sha256": "2cc605075fefbe6da52429954eb69ba45d507d8a37e0eaa6d501006a50782f6f",
+      "width": 1536,
+      "height": 1024,
+      "alt": "This bridge is an example of good design. 对应的写实课堂图片。",
+      "caption": "This bridge is an example of good design.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: A teacher holds one model bridge as an example while several different bridge models sit on a classroom table.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

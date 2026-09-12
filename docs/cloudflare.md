@@ -79,6 +79,8 @@ Cloudflare Worker 不运行 Python 子进程；`worker/audio.ts` 将原 edge-tts
 
 `public/course-media-sw.js` 通过静态发布部署，根页面初始化注册，激活后接管同源 `/assets/words|lessons|audio/…/<hash>.<ext>` 的 GET/HEAD，优先读取有效期 7 天内的本机资源，支持 MP3 的 206/416、HEAD 与 If-Range。缓存无法访问或未命中时继续走原 R2 路径；普通浏览不自动写 Cache Storage。`public/course-media-cache.js` 为页面与 Service Worker 共用逻辑。更新检查使用 `updateViaCache: none`，不缓存页面和 API，不需要数据库迁移或 R2 结构变动。
 
+学生端每组练习使用同一缓存基础设施，但采用强制资源门。点击开始、继续或下一组后，页面先为本组单词及例句调用同源语音接口，再将返回的哈希录音和所有已有词图完整下载、校验并缓存；任何文件失败都不会显示题目，重试只补缺失文件。下载完成后播放器直接复用已准备的哈希 URL，不重复调用语音接口。资源准备不写学习记录，学生答案仍只在阶段边界和离开时批量同步。
+
 验证命令：`npm run test:resources`、`npm run test:audio`、`npm run test:cloudflare`。浏览器另验预下载完成、刷新后重复下载没有素材请求，以及切断网络后已缓存图片和原生音频可解码/播放。Cache Storage 可能被浏览器回收；不能据此承诺整个课堂系统离线运行。参考：[Cache API](https://developer.mozilla.org/en-US/docs/Web/API/Cache)、[Service Worker 注册](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register)、[HTTP Range](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Range_requests)。
 
 参考：[Workers 静态资源](https://developers.cloudflare.com/workers/static-assets/)、[D1 本地开发](https://developers.cloudflare.com/d1/best-practices/local-development/)、[Workers WebSockets](https://developers.cloudflare.com/workers/runtime-apis/websockets/)。

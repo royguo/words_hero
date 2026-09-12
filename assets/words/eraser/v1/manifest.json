@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "id": "eraser-v1",
+  "word": "eraser",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "橡皮",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "橡皮",
+    "pos": "n.",
+    "example": "I use an eraser to fix the mistake.",
+    "example_zh": "我用橡皮改正错误。",
+    "extra_examples": [
+      {
+        "en": "Her eraser is beside the pencil.",
+        "zh": "她的橡皮在铅笔旁边。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 eraser，再用它说一个短句。",
+    "cloze": "I use an __________ to fix the mistake.",
+    "cloze_answer": "eraser",
+    "cloze_zh": "我用橡皮改正错误。",
+    "cloze_type": "context",
+    "parts": [
+      {
+        "text": "erase",
+        "kind": "root",
+        "meaning": "擦掉"
+      },
+      {
+        "text": "-er",
+        "kind": "suffix",
+        "meaning": "做事的工具"
+      }
+    ],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "derived",
+      "construction": "erase + -er → eraser",
+      "components": [
+        {
+          "text": "erase",
+          "kind": "base",
+          "meaning_zh": "擦掉"
+        },
+        {
+          "text": "-er",
+          "kind": "suffix",
+          "meaning_zh": "做事的工具"
+        }
+      ],
+      "explanation_zh": "erase 是“擦掉”，加 -er 得到用来擦除的工具 eraser。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "erase",
+          "meaning_zh": "擦掉",
+          "relation": "word_family",
+          "connection_zh": "erase 是动作，eraser 是做这个动作的工具。",
+          "example": {
+            "en": "Please erase the line.",
+            "zh": "请擦掉这条线。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 eraser 有联系的词或短语。",
+        "answer_zh": "erase（擦掉）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · eraser",
+          "url": "https://dictionary.cambridge.org/dictionary/english/eraser"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "eraser-desert-v1",
+      "file": "words/eraser/v1/50a122a4d28b48bfe0cb5bc4f9835f612edb24b7c2379ec1873ebdec25e1b713.png",
+      "sha256": "50a122a4d28b48bfe0cb5bc4f9835f612edb24b7c2379ec1873ebdec25e1b713",
+      "width": 1536,
+      "height": 1024,
+      "alt": "I use an eraser to fix the mistake. 对应的写实课堂图片。",
+      "caption": "I use an eraser to fix the mistake.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: A white school eraser clearly rubbing away a pencil mistake on clean paper beside a sharpened pencil.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

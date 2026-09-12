@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "ball-v1",
+  "word": "ball",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "球",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "球",
+    "pos": "n.",
+    "example": "The dog plays with a ball.",
+    "example_zh": "狗在玩球。",
+    "extra_examples": [
+      {
+        "en": "Please throw the ball to me.",
+        "zh": "请把球扔给我。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 ball，再用它说一个短句。",
+    "cloze": "The dog plays with a __________.",
+    "cloze_answer": "ball",
+    "cloze_zh": "狗在玩球。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "ball",
+      "components": [],
+      "explanation_zh": "把 ball 作为完整单词记住，再用 football 建立实用联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "football",
+          "meaning_zh": "足球",
+          "relation": "compound",
+          "connection_zh": "foot + ball：主要用脚踢的球类运动。",
+          "example": {
+            "en": "We play football after school.",
+            "zh": "我们放学后踢足球。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 ball 有联系的词或短语。",
+        "answer_zh": "football（足球）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · ball",
+          "url": "https://dictionary.cambridge.org/dictionary/english/ball"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "ball-desert-v1",
+      "file": "words/ball/v1/1327908d3eb315e8ae5344393d828394d9f20d15dd9d012d44402d233ba6d5aa.png",
+      "sha256": "1327908d3eb315e8ae5344393d828394d9f20d15dd9d012d44402d233ba6d5aa",
+      "width": 1536,
+      "height": 1024,
+      "alt": "The dog plays with a ball. 对应的写实课堂图片。",
+      "caption": "The dog plays with a ball.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: A bright playground ball in mid-bounce between two smiling children outdoors.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

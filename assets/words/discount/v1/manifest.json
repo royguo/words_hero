@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "discount-v1",
+  "word": "discount",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "折扣",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "折扣",
+    "pos": "n.",
+    "example": "We get a discount on the tickets.",
+    "example_zh": "我们的票享有折扣。",
+    "extra_examples": [
+      {
+        "en": "Students can ask for a discount.",
+        "zh": "学生可以询问是否有折扣。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 discount，再用它说一个短句。",
+    "cloze": "We get a __________ on the tickets.",
+    "cloze_answer": "discount",
+    "cloze_zh": "我们的票享有折扣。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "discount",
+      "components": [],
+      "explanation_zh": "把 discount 作为完整单词记住，再用 at a discount 建立实用联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "at a discount",
+          "meaning_zh": "打折",
+          "relation": "phrase",
+          "connection_zh": "at a discount 表示以较低的价格购买。",
+          "example": {
+            "en": "I bought the bag at a discount.",
+            "zh": "我打折买了这个包。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 discount 有联系的词或短语。",
+        "answer_zh": "at a discount（打折）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · discount",
+          "url": "https://dictionary.cambridge.org/dictionary/english/discount"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "discount-desert-v1",
+      "file": "words/discount/v1/8c816574b5faa6945517d033d991fbcae34a5c0a062d401f7d7f8a424cd521ed.png",
+      "sha256": "8c816574b5faa6945517d033d991fbcae34a5c0a062d401f7d7f8a424cd521ed",
+      "width": 1536,
+      "height": 1024,
+      "alt": "We get a discount on the tickets. 对应的写实课堂图片。",
+      "caption": "We get a discount on the tickets.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: A child and parent happily choose an affordable backpack from a tidy shop sale display, using only blank price shapes and no text.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

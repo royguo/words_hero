@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "concert-v1",
+  "word": "concert",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "音乐会",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "音乐会",
+    "pos": "n.",
+    "example": "The concert begins at sunset.",
+    "example_zh": "音乐会在日落时开始。",
+    "extra_examples": [
+      {
+        "en": "We sing at the school concert.",
+        "zh": "我们在学校音乐会上唱歌。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 concert，再用它说一个短句。",
+    "cloze": "The __________ begins at sunset.",
+    "cloze_answer": "concert",
+    "cloze_zh": "音乐会在日落时开始。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "concert",
+      "components": [],
+      "explanation_zh": "把 concert 作为完整单词记住，再用 concert hall 建立实用联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "concert hall",
+          "meaning_zh": "音乐厅",
+          "relation": "compound",
+          "connection_zh": "concert + hall：举办音乐会的大厅。",
+          "example": {
+            "en": "The concert hall is full.",
+            "zh": "音乐厅坐满了人。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 concert 有联系的词或短语。",
+        "answer_zh": "concert hall（音乐厅）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · concert",
+          "url": "https://dictionary.cambridge.org/dictionary/english/concert"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "concert-desert-v1",
+      "file": "lessons/desert-radio-concert-v1/bb80409f53800087b07fe1bab26f7ab3c81e89f2c601968667ef5428bd096bfe.png",
+      "sha256": "bb80409f53800087b07fe1bab26f7ab3c81e89f2c601968667ef5428bd096bfe",
+      "width": 1536,
+      "height": 1024,
+      "alt": "奇怪的沙漠音乐会上，音乐家敲浴缸和木箱，小狗在金色舞台中央跳舞。",
+      "caption": "The concert begins at sunset.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: Keep the same Mia, Dad and golden retriever. On the secret desert concert stage, cheerful musicians make unusual music by tapping a clean freestanding bathtub and a wooden box drum. The dog dances while Mia and Dad clap; children wave blank gold welcome cards before a gold curtain.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": [
+        "scene-5-desert-v1"
+      ]
+    }
+  ]
+}

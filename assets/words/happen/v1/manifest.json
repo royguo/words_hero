@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "happen-v1",
+  "word": "happen",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "发生",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "发生",
+    "pos": "v.",
+    "example": "What will happen next?",
+    "example_zh": "接下来会发生什么？",
+    "extra_examples": [
+      {
+        "en": "Accidents can happen.",
+        "zh": "意外可能会发生。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 happen，再用它说一个短句。",
+    "cloze": "What will __________ next?",
+    "cloze_answer": "happen",
+    "cloze_zh": "接下来会发生什么？",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "happen",
+      "components": [],
+      "explanation_zh": "把 happen 作为完整单词记住，再用 happens 建立实用联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "happens",
+          "meaning_zh": "发生（第三人称单数）",
+          "relation": "inflection",
+          "connection_zh": "主语是 he、she、it 时，happen 常加 -s。",
+          "example": {
+            "en": "Something funny happens.",
+            "zh": "有趣的事情发生了。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 happen 有联系的词或短语。",
+        "answer_zh": "happens（发生（第三人称单数））"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · happen",
+          "url": "https://dictionary.cambridge.org/dictionary/english/happen"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "happen-desert-v1",
+      "file": "words/happen/v1/d2cd2c2bd63e57f8d9f82691718aeedc3077c7f7f4db91e34c545347768da6e7.png",
+      "sha256": "d2cd2c2bd63e57f8d9f82691718aeedc3077c7f7f4db91e34c545347768da6e7",
+      "width": 1536,
+      "height": 1024,
+      "alt": "What will happen next? 对应的写实课堂图片。",
+      "caption": "What will happen next?",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: A line of colourful wooden dominoes just beginning to fall as two children react with surprise.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

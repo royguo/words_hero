@@ -36,7 +36,7 @@ type Seen = {
 };
 type Pack = {
   word_order: string[];
-  words: Word[];
+  words?: Word[];
   materials: Course['materials'];
   title: string;
   level: string;
@@ -318,11 +318,20 @@ export class Store {
           .map((k) => [k, data[k]]),
       ),
     };
+    const selected = Array.isArray(c.levels)
+      ? [...new Set(c.levels)]
+      : [c.level];
     if (
-      !levels.includes(c.level) ||
+      !selected.length ||
+      selected.length > levels.length ||
+      selected.some(
+        (level) => typeof level !== 'string' || !levels.includes(level),
+      ) ||
       !['new', 'mixed', 'review'].includes(c.mode)
     )
       throw new AppError('词表或模式不正确');
+    c.levels = selected;
+    c.level = selected[0];
     integer(c.count, 5, 100, '词数');
     integer(c.difficulty_min, 1, 3, '最低难度');
     integer(c.difficulty_max, 1, 3, '最高难度');
@@ -345,24 +354,28 @@ export class Store {
   async candidates(cid: string, config: Config, lid?: string | null) {
     const courses = await this.classCourses(cid),
       progress = this.progress(courses);
-    const reserved = new Set(
-      courses
-        .filter((l) => l.status === 'active' && l.id !== lid)
-        .flatMap((l) => l.words.map((w) => normalize(w.word))),
-    );
+    void lid;
+    const selected = config.levels || [config.level];
+    const placeholders = selected.map(() => '?').join(',');
     const rows = await this.all<Vocab>(
-      'SELECT id,level,word,difficulty,is_basic FROM vocabulary WHERE level=? AND difficulty BETWEEN ? AND ? AND (?=0 OR is_basic=0)',
-      config.level,
+      `SELECT id,level,word,difficulty,is_basic FROM vocabulary WHERE level IN (${placeholders}) AND difficulty BETWEEN ? AND ? AND (?=0 OR is_basic=0)`,
+      ...selected,
       config.difficulty_min,
       config.difficulty_max,
       Number(config.exclude_basic),
     );
-    return rows
-      .filter((r) => !reserved.has(normalize(r.word)))
-      .map((r) => ({
-        ...r,
-        due_at: progress.get(normalize(r.word))?.due_at || null,
-      }));
+    const priority = new Map(selected.map((level, index) => [level, index]));
+    const unique = new Map<string, Vocab>();
+    for (const row of rows.sort(
+      (a, b) => priority.get(a.level)! - priority.get(b.level)!,
+    )) {
+      const key = normalize(row.word);
+      if (!unique.has(key)) unique.set(key, row);
+    }
+    return [...unique.values()].map((r) => ({
+      ...r,
+      due_at: progress.get(normalize(r.word))?.due_at || null,
+    }));
   }
   async pool(data: Record<string, unknown>) {
     const cid = string(data.class_id, 64, '班级编号'),
@@ -616,16 +629,6 @@ export class Store {
       d = await this.readDraft(did);
     if (d.committed_version) return this.byVersion(d.committed_version);
     await this.editable(d, data);
-    const reserved = new Set(
-      (await this.classCourses(c.id))
-        .filter((l) => l.status === 'active' && l.id !== d.lesson_id)
-        .flatMap((l) => l.words.map((w) => normalize(w.word))),
-    );
-    if (d.words.some((w) => reserved.has(normalize(w.word))))
-      throw new AppError(
-        '词单中的单词已被另一节进行中的课使用，请删去冲突词后确认。',
-        409,
-      );
     const { course, queries } = await this.makeVersion(c, d);
     d.committed_version = course.version_id;
     d.updated_at = now();
@@ -902,15 +905,26 @@ export class Store {
     );
     if (!row) throw new AppError('素材包尚未发布', 404);
     const p = JSON.parse(row.data) as Pack;
+    const splitWords = await this.all<{ data: string }>(
+      'SELECT data FROM content_pack_words WHERE pack_id=? ORDER BY position',
+      packId,
+    );
+    // Packs published before migration 0007 keep their original embedded words.
+    const packedWords = p.words?.length
+      ? p.words
+      : splitWords.map((word) => JSON.parse(word.data) as Word);
     if (l.materials.bundle_digest === p.materials.bundle_digest) return l;
     if (
       JSON.stringify(p.word_order) !==
       JSON.stringify(l.words.map((w) => w.word))
     )
       throw new AppError('素材包词单或顺序不同');
+    if (packedWords.length !== l.words.length)
+      throw new AppError('素材包单词快照不完整');
     const words = l.words.map((w, i) => {
-      if (p.words[i].level !== w.level) throw new AppError('素材包级别不同');
-      return { ...w, ...p.words[i], id: w.id, result: w.result };
+      if (packedWords[i].level !== w.level)
+        throw new AppError('素材包级别不同');
+      return { ...w, ...packedWords[i], id: w.id, result: w.result };
     });
     const d: Draft = {
       id: uid(),

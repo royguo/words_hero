@@ -22,14 +22,30 @@ def main():
     for path in sorted((ROOT/'assets/lessons').glob('*/manifest.json')):
         manifest=json.loads(path.read_text());words=[vocab[(w['level'],w['word'])] for w in bundle_words(manifest)]
         words,materials=load_bundle(manifest['id'],words)
-        data={'word_order':manifest['word_order'],'words':words,'materials':materials,'title':manifest['title'],'level':manifest['level']}
+        data={'word_order':manifest['word_order'],'materials':materials,'title':manifest['title'],'level':manifest['level']}
         digest=hashlib.sha256(path.read_bytes()).hexdigest()
         # Immutable pack IDs: changed source must be published with a new ID.
         statements.append('INSERT INTO content_packs VALUES(%s,%s,%s) ON CONFLICT(id) DO NOTHING;'%(quote(manifest['id']),quote(digest),quote(dump(data))))
+        for position,word in enumerate(words):
+            statements.append('INSERT INTO content_pack_words VALUES(%s,%d,%s) ON CONFLICT(pack_id,position) DO NOTHING;'%(quote(manifest['id']),position,quote(dump(word))))
     for path in sorted((ROOT/'assets/audio/v1').glob('*.json')):
         m=json.loads(path.read_text())
         statements.append('INSERT INTO audio_index VALUES(%s,%s,%d,%s) ON CONFLICT(key) DO UPDATE SET file=excluded.file,bytes=excluded.bytes,request=excluded.request;'%(quote(m['key']),quote(m['file']),m['bytes'],quote(canonical(m['request']).decode())))
-    (out/'seed.sql').write_text('\n'.join(statements)+'\n')
+    # Wrangler passes a file to SQLite as one input. Keep each input below the
+    # runtime SQL-length limit as the tracked vocabulary and material packs grow.
+    for old in out.glob('seed-*.sql'):old.unlink()
+    (out/'seed.sql').unlink(missing_ok=True)
+    shards=[];current=[];size=0
+    for statement in statements:
+        encoded=len(statement.encode())+1
+        if current and size+encoded>750_000:
+            shards.append(current);current=[];size=0
+        current.append(statement);size+=encoded
+    if current:shards.append(current)
+    seed_files=[]
+    for index,shard in enumerate(shards):
+        path=out/('seed-%03d.sql'%index);path.write_text('\n'.join(shard)+'\n');seed_files.append(str(path.relative_to(ROOT)))
+    (out/'seed-files.json').write_text(json.dumps(seed_files,indent=2)+'\n')
     (ROOT/'worker/worksheet-style.ts').write_text('// Generated from worksheets.py and content.py by cf_prepare.py.\nexport const worksheetCSS = '+json.dumps(CSS,ensure_ascii=False)+';\nexport const basicWords = '+json.dumps(sorted(BASIC))+';\n')
     files=[]
     for path in sorted((ROOT/'assets').rglob('*')):
@@ -37,5 +53,5 @@ def main():
             key=path.relative_to(ROOT/'assets').as_posix();files.append({'key':key,'file':str(path),'sha256':hashlib.sha256(path.read_bytes()).hexdigest()})
     for path in sorted((ROOT/'data').glob('*.csv')):files.append({'key':'data/'+path.name,'file':str(path),'sha256':hashlib.sha256(path.read_bytes()).hexdigest()})
     (out/'objects.json').write_text(json.dumps(files,ensure_ascii=False,indent=2)+'\n')
-    print(json.dumps({'vocabulary':len(vocab),'objects':len(files),'seed_sql_bytes':(out/'seed.sql').stat().st_size}))
+    print(json.dumps({'vocabulary':len(vocab),'objects':len(files),'seed_files':len(seed_files),'seed_sql_bytes':sum((ROOT/path).stat().st_size for path in seed_files)}))
 if __name__=='__main__':main()

@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "blue-v1",
+  "word": "blue",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "蓝色的；蓝色",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "蓝色的；蓝色",
+    "pos": "adj.; n.",
+    "example": "Dad drives a blue car.",
+    "example_zh": "爸爸开着一辆蓝色汽车。",
+    "extra_examples": [
+      {
+        "en": "Her favourite colour is blue.",
+        "zh": "她最喜欢的颜色是蓝色。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 blue，再用它说一个短句。",
+    "cloze": "Dad drives a __________ car.",
+    "cloze_answer": "blue",
+    "cloze_zh": "爸爸开着一辆蓝色汽车。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "blue",
+      "components": [],
+      "explanation_zh": "把 blue 作为完整单词记住，再用 blue sky 建立实用联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "blue sky",
+          "meaning_zh": "蓝天",
+          "relation": "phrase",
+          "connection_zh": "blue 放在 sky 前面描述天空的颜色。",
+          "example": {
+            "en": "We can see a blue sky.",
+            "zh": "我们能看到蓝天。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 blue 有联系的词或短语。",
+        "answer_zh": "blue sky（蓝天）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · blue",
+          "url": "https://dictionary.cambridge.org/dictionary/english/blue"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "blue-desert-v1",
+      "file": "words/blue/v1/85b12bf2a7f14f7abaf728625fa1ce8bcf27226fd97fa0cc7f03281460d5f6ae.png",
+      "sha256": "85b12bf2a7f14f7abaf728625fa1ce8bcf27226fd97fa0cc7f03281460d5f6ae",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Dad drives a blue car. 对应的写实课堂图片。",
+      "caption": "Dad drives a blue car.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: A collection of familiar blue objects—ball, cup and toy car—against a pale neutral background.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

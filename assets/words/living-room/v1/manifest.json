@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "id": "living-room-v1",
+  "word": "living room",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "客厅",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "客厅",
+    "pos": "n.",
+    "example": "Our radio is in the living room.",
+    "example_zh": "我们的收音机在客厅里。",
+    "extra_examples": [
+      {
+        "en": "The family sits in the living room.",
+        "zh": "一家人坐在客厅里。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 living room，再用它说一个短句。",
+    "cloze": "Our radio is in the __________.",
+    "cloze_answer": "living room",
+    "cloze_zh": "我们的收音机在客厅里。",
+    "cloze_type": "context",
+    "parts": [
+      {
+        "text": "living",
+        "kind": "compound",
+        "meaning": "生活；起居"
+      },
+      {
+        "text": "room",
+        "kind": "compound",
+        "meaning": "房间"
+      }
+    ],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "phrase",
+      "construction": "living + room → living room",
+      "components": [
+        {
+          "text": "living",
+          "kind": "word",
+          "meaning_zh": "生活；起居"
+        },
+        {
+          "text": "room",
+          "kind": "word",
+          "meaning_zh": "房间"
+        }
+      ],
+      "explanation_zh": "living room 是家人日常起居、休息和聊天的房间。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "living-room window",
+          "meaning_zh": "客厅窗户",
+          "relation": "compound",
+          "connection_zh": "living room 可放在另一个名词前，说明它属于客厅。",
+          "example": {
+            "en": "Open the living-room window.",
+            "zh": "打开客厅的窗户。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 living room 有联系的词或短语。",
+        "answer_zh": "living-room window（客厅窗户）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · living room",
+          "url": "https://dictionary.cambridge.org/dictionary/english/living-room"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "living-room-desert-v1",
+      "file": "lessons/desert-radio-concert-v1/7edc5c8f4ff3659729d38b02ddee194fc866fe945549eea90f6ba89136af544f.png",
+      "sha256": "7edc5c8f4ff3659729d38b02ddee194fc866fe945549eea90f6ba89136af544f",
+      "width": 1536,
+      "height": 1024,
+      "alt": "音乐厅的客厅商店里有书架、打印机和多种小物品，米娅用现金购物。",
+      "caption": "Our radio is in the living room.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: Keep the same Mia, Dad and golden retriever. Inside a secret theatre set that looks like a cosy living room, show a bookshelf, sofa and printer producing one blank page at a market counter. Mia pays cash for a bar of soap, colourful tights, an eraser and a small ball, then points to her chair.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": [
+        "scene-4-desert-v1"
+      ]
+    }
+  ]
+}

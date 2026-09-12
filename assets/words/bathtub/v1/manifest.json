@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "id": "bathtub-v1",
+  "word": "bathtub",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "浴缸",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "浴缸",
+    "pos": "n.",
+    "example": "The musician taps a bathtub.",
+    "example_zh": "音乐家敲击一个浴缸。",
+    "extra_examples": [
+      {
+        "en": "The toy duck is in the bathtub.",
+        "zh": "玩具鸭在浴缸里。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 bathtub，再用它说一个短句。",
+    "cloze": "The musician taps a __________.",
+    "cloze_answer": "bathtub",
+    "cloze_zh": "音乐家敲击一个浴缸。",
+    "cloze_type": "context",
+    "parts": [
+      {
+        "text": "bath",
+        "kind": "compound",
+        "meaning": "洗澡"
+      },
+      {
+        "text": "tub",
+        "kind": "compound",
+        "meaning": "大盆；浴盆"
+      }
+    ],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "compound",
+      "construction": "bath + tub → bathtub",
+      "components": [
+        {
+          "text": "bath",
+          "kind": "word",
+          "meaning_zh": "洗澡"
+        },
+        {
+          "text": "tub",
+          "kind": "word",
+          "meaning_zh": "大盆；浴盆"
+        }
+      ],
+      "explanation_zh": "bath 和 tub 合成 bathtub，也就是洗澡用的浴缸。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "bathroom",
+          "meaning_zh": "浴室",
+          "relation": "compound",
+          "connection_zh": "bath 和 room 组成 bathroom；都与洗澡有关。",
+          "example": {
+            "en": "The bathroom is upstairs.",
+            "zh": "浴室在楼上。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 bathtub 有联系的词或短语。",
+        "answer_zh": "bathroom（浴室）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · bathtub",
+          "url": "https://dictionary.cambridge.org/dictionary/english/bathtub"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "bathtub-desert-v1",
+      "file": "lessons/desert-radio-concert-v1/bb80409f53800087b07fe1bab26f7ab3c81e89f2c601968667ef5428bd096bfe.png",
+      "sha256": "bb80409f53800087b07fe1bab26f7ab3c81e89f2c601968667ef5428bd096bfe",
+      "width": 1536,
+      "height": 1024,
+      "alt": "奇怪的沙漠音乐会上，音乐家敲浴缸和木箱，小狗在金色舞台中央跳舞。",
+      "caption": "The musician taps a bathtub.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: Keep the same Mia, Dad and golden retriever. On the secret desert concert stage, cheerful musicians make unusual music by tapping a clean freestanding bathtub and a wooden box drum. The dog dances while Mia and Dad clap; children wave blank gold welcome cards before a gold curtain.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": [
+        "scene-5-desert-v1"
+      ]
+    }
+  ]
+}

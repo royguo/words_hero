@@ -93,3 +93,19 @@ void test('autoplay denial gives a listen prompt and stops the queue without a s
   assert.deepEqual(messages, ['点击“朗读”开启声音']);
   player.dispose();
 });
+void test('prefetched recordings play without another audio API request', async () => {
+  globalThis.__kitePrepare = async () =>
+    assert.fail('prefetched audio must be reused');
+  const media = new AudioMock(),
+    player = new StudentAudio(
+      () => {},
+      () => media,
+    );
+  player.remember('  living   room  ', '/assets/audio/living-room.mp3');
+  const playing = player.play(['living room']);
+  await tick();
+  assert.deepEqual(media.played, ['/assets/audio/living-room.mp3']);
+  media.onended();
+  await playing;
+  player.dispose();
+});

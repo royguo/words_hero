@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "id": "transport-v1",
+  "word": "transport",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "交通工具；运输",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "交通工具；运输",
+    "pos": "n.",
+    "example": "Choose your transport for the trip.",
+    "example_zh": "选择你旅行时使用的交通工具。",
+    "extra_examples": [
+      {
+        "en": "Buses are public transport.",
+        "zh": "公交车是公共交通工具。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 transport，再用它说一个短句。",
+    "cloze": "Choose your __________ for the trip.",
+    "cloze_answer": "transport",
+    "cloze_zh": "选择你旅行时使用的交通工具。",
+    "cloze_type": "context",
+    "parts": [
+      {
+        "text": "trans-",
+        "kind": "prefix",
+        "meaning": "穿过；从一处到另一处"
+      },
+      {
+        "text": "port",
+        "kind": "root",
+        "meaning": "搬运"
+      }
+    ],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "derived",
+      "construction": "trans- + port → transport",
+      "components": [
+        {
+          "text": "trans-",
+          "kind": "prefix",
+          "meaning_zh": "穿过；从一处到另一处"
+        },
+        {
+          "text": "port",
+          "kind": "root",
+          "meaning_zh": "搬运"
+        }
+      ],
+      "explanation_zh": "trans- 表示跨越，port 有“搬运”之意，transport 就是把人或物送到别处。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "public transport",
+          "meaning_zh": "公共交通",
+          "relation": "phrase",
+          "connection_zh": "public transport 是大家都能使用的交通系统。",
+          "example": {
+            "en": "We go by public transport.",
+            "zh": "我们乘坐公共交通出行。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 transport 有联系的词或短语。",
+        "answer_zh": "public transport（公共交通）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · transport",
+          "url": "https://dictionary.cambridge.org/dictionary/english/transport"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "transport-desert-v1",
+      "file": "words/transport/v1/bcd38e132d62765a7d268c1787b1a7841ccb6ea9cfbaf1c62265a8d54a1f6521.png",
+      "sha256": "bcd38e132d62765a7d268c1787b1a7841ccb6ea9cfbaf1c62265a8d54a1f6521",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Choose your transport for the trip. 对应的写实课堂图片。",
+      "caption": "Choose your transport for the trip.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: A clean scene showing bus, bicycle, train and small car as different kinds of transport, plausible shared station setting.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

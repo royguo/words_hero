@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "desert-v1",
+  "word": "desert",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "沙漠",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "沙漠",
+    "pos": "n.",
+    "example": "The desert is hot and dry.",
+    "example_zh": "沙漠炎热又干燥。",
+    "extra_examples": [
+      {
+        "en": "Few plants grow in this desert.",
+        "zh": "这片沙漠里很少有植物生长。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 desert，再用它说一个短句。",
+    "cloze": "The __________ is hot and dry.",
+    "cloze_answer": "desert",
+    "cloze_zh": "沙漠炎热又干燥。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "desert",
+      "components": [],
+      "explanation_zh": "把 desert 作为完整单词记住，再用 desert island 建立实用联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "desert island",
+          "meaning_zh": "荒岛",
+          "relation": "compound",
+          "connection_zh": "desert 作修饰语时可表示荒无人烟的。",
+          "example": {
+            "en": "They find a desert island.",
+            "zh": "他们发现了一座荒岛。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 desert 有联系的词或短语。",
+        "answer_zh": "desert island（荒岛）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · desert",
+          "url": "https://dictionary.cambridge.org/dictionary/english/desert"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "desert-desert-v1",
+      "file": "words/desert/v1/bf1e0692c0eb11c72e5d28b9792c6fe7f426a8c00d9825c037851e95d206bad3.png",
+      "sha256": "bf1e0692c0eb11c72e5d28b9792c6fe7f426a8c00d9825c037851e95d206bad3",
+      "width": 1536,
+      "height": 1024,
+      "alt": "The desert is hot and dry. 对应的写实课堂图片。",
+      "caption": "The desert is hot and dry.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: A broad sandy desert with dunes, a few rocks and one small cactus under a bright blue sky.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

@@ -1034,6 +1034,38 @@ small {
   align-items: center;
   gap: 8px;
 }
+.level-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.level-options button {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid #d6deea;
+  border-radius: 9px;
+  background: #fff;
+  color: #526078;
+  font: inherit;
+  cursor: pointer;
+}
+.level-options button:hover:not(:disabled) {
+  border-color: #8ea6d0;
+  background: #f7f9fd;
+}
+.level-options button.selected {
+  border-color: var(--primary);
+  background: var(--accent);
+  color: var(--primary);
+  font-weight: 650;
+}
+.level-options button:disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
+}
 .difficulty-range > span {
   text-align: center;
   color: #8e9aae;

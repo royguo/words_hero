@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "tights-v1",
+  "word": "tights",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "连裤袜；紧身裤",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "连裤袜；紧身裤",
+    "pos": "n. pl.",
+    "example": "She wears colourful tights.",
+    "example_zh": "她穿着彩色连裤袜。",
+    "extra_examples": [
+      {
+        "en": "These tights are warm.",
+        "zh": "这条连裤袜很暖和。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 tights，再用它说一个短句。",
+    "cloze": "She wears colourful __________.",
+    "cloze_answer": "tights",
+    "cloze_zh": "她穿着彩色连裤袜。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "tights",
+      "components": [],
+      "explanation_zh": "把 tights 作为完整单词记住，再用 a pair of tights 建立实用联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "a pair of tights",
+          "meaning_zh": "一条连裤袜",
+          "relation": "phrase",
+          "connection_zh": "tights 用复数形式，计数时说 a pair of tights。",
+          "example": {
+            "en": "I need a pair of tights.",
+            "zh": "我需要一条连裤袜。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 tights 有联系的词或短语。",
+        "answer_zh": "a pair of tights（一条连裤袜）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · tights",
+          "url": "https://dictionary.cambridge.org/dictionary/english/tights"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "tights-desert-v1",
+      "file": "words/tights/v1/46b32e53cae0c1086e0b1e6a8e8f50e42f43b0b4f4a14c09ee7cedee97290396.png",
+      "sha256": "46b32e53cae0c1086e0b1e6a8e8f50e42f43b0b4f4a14c09ee7cedee97290396",
+      "width": 1536,
+      "height": 1024,
+      "alt": "She wears colourful tights. 对应的写实课堂图片。",
+      "caption": "She wears colourful tights.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: One pair of colourful child-size tights laid fully visible beside a simple skirt, no person wearing them.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

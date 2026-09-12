@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "page-v1",
+  "word": "page",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "页；页面",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "页；页面",
+    "pos": "n.",
+    "example": "Please turn to the next page.",
+    "example_zh": "请翻到下一页。",
+    "extra_examples": [
+      {
+        "en": "The picture fills the page.",
+        "zh": "图片占满了这一页。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 page，再用它说一个短句。",
+    "cloze": "Please turn to the next __________.",
+    "cloze_answer": "page",
+    "cloze_zh": "请翻到下一页。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "page",
+      "components": [],
+      "explanation_zh": "把 page 作为完整单词记住，再用 web page 建立实用联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "web page",
+          "meaning_zh": "网页",
+          "relation": "compound",
+          "connection_zh": "web + page：网站中的一个页面。",
+          "example": {
+            "en": "This web page has a game.",
+            "zh": "这个网页上有一个游戏。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 page 有联系的词或短语。",
+        "answer_zh": "web page（网页）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · page",
+          "url": "https://dictionary.cambridge.org/dictionary/english/page"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "page-desert-v1",
+      "file": "words/page/v1/d20fffc94a284be9c18f41c7752d585520c3ac11f4b2f63fc39b73dc0967d6ad.png",
+      "sha256": "d20fffc94a284be9c18f41c7752d585520c3ac11f4b2f63fc39b73dc0967d6ad",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Please turn to the next page. 对应的写实课堂图片。",
+      "caption": "Please turn to the next page.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: An open picture book with one page being turned by a child, no readable words or letters.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

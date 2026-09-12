@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "seem-v1",
+  "word": "seem",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "好像；似乎",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "好像；似乎",
+    "pos": "v.",
+    "example": "The sky seems dark.",
+    "example_zh": "天空看起来很暗。",
+    "extra_examples": [
+      {
+        "en": "You seem worried.",
+        "zh": "你看起来很担心。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 seem，再用它说一个短句。",
+    "cloze": "The sky __________s dark.",
+    "cloze_answer": "seem",
+    "cloze_zh": "天空看起来很暗。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "seem",
+      "components": [],
+      "explanation_zh": "把 seem 作为完整单词记住，再用 seem like 建立实用联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "seem like",
+          "meaning_zh": "好像；看起来像",
+          "relation": "phrase",
+          "connection_zh": "seem like 后面常接名词或一个情况。",
+          "example": {
+            "en": "It seems like rain.",
+            "zh": "看起来要下雨。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 seem 有联系的词或短语。",
+        "answer_zh": "seem like（好像；看起来像）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · seem",
+          "url": "https://dictionary.cambridge.org/dictionary/english/seem"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "seem-desert-v1",
+      "file": "words/seem/v1/56faa7fdf7daffa3ecef9b68e97ae4085fafd16854f193ebb92ac5f513dcebab.png",
+      "sha256": "56faa7fdf7daffa3ecef9b68e97ae4085fafd16854f193ebb92ac5f513dcebab",
+      "width": 1536,
+      "height": 1024,
+      "alt": "The sky seems dark. 对应的写实课堂图片。",
+      "caption": "The sky seems dark.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: A thoughtful child holds an umbrella indoors while looking at dark clouds outside, as the weather seems rainy.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

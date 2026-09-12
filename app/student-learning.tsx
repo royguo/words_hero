@@ -25,6 +25,10 @@ import {
 } from 'lucide-react';
 import { api, ApiError } from '@/lib/classroom';
 import { StudentAudio } from '@/lib/student-audio';
+import {
+  prepareStudentResources,
+  type StudentResourceProgress,
+} from '@/lib/student-resources';
 import { StudentProgress, ProgressConflict } from '@/lib/student-progress';
 import { StudentRecords } from './student-records';
 import { StudentRecall } from './student-recall';
@@ -51,6 +55,12 @@ const when = (value: string | null) =>
       })
     : '';
 const englishOnScreen = studentVoiceTexts;
+type ResourceGate = {
+  sessionId: string;
+  status: 'loading' | 'ready' | 'error';
+  progress: StudentResourceProgress;
+  error: string;
+};
 export function StudentLearning() {
   const [dashboard, setDashboard] = useState<StudentDashboard | null>(null),
     [session, setSession] = useState<StudentSession | null>(null);
@@ -77,8 +87,10 @@ export function StudentLearning() {
   const [failedSave, setFailedSave] = useState(false),
     [saving, setSaving] = useState(false),
     [storageNotice, setStorageNotice] = useState('');
+  const [resourceGate, setResourceGate] = useState<ResourceGate | null>(null);
   const progress = useRef<StudentProgress | null>(null);
   const syncFlight = useRef<Promise<boolean> | null>(null);
+  const resourceController = useRef<AbortController | null>(null);
   const correctionTitle = useRef<HTMLHeadingElement | null>(null);
   const audio = useRef<StudentAudio | null>(null),
     lock = useRef(false),
@@ -112,6 +124,7 @@ export function StudentLearning() {
       .finally(() => setLoading(false));
     return () => {
       alive.current = false;
+      resourceController.current?.abort();
       audio.current?.dispose();
     };
   }, [load]);
@@ -133,6 +146,10 @@ export function StudentLearning() {
     };
   }, [mode]);
   const game = session?.game;
+  const resourcesReady =
+    !!session &&
+    resourceGate?.sessionId === session.id &&
+    resourceGate.status === 'ready';
   const correctionPage =
     mode === 'play' && !records && game && hasCorrection(game)
       ? `${session?.id}:${game.answers}`
@@ -141,18 +158,18 @@ export function StudentLearning() {
     if (correctionPage) correctionTitle.current?.focus();
   }, [correctionPage]);
   const voicePage =
-    mode === 'play' && game && !records
+    mode === 'play' && resourcesReady && game && !records
       ? `${session.id}:${game.stage}:${game.round}:${game.adaptive ? (game.stage === 1 ? game.adaptive.board : game.adaptive.cursor) : game.stage === 2 ? game.cursor : 'board'}:${game.needs_retry}:${hasCorrection(game)}`
       : '';
   const onVoicePage = useEffectEvent(() => {
-    if (voice && mode === 'play' && game && !records)
+    if (voice && mode === 'play' && resourcesReady && game && !records)
       void audio.current?.play(englishOnScreen(game));
     else audio.current?.stop();
   });
   useEffect(() => {
     onVoicePage();
     return () => audio.current?.stop();
-  }, [voicePage, voice]);
+  }, [voicePage, voice, resourcesReady]);
   function enterPracticeFullscreen() {
     if (
       !document.fullscreenElement &&
@@ -168,6 +185,82 @@ export function StudentLearning() {
     if (document.fullscreenElement) leavePracticeFullscreen();
     else enterPracticeFullscreen();
   }
+  async function prepareGroupResources(value: StudentSession) {
+    resourceController.current?.abort();
+    const controller = new AbortController();
+    resourceController.current = controller;
+    audio.current?.stop();
+    const initial: StudentResourceProgress = {
+      phase: 'preparing',
+      done: 0,
+      total: 0,
+      bytes: 0,
+      label: '正在检查本组资源…',
+    };
+    setResourceGate({
+      sessionId: value.id,
+      status: 'loading',
+      progress: initial,
+      error: '',
+    });
+    try {
+      const result = await prepareStudentResources(
+        value.game.words,
+        controller.signal,
+        (next) => {
+          if (alive.current && resourceController.current === controller)
+            setResourceGate({
+              sessionId: value.id,
+              status: 'loading',
+              progress: next,
+              error: '',
+            });
+        },
+      );
+      if (!alive.current || resourceController.current !== controller)
+        return false;
+      for (const [text, url] of result.audio)
+        audio.current?.remember(text, url);
+      setResourceGate({
+        sessionId: value.id,
+        status: 'ready',
+        progress: {
+          phase: 'ready',
+          done: result.items.length,
+          total: result.items.length,
+          bytes: result.bytes,
+          label: '资源准备完成',
+        },
+        error: '',
+      });
+      return true;
+    } catch (e) {
+      if (
+        controller.signal.aborted ||
+        !alive.current ||
+        resourceController.current !== controller
+      )
+        return false;
+      setResourceGate((current) => ({
+        sessionId: value.id,
+        status: 'error',
+        progress: current?.progress || initial,
+        error: e instanceof Error ? e.message : '本组资源下载失败，请重试。',
+      }));
+      return false;
+    }
+  }
+  async function retryResources() {
+    if (!session || lock.current) return;
+    lock.current = true;
+    setBusy(true);
+    try {
+      await prepareGroupResources(session);
+    } finally {
+      lock.current = false;
+      if (alive.current) setBusy(false);
+    }
+  }
   async function start(extra = false) {
     if (lock.current) return;
     // Keep this inside the student's click gesture so supporting browsers can
@@ -177,12 +270,15 @@ export function StudentLearning() {
     setBusy(true);
     setError('');
     audio.current?.unlock();
+    let enteredSession = false;
     try {
       if (progress.current?.pending) {
         if (progress.current.session.game.stage !== 'done') {
           setSession(progress.current.session);
           setMode('play');
+          enteredSession = true;
           if (progress.current.needsCheckpoint) void saveProgress();
+          await prepareGroupResources(progress.current.session);
           return;
         }
         if (!(await saveProgress(true))) return;
@@ -202,14 +298,16 @@ export function StudentLearning() {
         setFlash(null);
         setFailedSave(false);
         setMode('play');
+        enteredSession = true;
         if (progress.current.needsCheckpoint) void saveProgress();
+        await prepareGroupResources(progress.current.session);
       } else {
         await load();
         setMode('home');
         leavePracticeFullscreen();
       }
     } catch (e) {
-      if (mode !== 'play') leavePracticeFullscreen();
+      if (!enteredSession) leavePracticeFullscreen();
       setError(e instanceof Error ? e.message : '开始失败，请重试');
     } finally {
       lock.current = false;
@@ -414,6 +512,9 @@ export function StudentLearning() {
     audio.current?.stop();
     try {
       if (logout && !(await saveProgress(true))) return;
+      resourceController.current?.abort();
+      resourceController.current = null;
+      setResourceGate(null);
       if (logout) window.dispatchEvent(new Event('kite-logout'));
       else {
         setMode('home');
@@ -694,6 +795,61 @@ export function StudentLearning() {
               </table>
             </section>
           )}
+        </section>
+      ) : mode === 'play' && game && !resourcesReady ? (
+        <section className="student-resource-gate" aria-live="polite">
+          <div className="student-resource-card">
+            <div className="resource-orbit" aria-hidden="true">
+              <Loader2
+                className={resourceGate?.status === 'error' ? '' : 'spin'}
+              />
+            </div>
+            <p className="eyebrow">本组开始前</p>
+            <h1>
+              {resourceGate?.status === 'error'
+                ? '还差一点，请重新下载'
+                : '正在准备学习资源'}
+            </h1>
+            <p className="resource-status">
+              {resourceGate?.error ||
+                resourceGate?.progress.label ||
+                '正在检查本组资源…'}
+            </p>
+            <progress
+              value={resourceGate?.progress.done || 0}
+              max={Math.max(resourceGate?.progress.total || 1, 1)}
+              aria-label="本组资源下载进度"
+            />
+            <div className="resource-numbers">
+              <strong>
+                {Math.round(
+                  ((resourceGate?.progress.done || 0) /
+                    Math.max(resourceGate?.progress.total || 1, 1)) *
+                    100,
+                )}
+                %
+              </strong>
+              <span>
+                {resourceGate?.progress.done || 0} /{' '}
+                {resourceGate?.progress.total || 0}
+              </span>
+            </div>
+            {resourceGate?.status === 'error' && (
+              <button
+                className="btn primary large"
+                disabled={busy}
+                onClick={() => void retryResources()}
+              >
+                {busy ? (
+                  <Loader2 className="spin" size={20} />
+                ) : (
+                  <RefreshCw size={20} />
+                )}
+                继续下载
+              </button>
+            )}
+            <small>已下载的图片和声音会复用，不会重复占用空间。</small>
+          </div>
         </section>
       ) : mode === 'play' && game ? (
         <section className="learning-game" data-answers={game.answers}>

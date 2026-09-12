@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "mine-v1",
+  "word": "mine",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "我的（东西）",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "我的（东西）",
+    "pos": "pron.",
+    "example": "The blue pencil case is mine.",
+    "example_zh": "这个蓝色铅笔盒是我的。",
+    "extra_examples": [
+      {
+        "en": "That seat is mine.",
+        "zh": "那个座位是我的。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 mine，再用它说一个短句。",
+    "cloze": "The blue pencil case is __________.",
+    "cloze_answer": "mine",
+    "cloze_zh": "这个蓝色铅笔盒是我的。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "mine",
+      "components": [],
+      "explanation_zh": "把 mine 作为完整单词记住，再用 my 建立实用联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "my",
+          "meaning_zh": "我的",
+          "relation": "word_family",
+          "connection_zh": "my 后面接名词；mine 可以单独使用。",
+          "example": {
+            "en": "This is my card.",
+            "zh": "这是我的卡片。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 mine 有联系的词或短语。",
+        "answer_zh": "my（我的）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · mine",
+          "url": "https://dictionary.cambridge.org/dictionary/english/mine"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "mine-desert-v1",
+      "file": "words/mine/v1/2fb40a9ff85bfc925409b98f3f317db92bd949767bbc8b3530effd5c22e341e5.png",
+      "sha256": "2fb40a9ff85bfc925409b98f3f317db92bd949767bbc8b3530effd5c22e341e5",
+      "width": 1536,
+      "height": 1024,
+      "alt": "The blue pencil case is mine. 对应的写实课堂图片。",
+      "caption": "The blue pencil case is mine.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: Two children hold different pencil cases; one points to the blue pencil case they own, clearly expressing mine.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

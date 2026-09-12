@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "app-v1",
+  "word": "app",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "应用程序",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "应用程序",
+    "pos": "n.",
+    "example": "The app shows a map.",
+    "example_zh": "这个应用程序显示一张地图。",
+    "extra_examples": [
+      {
+        "en": "Open the music app.",
+        "zh": "打开音乐应用程序。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 app，再用它说一个短句。",
+    "cloze": "The __________ shows a map.",
+    "cloze_answer": "app",
+    "cloze_zh": "这个应用程序显示一张地图。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "app",
+      "components": [],
+      "explanation_zh": "把 app 作为完整单词记住，再用 application 建立实用联系。",
+      "origin_zh": "app 是 application 的常用短写，手机时代让这个短词变得随处可见。",
+      "family": [
+        {
+          "word": "application",
+          "meaning_zh": "应用程序；申请",
+          "relation": "word_family",
+          "connection_zh": "app 是 application 的常用短写。",
+          "example": {
+            "en": "This application helps me draw.",
+            "zh": "这个应用程序帮助我画画。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 app 有联系的词或短语。",
+        "answer_zh": "application（应用程序；申请）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · app",
+          "url": "https://dictionary.cambridge.org/dictionary/english/app"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "app-desert-v1",
+      "file": "words/app/v1/f84b87943bd1067dfafdba1b696825df8451c521b387af35a1ca8fef8e78f5f8.png",
+      "sha256": "f84b87943bd1067dfafdba1b696825df8451c521b387af35a1ca8fef8e78f5f8",
+      "width": 1536,
+      "height": 1024,
+      "alt": "The app shows a map. 对应的写实课堂图片。",
+      "caption": "The app shows a map.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: A child uses a smartphone showing a clean map-style app interface made only from icons and shapes, no text or logos.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

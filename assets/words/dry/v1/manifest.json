@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "dry-v1",
+  "word": "dry",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "干的；使变干",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "干的；使变干",
+    "pos": "adj.; v.",
+    "example": "These towels are dry.",
+    "example_zh": "这些毛巾是干的。",
+    "extra_examples": [
+      {
+        "en": "Please dry your hands.",
+        "zh": "请把手擦干。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 dry，再用它说一个短句。",
+    "cloze": "These towels are __________.",
+    "cloze_answer": "dry",
+    "cloze_zh": "这些毛巾是干的。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "dry",
+      "components": [],
+      "explanation_zh": "把 dry 作为完整单词记住，再用 drying 建立实用联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "drying",
+          "meaning_zh": "正在变干的",
+          "relation": "inflection",
+          "connection_zh": "dry 加 -ing 可表示正在变干。",
+          "example": {
+            "en": "My coat is drying outside.",
+            "zh": "我的外套正在外面晾干。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 dry 有联系的词或短语。",
+        "answer_zh": "drying（正在变干的）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · dry",
+          "url": "https://dictionary.cambridge.org/dictionary/english/dry"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "dry-desert-v1",
+      "file": "words/dry/v1/522634f9c81062ad0646d31bc5c432ed6031de6685dfe1751cfde055493c8622.png",
+      "sha256": "522634f9c81062ad0646d31bc5c432ed6031de6685dfe1751cfde055493c8622",
+      "width": 1536,
+      "height": 1024,
+      "alt": "These towels are dry. 对应的写实课堂图片。",
+      "caption": "These towels are dry.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: Two towels on a sunny clothesline, one visibly dry and fluffy while the other still drips water.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

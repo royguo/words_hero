@@ -186,9 +186,12 @@ FROM lessons l JOIN versions v ON v.id=l.active_version WHERE l.class_id=? ORDER
     def candidates(self,db,cid,config,exclude_lesson=None):
         self.class_exists(db,cid)
         level=config.get("level","KET")
+        selected=config.get("levels") or [level]
         low=integer(config.get("difficulty_min",1),1,3,"最低难度")
         high=integer(config.get("difficulty_max",3),1,3,"最高难度")
-        if low>high or level not in LEVELS:raise UserError("请选择有效的词表和难度范围")
+        if (low>high or not isinstance(selected,list) or not selected or len(selected)>len(LEVELS)
+                or len(set(selected))!=len(selected) or any(scope not in LEVELS for scope in selected)):
+            raise UserError("请选择有效的词表和难度范围")
         if config.get("mode","new") not in ("new","mixed","review"):raise UserError("课程模式不正确")
         for key in ("exclude_basic","exclude_seen"):
             if not isinstance(config.get(key,True),bool):raise UserError("过滤条件格式不正确")
@@ -196,11 +199,13 @@ FROM lessons l JOIN versions v ON v.id=l.active_version WHERE l.class_id=? ORDER
 LEFT JOIN progress p ON p.class_id=? AND p.word_id=(
  SELECT p2.word_id FROM progress p2 JOIN vocabulary pv ON pv.id=p2.word_id
  WHERE p2.class_id=? AND pv.word=v.word ORDER BY p2.seen_at DESC LIMIT 1)
-WHERE v.level=? AND v.difficulty BETWEEN ? AND ? AND NOT EXISTS(
- SELECT 1 FROM version_words w JOIN versions r ON r.id=w.version_id JOIN lessons l ON l.active_version=r.id JOIN vocabulary rv ON rv.id=w.word_id
- WHERE rv.word=v.word AND l.class_id=? AND r.status='active' AND l.id!=?)""",
-            (cid,cid,level,low,high,cid,exclude_lesson or "")).fetchall()
-        return [r for r in rows if not config.get("exclude_basic",True) or not r["is_basic"]]
+WHERE v.level IN (%s) AND v.difficulty BETWEEN ? AND ?""" % ",".join("?" for _ in selected),
+            (cid,cid,*selected,low,high)).fetchall()
+        priority={scope:i for i,scope in enumerate(selected)}
+        unique={}
+        for row in sorted(rows,key=lambda item:priority[item["level"]]):
+            unique.setdefault(normalize_answer(row["word"]),row)
+        return [r for r in unique.values() if not config.get("exclude_basic",True) or not r["is_basic"]]
 
     def pool(self,cid,data,lid=None):
         with self.connect() as db:
@@ -260,6 +265,8 @@ WHERE v.level=? AND v.difficulty BETWEEN ? AND ? AND NOT EXISTS(
         vid=uuid.uuid4().hex
         vn=db.execute("SELECT COALESCE(MAX(number),0)+1 FROM versions WHERE lesson_id=?",(lid,)).fetchone()[0]
         config={k:data.get(k,v) for k,v in {"level":"KET","count":10,"difficulty_min":1,"difficulty_max":3,"exclude_basic":True,"exclude_seen":True,"mode":"new"}.items()}
+        config["levels"]=list(data.get("levels") or [config["level"]])
+        config["level"]=config["levels"][0]
         forward=[r["id"] for r in chosen];reverse=list(forward)
         rng.shuffle(forward);rng.shuffle(reverse)
         config["worksheet_order"]={"english_to_chinese":forward,"chinese_to_english":reverse}
@@ -287,6 +294,8 @@ WHERE v.level=? AND v.difficulty BETWEEN ? AND ? AND NOT EXISTS(
             words=enrich_words([dict(json.loads(r["data"]),id=r["id"]) for r in chosen],self.asset_root)
             did=uuid.uuid4().hex
             config={k:data.get(k,v) for k,v in {"level":"KET","count":10,"difficulty_min":1,"difficulty_max":3,"exclude_basic":True,"exclude_seen":True,"mode":"new"}.items()}
+            config["levels"]=list(data.get("levels") or [config["level"]])
+            config["level"]=config["levels"][0]
             db.execute("INSERT INTO lesson_drafts(id,class_id,lesson_id,base_version_id,title,config,words,created_at,updated_at) VALUES(?,?,?,?,?,?,?,?,?)",
                 (did,cid,lid,previous["version_id"] if previous else None,data.get("title","").strip(),dump(config),dump(words),now(),now()))
             return self.read_draft(db,did)

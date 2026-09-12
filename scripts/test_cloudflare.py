@@ -14,7 +14,8 @@ with tempfile.TemporaryDirectory(prefix='kite-cf-test-') as temp:
     env=dict(os.environ,KITE_CF_STATE=temp)
     run(['python3','scripts/cf_prepare.py'])
     run(['npx','wrangler','d1','migrations','apply','kite-words-db','--config',config,'--local','--persist-to',temp])
-    run(['npx','wrangler','d1','execute','kite-words-db','--config',config,'--local','--persist-to',temp,'--file','.wrangler/content/seed.sql'])
+    for seed in json.loads(Path('.wrangler/content/seed-files.json').read_text()):
+        run(['npx','wrangler','d1','execute','kite-words-db','--config',config,'--local','--persist-to',temp,'--file',seed])
     run(['node','scripts/cf_objects.mjs'],env)
     log=open(Path(temp)/'worker.log','w+')
     server=subprocess.Popen(['npx','wrangler','dev','--config',config,'--persist-to',temp,'--port','8790','--var','AUDIO_ONLINE:false'],stdout=log,stderr=log,start_new_session=True)
@@ -41,7 +42,8 @@ with tempfile.TemporaryDirectory(prefix='kite-cf-test-') as temp:
         request('/api/classes',{'name':'bad-origin'},headers={'Origin':'https://unrelated.invalid'},status=403)
         state,_=request('/api/state');assert not state['classes'];assert sum(l['total'] for l in state['levels'])==4791
         c,_=request('/api/classes',{'name':'Test <class> & safe'},status=201);cid=c['id']
-        d,_=request('/api/preview',{'class_id':cid,'title':'My lesson'},status=201);assert len(d['words'])==10
+        d,_=request('/api/preview',{'class_id':cid,'title':'My lesson','levels':['KET','PET']},status=201);assert len(d['words'])==10
+        assert d['config']['levels']==['KET','PET'] and len({w['word'] for w in d['words']})==len(d['words'])
         restored,_=request('/api/drafts?class_id='+cid);assert restored['draft']['id']==d['id']
         hits,_=request('/api/vocabulary?level=PET&q=photographer');cross=next(w for w in hits if w['word']=='photographer')
         ids=[w['id'] for w in d['words'] if w['word']!='photographer'][:8]+[cross['id']]
@@ -49,6 +51,11 @@ with tempfile.TemporaryDirectory(prefix='kite-cf-test-') as temp:
         request('/api/drafts/'+d['id'],{'revision':1,'word_ids':ids},method='PATCH',status=409)
         l,_=request('/api/drafts/'+d['id']+'/confirm',{'revision':d['revision']},status=201)
         again,_=request('/api/drafts/'+d['id']+'/confirm',{'revision':d['revision']},status=201);assert l['version_id']==again['version_id']
+        repeated,_=request('/api/preview',{'class_id':cid,'title':'Repeated word'},status=201)
+        repeated,_=request('/api/drafts/'+repeated['id'],{'revision':repeated['revision'],'word_ids':[l['words'][0]['id']]},method='PATCH')
+        repeated_lesson,_=request('/api/drafts/'+repeated['id']+'/confirm',{'revision':repeated['revision']},status=201)
+        assert repeated_lesson['words'][0]['word']==l['words'][0]['word']
+        request('/api/lessons/'+repeated_lesson['id'],method='DELETE')
         vid=l['version_id'];plan=l['config']['worksheets']
         updated,_=request('/api/versions/'+vid,{'notes':'keep me','word_id':l['words'][0]['id'],'result':'remembered','presentation_slide':'word:1'},method='PATCH');assert updated['config']['worksheets']==plan
         for kind in ('classroom','homework','answers'):

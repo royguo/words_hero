@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "cross-v1",
+  "word": "cross",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "穿过；横过",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "穿过；横过",
+    "pos": "v.",
+    "example": "They cross the dry river.",
+    "example_zh": "他们穿过干涸的河床。",
+    "extra_examples": [
+      {
+        "en": "Look both ways before you cross the road.",
+        "zh": "过马路前要看两边。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 cross，再用它说一个短句。",
+    "cloze": "They __________ the dry river.",
+    "cloze_answer": "cross",
+    "cloze_zh": "他们穿过干涸的河床。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "cross",
+      "components": [],
+      "explanation_zh": "把 cross 作为完整单词记住，再用 crossing 建立实用联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "crossing",
+          "meaning_zh": "人行横道；交叉处",
+          "relation": "derivation",
+          "connection_zh": "cross 加 -ing 可表示让人穿过的地方。",
+          "example": {
+            "en": "Wait at the crossing.",
+            "zh": "在人行横道处等候。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 cross 有联系的词或短语。",
+        "answer_zh": "crossing（人行横道；交叉处）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · cross",
+          "url": "https://dictionary.cambridge.org/dictionary/english/cross"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "cross-desert-v1",
+      "file": "words/cross/v1/4df1d60acd4b1fd6228c6b032db3d2bd15488ef7b31c0e11cb398e842381d289.png",
+      "sha256": "4df1d60acd4b1fd6228c6b032db3d2bd15488ef7b31c0e11cb398e842381d289",
+      "width": 1536,
+      "height": 1024,
+      "alt": "They cross the dry river. 对应的写实课堂图片。",
+      "caption": "They cross the dry river.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: A child and parent safely cross a marked road at a pedestrian crossing while traffic waits.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

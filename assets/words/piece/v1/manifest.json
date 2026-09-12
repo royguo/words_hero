@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "piece-v1",
+  "word": "piece",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "一块；一片；一件",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "一块；一片；一件",
+    "pos": "n.",
+    "example": "One piece of the puzzle is missing.",
+    "example_zh": "拼图少了一块。",
+    "extra_examples": [
+      {
+        "en": "Can I have a piece of cake?",
+        "zh": "我可以吃一块蛋糕吗？"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 piece，再用它说一个短句。",
+    "cloze": "One __________ of the puzzle is missing.",
+    "cloze_answer": "piece",
+    "cloze_zh": "拼图少了一块。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "piece",
+      "components": [],
+      "explanation_zh": "把 piece 作为完整单词记住，再用 a piece of 建立实用联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "a piece of",
+          "meaning_zh": "一块；一件……",
+          "relation": "phrase",
+          "connection_zh": "a piece of 可以给不可数事物计数。",
+          "example": {
+            "en": "She gives me a piece of paper.",
+            "zh": "她给我一张纸。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 piece 有联系的词或短语。",
+        "answer_zh": "a piece of（一块；一件……）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · piece",
+          "url": "https://dictionary.cambridge.org/dictionary/english/piece"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "piece-desert-v1",
+      "file": "words/piece/v1/62ca6440b593b28c8585c553cd72d1c75005f0a774e99d83d4085fc0be4b8153.png",
+      "sha256": "62ca6440b593b28c8585c553cd72d1c75005f0a774e99d83d4085fc0be4b8153",
+      "width": 1536,
+      "height": 1024,
+      "alt": "One piece of the puzzle is missing. 对应的写实课堂图片。",
+      "caption": "One piece of the puzzle is missing.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: A child places the final separate piece into a colourful wooden jigsaw puzzle of a friendly dog.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

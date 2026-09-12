@@ -71,6 +71,7 @@ export type Group = Part & {
 };
 export type Config = {
   level: string;
+  levels?: string[];
   count: number;
   difficulty_min: number;
   difficulty_max: number;
@@ -154,6 +155,7 @@ export type State = {
 };
 export const defaults: Config = {
   level: 'KET',
+  levels: ['KET'],
   count: 10,
   difficulty_min: 1,
   difficulty_max: 3,

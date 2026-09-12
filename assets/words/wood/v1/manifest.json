@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "wood-v1",
+  "word": "wood",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "木材；木头",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "木材；木头",
+    "pos": "n.",
+    "example": "The box is made of wood.",
+    "example_zh": "这个箱子是木制的。",
+    "extra_examples": [
+      {
+        "en": "We need some dry wood.",
+        "zh": "我们需要一些干木头。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 wood，再用它说一个短句。",
+    "cloze": "The box is made of __________.",
+    "cloze_answer": "wood",
+    "cloze_zh": "这个箱子是木制的。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "wood",
+      "components": [],
+      "explanation_zh": "把 wood 作为完整单词记住，再用 wooden 建立实用联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "wooden",
+          "meaning_zh": "木制的",
+          "relation": "derivation",
+          "connection_zh": "wood 加 -en 变成形容词 wooden。",
+          "example": {
+            "en": "This is a wooden chair.",
+            "zh": "这是一把木椅。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 wood 有联系的词或短语。",
+        "answer_zh": "wooden（木制的）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · wood",
+          "url": "https://dictionary.cambridge.org/dictionary/english/wood"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "wood-desert-v1",
+      "file": "words/wood/v1/05bcdeda632be342f7ac7f030f5fedc3fd28205284d09956c523d557a33d3c9e.png",
+      "sha256": "05bcdeda632be342f7ac7f030f5fedc3fd28205284d09956c523d557a33d3c9e",
+      "width": 1536,
+      "height": 1024,
+      "alt": "The box is made of wood. 对应的写实课堂图片。",
+      "caption": "The box is made of wood.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: A neat stack of cut firewood beside one smooth wooden board, clearly showing natural wood grain.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

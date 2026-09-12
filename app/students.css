@@ -587,6 +587,95 @@ body.student-practice-active {
   overflow: hidden;
   margin: 0 auto;
 }
+.learner-page.in-session .student-resource-gate {
+  flex: 1 1 0;
+  min-height: 0;
+}
+.student-resource-gate {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  padding: clamp(12px, 3vw, 38px);
+}
+.student-resource-card {
+  width: min(680px, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(10px, 1.8dvh, 18px);
+  padding: clamp(28px, 5vw, 58px);
+  border: 1px solid #d9e6dd;
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 24px 70px #285a3a18;
+  text-align: center;
+}
+.student-resource-card .resource-orbit {
+  width: clamp(64px, 9vw, 92px);
+  height: clamp(64px, 9vw, 92px);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #e4f5e9, #fff3cf);
+  color: #26704d;
+}
+.student-resource-card .resource-orbit svg {
+  width: 44%;
+  height: 44%;
+}
+.student-resource-card .eyebrow {
+  margin: 0;
+  color: #6f8176;
+  font-size: clamp(13px, 1.4vw, 16px);
+}
+.student-resource-card h1 {
+  margin: 0;
+  color: #28493d;
+  font-size: clamp(28px, 4vw, 46px);
+  line-height: 1.15;
+}
+.student-resource-card .resource-status {
+  min-height: 1.7em;
+  margin: 0;
+  color: #5d7166;
+  font-size: clamp(17px, 2vw, 22px);
+  line-height: 1.55;
+}
+.student-resource-card progress {
+  width: 100%;
+  height: clamp(15px, 2.2dvh, 22px);
+  overflow: hidden;
+  border: 0;
+  border-radius: 999px;
+  accent-color: #2b8a66;
+}
+.student-resource-card progress::-webkit-progress-bar {
+  background: #e6eee8;
+  border-radius: inherit;
+}
+.student-resource-card progress::-webkit-progress-value {
+  border-radius: inherit;
+  background: linear-gradient(90deg, #2e8c67, #e5ad3e);
+  transition: width 0.25s ease;
+}
+.student-resource-card .resource-numbers {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  color: #68796f;
+  font-variant-numeric: tabular-nums;
+}
+.student-resource-card .resource-numbers strong {
+  color: #28654c;
+  font-size: clamp(24px, 3.2vw, 38px);
+}
+.student-resource-card > small {
+  color: #819087;
+  font-size: clamp(12px, 1.3vw, 15px);
+}
 .learner-page.in-session .game-heading,
 .learner-page.in-session .game-instruction,
 .learner-page.in-session .audio-notice,

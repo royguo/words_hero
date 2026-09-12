@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "drive-v1",
+  "word": "drive",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "驾驶；开车",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "驾驶；开车",
+    "pos": "v.",
+    "example": "Dad can drive the blue car.",
+    "example_zh": "爸爸会开这辆蓝色汽车。",
+    "extra_examples": [
+      {
+        "en": "We drive to the forest.",
+        "zh": "我们开车去森林。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 drive，再用它说一个短句。",
+    "cloze": "Dad can __________ the blue car.",
+    "cloze_answer": "drive",
+    "cloze_zh": "爸爸会开这辆蓝色汽车。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "drive",
+      "components": [],
+      "explanation_zh": "把 drive 作为完整单词记住，再用 driver 建立实用联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "driver",
+          "meaning_zh": "司机",
+          "relation": "derivation",
+          "connection_zh": "drive 表示驾驶，driver 表示驾驶的人。",
+          "example": {
+            "en": "The driver stops the bus.",
+            "zh": "司机停下公交车。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 drive 有联系的词或短语。",
+        "answer_zh": "driver（司机）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · drive",
+          "url": "https://dictionary.cambridge.org/dictionary/english/drive"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "drive-desert-v1",
+      "file": "words/drive/v1/eca8fadf05a8a6032e1a0013bd2ada0d1575196c2b8185a4647f87a3406d0899.png",
+      "sha256": "eca8fadf05a8a6032e1a0013bd2ada0d1575196c2b8185a4647f87a3406d0899",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Dad can drive the blue car. 对应的写实课堂图片。",
+      "caption": "Dad can drive the blue car.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: A parent safely drives a blue car on a quiet road while a child sits belted in the back seat.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

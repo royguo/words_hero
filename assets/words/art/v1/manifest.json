@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "art-v1",
+  "word": "art",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "艺术；美术",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "艺术；美术",
+    "pos": "n.",
+    "example": "We make art with bright colours.",
+    "example_zh": "我们用鲜艳的颜色创作美术作品。",
+    "extra_examples": [
+      {
+        "en": "Her favourite subject is art.",
+        "zh": "她最喜欢的科目是美术。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 art，再用它说一个短句。",
+    "cloze": "We make __________ with bright colours.",
+    "cloze_answer": "art",
+    "cloze_zh": "我们用鲜艳的颜色创作美术作品。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "art",
+      "components": [],
+      "explanation_zh": "把 art 作为完整单词记住，再用 artist 建立实用联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "artist",
+          "meaning_zh": "艺术家",
+          "relation": "derivation",
+          "connection_zh": "art 加 -ist 表示从事艺术的人。",
+          "example": {
+            "en": "The artist paints a dog.",
+            "zh": "艺术家画了一只狗。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 art 有联系的词或短语。",
+        "answer_zh": "artist（艺术家）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · art",
+          "url": "https://dictionary.cambridge.org/dictionary/english/art"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "art-desert-v1",
+      "file": "words/art/v1/57d0f1fbc4e4ed8ccd29589a19937e4c5213a02c857279654c77205c35725a96.png",
+      "sha256": "57d0f1fbc4e4ed8ccd29589a19937e4c5213a02c857279654c77205c35725a96",
+      "width": 1536,
+      "height": 1024,
+      "alt": "We make art with bright colours. 对应的写实课堂图片。",
+      "caption": "We make art with bright colours.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: A smiling child paints a colourful picture at an easel in a bright, tidy art classroom.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

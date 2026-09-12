@@ -333,7 +333,7 @@ export function WordSelection({
                         <small>
                           {[
                             word.seen && '本班已学',
-                            word.reserved && '进行中课程已选',
+                            word.reserved && '其他课程已选（可重复）',
                             word.is_basic && '基础常见词',
                           ]
                             .filter(Boolean)

@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "cash-v1",
+  "word": "cash",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "现金",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "现金",
+    "pos": "n.",
+    "example": "Mia pays in cash.",
+    "example_zh": "米娅用现金付款。",
+    "extra_examples": [
+      {
+        "en": "Do you have enough cash?",
+        "zh": "你有足够的现金吗？"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 cash，再用它说一个短句。",
+    "cloze": "Mia pays in __________.",
+    "cloze_answer": "cash",
+    "cloze_zh": "米娅用现金付款。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "cash",
+      "components": [],
+      "explanation_zh": "把 cash 作为完整单词记住，再用 cash machine 建立实用联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "cash machine",
+          "meaning_zh": "自动取款机",
+          "relation": "compound",
+          "connection_zh": "cash + machine：可以取现金的机器。",
+          "example": {
+            "en": "The cash machine is outside.",
+            "zh": "自动取款机在外面。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 cash 有联系的词或短语。",
+        "answer_zh": "cash machine（自动取款机）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · cash",
+          "url": "https://dictionary.cambridge.org/dictionary/english/cash"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "cash-desert-v1",
+      "file": "words/cash/v1/9015b693b4bfc4d9dc125c34a2105518872055eb4ae35e5dea3eec6e645d6f50.png",
+      "sha256": "9015b693b4bfc4d9dc125c34a2105518872055eb4ae35e5dea3eec6e645d6f50",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Mia pays in cash. 对应的写实课堂图片。",
+      "caption": "Mia pays in cash.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: A child pays for fruit with simple recognisable paper cash and coins at a friendly market stall, no readable currency text.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "soap-v1",
+  "word": "soap",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "肥皂",
+  "created_at": "2026-09-12",
+  "provenance": {
+    "text": "Original child-friendly A2 teaching material prepared for the fixed Desert Radio Concert lesson; concise formation guidance checked against the linked dictionary source.",
+    "images": "OpenAI built-in imagegen; full prompts, references and SHA-256 stored per image. Story images are shared by content hash instead of duplicated."
+  },
+  "teaching": {
+    "meaning_zh": "肥皂",
+    "pos": "n.",
+    "example": "Wash your hands with soap.",
+    "example_zh": "用肥皂洗手。",
+    "extra_examples": [
+      {
+        "en": "The green soap smells nice.",
+        "zh": "绿色肥皂很好闻。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "看图读出 soap，再用它说一个短句。",
+    "cloze": "Wash your hands with __________.",
+    "cloze_answer": "soap",
+    "cloze_zh": "用肥皂洗手。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "面向 KET 学生的原创短句；图片、释义与本课常用词义一致。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "soap",
+      "components": [],
+      "explanation_zh": "把 soap 作为完整单词记住，再用 soap bubble 建立实用联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "soap bubble",
+          "meaning_zh": "肥皂泡",
+          "relation": "compound",
+          "connection_zh": "soap + bubble：由肥皂水形成的泡泡。",
+          "example": {
+            "en": "A soap bubble floats away.",
+            "zh": "一个肥皂泡飘走了。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "请说出一个和 soap 有联系的词或短语。",
+        "answer_zh": "soap bubble（肥皂泡）"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · soap",
+          "url": "https://dictionary.cambridge.org/dictionary/english/soap"
+        }
+      ]
+    }
+  },
+  "images": [
+    {
+      "id": "soap-desert-v1",
+      "file": "words/soap/v1/23d6a7d9020708bfa66ac479cf72738bd93b5639589533d52363df7027552220.png",
+      "sha256": "23d6a7d9020708bfa66ac479cf72738bd93b5639589533d52363df7027552220",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Wash your hands with soap. 对应的写实课堂图片。",
+      "caption": "Wash your hands with soap.",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: reusable classroom vocabulary photograph for Chinese primary-school KET learners, displayed large on a projector; landscape 3:2, ideally 1536x1024.\nStyle: beautiful, playful, realistic editorial photography; bright natural light; vivid but plausible colours; real materials and textures; uncluttered composition with one unmistakable main idea.\nComposition: fully visible main subject, generous margins, clear at classroom distance.\nConstraints: no embedded text, letters, labels, numbers, logos, watermarks, decorative frames, cartoons or clipart; safe child-friendly scene; correct anatomy and plausible scale.\nPrimary request: A green bar of soap beside clean hands and bright soap bubbles at a bathroom sink.",
+      "generator": "OpenAI built-in imagegen",
+      "created_at": "2026-09-12",
+      "reference_asset_ids": []
+    }
+  ]
+}
