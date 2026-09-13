@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "f00c555a3136818f94724ca5b0d4528426e17da089358019da8192e54f00a538",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Ben brings two short films to class."
+  },
+  "file": "audio/v1/3b4a25d414fe86b321c19e929b508302d6b0ad8a7ce5205bd501317e9ea70339.mp3",
+  "sha256": "3b4a25d414fe86b321c19e929b508302d6b0ad8a7ce5205bd501317e9ea70339",
+  "bytes": 18720,
+  "created_at": "2026-09-13T03:43:20+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

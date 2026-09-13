@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "afce0139930c3213c14f97335a4bed18e5da0ac017403c59e5256ac3f6e04b60",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Which character do you like best?"
+  },
+  "file": "audio/v1/b9c12f6215bca5f41ff16ae7b3e579e3300f549f10f6550a99a2472d56f3fe2f.mp3",
+  "sha256": "b9c12f6215bca5f41ff16ae7b3e579e3300f549f10f6550a99a2472d56f3fe2f",
+  "bytes": 15984,
+  "created_at": "2026-09-13T03:43:49+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

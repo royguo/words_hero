@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "id": "animals-v1",
+  "word": "animals",
+  "levels": [
+    "KET"
+  ],
+  "sense_zh": "动物（animal 的复数）",
+  "created_at": "2026-09-13",
+  "provenance": {
+    "text": "AI-assisted original classroom writing, reviewed for child-friendly A2/B1 readability; dictionary sources are recorded in word_study.",
+    "images": "No image asset in v1; the teaching page intentionally leaves the image area empty."
+  },
+  "teaching": {
+    "meaning_zh": "动物（animal 的复数）",
+    "pos": "plural n.",
+    "example": "The story has three funny animals.",
+    "example_zh": "这个故事里有三只有趣的动物。",
+    "extra_examples": [
+      {
+        "en": "Some animals sleep in the day.",
+        "zh": "有些动物白天睡觉。"
+      },
+      {
+        "en": "Which animals can fly?",
+        "zh": "哪些动物会飞？"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "说说你最喜欢的 animals。",
+    "cloze": "The story has three funny __________.",
+    "cloze_answer": "animals",
+    "cloze_zh": "这个故事里有三只有趣的动物。",
+    "cloze_type": "context",
+    "parts": [
+      {
+        "text": "animal",
+        "kind": "root",
+        "meaning": "动物"
+      },
+      {
+        "text": "-s",
+        "kind": "suffix",
+        "meaning": "复数：不止一个"
+      }
+    ],
+    "note": "animal + -s 变成复数 animals，表示不止一只动物。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "inflected",
+      "construction": "animal + -s → animals",
+      "components": [
+        {
+          "text": "animal",
+          "kind": "base",
+          "meaning_zh": "动物"
+        },
+        {
+          "text": "-s",
+          "kind": "suffix",
+          "meaning_zh": "复数"
+        }
+      ],
+      "explanation_zh": "animal 加 -s 变成复数 animals，表示不止一只动物。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "animal",
+          "meaning_zh": "动物",
+          "relation": "inflection",
+          "connection_zh": "animal 是单数；animals 是复数。",
+          "example": {
+            "en": "I can see one animal.",
+            "zh": "我能看见一只动物。"
+          }
+        },
+        {
+          "word": "wild animals",
+          "meaning_zh": "野生动物",
+          "relation": "phrase",
+          "connection_zh": "wild 放在 animals 前，表示“野生动物”。",
+          "example": {
+            "en": "We learn about wild animals.",
+            "zh": "我们了解野生动物。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "-s 在 animals 中告诉我们什么？",
+        "answer_zh": "动物不止一只，是复数。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · animal",
+          "url": "https://dictionary.cambridge.org/dictionary/english/animal"
+        }
+      ]
+    }
+  },
+  "images": []
+}

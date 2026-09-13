@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "1ea951314817643bf17302477d491f7e1c9051f8c4082d4353e982c10a3d807d",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "calligrapher"
+  },
+  "file": "audio/v1/2c76f0f86b5d1b13e80f1266f0beacff0c06bb9a583228e097d658995726e9aa.mp3",
+  "sha256": "2c76f0f86b5d1b13e80f1266f0beacff0c06bb9a583228e097d658995726e9aa",
+  "bytes": 9504,
+  "created_at": "2026-09-13T03:43:55+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

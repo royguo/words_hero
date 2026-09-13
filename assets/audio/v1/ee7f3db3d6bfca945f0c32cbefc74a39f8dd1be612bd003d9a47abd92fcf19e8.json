@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "ee7f3db3d6bfca945f0c32cbefc74a39f8dd1be612bd003d9a47abd92fcf19e8",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The story has three funny animals."
+  },
+  "file": "audio/v1/2fb5bc3a84cc26e879c8031bdb8e24fc150acce2035ed0d822296ae343087904.mp3",
+  "sha256": "2fb5bc3a84cc26e879c8031bdb8e24fc150acce2035ed0d822296ae343087904",
+  "bytes": 18000,
+  "created_at": "2026-09-13T03:43:13+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

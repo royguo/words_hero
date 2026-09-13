@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "fa576de39b316eeec9cb4c50b4cb550ca9832f801da83da3c500169a3b07e387",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "I read every day."
+  },
+  "file": "audio/v1/7c3b8236921c448b14a1791659840d4a117a8e6c9569a24e879c62896a580e99.mp3",
+  "sha256": "7c3b8236921c448b14a1791659840d4a117a8e6c9569a24e879c62896a580e99",
+  "bytes": 11376,
+  "created_at": "2026-09-13T03:43:44+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -311,4 +311,58 @@ export const pronunciations: Record<string, { ipa: string; source: string }> = {
     ipa: 'æp',
     source: 'https://dictionary.cambridge.org/pronunciation/english/app',
   },
+  because: {
+    ipa: 'bɪˈkɒz',
+    source: 'https://dictionary.cambridge.org/pronunciation/english/because',
+  },
+  useful: {
+    ipa: 'ˈjuːs.fəl',
+    source: 'https://dictionary.cambridge.org/pronunciation/english/useful',
+  },
+  important: {
+    ipa: 'ɪmˈpɔː.tənt',
+    source: 'https://dictionary.cambridge.org/pronunciation/english/important',
+  },
+  animals: {
+    ipa: 'ˈæn.ɪ.məlz',
+    source: 'https://dictionary.cambridge.org/dictionary/english/animal',
+  },
+  films: {
+    ipa: 'fɪlmz',
+    source: 'https://dictionary.cambridge.org/dictionary/english/film',
+  },
+  delicious: {
+    ipa: 'dɪˈlɪʃ.əs',
+    source: 'https://dictionary.cambridge.org/pronunciation/english/delicious',
+  },
+  cook: {
+    ipa: 'kʊk',
+    source: 'https://dictionary.cambridge.org/pronunciation/english/cook',
+  },
+  'have a good time': {
+    ipa: 'hæv ə ɡʊd taɪm',
+    source:
+      'https://dictionary.cambridge.org/dictionary/english/have-a-good-time',
+  },
+  every: {
+    ipa: 'ˈev.ri',
+    source: 'https://dictionary.cambridge.org/pronunciation/english/every',
+  },
+  character: {
+    ipa: 'ˈkær.ək.tə(r)',
+    source: 'https://dictionary.cambridge.org/pronunciation/english/character',
+  },
+  calligraphy: {
+    ipa: 'kəˈlɪɡ.rə.fi',
+    source:
+      'https://dictionary.cambridge.org/pronunciation/english/calligraphy',
+  },
+  ancient: {
+    ipa: 'ˈeɪn.ʃənt',
+    source: 'https://dictionary.cambridge.org/pronunciation/english/ancient',
+  },
+  'show and tell': {
+    ipa: 'ˌʃəʊ ən ˈtel',
+    source: 'https://dictionary.cambridge.org/dictionary/english/show-and-tell',
+  },
 };

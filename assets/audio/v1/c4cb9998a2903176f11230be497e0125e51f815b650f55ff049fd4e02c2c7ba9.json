@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "c4cb9998a2903176f11230be497e0125e51f815b650f55ff049fd4e02c2c7ba9",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Who is the main character?"
+  },
+  "file": "audio/v1/f9d68a471810e3951bf4c5054f17acd1c67ee91bf646442f72963c2b10f87f19.mp3",
+  "sha256": "f9d68a471810e3951bf4c5054f17acd1c67ee91bf646442f72963c2b10f87f19",
+  "bytes": 13248,
+  "created_at": "2026-09-13T03:44:12+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

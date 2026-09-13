@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "id": "important-v1",
+  "word": "important",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "重要的",
+  "created_at": "2026-09-13",
+  "provenance": {
+    "text": "AI-assisted original classroom writing, reviewed for child-friendly A2/B1 readability; dictionary sources are recorded in word_study.",
+    "images": "No image asset in v1; the teaching page intentionally leaves the image area empty."
+  },
+  "teaching": {
+    "meaning_zh": "重要的",
+    "pos": "adj.",
+    "example": "These pictures are important for the story.",
+    "example_zh": "这些图片对这个故事很重要。",
+    "extra_examples": [
+      {
+        "en": "It is important to listen carefully.",
+        "zh": "认真倾听很重要。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "说出今天最 important 的一件事。",
+    "cloze": "These pictures are __________ for the story.",
+    "cloze_answer": "important",
+    "cloze_zh": "这些图片对这个故事很重要。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "把 important 作为完整单词记住，再联系名词 importance。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "important",
+      "components": [],
+      "explanation_zh": "不要按字母硬拆；先整体记住，再和名词 importance 建立联系。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "importance",
+          "meaning_zh": "重要性",
+          "relation": "derivation",
+          "connection_zh": "important 的相关名词是 importance。",
+          "example": {
+            "en": "We understand the importance of water.",
+            "zh": "我们懂得水的重要性。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "important 是形容词；它的相关名词是什么？",
+        "answer_zh": "importance（重要性）。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · important",
+          "url": "https://dictionary.cambridge.org/dictionary/english/important"
+        }
+      ]
+    }
+  },
+  "images": []
+}

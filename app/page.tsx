@@ -430,6 +430,20 @@ function Classrooms() {
                     </span>
                   </button>
                   <button
+                    className="class-id-copy"
+                    aria-label={'复制班级 ID ' + c.id}
+                    title={'复制班级 ID：' + c.id}
+                    onClick={() => {
+                      void navigator.clipboard.writeText(c.id).then(
+                        () => setNotice('班级 ID 已复制'),
+                        () => setNotice('复制失败，请手动复制班级 ID。'),
+                      );
+                    }}
+                  >
+                    <code>{c.id}</code>
+                    <Copy size={13} />
+                  </button>
+                  <button
                     className="copy-class icon-btn"
                     aria-label={'复制班级 ' + c.name}
                     title="复制班级与课程"

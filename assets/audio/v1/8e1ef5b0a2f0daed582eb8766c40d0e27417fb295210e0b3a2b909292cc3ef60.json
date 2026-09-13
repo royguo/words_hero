@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "8e1ef5b0a2f0daed582eb8766c40d0e27417fb295210e0b3a2b909292cc3ef60",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Every child has a pencil."
+  },
+  "file": "audio/v1/1227b6908d145911e8018d059bd4a359d01f4450033260b7cda2c52dda70c571.mp3",
+  "sha256": "1227b6908d145911e8018d059bd4a359d01f4450033260b7cda2c52dda70c571",
+  "bytes": 14400,
+  "created_at": "2026-09-13T03:43:44+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

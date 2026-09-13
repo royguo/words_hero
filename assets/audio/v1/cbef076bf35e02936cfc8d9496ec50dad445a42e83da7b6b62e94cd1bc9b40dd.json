@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "cbef076bf35e02936cfc8d9496ec50dad445a42e83da7b6b62e94cd1bc9b40dd",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Which animals can fly?"
+  },
+  "file": "audio/v1/1e5f4bf5b27e67b5dc5c9ec74beb9cc01f9e6077ec35ee09d9fd9759e92d6468.mp3",
+  "sha256": "1e5f4bf5b27e67b5dc5c9ec74beb9cc01f9e6077ec35ee09d9fd9759e92d6468",
+  "bytes": 13680,
+  "created_at": "2026-09-13T03:43:15+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

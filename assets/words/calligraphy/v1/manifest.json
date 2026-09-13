@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "id": "calligraphy-v1",
+  "word": "calligraphy",
+  "levels": [
+    "PET"
+  ],
+  "sense_zh": "书法；书法艺术",
+  "created_at": "2026-09-13",
+  "provenance": {
+    "text": "AI-assisted original classroom writing, reviewed for child-friendly A2/B1 readability; dictionary sources are recorded in word_study.",
+    "images": "No image asset in v1; the teaching page intentionally leaves the image area empty."
+  },
+  "teaching": {
+    "meaning_zh": "书法；书法艺术",
+    "pos": "n.",
+    "example": "We learn calligraphy with a brush.",
+    "example_zh": "我们用毛笔学习书法。",
+    "extra_examples": [
+      {
+        "en": "Her calligraphy is beautiful.",
+        "zh": "她的书法很漂亮。"
+      },
+      {
+        "en": "Calligraphy takes time and care.",
+        "zh": "练书法需要时间和用心。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "说说练 calligraphy 会用到什么。",
+    "cloze": "We learn __________ with a brush.",
+    "cloze_answer": "calligraphy",
+    "cloze_zh": "我们用毛笔学习书法。",
+    "cloze_type": "context",
+    "parts": [
+      {
+        "text": "calli-",
+        "kind": "root",
+        "meaning": "美"
+      },
+      {
+        "text": "-graphy",
+        "kind": "suffix",
+        "meaning": "书写；记录"
+      }
+    ],
+    "note": "calli- 与“美”有关，-graphy 与“书写、记录”有关；合起来帮助记住“书法”。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "derived",
+      "construction": "calli- + -graphy → calligraphy",
+      "components": [
+        {
+          "text": "calli-",
+          "kind": "root",
+          "meaning_zh": "美"
+        },
+        {
+          "text": "-graphy",
+          "kind": "suffix",
+          "meaning_zh": "书写；记录"
+        }
+      ],
+      "explanation_zh": "两个词基合起来，可以把 calligraphy 记成“美丽的书写”。",
+      "origin_zh": "它的两个希腊语词基合起来就是“美丽的书写”。",
+      "family": [
+        {
+          "word": "calligrapher",
+          "meaning_zh": "书法家",
+          "relation": "derivation",
+          "connection_zh": "calligraphy 的相关人物词是 calligrapher。",
+          "example": {
+            "en": "The calligrapher uses a brush.",
+            "zh": "书法家使用毛笔。"
+          }
+        },
+        {
+          "word": "photography",
+          "meaning_zh": "摄影",
+          "relation": "shared_root",
+          "connection_zh": "photography 也含 -graphy，表示一种记录或表现方式。",
+          "example": {
+            "en": "She studies photography.",
+            "zh": "她学习摄影。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "calli- 和 -graphy 合在一起，可以怎样帮助你记住这个词？",
+        "answer_zh": "把它记成“美丽的书写”，也就是书法。"
+      },
+      "sources": [
+        {
+          "title": "Merriam-Webster · calligraphy",
+          "url": "https://www.merriam-webster.com/dictionary/calligraphy"
+        },
+        {
+          "title": "Cambridge Dictionary · calligraphy",
+          "url": "https://dictionary.cambridge.org/dictionary/english/calligraphy"
+        }
+      ]
+    }
+  },
+  "images": []
+}

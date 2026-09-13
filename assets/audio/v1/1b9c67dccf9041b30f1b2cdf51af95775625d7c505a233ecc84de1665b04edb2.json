@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "1b9c67dccf9041b30f1b2cdf51af95775625d7c505a233ecc84de1665b04edb2",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Calligraphy takes time and care."
+  },
+  "file": "audio/v1/d0d272a46c56e04c939ae1ce17cee5e08781cd3d6c57a3dd3d5d9dee2c0c922b.mp3",
+  "sha256": "d0d272a46c56e04c939ae1ce17cee5e08781cd3d6c57a3dd3d5d9dee2c0c922b",
+  "bytes": 16128,
+  "created_at": "2026-09-13T03:43:55+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -369,7 +369,7 @@ class SeedCase(unittest.TestCase):
             self.assertEqual(sum(bool(w["parts"]) for w in words), report[level]["with_morphology"])
             self.assertTrue(all(w["meaning_zh"] for w in words))
             self.assertTrue(all(w["word"] not in ("v", "sb") for w in words))
-            self.assertTrue(all(w["example_zh"] and w["story_zh"] and w["cloze"] and w["cloze_answer"] for w in words))
+            self.assertTrue(all(w["example_zh"] and w["cloze"] and w["cloze_answer"] for w in words))
             self.assertEqual(sum(bool(w["story_zh"]) for w in words), report[level]["with_stories"])
             self.assertTrue(all(len(w["example"].split()) <= 16 for w in words))
             for word in words:
@@ -384,7 +384,10 @@ class SeedCase(unittest.TestCase):
             path = Path(folder) / "full.sqlite3"
             store = Store(path)
             self.assertEqual(store.state()["classes"], [])
-            self.assertEqual([l["total"] for l in store.state()["levels"]], [1707, 3084, 0, 0])
+            self.assertEqual(
+                [l["total"] for l in store.state()["levels"]],
+                [report["KET"]["included"], report["PET"]["included"], 0, 0],
+            )
             before = path.stat().st_size
             Store(path)  # Idempotent seed migration
             self.assertEqual(path.stat().st_size, before)

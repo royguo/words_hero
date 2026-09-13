@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "00464cf1d17c889b48c16827033404ce190fc758606ec942cde74df2ea722bc0",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The cook makes delicious soup."
+  },
+  "file": "audio/v1/96428e290ea8eb7cc452f8972a850d65d12f0c588c5237797a85c4d0846a8488.mp3",
+  "sha256": "96428e290ea8eb7cc452f8972a850d65d12f0c588c5237797a85c4d0846a8488",
+  "bytes": 15408,
+  "created_at": "2026-09-13T03:43:27+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

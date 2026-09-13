@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "f52011623a035157b34f3903cfcdee2894d9fdb1c4959d7f8f858aff422a86b7",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Does everyone have a good time?"
+  },
+  "file": "audio/v1/e169d88b47064f5d2ec3cabd7b6dd973d3d57abf3c90bb6747dccd9f1ca05987.mp3",
+  "sha256": "e169d88b47064f5d2ec3cabd7b6dd973d3d57abf3c90bb6747dccd9f1ca05987",
+  "bytes": 14400,
+  "created_at": "2026-09-13T03:44:22+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

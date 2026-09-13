@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "581ae5ba65cc4f0784153dbe9a67d2b69c7f1354d15d554337f926ffbb4b1239",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "This old book is useful for our show."
+  },
+  "file": "audio/v1/964e1bb750ba5ac60395dfc71b8d90d43b158f411c2cdd9ca6d54a2443a5cc63.mp3",
+  "sha256": "964e1bb750ba5ac60395dfc71b8d90d43b158f411c2cdd9ca6d54a2443a5cc63",
+  "bytes": 18288,
+  "created_at": "2026-09-13T03:43:03+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

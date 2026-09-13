@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "9ce8f76ea4d84856aff328ca374097272df66784267c0063bc27843d8d8cb1db",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "We share delicious food."
+  },
+  "file": "audio/v1/935f45844ff1667be92a8f471fba0de83e71c0eaf3cc205402ab355b665ea961.mp3",
+  "sha256": "935f45844ff1667be92a8f471fba0de83e71c0eaf3cc205402ab355b665ea961",
+  "bytes": 13824,
+  "created_at": "2026-09-13T03:43:29+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

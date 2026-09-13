@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "id": "character-v1",
+  "word": "character",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "人物；角色；性格",
+  "created_at": "2026-09-13",
+  "provenance": {
+    "text": "AI-assisted original classroom writing, reviewed for child-friendly A2/B1 readability; dictionary sources are recorded in word_study.",
+    "images": "No image asset in v1; the teaching page intentionally leaves the image area empty."
+  },
+  "teaching": {
+    "meaning_zh": "人物；角色；性格",
+    "pos": "n.",
+    "example": "The main character is a clever cook.",
+    "example_zh": "主角是一位聪明的厨师。",
+    "extra_examples": [
+      {
+        "en": "Which character do you like best?",
+        "zh": "你最喜欢哪个角色？"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "选择一个 story character，并说说它是谁。",
+    "cloze": "The main __________ is a clever cook.",
+    "cloze_answer": "character",
+    "cloze_zh": "主角是一位聪明的厨师。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "本课先记“故事、电影中的人物或角色”这一常用意思。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "character",
+      "components": [],
+      "explanation_zh": "本课把 character 作为完整词记住，重点学习“故事或电影中的角色”。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "main character",
+          "meaning_zh": "主角",
+          "relation": "phrase",
+          "connection_zh": "main 放在 character 前，表示故事中最主要的角色。",
+          "example": {
+            "en": "The main character finds a key.",
+            "zh": "主角找到了一把钥匙。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "故事中最主要的角色用哪个短语表示？",
+        "answer_zh": "main character（主角）。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · character",
+          "url": "https://dictionary.cambridge.org/dictionary/english/character"
+        }
+      ]
+    }
+  },
+  "images": []
+}

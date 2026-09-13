@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "170ac0b279901a7c03243327f011e924131723f3c77787fa61e82f799ccf3059",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "This film is funny."
+  },
+  "file": "audio/v1/b8b4ba895680cf23249a0f0c6b194ddf30211f672c5b71a8d8d297fac37b9ea4.mp3",
+  "sha256": "b8b4ba895680cf23249a0f0c6b194ddf30211f672c5b71a8d8d297fac37b9ea4",
+  "bytes": 11088,
+  "created_at": "2026-09-13T03:43:23+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

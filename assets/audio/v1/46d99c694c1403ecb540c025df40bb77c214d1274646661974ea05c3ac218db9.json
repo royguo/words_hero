@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "46d99c694c1403ecb540c025df40bb77c214d1274646661974ea05c3ac218db9",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "These pictures are important for the story."
+  },
+  "file": "audio/v1/96617fc0fa614cf0a6d9a9bb25fd65387bfb6d76cefd145827370437f3407a1f.mp3",
+  "sha256": "96617fc0fa614cf0a6d9a9bb25fd65387bfb6d76cefd145827370437f3407a1f",
+  "bytes": 19584,
+  "created_at": "2026-09-13T03:43:09+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -55,6 +55,45 @@
 .class-card .class-icon {
   margin-bottom: 18px;
 }
+.class-card-wrap > .class-card > p {
+  margin-bottom: 52px;
+}
+.class-id-copy {
+  position: absolute;
+  z-index: 1;
+  right: 24px;
+  bottom: 70px;
+  left: 24px;
+  display: flex;
+  min-width: 0;
+  height: 28px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 8px;
+  border: 1px solid #e3e8f2;
+  border-radius: 7px;
+  background: #f7f9fd;
+  color: #687791;
+  text-align: left;
+}
+.class-id-copy:hover {
+  border-color: #b9c7e6;
+  background: #eef3ff;
+  color: #3155bd;
+}
+.class-id-copy code {
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  font-size: 10.5px;
+  line-height: 1;
+  text-overflow: ellipsis;
+  user-select: text;
+  white-space: nowrap;
+}
+.class-id-copy svg {
+  flex: none;
+}
 .create-class .class-icon {
   margin-bottom: 0;
 }

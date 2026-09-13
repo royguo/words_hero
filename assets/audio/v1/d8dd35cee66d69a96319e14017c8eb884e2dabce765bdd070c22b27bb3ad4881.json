@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "d8dd35cee66d69a96319e14017c8eb884e2dabce765bdd070c22b27bb3ad4881",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "animals"
+  },
+  "file": "audio/v1/9fbe6f857c805722fe955eb1b3a5cd52764589d377808095d5b4295cb5625b31.mp3",
+  "sha256": "9fbe6f857c805722fe955eb1b3a5cd52764589d377808095d5b4295cb5625b31",
+  "bytes": 8064,
+  "created_at": "2026-09-13T03:43:12+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

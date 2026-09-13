@@ -149,6 +149,26 @@
     "KET:cross": "words/cross/v1/manifest.json",
     "PET:cross": "words/cross/v1/manifest.json",
     "KET:app": "words/app/v1/manifest.json",
-    "PET:app": "words/app/v1/manifest.json"
+    "PET:app": "words/app/v1/manifest.json",
+    "KET:because": "words/because/v1/manifest.json",
+    "PET:because": "words/because/v1/manifest.json",
+    "KET:useful": "words/useful/v1/manifest.json",
+    "PET:useful": "words/useful/v1/manifest.json",
+    "KET:important": "words/important/v1/manifest.json",
+    "PET:important": "words/important/v1/manifest.json",
+    "KET:animals": "words/animals/v1/manifest.json",
+    "KET:films": "words/films/v1/manifest.json",
+    "KET:delicious": "words/delicious/v1/manifest.json",
+    "PET:delicious": "words/delicious/v1/manifest.json",
+    "KET:cook": "words/cook/v1/manifest.json",
+    "PET:cook": "words/cook/v1/manifest.json",
+    "KET:have a good time": "words/have-a-good-time/v1/manifest.json",
+    "KET:every": "words/every/v1/manifest.json",
+    "PET:every": "words/every/v1/manifest.json",
+    "KET:character": "words/character/v1/manifest.json",
+    "PET:character": "words/character/v1/manifest.json",
+    "PET:calligraphy": "words/calligraphy/v1/manifest.json",
+    "PET:ancient": "words/ancient/v1/manifest.json",
+    "KET:show and tell": "words/show-and-tell/v1/manifest.json"
   }
 }

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "fc1550a49eef4a0b142d2eddef489eb6d97be5237c0507363f3178c2df270b2e",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The cooker is in the kitchen."
+  },
+  "file": "audio/v1/e41247c4c5ad9c46d4af47f0253894de2eb45433d201bea43b0e55bbbdb14018.mp3",
+  "sha256": "e41247c4c5ad9c46d4af47f0253894de2eb45433d201bea43b0e55bbbdb14018",
+  "bytes": 13968,
+  "created_at": "2026-09-13T03:43:36+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

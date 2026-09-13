@@ -6,7 +6,7 @@ Legacy snapshots need no migration and are never assigned invented etymologies.
 import copy
 from urllib.parse import urlparse
 
-FORMATIONS = {"simple", "compound", "derived", "phrase"}
+FORMATIONS = {"simple", "compound", "derived", "inflected", "phrase"}
 COMPONENTS = {"base", "root", "prefix", "suffix", "word"}
 RELATIONS = {"compound", "derivation", "shared_root", "word_family", "phrase", "inflection", "shared_affix"}
 

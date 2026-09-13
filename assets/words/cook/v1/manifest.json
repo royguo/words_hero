@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "id": "cook-v1",
+  "word": "cook",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "厨师；烹饪",
+  "created_at": "2026-09-13",
+  "provenance": {
+    "text": "AI-assisted original classroom writing, reviewed for child-friendly A2/B1 readability; dictionary sources are recorded in word_study.",
+    "images": "No image asset in v1; the teaching page intentionally leaves the image area empty."
+  },
+  "teaching": {
+    "meaning_zh": "厨师；烹饪",
+    "pos": "n.; v.",
+    "example": "The cook makes soup for the class.",
+    "example_zh": "厨师为全班做汤。",
+    "extra_examples": [
+      {
+        "en": "I can cook rice.",
+        "zh": "我会煮米饭。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "用 cook 说说谁做饭，或会做什么。",
+    "cloze": "The __________ makes soup for the class.",
+    "cloze_answer": "cook",
+    "cloze_zh": "厨师为全班做汤。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "cook 既可以指“厨师”，也可以表示“烹饪”。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "cook",
+      "components": [],
+      "explanation_zh": "cook 是一个完整词，既可以指做饭的人，也可以作动词表示“烹饪”。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "cooking",
+          "meaning_zh": "烹饪",
+          "relation": "word_family",
+          "connection_zh": "cook 加 -ing，可表示做饭这件事。",
+          "example": {
+            "en": "Cooking can be fun.",
+            "zh": "做饭可以很有趣。"
+          }
+        },
+        {
+          "word": "cooker",
+          "meaning_zh": "炉具；炊具",
+          "relation": "derivation",
+          "connection_zh": "cook + -er；这里的 cooker 指做饭用的设备。",
+          "example": {
+            "en": "The cooker is in the kitchen.",
+            "zh": "炉具在厨房里。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "cook 可以表示人，也可以表示什么动作？",
+        "answer_zh": "烹饪、做饭。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · cook",
+          "url": "https://dictionary.cambridge.org/dictionary/english/cook"
+        }
+      ]
+    }
+  },
+  "images": []
+}

@@ -19,6 +19,10 @@ class WordStudyCase(unittest.TestCase):
         self.assertEqual(validate_study(value)['family'],[])
         with self.assertRaises(ValueError):validate_study(dict(value,origin_zh='字'*61))
         with self.assertRaises(ValueError):validate_study(dict(value,origin_zh='有趣的真实来源'))
+    def test_plural_uses_inflection_instead_of_derivation(self):
+        value=copy.deepcopy(self.study)
+        value.update(schema_version=2,formation='inflected',construction='animal + -s → animals',origin_zh='',components=[{'text':'animal','kind':'base','meaning_zh':'动物'},{'text':'-s','kind':'suffix','meaning_zh':'复数'}])
+        self.assertEqual(validate_study(value)['formation'],'inflected')
     def test_balanced_paper_questions_keep_ids_and_answers(self):
         questions=[{'id':'sentence-'+str(i),'word_id':i,'prompt':'I see a __________.','hint':'我看见一只猫。','answer':'cat'} for i in range(10)]
         pages=question_pages(questions);self.assertEqual([len(p) for p in pages],[5,5]);self.assertEqual(sum(pages,[]),questions)

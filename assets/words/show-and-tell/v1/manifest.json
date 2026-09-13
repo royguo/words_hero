@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "id": "show-and-tell-v1",
+  "word": "show and tell",
+  "levels": [
+    "KET"
+  ],
+  "sense_zh": "展示分享活动",
+  "created_at": "2026-09-13",
+  "provenance": {
+    "text": "AI-assisted original classroom writing, reviewed for child-friendly A2/B1 readability; dictionary sources are recorded in word_study.",
+    "images": "No image asset in v1; the teaching page intentionally leaves the image area empty."
+  },
+  "teaching": {
+    "meaning_zh": "展示分享活动",
+    "pos": "n. phrase",
+    "example": "Every Friday, we have show and tell.",
+    "example_zh": "每周五，我们都有展示分享活动。",
+    "extra_examples": [
+      {
+        "en": "My show and tell is about a tiny frog.",
+        "zh": "我的展示分享讲的是一只小青蛙。"
+      },
+      {
+        "en": "What will you bring for show and tell?",
+        "zh": "你要带什么来做展示分享？"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "想一件你会带到 show and tell 的物品。",
+    "cloze": "Every Friday, we have __________.",
+    "cloze_answer": "show and tell",
+    "cloze_zh": "每周五，我们都有展示分享活动。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "活动中先 show（展示）一样东西，再 tell（讲述）它的故事。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "phrase",
+      "construction": "show + and + tell → show and tell",
+      "components": [
+        {
+          "text": "show",
+          "kind": "word",
+          "meaning_zh": "展示"
+        },
+        {
+          "text": "and",
+          "kind": "word",
+          "meaning_zh": "和"
+        },
+        {
+          "text": "tell",
+          "kind": "word",
+          "meaning_zh": "讲述"
+        }
+      ],
+      "explanation_zh": "这个活动的名字直接说出两步：展示一样东西，再向大家讲述它。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "show a picture",
+          "meaning_zh": "展示一张图片",
+          "relation": "phrase",
+          "connection_zh": "show 表示把东西展示给别人看。",
+          "example": {
+            "en": "Please show us your picture.",
+            "zh": "请向我们展示你的图片。"
+          }
+        },
+        {
+          "word": "tell a story",
+          "meaning_zh": "讲故事",
+          "relation": "phrase",
+          "connection_zh": "tell 表示把事情讲给别人听。",
+          "example": {
+            "en": "Leo tells a funny story.",
+            "zh": "利奥讲了一个有趣的故事。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "参加 show and tell 时要做哪两件事？",
+        "answer_zh": "先 show（展示），再 tell（讲述）。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · show-and-tell",
+          "url": "https://dictionary.cambridge.org/dictionary/english/show-and-tell"
+        }
+      ]
+    }
+  },
+  "images": []
+}

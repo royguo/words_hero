@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "fa93f40d40f4b89d5fd4df037be44978d8c3abaa4157b778646849fadb4f2931",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "This apple pie is delicious."
+  },
+  "file": "audio/v1/6e588cff256bbf34b7eaad31eb731a535025f0b0ae80321a6e54c94fd2e7355a.mp3",
+  "sha256": "6e588cff256bbf34b7eaad31eb731a535025f0b0ae80321a6e54c94fd2e7355a",
+  "bytes": 16128,
+  "created_at": "2026-09-13T03:43:27+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

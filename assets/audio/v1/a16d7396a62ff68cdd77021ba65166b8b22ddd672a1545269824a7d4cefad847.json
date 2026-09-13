@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "a16d7396a62ff68cdd77021ba65166b8b22ddd672a1545269824a7d4cefad847",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "We visit an ancient city."
+  },
+  "file": "audio/v1/865abc7562261e9c1c576c6796efdb54a2025feaf1e5966104774c9983ca4f77.mp3",
+  "sha256": "865abc7562261e9c1c576c6796efdb54a2025feaf1e5966104774c9983ca4f77",
+  "bytes": 14544,
+  "created_at": "2026-09-13T03:44:00+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

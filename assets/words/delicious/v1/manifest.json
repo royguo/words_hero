@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "id": "delicious-v1",
+  "word": "delicious",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "美味的",
+  "created_at": "2026-09-13",
+  "provenance": {
+    "text": "AI-assisted original classroom writing, reviewed for child-friendly A2/B1 readability; dictionary sources are recorded in word_study.",
+    "images": "No image asset in v1; the teaching page intentionally leaves the image area empty."
+  },
+  "teaching": {
+    "meaning_zh": "美味的",
+    "pos": "adj.",
+    "example": "The cook makes delicious soup.",
+    "example_zh": "厨师做了美味的汤。",
+    "extra_examples": [
+      {
+        "en": "This apple pie is delicious.",
+        "zh": "这个苹果派很美味。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "说出一种 delicious 的食物。",
+    "cloze": "The cook makes __________ soup.",
+    "cloze_answer": "delicious",
+    "cloze_zh": "厨师做了美味的汤。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "把 delicious 作为完整单词记住，用来形容味道很好。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "delicious",
+      "components": [],
+      "explanation_zh": "把 delicious 作为完整词记住；它常放在食物前面或 be 动词后面。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "delicious food",
+          "meaning_zh": "美味的食物",
+          "relation": "phrase",
+          "connection_zh": "delicious 放在 food 前面，说明食物味道很好。",
+          "example": {
+            "en": "We share delicious food.",
+            "zh": "我们分享美味的食物。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "delicious 通常用来形容什么？",
+        "answer_zh": "味道很好的食物或饮品。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · delicious",
+          "url": "https://dictionary.cambridge.org/dictionary/english/delicious"
+        }
+      ]
+    }
+  },
+  "images": []
+}

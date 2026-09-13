@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "8be3ec32779a2c26705fb860a7f9a5f24ddf0bcb0fd94ce7116f2f5e49d8958e",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "We learn calligraphy with a brush."
+  },
+  "file": "audio/v1/b4eef9a8503d065f48e2a08811ea9bb6bd0c8319d3e90c71d8785862c98603c4.mp3",
+  "sha256": "b4eef9a8503d065f48e2a08811ea9bb6bd0c8319d3e90c71d8785862c98603c4",
+  "bytes": 16848,
+  "created_at": "2026-09-13T03:43:53+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

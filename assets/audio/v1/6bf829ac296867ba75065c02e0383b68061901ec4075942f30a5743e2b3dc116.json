@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "6bf829ac296867ba75065c02e0383b68061901ec4075942f30a5743e2b3dc116",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "I can cook rice."
+  },
+  "file": "audio/v1/e551385a0f9a8041ad77758b98ffc1b3c423779282b773fa770aa391d0701544.mp3",
+  "sha256": "e551385a0f9a8041ad77758b98ffc1b3c423779282b773fa770aa391d0701544",
+  "bytes": 11376,
+  "created_at": "2026-09-13T03:43:31+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

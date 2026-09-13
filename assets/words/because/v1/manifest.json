@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "id": "because-v1",
+  "word": "because",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "因为",
+  "created_at": "2026-09-13",
+  "provenance": {
+    "text": "AI-assisted original classroom writing, reviewed for child-friendly A2/B1 readability; dictionary sources are recorded in word_study.",
+    "images": "No image asset in v1; the teaching page intentionally leaves the image area empty."
+  },
+  "teaching": {
+    "meaning_zh": "因为",
+    "pos": "conj.",
+    "example": "Mia smiles because the soup is delicious.",
+    "example_zh": "米娅笑了，因为汤很美味。",
+    "extra_examples": [
+      {
+        "en": "We stay inside because it is raining.",
+        "zh": "因为正在下雨，我们待在室内。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "先说一件事，再用 because 补充原因。",
+    "cloze": "Mia smiles __________ the soup is delicious.",
+    "cloze_answer": "because",
+    "cloze_zh": "米娅笑了，因为汤很美味。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "because 连接结果和原因；把它作为完整连接词记住。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "because",
+      "components": [],
+      "explanation_zh": "把 because 作为完整连接词记住：前面说结果，后面接原因。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "because of",
+          "meaning_zh": "因为；由于",
+          "relation": "phrase",
+          "connection_zh": "because of 后面通常接名词或名词短语。",
+          "example": {
+            "en": "The game stops because of the rain.",
+            "zh": "比赛因为下雨而停止。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "because 后面接的是原因还是结果？",
+        "answer_zh": "原因。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · because",
+          "url": "https://dictionary.cambridge.org/dictionary/english/because"
+        }
+      ]
+    }
+  },
+  "images": []
+}

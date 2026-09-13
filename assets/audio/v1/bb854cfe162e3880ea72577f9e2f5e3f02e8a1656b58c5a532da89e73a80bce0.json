@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "bb854cfe162e3880ea72577f9e2f5e3f02e8a1656b58c5a532da89e73a80bce0",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "We read one page every day."
+  },
+  "file": "audio/v1/6d21ca4137515b5d5b03b8979e461ec75acb3deda0ee0739e63de5b8515d0630.mp3",
+  "sha256": "6d21ca4137515b5d5b03b8979e461ec75acb3deda0ee0739e63de5b8515d0630",
+  "bytes": 15696,
+  "created_at": "2026-09-13T03:43:42+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

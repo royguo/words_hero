@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "dbd5eebeabc839a445330f899700346de987328d068a4a09693f1822c5881657",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "What are the films about?"
+  },
+  "file": "audio/v1/920594baddcfc9e43a4edcd3745d84625b4ee6c3fdf74229356f2fbad7a32046.mp3",
+  "sha256": "920594baddcfc9e43a4edcd3745d84625b4ee6c3fdf74229356f2fbad7a32046",
+  "bytes": 13248,
+  "created_at": "2026-09-13T03:44:19+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

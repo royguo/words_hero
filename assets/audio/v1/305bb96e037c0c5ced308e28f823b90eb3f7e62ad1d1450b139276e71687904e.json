@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "305bb96e037c0c5ced308e28f823b90eb3f7e62ad1d1450b139276e71687904e",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Ben brings two short films about calligraphy. They are useful: each brush line becomes a little bird, a river, or a dancing dragon."
+  },
+  "file": "audio/v1/29e372afcd3e09baf63c126c9de0bdae39e3beb697e47259d306906a2ebc7e83.mp3",
+  "sha256": "29e372afcd3e09baf63c126c9de0bdae39e3beb697e47259d306906a2ebc7e83",
+  "bytes": 59472,
+  "created_at": "2026-09-13T03:44:19+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

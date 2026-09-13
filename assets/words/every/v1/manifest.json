@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "id": "every-v1",
+  "word": "every",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "每一；所有的",
+  "created_at": "2026-09-13",
+  "provenance": {
+    "text": "AI-assisted original classroom writing, reviewed for child-friendly A2/B1 readability; dictionary sources are recorded in word_study.",
+    "images": "No image asset in v1; the teaching page intentionally leaves the image area empty."
+  },
+  "teaching": {
+    "meaning_zh": "每一；所有的",
+    "pos": "det.",
+    "example": "We read one page every day.",
+    "example_zh": "我们每天读一页。",
+    "extra_examples": [
+      {
+        "en": "Every child has a pencil.",
+        "zh": "每个孩子都有一支铅笔。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "用 every day 说一件你每天做的事。",
+    "cloze": "We read one page __________ day.",
+    "cloze_answer": "every",
+    "cloze_zh": "我们每天读一页。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "every 后面通常接单数名词，表示一组中的每一个。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "simple",
+      "construction": "every",
+      "components": [],
+      "explanation_zh": "every 作为完整词记住，后面通常接单数名词，表示“每一个”。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "every day",
+          "meaning_zh": "每天",
+          "relation": "phrase",
+          "connection_zh": "every + day 分开写，表示“每天”。",
+          "example": {
+            "en": "I read every day.",
+            "zh": "我每天阅读。"
+          }
+        },
+        {
+          "word": "everyone",
+          "meaning_zh": "每个人",
+          "relation": "compound",
+          "connection_zh": "every + one 合成 everyone，表示“每个人”。",
+          "example": {
+            "en": "Everyone is ready.",
+            "zh": "每个人都准备好了。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "“每天”应该写 every day 还是 everyday？",
+        "answer_zh": "every day，分成两个词。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · every",
+          "url": "https://dictionary.cambridge.org/dictionary/english/every"
+        }
+      ]
+    }
+  },
+  "images": []
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "96af8669777014e252bb7a612a4ef42afb5fbc321d23e27a6ac0b66de57a7d7d",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The calligrapher uses a brush."
+  },
+  "file": "audio/v1/656bc2af98850b428207c0a8c65644b8ead89f61fc45f1ac9791855fbfd00b75.mp3",
+  "sha256": "656bc2af98850b428207c0a8c65644b8ead89f61fc45f1ac9791855fbfd00b75",
+  "bytes": 16272,
+  "created_at": "2026-09-13T03:43:57+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

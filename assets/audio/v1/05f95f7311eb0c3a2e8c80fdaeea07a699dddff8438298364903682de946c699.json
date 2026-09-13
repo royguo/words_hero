@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "05f95f7311eb0c3a2e8c80fdaeea07a699dddff8438298364903682de946c699",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Her calligraphy is beautiful."
+  },
+  "file": "audio/v1/39ee2a56763b06b24c0d3be3b3080ab65d7feb7e291053daf8118005b7e4b8f9.mp3",
+  "sha256": "39ee2a56763b06b24c0d3be3b3080ab65d7feb7e291053daf8118005b7e4b8f9",
+  "bytes": 15984,
+  "created_at": "2026-09-13T03:43:53+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

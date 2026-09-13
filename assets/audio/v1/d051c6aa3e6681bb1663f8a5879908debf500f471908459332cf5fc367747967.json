@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "d051c6aa3e6681bb1663f8a5879908debf500f471908459332cf5fc367747967",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "cook"
+  },
+  "file": "audio/v1/5029166e619e637bfd2824b02da4cfef7e16ce5860f25e8dfe68ba0a7db9d784.mp3",
+  "sha256": "5029166e619e637bfd2824b02da4cfef7e16ce5860f25e8dfe68ba0a7db9d784",
+  "bytes": 6480,
+  "created_at": "2026-09-13T03:43:30+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

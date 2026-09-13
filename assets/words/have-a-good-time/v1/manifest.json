@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "have-a-good-time-v1",
+  "word": "have a good time",
+  "levels": [
+    "KET"
+  ],
+  "sense_zh": "玩得开心；过得愉快",
+  "created_at": "2026-09-13",
+  "provenance": {
+    "text": "AI-assisted original classroom writing, reviewed for child-friendly A2/B1 readability; dictionary sources are recorded in word_study.",
+    "images": "No image asset in v1; the teaching page intentionally leaves the image area empty."
+  },
+  "teaching": {
+    "meaning_zh": "玩得开心；过得愉快",
+    "pos": "phrase",
+    "example": "We have a good time at show and tell.",
+    "example_zh": "我们在展示分享活动中玩得很开心。",
+    "extra_examples": [
+      {
+        "en": "Have a good time at the party!",
+        "zh": "祝你在聚会上玩得开心！"
+      },
+      {
+        "en": "Did you have a good time?",
+        "zh": "你玩得开心吗？"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "说说你在哪里 have a good time。",
+    "cloze": "We __________ at show and tell.",
+    "cloze_answer": "have a good time",
+    "cloze_zh": "我们在展示分享活动中玩得很开心。",
+    "cloze_type": "context",
+    "parts": [],
+    "note": "把 have a good time 作为一个完整词组记住，意思是“玩得开心”。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "phrase",
+      "construction": "have + a good time → have a good time",
+      "components": [
+        {
+          "text": "have",
+          "kind": "word",
+          "meaning_zh": "经历；享有"
+        },
+        {
+          "text": "a good time",
+          "kind": "word",
+          "meaning_zh": "愉快的时光"
+        }
+      ],
+      "explanation_zh": "整个词组表示“度过一段愉快的时光”，使用时要一起记。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "have fun",
+          "meaning_zh": "玩得开心",
+          "relation": "phrase",
+          "connection_zh": "have fun 和 have a good time 意思相近。",
+          "example": {
+            "en": "We have fun after school.",
+            "zh": "我们放学后玩得很开心。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "朋友去参加聚会时，你可以怎样祝他玩得开心？",
+        "answer_zh": "Have a good time!"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · have a good time",
+          "url": "https://dictionary.cambridge.org/dictionary/english/have-a-good-time"
+        }
+      ]
+    }
+  },
+  "images": []
+}

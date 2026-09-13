@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "2cad5c020843f36d6d950f6bb69e5ed26f61229fe0aa590236676ee5e99a6e34",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Every Friday, we have show and tell."
+  },
+  "file": "audio/v1/c93c0d8b5d3cb96414e3e3d8ea30c9dfdd10b7ae22768b15070d869acf13fc2b.mp3",
+  "sha256": "c93c0d8b5d3cb96414e3e3d8ea30c9dfdd10b7ae22768b15070d869acf13fc2b",
+  "bytes": 19440,
+  "created_at": "2026-09-13T03:44:05+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

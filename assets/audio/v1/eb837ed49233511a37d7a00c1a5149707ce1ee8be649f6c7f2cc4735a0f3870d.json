@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "eb837ed49233511a37d7a00c1a5149707ce1ee8be649f6c7f2cc4735a0f3870d",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "We learn about wild animals."
+  },
+  "file": "audio/v1/89ea914e5631a3ec827e5b758d3cde9994781a88d17bbbf5b6cb265cf3d91713.mp3",
+  "sha256": "89ea914e5631a3ec827e5b758d3cde9994781a88d17bbbf5b6cb265cf3d91713",
+  "bytes": 15984,
+  "created_at": "2026-09-13T03:43:19+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

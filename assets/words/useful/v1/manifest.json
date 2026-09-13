@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "id": "useful-v1",
+  "word": "useful",
+  "levels": [
+    "KET",
+    "PET"
+  ],
+  "sense_zh": "有用的",
+  "created_at": "2026-09-13",
+  "provenance": {
+    "text": "AI-assisted original classroom writing, reviewed for child-friendly A2/B1 readability; dictionary sources are recorded in word_study.",
+    "images": "No image asset in v1; the teaching page intentionally leaves the image area empty."
+  },
+  "teaching": {
+    "meaning_zh": "有用的",
+    "pos": "adj.",
+    "example": "This old book is useful for our show.",
+    "example_zh": "这本旧书对我们的展示很有用。",
+    "extra_examples": [
+      {
+        "en": "A map is useful on a trip.",
+        "zh": "地图在旅行中很有用。"
+      }
+    ],
+    "story_title": "",
+    "story_zh": "",
+    "student_prompt": "说出一样 useful 的物品，并说明它能做什么。",
+    "cloze": "This old book is __________ for our show.",
+    "cloze_answer": "useful",
+    "cloze_zh": "这本旧书对我们的展示很有用。",
+    "cloze_type": "context",
+    "parts": [
+      {
+        "text": "use",
+        "kind": "root",
+        "meaning": "用处"
+      },
+      {
+        "text": "-ful",
+        "kind": "suffix",
+        "meaning": "具有……特点的"
+      }
+    ],
+    "note": "use + -ful 表示“有用处的”；后缀 -ful 只有一个 l。",
+    "word_study": {
+      "schema_version": 2,
+      "formation": "derived",
+      "construction": "use + -ful → useful",
+      "components": [
+        {
+          "text": "use",
+          "kind": "base",
+          "meaning_zh": "使用；用处"
+        },
+        {
+          "text": "-ful",
+          "kind": "suffix",
+          "meaning_zh": "有……特点的"
+        }
+      ],
+      "explanation_zh": "use 表示“用处”，加 -ful 后表示“有用处的”。",
+      "origin_zh": "",
+      "family": [
+        {
+          "word": "useless",
+          "meaning_zh": "无用的",
+          "relation": "shared_root",
+          "connection_zh": "use + -less；-less 表示“没有……的”。",
+          "example": {
+            "en": "This broken pen is useless.",
+            "zh": "这支坏掉的笔没用了。"
+          }
+        },
+        {
+          "word": "helpful",
+          "meaning_zh": "有帮助的",
+          "relation": "shared_affix",
+          "connection_zh": "help + -ful，也用 -ful 表示具有某种特点。",
+          "example": {
+            "en": "Your note is helpful.",
+            "zh": "你的笔记很有帮助。"
+          }
+        }
+      ],
+      "challenge": {
+        "prompt_zh": "-ful 在 useful 中表达什么？",
+        "answer_zh": "表示“具有……特点的”，所以 useful 是“有用的”。"
+      },
+      "sources": [
+        {
+          "title": "Cambridge Dictionary · useful",
+          "url": "https://dictionary.cambridge.org/dictionary/english/useful"
+        },
+        {
+          "title": "Merriam-Webster · -ful",
+          "url": "https://www.merriam-webster.com/dictionary/-ful"
+        }
+      ]
+    }
+  },
+  "images": []
+}

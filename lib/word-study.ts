@@ -2,7 +2,7 @@ import type { Word } from './classroom';
 
 export type WordStudy = {
   schema_version: 1 | 2;
-  formation: 'simple' | 'compound' | 'derived' | 'phrase';
+  formation: 'simple' | 'compound' | 'derived' | 'inflected' | 'phrase';
   construction: string;
   components: {
     text: string;
@@ -32,6 +32,7 @@ export const formationLabels = {
   simple: '整体词',
   compound: '合成词',
   derived: '派生词',
+  inflected: '词形变化',
   phrase: '词组',
 };
 export const componentLabels = {

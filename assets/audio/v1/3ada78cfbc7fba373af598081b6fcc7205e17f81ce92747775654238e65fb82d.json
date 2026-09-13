@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "3ada78cfbc7fba373af598081b6fcc7205e17f81ce92747775654238e65fb82d",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Every Friday, our class has show and tell. Mia brings an ancient book. Its main character is a clever cook who talks to animals."
+  },
+  "file": "audio/v1/5df00458895b0429ad93528c04204fa33d324122e6e5a54493c2de81003ed820.mp3",
+  "sha256": "5df00458895b0429ad93528c04204fa33d324122e6e5a54493c2de81003ed820",
+  "bytes": 62352,
+  "created_at": "2026-09-13T03:44:13+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -7,6 +7,13 @@ from test_classroom_updates_http import check_classroom_updates
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];os.chdir(ROOT)
 config='cloudflare/wrangler.jsonc'
+sys.path.insert(0,str(ROOT))
+from content import parse_csv
+expected_vocab=sum(
+    len(parse_csv(path.read_text(encoding='utf-8-sig'),level.upper()))
+    for level in ('ket','pet','cet-4','cet-6')
+    if (path:=ROOT/'data'/(level+'.csv')).exists()
+)
 def run(args,env=None):
     r=subprocess.run(args,capture_output=True,text=True,env=env)
     if r.returncode:raise RuntimeError(r.stdout[-2500:]+r.stderr[-2500:])
@@ -40,7 +47,7 @@ with tempfile.TemporaryDirectory(prefix='kite-cf-test-') as temp:
         _,h=request('/api/auth/login',{'username':'admin','password':password});cookie=h['Set-Cookie'].split(';')[0]
         assert all(x in h['Set-Cookie'] for x in ('HttpOnly','SameSite=Strict','Max-Age=2592000'))
         request('/api/classes',{'name':'bad-origin'},headers={'Origin':'https://unrelated.invalid'},status=403)
-        state,_=request('/api/state');assert not state['classes'];assert sum(l['total'] for l in state['levels'])==4791
+        state,_=request('/api/state');assert not state['classes'];assert sum(l['total'] for l in state['levels'])==expected_vocab
         c,_=request('/api/classes',{'name':'Test <class> & safe'},status=201);cid=c['id']
         d,_=request('/api/preview',{'class_id':cid,'title':'My lesson','levels':['KET','PET']},status=201);assert len(d['words'])==10
         assert d['config']['levels']==['KET','PET'] and len({w['word'] for w in d['words']})==len(d['words'])
@@ -113,7 +120,7 @@ with tempfile.TemporaryDirectory(prefix='kite-cf-test-') as temp:
         after,_=request(image['src'],auth=False);assert after==pixels;request('/api/audio',{'text':'farm'})
         state,_=request('/api/state');assert state['classes']==[]
         request('/api/auth/logout',{});request('/api/auth/session',headers={'Cookie':'kite_session=tampered'})
-        print('PASS: auth, CSRF, 4791-word library, mixed draft editing, idempotency, version history, worksheets, progress, deletion, 82 cached recordings, R2 checksums and range requests')
+        print(f'PASS: auth, CSRF, {expected_vocab}-word library, mixed draft editing, idempotency, version history, worksheets, progress, deletion, 82 cached recordings, R2 checksums and range requests')
     except Exception:
         log.flush();log.seek(0);print(log.read()[-5000:],file=sys.stderr);raise
     finally:

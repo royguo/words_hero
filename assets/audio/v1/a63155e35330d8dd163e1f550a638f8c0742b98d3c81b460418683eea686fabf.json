@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "a63155e35330d8dd163e1f550a638f8c0742b98d3c81b460418683eea686fabf",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Have a good time at the party!"
+  },
+  "file": "audio/v1/9f956e90d88b9d3545a170b9e08044d9382fc14752549569954b7c09c5dc22a5.mp3",
+  "sha256": "9f956e90d88b9d3545a170b9e08044d9382fc14752549569954b7c09c5dc22a5",
+  "bytes": 13536,
+  "created_at": "2026-09-13T03:43:38+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

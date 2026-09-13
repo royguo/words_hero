@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "id": "ancient-book-show-v1",
+  "title": "古书里的奇妙展示",
+  "level": "KET",
+  "word_order": [
+    "because",
+    "useful",
+    "important",
+    "animals",
+    "films",
+    "delicious",
+    "cook",
+    "have a good time",
+    "every",
+    "character",
+    "calligraphy",
+    "ancient",
+    "show and tell"
+  ],
+  "word_assets": {
+    "KET:because": "words/because/v1/manifest.json",
+    "KET:useful": "words/useful/v1/manifest.json",
+    "KET:important": "words/important/v1/manifest.json",
+    "KET:animals": "words/animals/v1/manifest.json",
+    "KET:films": "words/films/v1/manifest.json",
+    "KET:delicious": "words/delicious/v1/manifest.json",
+    "KET:cook": "words/cook/v1/manifest.json",
+    "KET:have a good time": "words/have-a-good-time/v1/manifest.json",
+    "KET:every": "words/every/v1/manifest.json",
+    "KET:character": "words/character/v1/manifest.json",
+    "PET:calligraphy": "words/calligraphy/v1/manifest.json",
+    "PET:ancient": "words/ancient/v1/manifest.json",
+    "KET:show and tell": "words/show-and-tell/v1/manifest.json"
+  },
+  "story": {
+    "title_en": "The Ancient Book Show",
+    "title_zh": "古书里的奇妙展示",
+    "level": "KET",
+    "covered_words": [
+      "because",
+      "useful",
+      "important",
+      "animals",
+      "films",
+      "delicious",
+      "cook",
+      "have a good time",
+      "every",
+      "character",
+      "calligraphy",
+      "ancient",
+      "show and tell"
+    ],
+    "scenes": [
+      {
+        "id": "ancient-show-scene-1",
+        "title": "The Ancient Book",
+        "en": "Every Friday, our class has show and tell. Mia brings an ancient book. Its main character is a clever cook who talks to animals.",
+        "zh": "每周五，班里都有展示分享。米娅带来一本古书，书中的主角是一位会和动物说话的聪明厨师。",
+        "image": null,
+        "question": {
+          "en": "Who is the main character?",
+          "zh": "主角是谁？",
+          "answer_en": "The main character is a clever cook.",
+          "answer_zh": "主角是一位聪明的厨师。"
+        }
+      },
+      {
+        "id": "ancient-show-scene-2",
+        "title": "The Soup Picture",
+        "en": "The book says, “These pictures are important. They show a delicious soup.” Mia smiles because she wants to make it after class.",
+        "zh": "书里说这些图片很重要，因为它们展示了一锅美味的汤。米娅想下课后试着做，所以笑了。",
+        "image": null,
+        "question": {
+          "en": "Why does Mia smile?",
+          "zh": "米娅为什么笑？",
+          "answer_en": "Because she wants to make the soup.",
+          "answer_zh": "因为她想做这锅汤。"
+        }
+      },
+      {
+        "id": "ancient-show-scene-3",
+        "title": "Brush Films",
+        "en": "Ben brings two short films about calligraphy. They are useful: each brush line becomes a little bird, a river, or a dancing dragon.",
+        "zh": "本带来两部关于书法的短片。它们很有用：每一笔都变成了小鸟、河流或跳舞的龙。",
+        "image": null,
+        "question": {
+          "en": "What are the films about?",
+          "zh": "这些短片是关于什么的？",
+          "answer_en": "They are about calligraphy.",
+          "answer_zh": "它们是关于书法的。"
+        }
+      },
+      {
+        "id": "ancient-show-scene-4",
+        "title": "A Happy Ending",
+        "en": "The class acts out the recipe and the pictures. They have a good time. At the end, the teacher asks, “Which idea will you try at home?”",
+        "zh": "全班把食谱和图片表演出来，大家都玩得很开心。最后，老师问大家回家会尝试哪一个点子。",
+        "image": null,
+        "question": {
+          "en": "Does everyone have a good time?",
+          "zh": "大家玩得开心吗？",
+          "answer_en": "Yes, they have a good time.",
+          "answer_zh": "是的，大家都玩得很开心。"
+        }
+      }
+    ]
+  },
+  "created_at": "2026-09-13",
+  "provenance": {
+    "text": "AI-assisted original A2 classroom story and exercises, reviewed for short sentences and exact target-word coverage.",
+    "images": "No story images in v1; image areas remain empty until reusable visual assets are added."
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "e9ba464d5611ce5d4e1b51cee69af35baee4171bc1820d34210bb0a1c7cf99dd",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Why does Mia smile?"
+  },
+  "file": "audio/v1/2ef5439db083fe0dc6a23606fe1eaa5df8bb2d8d3b22227fb7d4f0443e572462.mp3",
+  "sha256": "2ef5439db083fe0dc6a23606fe1eaa5df8bb2d8d3b22227fb7d4f0443e572462",
+  "bytes": 12096,
+  "created_at": "2026-09-13T03:44:16+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

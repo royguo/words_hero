@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "4bc1f13856007a6afee4c3c624dfe7410d490e012de07f32c259fc2d2ad2f9c3",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "wild animals"
+  },
+  "file": "audio/v1/60a4621ce8b260ad369ebc05158f2f8d5f3225175595be0af1c1b396e41d3951.mp3",
+  "sha256": "60a4621ce8b260ad369ebc05158f2f8d5f3225175595be0af1c1b396e41d3951",
+  "bytes": 10656,
+  "created_at": "2026-09-13T03:43:16+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

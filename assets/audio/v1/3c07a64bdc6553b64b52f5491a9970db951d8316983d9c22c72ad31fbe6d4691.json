@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "3c07a64bdc6553b64b52f5491a9970db951d8316983d9c22c72ad31fbe6d4691",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "I can see one animal."
+  },
+  "file": "audio/v1/241e806a6ed905870e48c1adfcae01bc8b6204eb99d845431915a40e1eda8e6c.mp3",
+  "sha256": "241e806a6ed905870e48c1adfcae01bc8b6204eb99d845431915a40e1eda8e6c",
+  "bytes": 13248,
+  "created_at": "2026-09-13T03:43:16+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

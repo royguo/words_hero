@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "e0949073f64847769a4cddf4617181209c0d7626dc7e705174746cfae0c359a4",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The game stops because of the rain."
+  },
+  "file": "audio/v1/479b18685a80a9ad98dece5cdae8a5334ae0e1b09bf6f6ede9c428ecf50079a0.mp3",
+  "sha256": "479b18685a80a9ad98dece5cdae8a5334ae0e1b09bf6f6ede9c428ecf50079a0",
+  "bytes": 16848,
+  "created_at": "2026-09-13T03:43:01+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "7bb5e6dffa1525688f1a213237cf47be16f3c7c601b4e0888836b40e17fa7224",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Did you have a good time?"
+  },
+  "file": "audio/v1/8630f8c35ca3cb1d689238b6344fbf27dbcd78bcdafc482a3e2f4fc1983de5e0.mp3",
+  "sha256": "8630f8c35ca3cb1d689238b6344fbf27dbcd78bcdafc482a3e2f4fc1983de5e0",
+  "bytes": 12240,
+  "created_at": "2026-09-13T03:43:38+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

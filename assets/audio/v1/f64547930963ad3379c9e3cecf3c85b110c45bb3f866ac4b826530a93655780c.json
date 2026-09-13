@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "f64547930963ad3379c9e3cecf3c85b110c45bb3f866ac4b826530a93655780c",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "My show and tell is about a tiny frog."
+  },
+  "file": "audio/v1/353b4835fea5e0b31842cd22d867a49b24d0c1380e9c01485eb749c9c262fcde.mp3",
+  "sha256": "353b4835fea5e0b31842cd22d867a49b24d0c1380e9c01485eb749c9c262fcde",
+  "bytes": 19872,
+  "created_at": "2026-09-13T03:44:06+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

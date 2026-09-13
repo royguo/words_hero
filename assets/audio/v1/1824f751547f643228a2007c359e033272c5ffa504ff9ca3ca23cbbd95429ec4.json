@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "1824f751547f643228a2007c359e033272c5ffa504ff9ca3ca23cbbd95429ec4",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Some animals sleep in the day."
+  },
+  "file": "audio/v1/12ac3788812b38b7a4cfad040a49cdf4ccca049c0ffbb4738069076e33fed14f.mp3",
+  "sha256": "12ac3788812b38b7a4cfad040a49cdf4ccca049c0ffbb4738069076e33fed14f",
+  "bytes": 15264,
+  "created_at": "2026-09-13T03:43:14+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

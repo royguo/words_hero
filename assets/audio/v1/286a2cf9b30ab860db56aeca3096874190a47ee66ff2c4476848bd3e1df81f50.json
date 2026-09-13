@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "286a2cf9b30ab860db56aeca3096874190a47ee66ff2c4476848bd3e1df81f50",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Mia smiles because the soup is delicious."
+  },
+  "file": "audio/v1/eaa23b94282e6e708c550e5b0726c93a5cf77d25a90a66cb3ffcb0c8eb91a0ef.mp3",
+  "sha256": "eaa23b94282e6e708c550e5b0726c93a5cf77d25a90a66cb3ffcb0c8eb91a0ef",
+  "bytes": 20304,
+  "created_at": "2026-09-13T03:42:58+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "9a92ae5959f8f4b396737c602b12311fded8c62c4907f1bf25492371f31fe245",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "The main character is a clever cook."
+  },
+  "file": "audio/v1/25a3399440897f345b9aa512ae9d39bc2dd0ea8dfe918a49d111c587efe60e5b.mp3",
+  "sha256": "25a3399440897f345b9aa512ae9d39bc2dd0ea8dfe918a49d111c587efe60e5b",
+  "bytes": 18000,
+  "created_at": "2026-09-13T03:43:48+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

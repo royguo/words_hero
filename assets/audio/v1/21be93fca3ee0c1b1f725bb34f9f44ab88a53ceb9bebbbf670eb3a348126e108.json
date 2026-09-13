@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "key": "21be93fca3ee0c1b1f725bb34f9f44ab88a53ceb9bebbbf670eb3a348126e108",
+  "request": {
+    "schema_version": 1,
+    "provider": "edge",
+    "model": "neural",
+    "voice": "en-GB-SoniaNeural",
+    "rate": "-10%",
+    "format": "audio-24khz-48kbitrate-mono-mp3",
+    "text": "Mia opens an ancient book."
+  },
+  "file": "audio/v1/5b1b4227c73b51561b4c6cdfbe1f7463f51b5b731551516dac4405b0979d6d5d.mp3",
+  "sha256": "5b1b4227c73b51561b4c6cdfbe1f7463f51b5b731551516dac4405b0979d6d5d",
+  "bytes": 16416,
+  "created_at": "2026-09-13T03:44:00+00:00",
+  "generator": "edge-tts 7.2.8",
+  "source": "https://github.com/rany2/edge-tts",
+  "synthetic": true
+}

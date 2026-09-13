@@ -166,7 +166,9 @@ export function validateStudy(s: WordStudy) {
   if (
     !s ||
     ![1, 2].includes(s.schema_version) ||
-    !['simple', 'compound', 'derived', 'phrase'].includes(s.formation) ||
+    !['simple', 'compound', 'derived', 'inflected', 'phrase'].includes(
+      s.formation,
+    ) ||
     !str(s.construction, 64) ||
     !str(s.explanation_zh, 100) ||
     (s.origin_zh !== undefined &&
