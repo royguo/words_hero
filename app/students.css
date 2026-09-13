@@ -672,6 +672,15 @@ body.student-practice-active {
   color: #28654c;
   font-size: clamp(24px, 3.2vw, 38px);
 }
+.student-resource-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+.student-resource-actions .btn {
+  min-width: 210px;
+}
 .student-resource-card > small {
   color: #819087;
   font-size: clamp(12px, 1.3vw, 15px);

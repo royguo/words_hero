@@ -57,7 +57,7 @@ const when = (value: string | null) =>
 const englishOnScreen = studentVoiceTexts;
 type ResourceGate = {
   sessionId: string;
-  status: 'loading' | 'ready' | 'error';
+  status: 'loading' | 'ready' | 'skipped' | 'error';
   progress: StudentResourceProgress;
   error: string;
 };
@@ -149,7 +149,7 @@ export function StudentLearning() {
   const resourcesReady =
     !!session &&
     resourceGate?.sessionId === session.id &&
-    resourceGate.status === 'ready';
+    ['ready', 'skipped'].includes(resourceGate.status);
   const correctionPage =
     mode === 'play' && !records && game && hasCorrection(game)
       ? `${session?.id}:${game.answers}`
@@ -250,16 +250,25 @@ export function StudentLearning() {
       return false;
     }
   }
-  async function retryResources() {
-    if (!session || lock.current) return;
-    lock.current = true;
-    setBusy(true);
-    try {
-      await prepareGroupResources(session);
-    } finally {
-      lock.current = false;
-      if (alive.current) setBusy(false);
-    }
+  function retryResources() {
+    if (session) void prepareGroupResources(session);
+  }
+  function skipResources() {
+    if (!session) return;
+    resourceController.current?.abort();
+    resourceController.current = null;
+    setResourceGate((current) => ({
+      sessionId: session.id,
+      status: 'skipped',
+      progress: {
+        phase: 'ready',
+        done: current?.progress.done || 0,
+        total: current?.progress.total || 0,
+        bytes: current?.progress.bytes || 0,
+        label: '已跳过资源下载',
+      },
+      error: '',
+    }));
   }
   async function start(extra = false) {
     if (lock.current) return;
@@ -278,7 +287,7 @@ export function StudentLearning() {
           setMode('play');
           enteredSession = true;
           if (progress.current.needsCheckpoint) void saveProgress();
-          await prepareGroupResources(progress.current.session);
+          void prepareGroupResources(progress.current.session);
           return;
         }
         if (!(await saveProgress(true))) return;
@@ -300,7 +309,7 @@ export function StudentLearning() {
         setMode('play');
         enteredSession = true;
         if (progress.current.needsCheckpoint) void saveProgress();
-        await prepareGroupResources(progress.current.session);
+        void prepareGroupResources(progress.current.session);
       } else {
         await load();
         setMode('home');
@@ -834,21 +843,20 @@ export function StudentLearning() {
                 {resourceGate?.progress.total || 0}
               </span>
             </div>
-            {resourceGate?.status === 'error' && (
-              <button
-                className="btn primary large"
-                disabled={busy}
-                onClick={() => void retryResources()}
-              >
-                {busy ? (
-                  <Loader2 className="spin" size={20} />
-                ) : (
+            <div className="student-resource-actions">
+              {resourceGate?.status === 'error' && (
+                <button className="btn primary large" onClick={retryResources}>
                   <RefreshCw size={20} />
-                )}
-                继续下载
+                  继续下载
+                </button>
+              )}
+              <button className="btn secondary large" onClick={skipResources}>
+                跳过下载，直接开始
               </button>
-            )}
-            <small>已下载的图片和声音会复用，不会重复占用空间。</small>
+            </div>
+            <small>
+              已下载的图片和声音会复用；跳过后仍可联网播放已有资源。
+            </small>
           </div>
         </section>
       ) : mode === 'play' && game ? (
